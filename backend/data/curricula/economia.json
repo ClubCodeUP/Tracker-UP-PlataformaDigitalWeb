@@ -1,0 +1,454 @@
+{
+  "carrera": {
+    "codigo": "ECO",
+    "nombre": "Economía",
+    "facultad": "Facultad de Economía y Finanzas",
+    "plan": "2022-I",
+    "total_creditos_graduacion": 205,
+    "total_ciclos": 10,
+    "max_creditos_ciclo_regular": 22.0
+  },
+  "concentraciones": [
+    {
+      "codigo": "CONC-MACRO",
+      "nombre": "Macroeconomía y Finanzas Cuantitativas",
+      "descripcion": "Modelos DSGE, política monetaria y análisis macrofinanciero."
+    },
+    {
+      "codigo": "CONC-APPLIED",
+      "nombre": "Economía Aplicada y Políticas Públicas",
+      "descripcion": "Microeconometría, evaluación de impacto y organización industrial."
+    }
+  ],
+  "cursos": [
+    {
+      "codigo": "134654",
+      "nombre": "Nivelación en Matemáticas",
+      "creditos": 0.0,
+      "ciclo_sugerido": 0,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "170131",
+      "nombre": "Nivelación en Informática",
+      "creditos": 0.0,
+      "ciclo_sugerido": 0,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "120000",
+      "nombre": "Nivelación en Lenguaje",
+      "creditos": 0.0,
+      "ciclo_sugerido": 0,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "132641",
+      "nombre": "Economía General I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "160092",
+      "nombre": "Fundamentos de Contabilidad",
+      "creditos": 4.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "138649",
+      "nombre": "Matemáticas I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "134654"
+      ]
+    },
+    {
+      "codigo": "120001",
+      "nombre": "Lenguaje I",
+      "creditos": 4.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120000"
+      ]
+    },
+    {
+      "codigo": "132642",
+      "nombre": "Economía General II",
+      "creditos": 5.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "132641"
+      ]
+    },
+    {
+      "codigo": "138650",
+      "nombre": "Matemáticas II",
+      "creditos": 5.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "138649"
+      ]
+    },
+    {
+      "codigo": "120040",
+      "nombre": "Ciencias Sociales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "120006",
+      "nombre": "Lenguaje II",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120001"
+      ]
+    },
+    {
+      "codigo": "120020",
+      "nombre": "Introducción al Quehacer Científico",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "132001",
+      "nombre": "Microeconomía I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "132641",
+        "138650"
+      ]
+    },
+    {
+      "codigo": "138001",
+      "nombre": "Matemáticas III",
+      "creditos": 5.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "138650"
+      ]
+    },
+    {
+      "codigo": "130224",
+      "nombre": "Estadística I",
+      "creditos": 4.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "138650"
+      ]
+    },
+    {
+      "codigo": "120015",
+      "nombre": "Investigación Académica",
+      "creditos": 3.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120006"
+      ]
+    },
+    {
+      "codigo": "120046",
+      "nombre": "Procesos Sociales 1",
+      "creditos": 4.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120040"
+      ]
+    },
+    {
+      "codigo": "132002",
+      "nombre": "Microeconomía II",
+      "creditos": 5.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "132001"
+      ]
+    },
+    {
+      "codigo": "132003",
+      "nombre": "Macroeconomía I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "132642",
+        "138001"
+      ]
+    },
+    {
+      "codigo": "138002",
+      "nombre": "Matemáticas IV",
+      "creditos": 5.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "138001"
+      ]
+    },
+    {
+      "codigo": "130225",
+      "nombre": "Estadística II",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "130224"
+      ]
+    },
+    {
+      "codigo": "132004",
+      "nombre": "Teoría del Comercio Internacional",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132002"
+      ]
+    },
+    {
+      "codigo": "132005",
+      "nombre": "Macroeconomía II",
+      "creditos": 5.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "132003"
+      ]
+    },
+    {
+      "codigo": "132006",
+      "nombre": "Evaluación Privada de Proyectos",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "160092",
+        "132002"
+      ]
+    },
+    {
+      "codigo": "130001",
+      "nombre": "Estadística Aplicada",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "130225"
+      ]
+    },
+    {
+      "codigo": "120045",
+      "nombre": "Pensamiento Crítico 1",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 60.0
+    },
+    {
+      "codigo": "132007",
+      "nombre": "Gestión de los Recursos Naturales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132002"
+      ]
+    },
+    {
+      "codigo": "132008",
+      "nombre": "Macroeconomía III",
+      "creditos": 5.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132005"
+      ]
+    },
+    {
+      "codigo": "150001",
+      "nombre": "Economía Financiera I",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132006"
+      ]
+    },
+    {
+      "codigo": "130002",
+      "nombre": "Econometría I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "130001",
+        "138002"
+      ]
+    },
+    {
+      "codigo": "120048",
+      "nombre": "Procesos Sociales 2",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120046"
+      ]
+    },
+    {
+      "codigo": "132009",
+      "nombre": "Historia del Pensamiento Económico",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132005"
+      ]
+    },
+    {
+      "codigo": "132010",
+      "nombre": "Macroeconomía Internacional",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132008"
+      ]
+    },
+    {
+      "codigo": "180050",
+      "nombre": "Economía y Derecho",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132001",
+        "132003"
+      ]
+    },
+    {
+      "codigo": "130003",
+      "nombre": "Econometría II",
+      "creditos": 5.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "130002"
+      ]
+    },
+    {
+      "codigo": "132011",
+      "nombre": "Organización Industrial",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132002"
+      ]
+    },
+    {
+      "codigo": "132012",
+      "nombre": "Política Económica",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132005"
+      ]
+    },
+    {
+      "codigo": "120047",
+      "nombre": "Pensamiento Crítico 2",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120045"
+      ]
+    },
+    {
+      "codigo": "132013",
+      "nombre": "Investigación Económica I",
+      "creditos": 2.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "creditos_minimos_requeridos": 160.0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "120060",
+      "nombre": "Proyección Social",
+      "creditos": 4.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "creditos_minimos_requeridos": 160.0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "120050",
+      "nombre": "Ética",
+      "creditos": 4.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 120.0
+    },
+    {
+      "codigo": "132014",
+      "nombre": "Investigación Económica II",
+      "creditos": 2.0,
+      "ciclo_sugerido": 10,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132013"
+      ]
+    },
+    {
+      "codigo": "120030",
+      "nombre": "Desarrollo Personal",
+      "creditos": 4.0,
+      "ciclo_sugerido": 10,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 135.0
+    }
+  ]
+}

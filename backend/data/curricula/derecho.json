@@ -1,0 +1,642 @@
+{
+  "carrera": {
+    "codigo": "DER",
+    "nombre": "Derecho",
+    "facultad": "Facultad de Derecho",
+    "plan": "2022",
+    "total_creditos_graduacion": 230,
+    "total_ciclos": 12,
+    "max_creditos_ciclo_regular": 23.0
+  },
+  "concentraciones": [
+    {
+      "codigo": "CONC-CORP",
+      "nombre": "Derecho Corporativo y Financiero",
+      "descripcion": "Especialización en sociedades, finanzas corporativas, banca y mercado de valores."
+    },
+    {
+      "codigo": "CONC-PUB",
+      "nombre": "Regulación, Arbitraje y Políticas Públicas",
+      "descripcion": "Especialización en derecho administrativo, regulación económica y arbitraje internacional."
+    }
+  ],
+  "cursos": [
+    {
+      "codigo": "134654",
+      "nombre": "Nivelación en Matemáticas",
+      "creditos": 0.0,
+      "ciclo_sugerido": 0,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "170131",
+      "nombre": "Nivelación en Informática",
+      "creditos": 0.0,
+      "ciclo_sugerido": 0,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "120000",
+      "nombre": "Nivelación en Lenguaje",
+      "creditos": 0.0,
+      "ciclo_sugerido": 0,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "141038",
+      "nombre": "Fundamentos de las Ciencias Empresariales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "180001",
+      "nombre": "Introducción al Derecho",
+      "creditos": 5.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "138649",
+      "nombre": "Matemáticas I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "134654"
+      ]
+    },
+    {
+      "codigo": "120001",
+      "nombre": "Lenguaje I",
+      "creditos": 4.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120000"
+      ]
+    },
+    {
+      "codigo": "180002",
+      "nombre": "Personas del Derecho Civil",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180001"
+      ]
+    },
+    {
+      "codigo": "180003",
+      "nombre": "Derecho Constitucional General",
+      "creditos": 5.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "180001"
+      ]
+    },
+    {
+      "codigo": "160092",
+      "nombre": "Fundamentos de Contabilidad",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "132641",
+      "nombre": "Economía General I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "120006",
+      "nombre": "Lenguaje II",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120001"
+      ]
+    },
+    {
+      "codigo": "180004",
+      "nombre": "Acto Jurídico",
+      "creditos": 4.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180002"
+      ]
+    },
+    {
+      "codigo": "180005",
+      "nombre": "Derechos Reales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180001"
+      ]
+    },
+    {
+      "codigo": "120020",
+      "nombre": "Quehacer Científico",
+      "creditos": 4.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "120015",
+      "nombre": "Investigación Académica",
+      "creditos": 3.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120006"
+      ]
+    },
+    {
+      "codigo": "132642",
+      "nombre": "Economía General II",
+      "creditos": 5.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132641"
+      ]
+    },
+    {
+      "codigo": "180006",
+      "nombre": "Teoría General del Proceso",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "180001"
+      ]
+    },
+    {
+      "codigo": "180007",
+      "nombre": "Derecho Procesal Constitucional",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180003"
+      ]
+    },
+    {
+      "codigo": "180008",
+      "nombre": "Obligaciones",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "180004",
+        "180005"
+      ]
+    },
+    {
+      "codigo": "120050",
+      "nombre": "Ética",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 50.0
+    },
+    {
+      "codigo": "120040",
+      "nombre": "Ciencias Sociales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 50.0
+    },
+    {
+      "codigo": "180009",
+      "nombre": "Derecho Procesal Civil",
+      "creditos": 5.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180006"
+      ]
+    },
+    {
+      "codigo": "180010",
+      "nombre": "Contratos",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "180008"
+      ]
+    },
+    {
+      "codigo": "160093",
+      "nombre": "Contabilidad Financiera Intermedia",
+      "creditos": 5.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "160092"
+      ]
+    },
+    {
+      "codigo": "120046",
+      "nombre": "Procesos Sociales 1",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120040"
+      ]
+    },
+    {
+      "codigo": "120048",
+      "nombre": "Procesos Sociales 2",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120046"
+      ]
+    },
+    {
+      "codigo": "180011",
+      "nombre": "Responsabilidad Extracontractual",
+      "creditos": 3.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180008"
+      ]
+    },
+    {
+      "codigo": "180012",
+      "nombre": "Derecho Penal",
+      "creditos": 5.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "180001"
+      ]
+    },
+    {
+      "codigo": "180013",
+      "nombre": "Derecho Administrativo I",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180007"
+      ]
+    },
+    {
+      "codigo": "180014",
+      "nombre": "Contratos Especiales",
+      "creditos": 3.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180010"
+      ]
+    },
+    {
+      "codigo": "180015",
+      "nombre": "Sistemas Financieros",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "160093"
+      ]
+    },
+    {
+      "codigo": "120030",
+      "nombre": "Desarrollo Personal",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 75.0
+    },
+    {
+      "codigo": "180016",
+      "nombre": "Derecho Laboral I",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180010"
+      ]
+    },
+    {
+      "codigo": "180017",
+      "nombre": "Derecho Internacional Público",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180003"
+      ]
+    },
+    {
+      "codigo": "180018",
+      "nombre": "Derecho Administrativo II",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180013"
+      ]
+    },
+    {
+      "codigo": "180019",
+      "nombre": "Instituciones de Derecho Mercantil",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180014"
+      ]
+    },
+    {
+      "codigo": "180020",
+      "nombre": "Derecho Penal Económico",
+      "creditos": 2.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180012"
+      ]
+    },
+    {
+      "codigo": "120045",
+      "nombre": "Pensamiento Crítico 1",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 90.0
+    },
+    {
+      "codigo": "180021",
+      "nombre": "Análisis Económico del Derecho",
+      "creditos": 3.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132642"
+      ]
+    },
+    {
+      "codigo": "180022",
+      "nombre": "Derecho Internacional Privado",
+      "creditos": 3.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180010"
+      ]
+    },
+    {
+      "codigo": "180023",
+      "nombre": "Sociedades",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "180019"
+      ]
+    },
+    {
+      "codigo": "180024",
+      "nombre": "Derecho Tributario I",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180013"
+      ]
+    },
+    {
+      "codigo": "180025",
+      "nombre": "Derecho Procesal Penal",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180006",
+        "180012"
+      ]
+    },
+    {
+      "codigo": "120047",
+      "nombre": "Pensamiento Crítico 2",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120045"
+      ]
+    },
+    {
+      "codigo": "180026",
+      "nombre": "Arbitraje",
+      "creditos": 4.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180009",
+        "180010"
+      ]
+    },
+    {
+      "codigo": "180027",
+      "nombre": "Derecho Laboral II",
+      "creditos": 3.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180016"
+      ]
+    },
+    {
+      "codigo": "180028",
+      "nombre": "Destrezas Legales I",
+      "creditos": 3.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "creditos_minimos_requeridos": 120.0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "180029",
+      "nombre": "Derecho Tributario II",
+      "creditos": 4.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180024"
+      ]
+    },
+    {
+      "codigo": "180030",
+      "nombre": "Derecho de Familia y Sucesiones",
+      "creditos": 4.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180004"
+      ]
+    },
+    {
+      "codigo": "180031",
+      "nombre": "Economía y Estadística Aplicada al Derecho",
+      "creditos": 4.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132642"
+      ]
+    },
+    {
+      "codigo": "180032",
+      "nombre": "Libre Competencia",
+      "creditos": 4.0,
+      "ciclo_sugerido": 10,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180023"
+      ]
+    },
+    {
+      "codigo": "180033",
+      "nombre": "Derecho Ambiental",
+      "creditos": 3.0,
+      "ciclo_sugerido": 10,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180018"
+      ]
+    },
+    {
+      "codigo": "180034",
+      "nombre": "Destrezas Legales II",
+      "creditos": 3.0,
+      "ciclo_sugerido": 10,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180028"
+      ]
+    },
+    {
+      "codigo": "180035",
+      "nombre": "Políticas Públicas",
+      "creditos": 3.0,
+      "ciclo_sugerido": 10,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180018"
+      ]
+    },
+    {
+      "codigo": "180036",
+      "nombre": "Innovación Legal y Tecnología",
+      "creditos": 3.0,
+      "ciclo_sugerido": 11,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180023"
+      ]
+    },
+    {
+      "codigo": "180037",
+      "nombre": "Banca y Mercado de Valores",
+      "creditos": 4.0,
+      "ciclo_sugerido": 11,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180015",
+        "180023"
+      ]
+    },
+    {
+      "codigo": "180038",
+      "nombre": "Responsabilidad del Abogado",
+      "creditos": 3.0,
+      "ciclo_sugerido": 11,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180034"
+      ]
+    },
+    {
+      "codigo": "120060",
+      "nombre": "Proyección Social",
+      "creditos": 4.0,
+      "ciclo_sugerido": 11,
+      "tipo": "OBLIGATORIA",
+      "creditos_minimos_requeridos": 160.0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "180039",
+      "nombre": "Seminario de Tesis",
+      "creditos": 3.0,
+      "ciclo_sugerido": 12,
+      "tipo": "OBLIGATORIA",
+      "creditos_minimos_requeridos": 180.0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "180040",
+      "nombre": "Derecho del Comercio Internacional",
+      "creditos": 3.0,
+      "ciclo_sugerido": 12,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180026"
+      ]
+    },
+    {
+      "codigo": "180041",
+      "nombre": "Instrumentos de Financiación y Garantías",
+      "creditos": 4.0,
+      "ciclo_sugerido": 12,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180023"
+      ]
+    },
+    {
+      "codigo": "ELE-DER01",
+      "nombre": "Electivo Especializado",
+      "creditos": 4.0,
+      "ciclo_sugerido": 12,
+      "tipo": "ELECTIVA",
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 165.0
+    }
+  ]
+}

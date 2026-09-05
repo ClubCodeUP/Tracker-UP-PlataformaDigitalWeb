@@ -296,7 +296,7 @@ class CurriculumEngineService:
             if asig.id in failed_attempts and asig.id not in approved_ids:
                 is_reiteracion = True
                 proy_matricula = failed_attempts[asig.id] + 1
-                score += 30000.0
+                score += 100000.0 * (proy_matricula - 1)
                 motivos.append(f"Prioridad Máxima: Re-matriculación ({proy_matricula}ª matrícula obligatoria)")
 
             # Prioridad 2: Cuello de botella crítico en la malla

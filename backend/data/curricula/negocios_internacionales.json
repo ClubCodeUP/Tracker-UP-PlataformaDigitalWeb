@@ -1,32 +1,29 @@
 {
   "carrera": {
-    "id": 1,
-    "codigo": "INF",
-    "nombre": "Ingeniería de la Información",
-    "facultad": "Facultad de Ingeniería",
+    "codigo": "NEG",
+    "nombre": "Negocios Internacionales",
+    "facultad": "Facultad de Ciencias Empresariales",
     "plan": "2022",
     "total_creditos_graduacion": 205,
     "total_ciclos": 10,
-    "max_creditos_ciclo_regular": 22.0
+    "max_creditos_ciclo_regular": 24.0
   },
   "concentraciones": [
     {
-      "id": 1,
-      "codigo": "CONC-SWE",
-      "nombre": "Ingeniería de Software y Sistemas Cloud",
-      "descripcion": "Arquitecturas distribuidas, desarrollo web/móvil y DevOps."
+      "codigo": "CONC-GLOBALLOG",
+      "nombre": "Cadena de Suministro Global y Operaciones Internacionales",
+      "descripcion": "Logística portuaria, aduanas, distribución internacional y comercio marítimo."
     },
     {
-      "id": 2,
-      "codigo": "CONC-DS",
-      "nombre": "Ciencia de Datos e Inteligencia Artificial",
-      "descripcion": "Modelado estadístico, machine learning y procesamiento big data."
+      "codigo": "CONC-INTMKT",
+      "nombre": "Estrategias de Internacionalización y Expansión Global",
+      "descripcion": "Penetración de mercados, negociaciones internacionales y global branding."
     }
   ],
   "cursos": [
     {
       "codigo": "134654",
-      "nombre": "Nivelación en Matemática",
+      "nombre": "Nivelación en Matemáticas",
       "creditos": 0.0,
       "ciclo_sugerido": 0,
       "tipo": "OBLIGATORIA",
@@ -49,23 +46,30 @@
       "prerrequisitos": []
     },
     {
-      "codigo": "170001",
-      "nombre": "Introducción a la Ingeniería",
+      "codigo": "138649",
+      "nombre": "Matemáticas I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "134654"
+      ]
+    },
+    {
+      "codigo": "141038",
+      "nombre": "Fundamentos de las Ciencias Empresariales",
       "creditos": 4.0,
       "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": []
     },
     {
-      "codigo": "138649",
-      "nombre": "Matemáticas I",
-      "creditos": 5.0,
+      "codigo": "160092",
+      "nombre": "Fundamentos de Contabilidad",
+      "creditos": 4.0,
       "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
-      "es_cuello_botella": true,
-      "prerrequisitos": [
-        "134654"
-      ]
+      "prerrequisitos": []
     },
     {
       "codigo": "132641",
@@ -86,33 +90,23 @@
       ]
     },
     {
-      "codigo": "170002",
-      "nombre": "Herramientas de Programación",
+      "codigo": "138651",
+      "nombre": "Matemáticas para los Negocios",
       "creditos": 4.0,
       "ciclo_sugerido": 2,
       "tipo": "OBLIGATORIA",
-      "es_cuello_botella": true,
       "prerrequisitos": [
-        "170131"
+        "138649"
       ]
     },
     {
-      "codigo": "160092",
-      "nombre": "Fundamentos de Contabilidad",
-      "creditos": 4.0,
-      "ciclo_sugerido": 2,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": []
-    },
-    {
-      "codigo": "138650",
-      "nombre": "Matemáticas II",
+      "codigo": "160093",
+      "nombre": "Contabilidad Financiera Intermedia",
       "creditos": 5.0,
       "ciclo_sugerido": 2,
       "tipo": "OBLIGATORIA",
-      "es_cuello_botella": true,
       "prerrequisitos": [
-        "138649"
+        "160092"
       ]
     },
     {
@@ -126,6 +120,14 @@
       ]
     },
     {
+      "codigo": "120040",
+      "nombre": "Bloque Ciencias Sociales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
       "codigo": "120006",
       "nombre": "Lenguaje II",
       "creditos": 4.0,
@@ -136,40 +138,38 @@
       ]
     },
     {
-      "codigo": "170003",
-      "nombre": "Algoritmos y Estructura de Datos",
-      "creditos": 4.0,
-      "ciclo_sugerido": 3,
-      "tipo": "OBLIGATORIA",
-      "es_cuello_botella": true,
-      "prerrequisitos": [
-        "170002"
-      ]
-    },
-    {
-      "codigo": "160093",
-      "nombre": "Contabilidad Financiera Intermedia",
-      "creditos": 5.0,
-      "ciclo_sugerido": 3,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "160092"
-      ]
-    },
-    {
       "codigo": "130224",
       "nombre": "Estadística I",
       "creditos": 4.0,
       "ciclo_sugerido": 3,
       "tipo": "OBLIGATORIA",
-      "es_cuello_botella": true,
       "prerrequisitos": [
-        "138650"
+        "138651"
       ]
     },
     {
-      "codigo": "120020",
-      "nombre": "Quehacer Científico",
+      "codigo": "141061",
+      "nombre": "Diseño Organizacional y Estrategia",
+      "creditos": 4.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "141038"
+      ]
+    },
+    {
+      "codigo": "160107",
+      "nombre": "Contabilidad para la Toma de Decisiones",
+      "creditos": 5.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "160093"
+      ]
+    },
+    {
+      "codigo": "120045",
+      "nombre": "Bloque Pensamiento Crítico 1",
       "creditos": 4.0,
       "ciclo_sugerido": 3,
       "tipo": "OBLIGATORIA",
@@ -177,61 +177,20 @@
     },
     {
       "codigo": "120030",
-      "nombre": "Desarrollo Personal",
+      "nombre": "Bloque Desarrollo Personal",
       "creditos": 4.0,
       "ciclo_sugerido": 3,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": []
     },
     {
-      "codigo": "120015",
-      "nombre": "Investigación Académica",
+      "codigo": "141060",
+      "nombre": "Analítica de Datos para los Negocios",
       "creditos": 3.0,
-      "ciclo_sugerido": 3,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120006"
-      ]
-    },
-    {
-      "codigo": "130225",
-      "nombre": "Estadística II",
-      "creditos": 4.0,
       "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
-      "es_cuello_botella": true,
       "prerrequisitos": [
         "130224"
-      ]
-    },
-    {
-      "codigo": "170004",
-      "nombre": "Ingeniería de Procesos",
-      "creditos": 4.0,
-      "ciclo_sugerido": 4,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170001"
-      ]
-    },
-    {
-      "codigo": "170005",
-      "nombre": "Matemáticas Discretas para la Computación",
-      "creditos": 4.0,
-      "ciclo_sugerido": 4,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "138650"
-      ]
-    },
-    {
-      "codigo": "170006",
-      "nombre": "Arquitectura del Sistema de Información",
-      "creditos": 4.0,
-      "ciclo_sugerido": 4,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170003"
       ]
     },
     {
@@ -240,308 +199,301 @@
       "creditos": 4.0,
       "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [],
-      "creditos_minimos_requeridos": 50.0
-    },
-    {
-      "codigo": "170007",
-      "nombre": "Fundamentos de Analítica",
-      "creditos": 4.0,
-      "ciclo_sugerido": 5,
-      "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "130225"
-      ]
-    },
-    {
-      "codigo": "170008",
-      "nombre": "Programación Avanzada para la Ciencia de Datos",
-      "creditos": 4.0,
-      "ciclo_sugerido": 5,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170003"
-      ]
-    },
-    {
-      "codigo": "170009",
-      "nombre": "Álgebra Lineal Aplicada",
-      "creditos": 4.0,
-      "ciclo_sugerido": 5,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "138650"
-      ]
-    },
-    {
-      "codigo": "170010",
-      "nombre": "Ingeniería de Datos",
-      "creditos": 4.0,
-      "ciclo_sugerido": 5,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170003"
+        "141061"
       ]
     },
     {
       "codigo": "150020",
       "nombre": "Fundamentos de Finanzas",
       "creditos": 4.0,
-      "ciclo_sugerido": 5,
+      "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "160093",
+        "160093"
+      ]
+    },
+    {
+      "codigo": "141070",
+      "nombre": "Teoría del Comercio Internacional y Proceso de Integración",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
         "132642"
       ]
     },
     {
-      "codigo": "170011",
-      "nombre": "Física",
-      "creditos": 5.0,
-      "ciclo_sugerido": 6,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [],
-      "creditos_minimos_requeridos": 75.0
-    },
-    {
-      "codigo": "170012",
-      "nombre": "Data Mining",
-      "creditos": 4.0,
-      "ciclo_sugerido": 6,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "130225"
-      ]
-    },
-    {
-      "codigo": "170013",
-      "nombre": "Machine Learning",
-      "creditos": 4.0,
-      "ciclo_sugerido": 6,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170005"
-      ]
-    },
-    {
-      "codigo": "141045",
-      "nombre": "Gestión del Capital Humano",
-      "creditos": 3.0,
-      "ciclo_sugerido": 6,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120030"
-      ]
-    },
-    {
-      "codigo": "120040",
-      "nombre": "Ciencias Sociales",
-      "creditos": 4.0,
-      "ciclo_sugerido": 6,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [],
-      "creditos_minimos_requeridos": 75.0
-    },
-    {
-      "codigo": "170014",
-      "nombre": "Analítica de la Web",
-      "creditos": 4.0,
-      "ciclo_sugerido": 7,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170007"
-      ]
-    },
-    {
-      "codigo": "170015",
-      "nombre": "Inteligencia Computacional",
-      "creditos": 4.0,
-      "ciclo_sugerido": 7,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170009"
-      ]
-    },
-    {
-      "codigo": "170016",
-      "nombre": "Desarrollo de Soluciones Empresariales",
-      "creditos": 4.0,
-      "ciclo_sugerido": 7,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170004"
-      ]
-    },
-    {
-      "codigo": "141050",
-      "nombre": "Estrategia",
-      "creditos": 4.0,
-      "ciclo_sugerido": 7,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "150020",
-        "141040"
-      ]
-    },
-    {
-      "codigo": "120045",
-      "nombre": "Pensamiento Crítico 1",
-      "creditos": 4.0,
-      "ciclo_sugerido": 7,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [],
-      "creditos_minimos_requeridos": 90.0
-    },
-    {
-      "codigo": "170017",
-      "nombre": "Tecnología para el Desarrollo Sostenible",
-      "creditos": 3.0,
-      "ciclo_sugerido": 8,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170011"
-      ]
-    },
-    {
-      "codigo": "170018",
-      "nombre": "Computación de Alto Desempeño y Cloud Computing",
-      "creditos": 4.0,
-      "ciclo_sugerido": 8,
-      "tipo": "OBLIGATORIA",
-      "concentracion_codigo": "CONC-SWE",
-      "prerrequisitos": [
-        "170008"
-      ]
-    },
-    {
-      "codigo": "170019",
-      "nombre": "Deep Learning",
-      "creditos": 4.0,
-      "ciclo_sugerido": 8,
-      "tipo": "OBLIGATORIA",
-      "concentracion_codigo": "CONC-DS",
-      "prerrequisitos": [
-        "170013"
-      ]
-    },
-    {
-      "codigo": "170020",
-      "nombre": "Infraestructura Tecnológica",
-      "creditos": 4.0,
-      "ciclo_sugerido": 8,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170006"
-      ]
-    },
-    {
       "codigo": "120046",
-      "nombre": "Procesos Sociales 1",
+      "nombre": "Bloque Procesos Sociales 1",
       "creditos": 4.0,
-      "ciclo_sugerido": 8,
+      "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120040"
-      ]
-    },
-    {
-      "codigo": "ELE-INF01",
-      "nombre": "Electivo I (Especialidad)",
-      "creditos": 3.0,
-      "ciclo_sugerido": 8,
-      "tipo": "ELECTIVA",
       "prerrequisitos": [],
-      "creditos_minimos_requeridos": 105.0
+      "creditos_minimos_requeridos": 50.0
     },
     {
-      "codigo": "170021",
-      "nombre": "Big Data Analytics",
+      "codigo": "141062",
+      "nombre": "Análisis Multivariado para los Negocios",
       "creditos": 4.0,
-      "ciclo_sugerido": 9,
+      "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "170010"
+        "141060"
       ]
     },
     {
-      "codigo": "170022",
-      "nombre": "Business Intelligence",
+      "codigo": "141071",
+      "nombre": "Investigación de Mercados",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "141040",
+        "130224"
+      ]
+    },
+    {
+      "codigo": "141072",
+      "nombre": "Fundamentos Económicos y Organizacionales para los Negocios",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "141061"
+      ]
+    },
+    {
+      "codigo": "150004",
+      "nombre": "Finanzas Corporativas I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "150020"
+      ]
+    },
+    {
+      "codigo": "120015",
+      "nombre": "Investigación Académica",
       "creditos": 3.0,
-      "ciclo_sugerido": 9,
+      "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "170012"
+        "120006"
       ]
     },
     {
-      "codigo": "170023",
-      "nombre": "Trabajo Final de Ingeniería de la Información I",
+      "codigo": "120048",
+      "nombre": "Bloque Procesos Sociales 2",
       "creditos": 4.0,
-      "ciclo_sugerido": 9,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120046"
+      ]
+    },
+    {
+      "codigo": "141073",
+      "nombre": "Innovación y Gestión en Negocios Digitales",
+      "creditos": 3.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "141061"
+      ]
+    },
+    {
+      "codigo": "141074",
+      "nombre": "Gestión Sostenible de la Oferta Exportable",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "141070"
+      ]
+    },
+    {
+      "codigo": "141075",
+      "nombre": "Administración del Comercio Internacional",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "141070"
+      ]
+    },
+    {
+      "codigo": "150031",
+      "nombre": "International Finance",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "150004"
+      ]
+    },
+    {
+      "codigo": "180072",
+      "nombre": "Derecho para los Negocios Internacionales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "141070"
+      ]
+    },
+    {
+      "codigo": "141066",
+      "nombre": "Sistemas de Información y Análisis de Datos",
+      "creditos": 3.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "141062"
+      ]
+    },
+    {
+      "codigo": "141076",
+      "nombre": "Logística Internacional",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
       "prerrequisitos": [
-        "170015",
-        "170016",
-        "141050",
-        "170019"
+        "141075"
+      ]
+    },
+    {
+      "codigo": "141077",
+      "nombre": "Dirección Internacional de Empresas",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "141072"
+      ]
+    },
+    {
+      "codigo": "141078",
+      "nombre": "International Affairs",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180072"
       ]
     },
     {
       "codigo": "120047",
-      "nombre": "Pensamiento Crítico 2",
+      "nombre": "Bloque Pensamiento Crítico 2",
       "creditos": 4.0,
-      "ciclo_sugerido": 9,
+      "ciclo_sugerido": 7,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
         "120045"
       ]
     },
     {
-      "codigo": "ELE-INF02",
-      "nombre": "Electivo II",
-      "creditos": 3.0,
-      "ciclo_sugerido": 9,
-      "tipo": "ELECTIVA",
-      "prerrequisitos": [],
-      "creditos_minimos_requeridos": 120.0
-    },
-    {
-      "codigo": "ELE-INF03",
-      "nombre": "Electivo III",
-      "creditos": 3.0,
-      "ciclo_sugerido": 9,
-      "tipo": "ELECTIVA",
-      "prerrequisitos": [],
-      "creditos_minimos_requeridos": 120.0
-    },
-    {
-      "codigo": "170024",
-      "nombre": "Trabajo Final de Ingeniería de la Información II",
+      "codigo": "141051",
+      "nombre": "Dirección Estratégica",
       "creditos": 4.0,
-      "ciclo_sugerido": 10,
+      "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "170023"
+        "141077"
+      ]
+    },
+    {
+      "codigo": "141079",
+      "nombre": "Gestión de Mercados Globales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "141071"
+      ]
+    },
+    {
+      "codigo": "141080",
+      "nombre": "Cross Cultural & International Management",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "141077"
+      ]
+    },
+    {
+      "codigo": "141081",
+      "nombre": "Negociaciones Comerciales Internacionales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "180072"
+      ]
+    },
+    {
+      "codigo": "120020",
+      "nombre": "Bloque Quehacer Científico",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 105.0
+    },
+    {
+      "codigo": "141082",
+      "nombre": "Investigación Aplicada en Negocios Internacionales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "141076",
+        "141079"
+      ]
+    },
+    {
+      "codigo": "141083",
+      "nombre": "Estrategias de Internacionalización",
+      "creditos": 4.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "141051",
+        "141080"
+      ]
+    },
+    {
+      "codigo": "141084",
+      "nombre": "International Human Resources Management",
+      "creditos": 4.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "141080"
       ]
     },
     {
       "codigo": "120060",
       "nombre": "Proyección Social",
       "creditos": 4.0,
-      "ciclo_sugerido": 10,
+      "ciclo_sugerido": 9,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [],
-      "creditos_minimos_requeridos": 135.0
+      "creditos_minimos_requeridos": 120.0
     },
     {
-      "codigo": "120048",
-      "nombre": "Procesos Sociales 2",
-      "creditos": 4.0,
+      "codigo": "141085",
+      "nombre": "International Business Plan",
+      "creditos": 5.0,
       "ciclo_sugerido": 10,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "120046"
+        "141082",
+        "141083"
       ]
     },
     {
@@ -550,16 +502,6 @@
       "creditos": 4.0,
       "ciclo_sugerido": 10,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120047"
-      ]
-    },
-    {
-      "codigo": "ELE-INF04",
-      "nombre": "Electivo IV",
-      "creditos": 3.0,
-      "ciclo_sugerido": 10,
-      "tipo": "ELECTIVA",
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 135.0
     }

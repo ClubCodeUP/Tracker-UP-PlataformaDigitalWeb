@@ -16,7 +16,7 @@ class CourseDefinitionSchema(BaseModel):
     id: Optional[int] = Field(None, description="ID numérico opcional para preservar consistencia histórica")
     codigo: str = Field(..., description="Código oficial UP del curso (ej. MAT-1101 o 138649)")
     nombre: str = Field(..., description="Nombre de la asignatura")
-    creditos: float = Field(..., gt=0, description="Créditos académicos del curso")
+    creditos: float = Field(..., ge=0, description="Créditos académicos del curso")
     ciclo_sugerido: int = Field(..., ge=0, le=12, description="Semestre académico en que se sugiere cursar (0 a 12)")
     tipo: str = Field("OBLIGATORIA", description="OBLIGATORIA o ELECTIVA")
     concentracion_codigo: Optional[str] = Field(None, description="Código de la concentración si es electiva")

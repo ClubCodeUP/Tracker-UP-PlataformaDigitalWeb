@@ -1,8 +1,7 @@
 {
   "carrera": {
-    "id": 1,
-    "codigo": "INF",
-    "nombre": "Ingeniería de la Información",
+    "codigo": "IID",
+    "nombre": "Ingeniería en Innovación y Diseño",
     "facultad": "Facultad de Ingeniería",
     "plan": "2022",
     "total_creditos_graduacion": 205,
@@ -11,16 +10,14 @@
   },
   "concentraciones": [
     {
-      "id": 1,
-      "codigo": "CONC-SWE",
-      "nombre": "Ingeniería de Software y Sistemas Cloud",
-      "descripcion": "Arquitecturas distribuidas, desarrollo web/móvil y DevOps."
+      "codigo": "CONC-UXUI",
+      "nombre": "Diseño de Experiencia de Usuario y Productos Digitales",
+      "descripcion": "UX Research, diseño interactivo y prototipado avanzado de productos digitales."
     },
     {
-      "id": 2,
-      "codigo": "CONC-DS",
-      "nombre": "Ciencia de Datos e Inteligencia Artificial",
-      "descripcion": "Modelado estadístico, machine learning y procesamiento big data."
+      "codigo": "CONC-INDDES",
+      "nombre": "Innovación de Materiales y Diseño Industrial",
+      "descripcion": "Diseño de productos físicos sostenibles, fabricación digital e ingeniería de materiales."
     }
   ],
   "cursos": [
@@ -62,7 +59,6 @@
       "creditos": 5.0,
       "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
-      "es_cuello_botella": true,
       "prerrequisitos": [
         "134654"
       ]
@@ -91,10 +87,17 @@
       "creditos": 4.0,
       "ciclo_sugerido": 2,
       "tipo": "OBLIGATORIA",
-      "es_cuello_botella": true,
       "prerrequisitos": [
         "170131"
       ]
+    },
+    {
+      "codigo": "170030",
+      "nombre": "Tecnología y Negocios Digitales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
     },
     {
       "codigo": "160092",
@@ -110,7 +113,6 @@
       "creditos": 5.0,
       "ciclo_sugerido": 2,
       "tipo": "OBLIGATORIA",
-      "es_cuello_botella": true,
       "prerrequisitos": [
         "138649"
       ]
@@ -136,17 +138,6 @@
       ]
     },
     {
-      "codigo": "170003",
-      "nombre": "Algoritmos y Estructura de Datos",
-      "creditos": 4.0,
-      "ciclo_sugerido": 3,
-      "tipo": "OBLIGATORIA",
-      "es_cuello_botella": true,
-      "prerrequisitos": [
-        "170002"
-      ]
-    },
-    {
       "codigo": "160093",
       "nombre": "Contabilidad Financiera Intermedia",
       "creditos": 5.0,
@@ -162,7 +153,6 @@
       "creditos": 4.0,
       "ciclo_sugerido": 3,
       "tipo": "OBLIGATORIA",
-      "es_cuello_botella": true,
       "prerrequisitos": [
         "138650"
       ]
@@ -199,9 +189,29 @@
       "creditos": 4.0,
       "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
-      "es_cuello_botella": true,
       "prerrequisitos": [
         "130224"
+      ]
+    },
+    {
+      "codigo": "170006",
+      "nombre": "Arquitectura del Sistema de Información",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "170002"
+      ]
+    },
+    {
+      "codigo": "170031",
+      "nombre": "Design Thinking and Technological Innovation",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "170030"
       ]
     },
     {
@@ -212,26 +222,6 @@
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
         "170001"
-      ]
-    },
-    {
-      "codigo": "170005",
-      "nombre": "Matemáticas Discretas para la Computación",
-      "creditos": 4.0,
-      "ciclo_sugerido": 4,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "138650"
-      ]
-    },
-    {
-      "codigo": "170006",
-      "nombre": "Arquitectura del Sistema de Información",
-      "creditos": 4.0,
-      "ciclo_sugerido": 4,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170003"
       ]
     },
     {
@@ -254,33 +244,33 @@
       ]
     },
     {
-      "codigo": "170008",
-      "nombre": "Programación Avanzada para la Ciencia de Datos",
+      "codigo": "170201",
+      "nombre": "Comportamiento del Consumidor",
       "creditos": 4.0,
       "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "170003"
+        "170031"
       ]
     },
     {
-      "codigo": "170009",
-      "nombre": "Álgebra Lineal Aplicada",
+      "codigo": "170202",
+      "nombre": "Historia Crítica del Diseño",
       "creditos": 4.0,
       "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "138650"
+        "170031"
       ]
     },
     {
-      "codigo": "170010",
-      "nombre": "Ingeniería de Datos",
+      "codigo": "170203",
+      "nombre": "Tecnología de los Materiales",
       "creditos": 4.0,
       "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "170003"
+        "170004"
       ]
     },
     {
@@ -304,29 +294,29 @@
       "creditos_minimos_requeridos": 75.0
     },
     {
-      "codigo": "170012",
-      "nombre": "Data Mining",
+      "codigo": "120117",
+      "nombre": "Experiencia del Usuario",
       "creditos": 4.0,
       "ciclo_sugerido": 6,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "130225"
+        "170201"
       ]
     },
     {
-      "codigo": "170013",
-      "nombre": "Machine Learning",
+      "codigo": "170204",
+      "nombre": "Teoría de los Sentidos",
       "creditos": 4.0,
       "ciclo_sugerido": 6,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "170005"
+        "170202"
       ]
     },
     {
       "codigo": "141045",
       "nombre": "Gestión del Capital Humano",
-      "creditos": 3.0,
+      "creditos": 4.0,
       "ciclo_sugerido": 6,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
@@ -343,39 +333,40 @@
       "creditos_minimos_requeridos": 75.0
     },
     {
-      "codigo": "170014",
-      "nombre": "Analítica de la Web",
+      "codigo": "170205",
+      "nombre": "Tecnología y Medios de Comunicación",
       "creditos": 4.0,
       "ciclo_sugerido": 7,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "170007"
+        "120117"
       ]
     },
     {
-      "codigo": "170015",
-      "nombre": "Inteligencia Computacional",
+      "codigo": "170206",
+      "nombre": "Semiótica y Teoría del Diseño",
       "creditos": 4.0,
       "ciclo_sugerido": 7,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "170009"
+        "170204"
       ]
     },
     {
-      "codigo": "170016",
-      "nombre": "Desarrollo de Soluciones Empresariales",
+      "codigo": "170207",
+      "nombre": "Técnicas de Innovación y Experimentación 1",
       "creditos": 4.0,
       "ciclo_sugerido": 7,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [
-        "170004"
+        "170203"
       ]
     },
     {
       "codigo": "141050",
       "nombre": "Estrategia",
-      "creditos": 4.0,
+      "creditos": 3.0,
       "ciclo_sugerido": 7,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
@@ -403,35 +394,33 @@
       ]
     },
     {
-      "codigo": "170018",
-      "nombre": "Computación de Alto Desempeño y Cloud Computing",
+      "codigo": "170208",
+      "nombre": "Urbanismo y Espacios Sociales",
       "creditos": 4.0,
       "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
-      "concentracion_codigo": "CONC-SWE",
       "prerrequisitos": [
-        "170008"
+        "170205"
       ]
     },
     {
-      "codigo": "170019",
-      "nombre": "Deep Learning",
+      "codigo": "170209",
+      "nombre": "Diseño Gráfico Digital",
       "creditos": 4.0,
       "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
-      "concentracion_codigo": "CONC-DS",
       "prerrequisitos": [
-        "170013"
+        "170206"
       ]
     },
     {
-      "codigo": "170020",
-      "nombre": "Infraestructura Tecnológica",
+      "codigo": "170210",
+      "nombre": "Técnicas de Innovación y Experimentación 2",
       "creditos": 4.0,
       "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "170006"
+        "170207"
       ]
     },
     {
@@ -445,8 +434,8 @@
       ]
     },
     {
-      "codigo": "ELE-INF01",
-      "nombre": "Electivo I (Especialidad)",
+      "codigo": "ELE-IID01",
+      "nombre": "Electivo I",
       "creditos": 3.0,
       "ciclo_sugerido": 8,
       "tipo": "ELECTIVA",
@@ -454,37 +443,33 @@
       "creditos_minimos_requeridos": 105.0
     },
     {
-      "codigo": "170021",
-      "nombre": "Big Data Analytics",
+      "codigo": "170211",
+      "nombre": "Curso Integrador de Experiencia del Usuario",
       "creditos": 4.0,
       "ciclo_sugerido": 9,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "170010"
+        "170208"
       ]
     },
     {
-      "codigo": "170022",
-      "nombre": "Business Intelligence",
+      "codigo": "170212",
+      "nombre": "Diseño de Herramientas Digitales",
       "creditos": 3.0,
       "ciclo_sugerido": 9,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "170012"
+        "170209"
       ]
     },
     {
-      "codigo": "170023",
-      "nombre": "Trabajo Final de Ingeniería de la Información I",
+      "codigo": "170213",
+      "nombre": "Técnicas de Innovación y Experimentación 3",
       "creditos": 4.0,
       "ciclo_sugerido": 9,
       "tipo": "OBLIGATORIA",
-      "es_cuello_botella": true,
       "prerrequisitos": [
-        "170015",
-        "170016",
-        "141050",
-        "170019"
+        "170210"
       ]
     },
     {
@@ -498,7 +483,7 @@
       ]
     },
     {
-      "codigo": "ELE-INF02",
+      "codigo": "ELE-IID02",
       "nombre": "Electivo II",
       "creditos": 3.0,
       "ciclo_sugerido": 9,
@@ -507,7 +492,7 @@
       "creditos_minimos_requeridos": 120.0
     },
     {
-      "codigo": "ELE-INF03",
+      "codigo": "ELE-IID03",
       "nombre": "Electivo III",
       "creditos": 3.0,
       "ciclo_sugerido": 9,
@@ -516,13 +501,15 @@
       "creditos_minimos_requeridos": 120.0
     },
     {
-      "codigo": "170024",
-      "nombre": "Trabajo Final de Ingeniería de la Información II",
+      "codigo": "170214",
+      "nombre": "Trabajo Final de Innovación y Diseño",
       "creditos": 4.0,
       "ciclo_sugerido": 10,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "170023"
+        "170211",
+        "170212",
+        "170213"
       ]
     },
     {
@@ -555,7 +542,7 @@
       ]
     },
     {
-      "codigo": "ELE-INF04",
+      "codigo": "ELE-IID04",
       "nombre": "Electivo IV",
       "creditos": 3.0,
       "ciclo_sugerido": 10,

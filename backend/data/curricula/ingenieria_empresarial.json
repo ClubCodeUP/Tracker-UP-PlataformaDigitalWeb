@@ -1,8 +1,7 @@
 {
   "carrera": {
-    "id": 1,
-    "codigo": "INF",
-    "nombre": "Ingeniería de la Información",
+    "codigo": "EMP",
+    "nombre": "Ingeniería Empresarial",
     "facultad": "Facultad de Ingeniería",
     "plan": "2022",
     "total_creditos_graduacion": 205,
@@ -11,16 +10,14 @@
   },
   "concentraciones": [
     {
-      "id": 1,
-      "codigo": "CONC-SWE",
-      "nombre": "Ingeniería de Software y Sistemas Cloud",
-      "descripcion": "Arquitecturas distribuidas, desarrollo web/móvil y DevOps."
+      "codigo": "CONC-PROC",
+      "nombre": "Gestión de Procesos y Operaciones",
+      "descripcion": "Optimización de procesos, supply chain y analítica operacional."
     },
     {
-      "id": 2,
-      "codigo": "CONC-DS",
-      "nombre": "Ciencia de Datos e Inteligencia Artificial",
-      "descripcion": "Modelado estadístico, machine learning y procesamiento big data."
+      "codigo": "CONC-PROJ",
+      "nombre": "Dirección de Proyectos y Transformación Digital",
+      "descripcion": "Metodologías ágiles, gestión del cambio e innovación empresarial."
     }
   ],
   "cursos": [
@@ -91,10 +88,17 @@
       "creditos": 4.0,
       "ciclo_sugerido": 2,
       "tipo": "OBLIGATORIA",
-      "es_cuello_botella": true,
       "prerrequisitos": [
         "170131"
       ]
+    },
+    {
+      "codigo": "170030",
+      "nombre": "Tecnología y Negocios Digitales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
     },
     {
       "codigo": "160092",
@@ -133,17 +137,6 @@
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
         "120001"
-      ]
-    },
-    {
-      "codigo": "170003",
-      "nombre": "Algoritmos y Estructura de Datos",
-      "creditos": 4.0,
-      "ciclo_sugerido": 3,
-      "tipo": "OBLIGATORIA",
-      "es_cuello_botella": true,
-      "prerrequisitos": [
-        "170002"
       ]
     },
     {
@@ -210,18 +203,19 @@
       "creditos": 4.0,
       "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [
         "170001"
       ]
     },
     {
-      "codigo": "170005",
-      "nombre": "Matemáticas Discretas para la Computación",
+      "codigo": "170031",
+      "nombre": "Design Thinking and Technological Innovation",
       "creditos": 4.0,
       "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "138650"
+        "170030"
       ]
     },
     {
@@ -231,7 +225,7 @@
       "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "170003"
+        "170004"
       ]
     },
     {
@@ -254,18 +248,18 @@
       ]
     },
     {
-      "codigo": "170008",
-      "nombre": "Programación Avanzada para la Ciencia de Datos",
+      "codigo": "170032",
+      "nombre": "Investigación de Operaciones",
       "creditos": 4.0,
       "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "170003"
+        "130225"
       ]
     },
     {
-      "codigo": "170009",
-      "nombre": "Álgebra Lineal Aplicada",
+      "codigo": "170033",
+      "nombre": "Métodos de Investigación Cuantitativa",
       "creditos": 4.0,
       "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
@@ -280,7 +274,7 @@
       "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "170003"
+        "170006"
       ]
     },
     {
@@ -304,23 +298,25 @@
       "creditos_minimos_requeridos": 75.0
     },
     {
-      "codigo": "170012",
-      "nombre": "Data Mining",
+      "codigo": "170034",
+      "nombre": "Procesos de Suministro",
       "creditos": 4.0,
       "ciclo_sugerido": 6,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "130225"
+        "170004",
+        "170032"
       ]
     },
     {
-      "codigo": "170013",
-      "nombre": "Machine Learning",
+      "codigo": "170035",
+      "nombre": "Gestión de Proyectos",
       "creditos": 4.0,
       "ciclo_sugerido": 6,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "170005"
+        "170031",
+        "170033"
       ]
     },
     {
@@ -343,23 +339,23 @@
       "creditos_minimos_requeridos": 75.0
     },
     {
-      "codigo": "170014",
-      "nombre": "Analítica de la Web",
+      "codigo": "170036",
+      "nombre": "Procesos de Producción",
       "creditos": 4.0,
       "ciclo_sugerido": 7,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "170007"
+        "170034"
       ]
     },
     {
-      "codigo": "170015",
-      "nombre": "Inteligencia Computacional",
+      "codigo": "170037",
+      "nombre": "Metodologías Ágiles",
       "creditos": 4.0,
       "ciclo_sugerido": 7,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "170009"
+        "170035"
       ]
     },
     {
@@ -369,7 +365,7 @@
       "ciclo_sugerido": 7,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "170004"
+        "170010"
       ]
     },
     {
@@ -403,25 +399,23 @@
       ]
     },
     {
-      "codigo": "170018",
-      "nombre": "Computación de Alto Desempeño y Cloud Computing",
+      "codigo": "170038",
+      "nombre": "Procesos de Distribución",
       "creditos": 4.0,
       "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
-      "concentracion_codigo": "CONC-SWE",
       "prerrequisitos": [
-        "170008"
+        "170036"
       ]
     },
     {
-      "codigo": "170019",
-      "nombre": "Deep Learning",
+      "codigo": "170039",
+      "nombre": "Transformación Digital y Gestión del Cambio",
       "creditos": 4.0,
       "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
-      "concentracion_codigo": "CONC-DS",
       "prerrequisitos": [
-        "170013"
+        "170037"
       ]
     },
     {
@@ -431,7 +425,18 @@
       "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "170006"
+        "170016"
+      ]
+    },
+    {
+      "codigo": "170040",
+      "nombre": "Formulación y Evaluación de Proyectos",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "150020",
+        "141050"
       ]
     },
     {
@@ -445,8 +450,8 @@
       ]
     },
     {
-      "codigo": "ELE-INF01",
-      "nombre": "Electivo I (Especialidad)",
+      "codigo": "ELE-EMP01",
+      "nombre": "Electivo I",
       "creditos": 3.0,
       "ciclo_sugerido": 8,
       "tipo": "ELECTIVA",
@@ -454,37 +459,24 @@
       "creditos_minimos_requeridos": 105.0
     },
     {
-      "codigo": "170021",
-      "nombre": "Big Data Analytics",
-      "creditos": 4.0,
-      "ciclo_sugerido": 9,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170010"
-      ]
-    },
-    {
-      "codigo": "170022",
-      "nombre": "Business Intelligence",
+      "codigo": "170041",
+      "nombre": "Gerencia de Ingeniería de Valor",
       "creditos": 3.0,
       "ciclo_sugerido": 9,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "170012"
+        "170038",
+        "170040"
       ]
     },
     {
-      "codigo": "170023",
-      "nombre": "Trabajo Final de Ingeniería de la Información I",
+      "codigo": "170042",
+      "nombre": "Emprendimiento Tecnológico",
       "creditos": 4.0,
       "ciclo_sugerido": 9,
       "tipo": "OBLIGATORIA",
-      "es_cuello_botella": true,
       "prerrequisitos": [
-        "170015",
-        "170016",
-        "141050",
-        "170019"
+        "170039"
       ]
     },
     {
@@ -498,7 +490,7 @@
       ]
     },
     {
-      "codigo": "ELE-INF02",
+      "codigo": "ELE-EMP02",
       "nombre": "Electivo II",
       "creditos": 3.0,
       "ciclo_sugerido": 9,
@@ -507,7 +499,7 @@
       "creditos_minimos_requeridos": 120.0
     },
     {
-      "codigo": "ELE-INF03",
+      "codigo": "ELE-EMP03",
       "nombre": "Electivo III",
       "creditos": 3.0,
       "ciclo_sugerido": 9,
@@ -516,13 +508,16 @@
       "creditos_minimos_requeridos": 120.0
     },
     {
-      "codigo": "170024",
-      "nombre": "Trabajo Final de Ingeniería de la Información II",
+      "codigo": "170043",
+      "nombre": "Trabajo Final de Ingeniería Empresarial",
       "creditos": 4.0,
       "ciclo_sugerido": 10,
       "tipo": "OBLIGATORIA",
       "prerrequisitos": [
-        "170023"
+        "170017",
+        "170020",
+        "170041",
+        "170042"
       ]
     },
     {
@@ -555,7 +550,7 @@
       ]
     },
     {
-      "codigo": "ELE-INF04",
+      "codigo": "ELE-EMP04",
       "nombre": "Electivo IV",
       "creditos": 3.0,
       "ciclo_sugerido": 10,

@@ -167,28 +167,37 @@ def test_dynamic_metrics_calculation(client: TestClient):
     assert init_metrics["porcentaje_avance"] == 0.0
     assert init_metrics["total_creditos_carrera"] == 205
 
-    # Registrar 2 cursos aprobados del Ciclo 1:
-    # Asignatura 1 (MAT-1101): 4 créditos con nota 15.0
-    # Asignatura 2 (PRO-1101): 4 créditos con nota 17.0
+    # Obtener cursos reales de la malla para asociar créditos exactos
+    malla_res = client.get("/api/v1/curriculum/malla?carrera_id=1")
+    assert malla_res.status_code == 200
+    by_code = {c["codigo"]: c for c in malla_res.json()["cursos"]}
+
+    # 170001 (Introducción a la Ingeniería): 4.0 créditos
+    # 120001 (Lenguaje I): 4.0 créditos
+    # 170022 (Business Intelligence): 3.0 créditos
+    asig_intro = by_code["170001"]
+    asig_lenguaje = by_code["120001"]
+    asig_bi = by_code["170022"]
+
+    # Registrar 2 cursos aprobados (4.0 cr nota 15.0 y 4.0 cr nota 17.0):
     client.post("/api/v1/history", headers=headers, json={
-        "asignatura_id": 1,
+        "asignatura_id": asig_intro["id"],
         "periodo_academico": "2023-1",
         "estado": "APROBADA",
         "calificacion": 15.0,
         "numero_matricula": 1
     })
     client.post("/api/v1/history", headers=headers, json={
-        "asignatura_id": 2,
+        "asignatura_id": asig_lenguaje["id"],
         "periodo_academico": "2023-1",
         "estado": "APROBADA",
         "calificacion": 17.0,
         "numero_matricula": 1
     })
 
-    # Registrar 1 curso en curso:
-    # Asignatura 3 (COM-1101): 3 créditos
+    # Registrar 1 curso en curso (3.0 créditos):
     client.post("/api/v1/history", headers=headers, json={
-        "asignatura_id": 3,
+        "asignatura_id": asig_bi["id"],
         "periodo_academico": "2023-2",
         "estado": "EN_CURSO",
         "numero_matricula": 1

@@ -1,0 +1,460 @@
+{
+  "carrera": {
+    "codigo": "FIN",
+    "nombre": "Finanzas",
+    "facultad": "Facultad de Economía y Finanzas",
+    "plan": "2022-I",
+    "total_creditos_graduacion": 205,
+    "total_ciclos": 10,
+    "max_creditos_ciclo_regular": 22.0
+  },
+  "concentraciones": [
+    {
+      "codigo": "CONC-RISK",
+      "nombre": "Gestión de Riesgos y Mercado de Capitales",
+      "descripcion": "Riesgo de crédito, mercado y liquidez, derivados e inversión cuantitativa."
+    },
+    {
+      "codigo": "CONC-CORPFIN",
+      "nombre": "Banca de Inversión y Finanzas Corporativas",
+      "descripcion": "M&A, estructuración de deuda, valorización de empresas y venture capital."
+    }
+  ],
+  "cursos": [
+    {
+      "codigo": "134654",
+      "nombre": "Nivelación en Matemáticas",
+      "creditos": 0.0,
+      "ciclo_sugerido": 0,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "170131",
+      "nombre": "Nivelación en Informática",
+      "creditos": 0.0,
+      "ciclo_sugerido": 0,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "120000",
+      "nombre": "Nivelación en Lenguaje",
+      "creditos": 0.0,
+      "ciclo_sugerido": 0,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "138649",
+      "nombre": "Matemáticas I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "134654"
+      ]
+    },
+    {
+      "codigo": "132641",
+      "nombre": "Economía General I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "160092",
+      "nombre": "Fundamentos de Contabilidad",
+      "creditos": 4.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "120001",
+      "nombre": "Lenguaje I",
+      "creditos": 4.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120000"
+      ]
+    },
+    {
+      "codigo": "138650",
+      "nombre": "Matemáticas II",
+      "creditos": 5.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "138649"
+      ]
+    },
+    {
+      "codigo": "132642",
+      "nombre": "Economía General II",
+      "creditos": 5.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "132641"
+      ]
+    },
+    {
+      "codigo": "120040",
+      "nombre": "Ciencias Sociales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "120006",
+      "nombre": "Lenguaje II",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120001"
+      ]
+    },
+    {
+      "codigo": "120020",
+      "nombre": "Introducción al Quehacer Científico",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "138001",
+      "nombre": "Matemáticas III",
+      "creditos": 5.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "138650"
+      ]
+    },
+    {
+      "codigo": "130224",
+      "nombre": "Estadística I",
+      "creditos": 4.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "138650"
+      ]
+    },
+    {
+      "codigo": "132001",
+      "nombre": "Microeconomía I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132641"
+      ]
+    },
+    {
+      "codigo": "180015",
+      "nombre": "Sistemas Financieros",
+      "creditos": 4.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "160092",
+        "132642"
+      ]
+    },
+    {
+      "codigo": "120015",
+      "nombre": "Investigación Académica",
+      "creditos": 3.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120006"
+      ]
+    },
+    {
+      "codigo": "130225",
+      "nombre": "Estadística II",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "130224"
+      ]
+    },
+    {
+      "codigo": "150002",
+      "nombre": "Microeconomía Financiera",
+      "creditos": 5.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132001"
+      ]
+    },
+    {
+      "codigo": "150003",
+      "nombre": "Macroeconomía Financiera",
+      "creditos": 5.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132642"
+      ]
+    },
+    {
+      "codigo": "150020",
+      "nombre": "Fundamentos de Finanzas",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "160092"
+      ]
+    },
+    {
+      "codigo": "120046",
+      "nombre": "Procesos Sociales 1",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120040"
+      ]
+    },
+    {
+      "codigo": "130001",
+      "nombre": "Estadística Aplicada",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "130225"
+      ]
+    },
+    {
+      "codigo": "150004",
+      "nombre": "Finanzas Corporativas I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "150020",
+        "180015"
+      ]
+    },
+    {
+      "codigo": "150005",
+      "nombre": "Finanzas Sostenibles",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "150020"
+      ]
+    },
+    {
+      "codigo": "150006",
+      "nombre": "Análisis Financiero",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "150020"
+      ]
+    },
+    {
+      "codigo": "120048",
+      "nombre": "Procesos Sociales 2",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120046"
+      ]
+    },
+    {
+      "codigo": "130002",
+      "nombre": "Econometría I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "130001"
+      ]
+    },
+    {
+      "codigo": "150007",
+      "nombre": "Renta Fija",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "150004"
+      ]
+    },
+    {
+      "codigo": "150008",
+      "nombre": "Renta Variable",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "150004"
+      ]
+    },
+    {
+      "codigo": "150009",
+      "nombre": "Instrumentos Derivados",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "150004"
+      ]
+    },
+    {
+      "codigo": "150010",
+      "nombre": "Finanzas Cuantitativas",
+      "creditos": 5.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "130002",
+        "150008"
+      ]
+    },
+    {
+      "codigo": "150011",
+      "nombre": "Finanzas Corporativas II",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "150004"
+      ]
+    },
+    {
+      "codigo": "180060",
+      "nombre": "Derecho de la Empresa",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "creditos_minimos_requeridos": 120.0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "120045",
+      "nombre": "Pensamiento Crítico 1",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 90.0
+    },
+    {
+      "codigo": "150012",
+      "nombre": "Análisis y Gestión de Riesgo",
+      "creditos": 5.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "150007",
+        "150008",
+        "150010"
+      ]
+    },
+    {
+      "codigo": "150013",
+      "nombre": "Riesgo Crediticio",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "150011"
+      ]
+    },
+    {
+      "codigo": "150014",
+      "nombre": "Negociación Financiera",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "creditos_minimos_requeridos": 140.0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "120047",
+      "nombre": "Pensamiento Crítico 2",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120045"
+      ]
+    },
+    {
+      "codigo": "150015",
+      "nombre": "Certificaciones Internacionales",
+      "creditos": 2.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "creditos_minimos_requeridos": 140.0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "120060",
+      "nombre": "Proyección Social",
+      "creditos": 4.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "creditos_minimos_requeridos": 160.0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "120050",
+      "nombre": "Ética",
+      "creditos": 4.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 120.0
+    },
+    {
+      "codigo": "150016",
+      "nombre": "Investigación Financiera",
+      "creditos": 2.0,
+      "ciclo_sugerido": 10,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "150012",
+        "150013"
+      ]
+    },
+    {
+      "codigo": "120030",
+      "nombre": "Desarrollo Personal",
+      "creditos": 4.0,
+      "ciclo_sugerido": 10,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 135.0
+    }
+  ]
+}

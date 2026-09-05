@@ -1,0 +1,438 @@
+{
+  "carrera": {
+    "codigo": "PFE",
+    "nombre": "Política, Filosofía y Economía",
+    "facultad": "Facultad de Economía y Finanzas",
+    "plan": "2024-I",
+    "total_creditos_graduacion": 200,
+    "total_ciclos": 10,
+    "max_creditos_ciclo_regular": 22.0
+  },
+  "concentraciones": [
+    {
+      "codigo": "CONC-POLPHIL",
+      "nombre": "Filosofía Política y Gobernanza",
+      "descripcion": "Teoría política avanzada, ética pública y diseño institucional."
+    },
+    {
+      "codigo": "CONC-POLDEV",
+      "nombre": "Economía Política y Desarrollo",
+      "descripcion": "Políticas de desarrollo, economía institucional y análisis global."
+    }
+  ],
+  "cursos": [
+    {
+      "codigo": "170131",
+      "nombre": "Nivelación en Informática",
+      "creditos": 0.0,
+      "ciclo_sugerido": 0,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "134654",
+      "nombre": "Nivelación en Matemáticas",
+      "creditos": 0.0,
+      "ciclo_sugerido": 0,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "120000",
+      "nombre": "Nivelación en Lenguaje",
+      "creditos": 0.0,
+      "ciclo_sugerido": 0,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "138649",
+      "nombre": "Matemáticas I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "134654"
+      ]
+    },
+    {
+      "codigo": "132641",
+      "nombre": "Economía General I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "160092",
+      "nombre": "Fundamentos de Contabilidad",
+      "creditos": 4.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "120001",
+      "nombre": "Lenguaje I",
+      "creditos": 4.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120000"
+      ]
+    },
+    {
+      "codigo": "190001",
+      "nombre": "Introducción a la Política, Filosofía y Economía",
+      "creditos": 4.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "190002",
+      "nombre": "Poder e Instituciones",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "120006",
+      "nombre": "Lenguaje II",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120001"
+      ]
+    },
+    {
+      "codigo": "190003",
+      "nombre": "Antropología Filosófica",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "120040",
+      "nombre": "Ciencias Sociales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "120045",
+      "nombre": "Pensamiento Crítico 1",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "138650",
+      "nombre": "Matemáticas II",
+      "creditos": 5.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "138649"
+      ]
+    },
+    {
+      "codigo": "132642",
+      "nombre": "Economía General II",
+      "creditos": 5.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132641"
+      ]
+    },
+    {
+      "codigo": "190004",
+      "nombre": "Política Comparada",
+      "creditos": 4.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "190002"
+      ]
+    },
+    {
+      "codigo": "120015",
+      "nombre": "Investigación Académica",
+      "creditos": 3.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120006"
+      ]
+    },
+    {
+      "codigo": "120046",
+      "nombre": "Procesos Sociales 1",
+      "creditos": 4.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120040"
+      ]
+    },
+    {
+      "codigo": "130224",
+      "nombre": "Estadística I",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "138650"
+      ]
+    },
+    {
+      "codigo": "132001",
+      "nombre": "Microeconomía I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132641"
+      ]
+    },
+    {
+      "codigo": "190005",
+      "nombre": "Ciudadanía y Democratización",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "190004"
+      ]
+    },
+    {
+      "codigo": "180001",
+      "nombre": "Introducción al Derecho",
+      "creditos": 5.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 50.0
+    },
+    {
+      "codigo": "190006",
+      "nombre": "Filosofía Política",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "190003"
+      ]
+    },
+    {
+      "codigo": "130004",
+      "nombre": "Econometría Aplicada",
+      "creditos": 5.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "130224"
+      ]
+    },
+    {
+      "codigo": "132020",
+      "nombre": "Macroeconomía de Corto Plazo",
+      "creditos": 5.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132642"
+      ]
+    },
+    {
+      "codigo": "190007",
+      "nombre": "Economía Política Internacional",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "190005"
+      ]
+    },
+    {
+      "codigo": "120020",
+      "nombre": "Introducción al Quehacer Científico",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 60.0
+    },
+    {
+      "codigo": "132021",
+      "nombre": "Microeconomía Aplicada",
+      "creditos": 5.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132001"
+      ]
+    },
+    {
+      "codigo": "132007",
+      "nombre": "Gestión de los Recursos Naturales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132001"
+      ]
+    },
+    {
+      "codigo": "190008",
+      "nombre": "Fundamentos Filosóficos de los Derechos Humanos",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "190006"
+      ]
+    },
+    {
+      "codigo": "132004",
+      "nombre": "Teoría del Comercio Internacional",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132021"
+      ]
+    },
+    {
+      "codigo": "190009",
+      "nombre": "Diseño, Evaluación y Gestión de Proyectos",
+      "creditos": 5.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132020"
+      ]
+    },
+    {
+      "codigo": "190010",
+      "nombre": "Métodos Mixtos de Investigación para las CCSS",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "130004"
+      ]
+    },
+    {
+      "codigo": "120047",
+      "nombre": "Pensamiento Crítico 2",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120045"
+      ]
+    },
+    {
+      "codigo": "120048",
+      "nombre": "Procesos Sociales 2",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120046"
+      ]
+    },
+    {
+      "codigo": "190011",
+      "nombre": "Crecimiento e Instituciones",
+      "creditos": 5.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "132020"
+      ]
+    },
+    {
+      "codigo": "190012",
+      "nombre": "Debates sobre Política y Desarrollo",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "creditos_minimos_requeridos": 120.0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "190013",
+      "nombre": "Debates en Filosofía",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "creditos_minimos_requeridos": 120.0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "190014",
+      "nombre": "Fundamentos Filosóficos de la Economía",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "190008"
+      ]
+    },
+    {
+      "codigo": "132009",
+      "nombre": "Historia del Pensamiento Económico",
+      "creditos": 4.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "190011"
+      ]
+    },
+    {
+      "codigo": "120060",
+      "nombre": "Proyección Social",
+      "creditos": 4.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "creditos_minimos_requeridos": 160.0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "120050",
+      "nombre": "Ética",
+      "creditos": 4.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 120.0
+    },
+    {
+      "codigo": "190015",
+      "nombre": "Seminario de Investigación Aplicada PFE",
+      "creditos": 2.0,
+      "ciclo_sugerido": 10,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "190010"
+      ]
+    },
+    {
+      "codigo": "120030",
+      "nombre": "Desarrollo Personal",
+      "creditos": 4.0,
+      "ciclo_sugerido": 10,
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 135.0
+    }
+  ]
+}
