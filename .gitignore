@@ -1,0 +1,32 @@
+# Entorno virtual de Python
+.venv/
+env/
+venv/
+ENV/
+
+# Archivos de caché y compilación de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Pruebas y cobertura
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Base de datos local de desarrollo
+*.db
+*.sqlite3
+tracker_up.db
+
+# Variables de entorno con credenciales secretas
+.env
+!.env.example
+
+# IDEs y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
