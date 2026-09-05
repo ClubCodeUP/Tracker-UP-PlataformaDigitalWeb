@@ -24,9 +24,10 @@ tracker_up.db
 .env
 !.env.example
 
-# IDEs y editores
-.vscode/
-.idea/
-*.swp
-*.swo
+# Node & Frontend dependencies
+node_modules/
+dist/
+dist-ssr/
+*.local
+.vite/
 
