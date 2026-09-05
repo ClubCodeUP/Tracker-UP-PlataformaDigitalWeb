@@ -1,55 +1,14 @@
 """
-Suite completa de pruebas automatizadas para la API RESTful de Tracker UP.
+Suite de pruebas automatizadas para la API RESTful de Tracker UP (Auth, Perfil, Historial, Métricas).
 """
 import pytest
 from fastapi.testclient import TestClient
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.pool import StaticPool
-
-from app.core.database import Base, get_db
-from app.core.init_db import seed_database
-from app.main import app
-
-# Configuración de base de datos en memoria para pruebas aisladas
-TEST_SQLALCHEMY_DATABASE_URL = "sqlite:///:memory:"
-
-engine = create_engine(
-    TEST_SQLALCHEMY_DATABASE_URL,
-    connect_args={"check_same_thread": False},
-    poolclass=StaticPool,
-)
-TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-
-def override_get_db():
-    try:
-        db = TestingSessionLocal()
-        yield db
-    finally:
-        db.close()
-
-
-app.dependency_overrides[get_db] = override_get_db
-
-
-@pytest.fixture(autouse=True)
-def setup_database():
-    """Inicializa la base de datos de prueba antes de cada test."""
-    Base.metadata.create_all(bind=engine)
-    with TestingSessionLocal() as session:
-        seed_database(session)
-    yield
-    Base.metadata.drop_all(bind=engine)
-
-
-client = TestClient(app)
 
 
 # -----------------------------------------------------------------------------
 # 1. PRUEBAS DE AUTENTICACIÓN Y RESTRICCIÓN DE DOMINIO INSTITUCIONAL (RF-01)
 # -----------------------------------------------------------------------------
-def test_reject_non_institutional_email_on_register():
+def test_reject_non_institutional_email_on_register(client: TestClient):
     """Verifica el rechazo estricto de correos no institucionales."""
     payload = {
         "email": "estudiante@gmail.com",
@@ -64,7 +23,7 @@ def test_reject_non_institutional_email_on_register():
     assert "@up.edu.pe" in response.json()["detail"]
 
 
-def test_reject_non_institutional_email_on_login():
+def test_reject_non_institutional_email_on_login(client: TestClient):
     """Verifica que el login tampoco admita dominios externos."""
     response = client.post("/api/v1/auth/login", json={
         "email": "hacker@yahoo.com",
@@ -74,7 +33,7 @@ def test_reject_non_institutional_email_on_login():
     assert "@up.edu.pe" in response.json()["detail"]
 
 
-def test_successful_registration_and_login_up():
+def test_successful_registration_and_login_up(client: TestClient):
     """Registra y autentica a un estudiante con correo institucional UP."""
     register_payload = {
         "email": "20230145@up.edu.pe",
@@ -103,7 +62,7 @@ def test_successful_registration_and_login_up():
 # -----------------------------------------------------------------------------
 # 2. PRUEBAS DE PERFIL DE ESTUDIANTE (RF-02)
 # -----------------------------------------------------------------------------
-def get_auth_token():
+def get_auth_token(client: TestClient) -> str:
     """Helper para registrar un usuario y obtener su token de autorización."""
     client.post("/api/v1/auth/register", json={
         "email": "20230999@up.edu.pe",
@@ -121,8 +80,8 @@ def get_auth_token():
     return login_res.json()["access_token"]
 
 
-def test_profile_endpoints():
-    token = get_auth_token()
+def test_profile_endpoints(client: TestClient):
+    token = get_auth_token(client)
     headers = {"Authorization": f"Bearer {token}"}
 
     # 1. Consultar perfil
@@ -143,8 +102,8 @@ def test_profile_endpoints():
 # -----------------------------------------------------------------------------
 # 3. PRUEBAS DE HISTORIAL ACADÉMICO Y VALIDACIÓN DE NOTAS (RF-03, RF-07)
 # -----------------------------------------------------------------------------
-def test_history_crud_and_grade_validations():
-    token = get_auth_token()
+def test_history_crud_and_grade_validations(client: TestClient):
+    token = get_auth_token(client)
     headers = {"Authorization": f"Bearer {token}"}
 
     # 1. Registro inválido: Aprobada con nota menor a 11
@@ -198,8 +157,8 @@ def test_history_crud_and_grade_validations():
 # -----------------------------------------------------------------------------
 # 4. PRUEBAS DEL SERVICIO DE CÁLCULO DINÁMICO DE MÉTRICAS (RF-04, RF-08)
 # -----------------------------------------------------------------------------
-def test_dynamic_metrics_calculation():
-    token = get_auth_token()
+def test_dynamic_metrics_calculation(client: TestClient):
+    token = get_auth_token(client)
     headers = {"Authorization": f"Bearer {token}"}
 
     # Inicialmente: 0 créditos aprobados, 0% avance
@@ -248,4 +207,3 @@ def test_dynamic_metrics_calculation():
     assert metrics["promedio_ponderado"] == 16.0  # (15*4 + 17*4) / 8 = 16.0
     assert metrics["cursos_aprobados_count"] == 2
     assert metrics["cursos_en_curso_count"] == 1
-

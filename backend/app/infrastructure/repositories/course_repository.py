@@ -32,3 +32,10 @@ class CourseRepository:
             joinedload(PrerrequisitoModel.asignatura_requisito)
         ).filter(PrerrequisitoModel.asignatura_id == asignatura_id).all()
 
+    @staticmethod
+    def get_all_prerrequisitos(db: Session) -> List[PrerrequisitoModel]:
+        return db.query(PrerrequisitoModel).options(
+            joinedload(PrerrequisitoModel.asignatura_objetivo),
+            joinedload(PrerrequisitoModel.asignatura_requisito)
+        ).all()
+

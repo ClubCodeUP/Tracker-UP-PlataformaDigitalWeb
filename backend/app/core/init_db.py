@@ -118,6 +118,7 @@ def seed_database(db: Session) -> None:
         (6, 1),   # Cálculo -> Álgebra
         (7, 2),   # Estructuras de Datos -> Fundamentos Prog
         (8, 1),   # Estadística -> Álgebra
+        (9, 4),   # Contabilidad -> Administración
         (10, 6),  # Álgebra Computacional -> Cálculo
         (11, 7),  # Bases de Datos -> Estructuras de Datos
         (12, 7),  # Arquitectura -> Estructuras de Datos
