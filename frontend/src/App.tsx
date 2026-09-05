@@ -292,6 +292,8 @@ export function App() {
       <CourseDetailDrawer
         asignatura={selectedCourse}
         historialEntry={selectedCourseHistory}
+        historial={historial}
+        allCourses={activeMalla}
         isAuth={!!currentUser}
         onOpenAuth={() => {
           setAuthModalMode('login');

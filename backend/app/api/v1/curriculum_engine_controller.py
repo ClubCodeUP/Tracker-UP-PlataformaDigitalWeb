@@ -12,6 +12,7 @@ from app.core.curriculum_loader import CurriculumLoader
 from app.infrastructure.models import CarreraModel, MallaCurricularModel, AsignaturaModel
 from app.infrastructure.models.user_model import UsuarioModel
 from app.infrastructure.repositories.course_repository import CourseRepository
+from app.infrastructure.repositories.history_repository import HistoryRepository
 from app.schemas.rules_engine import (
     CurriculumEvaluationResponse,
     RecommendationResponse,
@@ -91,6 +92,16 @@ def get_malla(
         prereqs_by_target[p.asignatura_id].append(p)
         unlocks_count[p.prerrequisito_asignatura_id] += 1
 
+    # Obtener historial del usuario actual si está autenticado
+    user_approved_course_ids = set()
+    user_grades = {}
+    if current_user:
+        user_history = HistoryRepository.get_all_by_user(db, current_user.id)
+        for h in user_history:
+            if h.estado == "APROBADA":
+                user_approved_course_ids.add(h.asignatura_id)
+                user_grades[h.asignatura_id] = float(h.calificacion) if h.calificacion is not None else None
+
     cursos_response = []
     for m in malla_entries:
         asig = m.asignatura
@@ -98,7 +109,9 @@ def get_malla(
             {
                 "id": p.prerrequisito_asignatura_id,
                 "codigo": p.asignatura_requisito.codigo,
-                "nombre": p.asignatura_requisito.nombre
+                "nombre": p.asignatura_requisito.nombre,
+                "aprobado": p.prerrequisito_asignatura_id in user_approved_course_ids,
+                "calificacion": user_grades.get(p.prerrequisito_asignatura_id)
             }
             for p in prereqs_by_target.get(asig.id, [])
         ]

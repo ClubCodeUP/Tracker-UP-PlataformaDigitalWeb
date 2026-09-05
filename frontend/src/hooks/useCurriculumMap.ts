@@ -9,7 +9,7 @@ interface UseCurriculumMapProps {
 }
 
 export function useCurriculumMap({ malla, historial, alertas }: UseCurriculumMapProps) {
-  const [selectedCourse, setSelectedCourse] = useState<Asignatura | null>(null);
+  const [selectedCourseId, setSelectedCourseId] = useState<number | null>(null);
 
   // Mapeo rápido de historial por id de asignatura
   const historyMap = useMemo(() => {
@@ -19,6 +19,15 @@ export function useCurriculumMap({ malla, historial, alertas }: UseCurriculumMap
     }
     return map;
   }, [historial]);
+
+  // Mapeo rápido de código de asignatura a ID
+  const courseCodeToId = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const c of malla) {
+      map.set(c.codigo, c.id);
+    }
+    return map;
+  }, [malla]);
 
   // Mapeo de alertas por código de asignatura
   const alertMap = useMemo(() => {
@@ -38,33 +47,48 @@ export function useCurriculumMap({ malla, historial, alertas }: UseCurriculumMap
     const cycleCounters = new Map<number, number>();
     const generatedNodes: Node[] = [];
     const generatedEdges: Edge[] = [];
-    const courseCodeToId = new Map<string, number>();
 
     // 1. Crear Nodos
     for (const asig of malla) {
-      courseCodeToId.set(asig.codigo, asig.id);
-
       const cycleIndex = cycleCounters.get(asig.ciclo) || 0;
       cycleCounters.set(asig.ciclo, cycleIndex + 1);
 
-      // Posicionamiento en cuadrícula por ciclos: 280px horizontal, 170px vertical
+      // Posicionamiento en cuadrícula por ciclos: 290px horizontal, 170px vertical
       const x = (asig.ciclo - 1) * 290 + 30;
       const y = cycleIndex * 170 + 80;
 
       const userHistory = historyMap.get(asig.id);
       const courseAlerts = alertMap.get(asig.codigo) || [];
 
+      // Enriquecer los prerrequisitos con el historial del estudiante
+      const enrichedPrereqs = (asig.prerrequisitos || []).map((p) => {
+        const pId = (p as any).id || courseCodeToId.get(p.codigo);
+        const pHist = pId ? historyMap.get(pId) : undefined;
+        const isAprobado = p.aprobado || pHist?.estado === 'APROBADA';
+        return {
+          ...p,
+          id: pId,
+          aprobado: isAprobado,
+          calificacion: p.calificacion ?? pHist?.calificacion ?? undefined,
+        };
+      });
+
+      const enrichedAsig: Asignatura = {
+        ...asig,
+        prerrequisitos: enrichedPrereqs,
+      };
+
       generatedNodes.push({
         id: String(asig.id),
         type: 'courseNode',
         position: { x, y },
         data: {
-          asignatura: asig,
+          asignatura: enrichedAsig,
           estado: userHistory?.estado || 'PENDIENTE',
           calificacion: userHistory?.calificacion,
           numeroMatricula: userHistory?.numeroMatricula || 1,
           alertas: courseAlerts,
-          onSelectCourse: (selected: Asignatura) => setSelectedCourse(selected),
+          onSelectCourse: (selected: Asignatura) => setSelectedCourseId(selected.id),
         },
       });
     }
@@ -72,9 +96,10 @@ export function useCurriculumMap({ malla, historial, alertas }: UseCurriculumMap
     // 2. Crear Aristas de Prerrequisitos (Dependencias)
     for (const asig of malla) {
       for (const prereq of asig.prerrequisitos) {
-        const sourceId = courseCodeToId.get(prereq.codigo);
+        const sourceId = (prereq as any).id || courseCodeToId.get(prereq.codigo);
         if (sourceId !== undefined) {
-          const isPrereqAprobado = prereq.aprobado;
+          const sourceHistory = historyMap.get(sourceId);
+          const isPrereqAprobado = prereq.aprobado || sourceHistory?.estado === 'APROBADA';
 
           generatedEdges.push({
             id: `edge-${sourceId}-${asig.id}`,
@@ -84,8 +109,8 @@ export function useCurriculumMap({ malla, historial, alertas }: UseCurriculumMap
             animated: !isPrereqAprobado, // Animado si aún está pendiente
             style: {
               stroke: isPrereqAprobado ? '#10b981' : '#94a3b8',
-              strokeWidth: isPrereqAprobado ? 2 : 1.5,
-              opacity: isPrereqAprobado ? 0.9 : 0.6,
+              strokeWidth: isPrereqAprobado ? 2.5 : 1.5,
+              opacity: isPrereqAprobado ? 0.95 : 0.6,
             },
             markerEnd: {
               type: MarkerType.ArrowClosed,
@@ -99,7 +124,34 @@ export function useCurriculumMap({ malla, historial, alertas }: UseCurriculumMap
     }
 
     return { nodes: generatedNodes, edges: generatedEdges };
-  }, [malla, historyMap, alertMap]);
+  }, [malla, historyMap, alertMap, courseCodeToId]);
+
+  const selectedCourse = useMemo(() => {
+    if (selectedCourseId === null) return null;
+    const asig = malla.find((c) => c.id === selectedCourseId);
+    if (!asig) return null;
+
+    const enrichedPrereqs = (asig.prerrequisitos || []).map((p) => {
+      const pId = (p as any).id || courseCodeToId.get(p.codigo);
+      const pHist = pId ? historyMap.get(pId) : undefined;
+      const isAprobado = p.aprobado || pHist?.estado === 'APROBADA';
+      return {
+        ...p,
+        id: pId,
+        aprobado: isAprobado,
+        calificacion: p.calificacion ?? pHist?.calificacion ?? undefined,
+      };
+    });
+
+    return {
+      ...asig,
+      prerrequisitos: enrichedPrereqs,
+    };
+  }, [selectedCourseId, malla, historyMap, courseCodeToId]);
+
+  const setSelectedCourse = (course: Asignatura | null) => {
+    setSelectedCourseId(course ? course.id : null);
+  };
 
   return {
     nodes,

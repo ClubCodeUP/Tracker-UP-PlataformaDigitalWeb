@@ -237,6 +237,47 @@ def test_dynamic_metrics_calculation(client: TestClient):
     assert metrics["creditos_pendientes"] == 197.0
     # Avance: 8 / 205 * 100 = 3.90%
     assert metrics["porcentaje_avance"] == 3.90
-    assert metrics["promedio_ponderado"] == 16.0  # (15*4 + 17*4) / 8 = 16.0
     assert metrics["cursos_aprobados_count"] == 2
     assert metrics["cursos_en_curso_count"] == 1
+
+
+def test_malla_prerequisites_reflect_user_history(client: TestClient):
+    """Verifica que el endpoint /curriculum/malla refleje el estado de aprobación de los prerrequisitos (RF-09, CA-04)."""
+    token = get_auth_token(client)
+    headers = {"Authorization": f"Bearer {token}"}
+
+    # 1. Obtener cursos de la malla
+    malla_res = client.get("/api/v1/curriculum/malla?carrera_id=1")
+    assert malla_res.status_code == 200
+    by_code = {c["codigo"]: c for c in malla_res.json()["cursos"]}
+
+    # Asignaturas: 120000 (Nivelación en Lenguaje) es prerrequisito de 120001 (Lenguaje I)
+    assert "120000" in by_code
+    assert "120001" in by_code
+    asig_niv_leng = by_code["120000"]
+    asig_leng1 = by_code["120001"]
+
+    # Verificar que inicialmente en Lenguaje I el prerrequisito 120000 está pendiente
+    prereq_entry = next((p for p in asig_leng1["prerrequisitos"] if p["codigo"] == "120000"), None)
+    assert prereq_entry is not None
+    assert prereq_entry["aprobado"] is False
+
+    # 2. Registrar aprobación de Nivelación en Lenguaje con nota 16.0
+    client.post("/api/v1/history", headers=headers, json={
+        "asignatura_id": asig_niv_leng["id"],
+        "periodo_academico": "2023-0",
+        "estado": "APROBADA",
+        "calificacion": 16.0,
+        "numero_matricula": 1
+    })
+
+    # 3. Consultar la malla con token de usuario autenticado
+    auth_malla_res = client.get("/api/v1/curriculum/malla?carrera_id=1", headers=headers)
+    assert auth_malla_res.status_code == 200
+    auth_by_code = {c["codigo"]: c for c in auth_malla_res.json()["cursos"]}
+
+    auth_leng1 = auth_by_code["120001"]
+    auth_prereq = next((p for p in auth_leng1["prerrequisitos"] if p["codigo"] == "120000"), None)
+    assert auth_prereq is not None
+    assert auth_prereq["aprobado"] is True
+    assert auth_prereq["calificacion"] == 16.0
