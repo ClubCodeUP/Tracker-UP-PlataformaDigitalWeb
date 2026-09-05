@@ -215,3 +215,4 @@ Para el diseñador o frontend que tome la siguiente fase, se sugieren las siguie
 3. **Modo Compacto / Modo Expandido:** Ofrecer un botón en el canvas para alternar entre tarjetas detalladas y tarjetas simplificadas (solo código y estado) para mallas muy densas.
 4. **Modo Oscuro / Claro Toggle:** El sistema actual está optimizado para modo oscuro profundo (`slate-950`); añadir soporte formal para tema claro institucional.
 5. **Drawer Adaptativo en Móviles:** En pantallas menores a `768px`, transformar el drawer lateral en un modal inferior deslizable (*bottom sheet*).
+
