@@ -57,7 +57,16 @@ class MetricsService:
         creditos_pendientes = max(0.0, float(total_creditos_carrera) - creditos_aprobados)
 
         # 5. Calcular porcentaje de avance curricular (RF-04, RF-08)
-        porcentaje_avance = round((creditos_aprobados / float(total_creditos_carrera)) * 100, 2)
+        malla = CourseRepository.get_malla_by_carrera(db, user.carrera_id)
+        total_cursos = len(malla) if malla else 50
+
+        if creditos_aprobados > 0:
+            porcentaje_avance = round((creditos_aprobados / float(total_creditos_carrera)) * 100, 2)
+        elif len(approved_courses) > 0:
+            # Si aprobó materias pero son de nivelación (0 créditos), reflejar avance respecto al total de cursos
+            porcentaje_avance = round((len(approved_courses) / float(total_cursos)) * 100, 2)
+        else:
+            porcentaje_avance = 0.0
 
         # 6. Calcular promedio ponderado acumulado de materias aprobadas
         for c in approved_courses.values():

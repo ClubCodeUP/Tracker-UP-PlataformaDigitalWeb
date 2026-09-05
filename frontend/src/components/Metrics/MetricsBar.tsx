@@ -32,6 +32,11 @@ export const MetricsBar: React.FC<MetricsBarProps> = ({ metrics }) => {
           </div>
           <span className="text-[10px] text-slate-400 mt-0.5 block">
             {metrics.creditos_aprobados} de {metrics.total_creditos_carrera} créditos
+            {metrics.cursos_aprobados_count > 0 && (
+              <span className="ml-1 text-emerald-300 font-medium">
+                • {metrics.cursos_aprobados_count} materia{metrics.cursos_aprobados_count !== 1 ? 's' : ''} aprobada{metrics.cursos_aprobados_count !== 1 ? 's' : ''}
+              </span>
+            )}
           </span>
         </div>
       </div>
@@ -43,8 +48,15 @@ export const MetricsBar: React.FC<MetricsBarProps> = ({ metrics }) => {
             <CheckCircle2 className="w-4 h-4" />
           </div>
           <div>
-            <span className="text-slate-400 block text-[10px]">Aprobados</span>
-            <span className="font-bold text-slate-100">{metrics.creditos_aprobados} cr</span>
+            <span className="text-slate-400 block text-[10px]">Materias Aprobadas</span>
+            <div className="flex items-baseline gap-1">
+              <span className="font-extrabold text-base text-white">
+                {metrics.cursos_aprobados_count}
+              </span>
+              <span className="text-[11px] text-emerald-400 font-medium">
+                ({metrics.creditos_aprobados} cr)
+              </span>
+            </div>
           </div>
         </div>
 
@@ -54,7 +66,14 @@ export const MetricsBar: React.FC<MetricsBarProps> = ({ metrics }) => {
           </div>
           <div>
             <span className="text-slate-400 block text-[10px]">En Curso</span>
-            <span className="font-bold text-slate-100">{metrics.creditos_en_curso} cr</span>
+            <div className="flex items-baseline gap-1">
+              <span className="font-extrabold text-base text-white">
+                {metrics.cursos_en_curso_count}
+              </span>
+              <span className="text-[11px] text-amber-400 font-medium">
+                ({metrics.creditos_en_curso} cr)
+              </span>
+            </div>
           </div>
         </div>
 
@@ -64,7 +83,9 @@ export const MetricsBar: React.FC<MetricsBarProps> = ({ metrics }) => {
           </div>
           <div>
             <span className="text-slate-400 block text-[10px]">Ciclo Referencial</span>
-            <span className="font-bold text-slate-100">Ciclo {metrics.ciclo_referencial}</span>
+            <span className="font-bold text-slate-100">
+              {metrics.ciclo_referencial === 0 ? 'Ciclo 0 (Nivelación)' : `Ciclo ${metrics.ciclo_referencial}`}
+            </span>
           </div>
         </div>
 

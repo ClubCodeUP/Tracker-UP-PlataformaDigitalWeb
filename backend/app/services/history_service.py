@@ -43,14 +43,16 @@ class HistoryService:
         if not course:
             raise EntityNotFoundException("Asignatura", data.asignatura_id)
 
-        # 2. Verificar que no exista ya un registro para la misma materia en el mismo periodo
-        existing = HistoryRepository.get_by_user_and_course_and_period(
-            db, user_id, data.asignatura_id, data.periodo_academico
-        )
+        # 2. Si ya existe un registro previo de la materia para este estudiante, actualizarlo
+        existing = HistoryRepository.get_by_user_and_course(db, user_id, data.asignatura_id)
         if existing:
-            raise InvalidAcademicRecordException(
-                f"Ya existe un registro para {course.codigo} en el periodo {data.periodo_academico}."
-            )
+            existing.estado = data.estado.value
+            existing.calificacion = data.calificacion
+            existing.numero_matricula = data.numero_matricula
+            existing.periodo_academico = data.periodo_academico
+            updated = HistoryRepository.update(db, existing)
+            refreshed = HistoryRepository.get_by_id(db, updated.id)
+            return cls._to_response(refreshed or updated)
 
         # 3. Crear modelo
         entry = HistorialAcademicoModel(

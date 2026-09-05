@@ -59,6 +59,30 @@ def test_successful_registration_and_login_up(client: TestClient):
     assert "access_token" in login_response.json()
 
 
+def test_successful_registration_with_alum_domain(client: TestClient):
+    """Registra y autentica a un alumno con correo del dominio @alum.up.edu.pe."""
+    register_payload = {
+        "email": "alumno2024@alum.up.edu.pe",
+        "password": "Password123!",
+        "nombres": "Estudiante",
+        "apellidos": "Pacífico",
+        "carrera_id": 1,
+        "periodo_ingreso": "2024-1"
+    }
+    reg_response = client.post("/api/v1/auth/register", json=register_payload)
+    assert reg_response.status_code == 201
+    data = reg_response.json()
+    assert data["email"] == "alumno2024@alum.up.edu.pe"
+    assert "access_token" in data
+
+    login_response = client.post("/api/v1/auth/login", json={
+        "email": "alumno2024@alum.up.edu.pe",
+        "password": "Password123!"
+    })
+    assert login_response.status_code == 200
+    assert "access_token" in login_response.json()
+
+
 # -----------------------------------------------------------------------------
 # 2. PRUEBAS DE PERFIL DE ESTUDIANTE (RF-02)
 # -----------------------------------------------------------------------------

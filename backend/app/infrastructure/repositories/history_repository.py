@@ -24,6 +24,15 @@ class HistoryRepository:
         ).first()
 
     @staticmethod
+    def get_by_user_and_course(
+        db: Session, user_id: int, asignatura_id: int
+    ) -> Optional[HistorialAcademicoModel]:
+        return db.query(HistorialAcademicoModel).filter(
+            HistorialAcademicoModel.usuario_id == user_id,
+            HistorialAcademicoModel.asignatura_id == asignatura_id
+        ).first()
+
+    @staticmethod
     def get_all_by_user(db: Session, user_id: int) -> List[HistorialAcademicoModel]:
         return db.query(HistorialAcademicoModel).options(
             joinedload(HistorialAcademicoModel.asignatura)

@@ -60,8 +60,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
     try {
       const cleanEmail = email.trim().toLowerCase();
-      if (!cleanEmail.endsWith('@up.edu.pe')) {
-        throw new Error('El correo debe pertenecer al dominio institucional de la Universidad del Pacífico (@up.edu.pe).');
+      if (!cleanEmail.endsWith('@alum.up.edu.pe') && !cleanEmail.endsWith('@up.edu.pe')) {
+        throw new Error('El correo debe pertenecer al dominio institucional de la Universidad del Pacífico (@alum.up.edu.pe o @up.edu.pe).');
       }
 
       if (mode === 'login') {
@@ -291,12 +291,12 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="ej. 20240001@up.edu.pe"
+                placeholder="ej. alumno@alum.up.edu.pe"
                 className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all font-mono"
               />
             </div>
             <p className="text-[10px] text-slate-500 mt-1">
-              Obligatorio: debe terminar en <span className="text-blue-400 font-mono">@up.edu.pe</span>
+              Obligatorio: debe terminar en <span className="text-blue-400 font-mono">@alum.up.edu.pe</span> o <span className="text-blue-400 font-mono">@up.edu.pe</span>
             </p>
           </div>
 

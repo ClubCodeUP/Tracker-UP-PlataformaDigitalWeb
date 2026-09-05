@@ -13,7 +13,7 @@ class InvalidEmailDomainException(DomainException):
     """Lanzada cuando un usuario intenta autenticarse o registrarse con un correo no institucional UP."""
     def __init__(self, email: str):
         super().__init__(
-            f"El correo '{email}' no pertenece al dominio institucional permitido (@up.edu.pe)."
+            f"El correo '{email}' no pertenece al dominio institucional permitido (@alum.up.edu.pe o @up.edu.pe)."
         )
 
 
