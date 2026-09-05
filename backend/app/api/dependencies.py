@@ -44,3 +44,21 @@ def get_current_user(
 
     return user
 
+
+security_optional = HTTPBearer(auto_error=False)
+
+
+def get_current_user_optional(
+    credentials: HTTPAuthorizationCredentials = Depends(security_optional),
+    db: Session = Depends(get_db)
+) -> UsuarioModel:
+    """Retorna el usuario autenticado si el token existe y es válido, o None si no hay sesión."""
+    if not credentials:
+        return None
+    try:
+        payload = decode_access_token(credentials.credentials)
+        user_id = int(payload.get("sub"))
+        return UserRepository.get_by_id(db, user_id)
+    except Exception:
+        return None
+

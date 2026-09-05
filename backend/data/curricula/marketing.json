@@ -1,0 +1,548 @@
+{
+  "carrera": {
+    "codigo": "MKT",
+    "nombre": "Marketing",
+    "facultad": "Facultad de Ciencias Empresariales",
+    "plan": "2022",
+    "total_creditos_graduacion": 205,
+    "total_ciclos": 10,
+    "max_creditos_ciclo_regular": 22.0
+  },
+  "concentraciones": [
+    {
+      "codigo": "CONC-MKT-DIGITAL",
+      "nombre": "Marketing Digital y Comercio Electrónico",
+      "descripcion": "Especialización en performance, analítica digital, SEO/SEM y e-commerce."
+    },
+    {
+      "codigo": "CONC-BRANDING",
+      "nombre": "Gestión Estratégica de Marcas y Experiencia",
+      "descripcion": "Especialización en construcción de marca, customer experience y diseño de valor."
+    }
+  ],
+  "cursos": [
+    {
+      "codigo": "134654",
+      "nombre": "Nivelación en Matemáticas",
+      "creditos": 2.0,
+      "ciclo_sugerido": 0,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "170131",
+      "nombre": "Nivelación en Informática",
+      "creditos": 2.0,
+      "ciclo_sugerido": 0,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "120000",
+      "nombre": "Nivelación en Lenguaje",
+      "creditos": 2.0,
+      "ciclo_sugerido": 0,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "138649",
+      "nombre": "Matemáticas I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["134654"]
+    },
+    {
+      "codigo": "132641",
+      "nombre": "Economía General I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["134654"]
+    },
+    {
+      "codigo": "120001",
+      "nombre": "Lenguaje I",
+      "creditos": 4.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["120000"]
+    },
+    {
+      "codigo": "141038",
+      "nombre": "Fundamentos de las Ciencias Empresariales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["170131"]
+    },
+    {
+      "codigo": "130224",
+      "nombre": "Estadística I",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["138649"]
+    },
+    {
+      "codigo": "1MN018",
+      "nombre": "Fundamentos de Marketing",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["141038"]
+    },
+    {
+      "codigo": "120006",
+      "nombre": "Lenguaje II",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["120001"]
+    },
+    {
+      "codigo": "160092",
+      "nombre": "Fundamentos de Contabilidad",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["141038"]
+    },
+    {
+      "codigo": "SELLO-CS01",
+      "nombre": "Bloque de Ciencias Sociales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "1MN017",
+      "nombre": "Comportamiento del Consumidor",
+      "creditos": 4.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["1MN018"]
+    },
+    {
+      "codigo": "1MN381",
+      "nombre": "Marketing Sostenible",
+      "creditos": 3.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["1MN018"]
+    },
+    {
+      "codigo": "142277",
+      "nombre": "Analítica de Datos para los Negocios",
+      "creditos": 3.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["130224"]
+    },
+    {
+      "codigo": "160171",
+      "nombre": "Contabilidad Financiera Intermedia",
+      "creditos": 5.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["160092"]
+    },
+    {
+      "codigo": "142081",
+      "nombre": "Diseño Organizacional y Estrategia",
+      "creditos": 4.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["141038"]
+    },
+    {
+      "codigo": "130642",
+      "nombre": "Economía General II",
+      "creditos": 5.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["132641"]
+    },
+    {
+      "codigo": "142096",
+      "nombre": "Métodos Cuantitativos para la Gestión en las Organizaciones",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["130224"]
+    },
+    {
+      "codigo": "1MN372",
+      "nombre": "Gestión de Productos",
+      "creditos": 3.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["1MN018"]
+    },
+    {
+      "codigo": "141036",
+      "nombre": "Análisis Multivariado para los Negocios",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["142277"]
+    },
+    {
+      "codigo": "120133",
+      "nombre": "Ética",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["120006"]
+    },
+    {
+      "codigo": "SELLO-PS01",
+      "nombre": "Bloque de Procesos Sociales",
+      "creditos": 8.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "1MN385",
+      "nombre": "Pricing",
+      "creditos": 3.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["1MN372"]
+    },
+    {
+      "codigo": "1MN020",
+      "nombre": "Investigación de Mercados",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["1MN017", "141036"]
+    },
+    {
+      "codigo": "1MN027",
+      "nombre": "Estrategias de Branding",
+      "creditos": 3.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["1MN017"]
+    },
+    {
+      "codigo": "142273",
+      "nombre": "Sistemas de Información y Análisis de Datos",
+      "creditos": 3.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["142277"]
+    },
+    {
+      "codigo": "1F0112",
+      "nombre": "Fundamentos de Finanzas",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["160171"]
+    },
+    {
+      "codigo": "SELLO-PC01",
+      "nombre": "Bloque de Pensamiento Crítico",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "1MN367",
+      "nombre": "Canales de Distribución",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["1MN372"]
+    },
+    {
+      "codigo": "1MN022",
+      "nombre": "Investigación de Mercados Aplicada",
+      "creditos": 3.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["1MN020"]
+    },
+    {
+      "codigo": "1MN368",
+      "nombre": "Estrategias de Comunicación y Promoción",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["1MN027"]
+    },
+    {
+      "codigo": "142091",
+      "nombre": "Innovación y Gestión en Negocios Digitales",
+      "creditos": 3.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["142273"]
+    },
+    {
+      "codigo": "1F0120",
+      "nombre": "Finanzas Corporativas I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["1F0112"]
+    },
+    {
+      "codigo": "150140",
+      "nombre": "Investigación Académica",
+      "creditos": 3.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["120006"]
+    },
+    {
+      "codigo": "1MN075",
+      "nombre": "Trade Marketing",
+      "creditos": 3.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["1MN367"]
+    },
+    {
+      "codigo": "1MN380",
+      "nombre": "Marketing Relacional y CRM",
+      "creditos": 3.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["1MN022"]
+    },
+    {
+      "codigo": "1MN029",
+      "nombre": "Marketing Digital y Redes Sociales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["1MN368"]
+    },
+    {
+      "codigo": "142280",
+      "nombre": "Business Agility",
+      "creditos": 3.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["142091"]
+    },
+    {
+      "codigo": "SELLO-DP01",
+      "nombre": "Bloque Desarrollo Personal",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "1MN030",
+      "nombre": "Gestión Comercial",
+      "creditos": 3.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["1MN075"]
+    },
+    {
+      "codigo": "1MN031",
+      "nombre": "Marketing de Servicios",
+      "creditos": 3.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["1MN380"]
+    },
+    {
+      "codigo": "1MN032",
+      "nombre": "Marketing B2B",
+      "creditos": 3.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["1MN380"]
+    },
+    {
+      "codigo": "1MN033",
+      "nombre": "Métricas y Analítica de Marketing",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["1MN029"]
+    },
+    {
+      "codigo": "142099",
+      "nombre": "Estrategia Empresarial",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["142081"]
+    },
+    {
+      "codigo": "1MN034",
+      "nombre": "International Marketing",
+      "creditos": 3.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["1MN030"]
+    },
+    {
+      "codigo": "1MN035",
+      "nombre": "Investigación en Marketing I",
+      "creditos": 3.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["1MN033", "150140"]
+    },
+    {
+      "codigo": "SELLO-PSOC",
+      "nombre": "Proyección Social",
+      "creditos": 4.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 120.0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "1MN036",
+      "nombre": "Plan de Marketing",
+      "creditos": 4.0,
+      "ciclo_sugerido": 10,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 160.0,
+      "prerrequisitos": ["1MN034"]
+    },
+    {
+      "codigo": "1MN037",
+      "nombre": "Investigación en Marketing II",
+      "creditos": 4.0,
+      "ciclo_sugerido": 10,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 160.0,
+      "prerrequisitos": ["1MN035"]
+    },
+    {
+      "codigo": "ELE-MKT01",
+      "nombre": "Growth Hacking y Performance Marketing",
+      "creditos": 4.0,
+      "ciclo_sugerido": 9,
+      "tipo": "ELECTIVA",
+      "concentracion_codigo": "CONC-MKT-DIGITAL",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 120.0,
+      "prerrequisitos": ["1MN029"]
+    },
+    {
+      "codigo": "ELE-MKT02",
+      "nombre": "Diseño y Gestión de la Experiencia del Cliente (CX)",
+      "creditos": 4.0,
+      "ciclo_sugerido": 10,
+      "tipo": "ELECTIVA",
+      "concentracion_codigo": "CONC-BRANDING",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 140.0,
+      "prerrequisitos": ["1MN027"]
+    }
+  ]
+}
+

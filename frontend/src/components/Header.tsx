@@ -1,15 +1,22 @@
 import React from 'react';
-import { Compass, Sparkles, UserCheck } from 'lucide-react';
+import { Compass, Sparkles, UserCheck, GraduationCap } from 'lucide-react';
+import { CareerSummary } from '../services/trackerApi';
 
 interface HeaderProps {
   studentName?: string;
   careerName?: string;
+  careers?: CareerSummary[];
+  selectedCareerId?: number;
+  onSelectCareer?: (careerId: number) => void;
   onOpenRecommendation?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   studentName = 'Estudiante UP',
   careerName = 'Ingeniería de la Información',
+  careers = [],
+  selectedCareerId,
+  onSelectCareer,
   onOpenRecommendation,
 }) => {
   return (
@@ -34,8 +41,26 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      {/* Datos del Estudiante y Botón de Recomendación */}
+      {/* Selector de Carrera, Datos del Estudiante y Botón de Recomendación */}
       <div className="flex items-center gap-4">
+        {/* Selector Dinámico de Carrera (RF-02, CA-01) */}
+        {careers.length > 0 && onSelectCareer && (
+          <div className="hidden md:flex items-center gap-2 bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 shadow-sm">
+            <GraduationCap className="w-4 h-4 text-indigo-400 shrink-0" />
+            <select
+              value={selectedCareerId}
+              onChange={(e) => onSelectCareer(Number(e.target.value))}
+              className="bg-transparent text-xs font-semibold text-slate-200 focus:outline-none cursor-pointer pr-1"
+            >
+              {careers.map((c) => (
+                <option key={c.id} value={c.id} className="bg-slate-900 text-white">
+                  {c.nombre} ({c.codigo})
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+
         {/* Botón de Recomendación Determinística */}
         {onOpenRecommendation && (
           <button
@@ -65,4 +90,3 @@ export const Header: React.FC<HeaderProps> = ({
     </header>
   );
 };
-

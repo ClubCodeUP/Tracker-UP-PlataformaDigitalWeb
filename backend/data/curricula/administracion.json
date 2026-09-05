@@ -1,0 +1,498 @@
+{
+  "carrera": {
+    "codigo": "ADM",
+    "nombre": "Administración",
+    "facultad": "Facultad de Ciencias Empresariales",
+    "plan": "2022",
+    "total_creditos_graduacion": 205,
+    "total_ciclos": 10,
+    "max_creditos_ciclo_regular": 22.0
+  },
+  "concentraciones": [
+    {
+      "codigo": "CONC-STRAT",
+      "nombre": "Dirección Estratégica y Sostenibilidad",
+      "descripcion": "Gestión estratégica, modelos organizacionales y sostenibilidad corporativa."
+    },
+    {
+      "codigo": "CONC-SUPPLY",
+      "nombre": "Supply Chain y Operaciones Globales",
+      "descripcion": "Logística internacional, compras y optimización de cadenas de suministro."
+    }
+  ],
+  "cursos": [
+    {
+      "codigo": "134654",
+      "nombre": "Nivelación en Matemáticas",
+      "creditos": 2.0,
+      "ciclo_sugerido": 0,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "170131",
+      "nombre": "Nivelación en Informática",
+      "creditos": 2.0,
+      "ciclo_sugerido": 0,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "120000",
+      "nombre": "Nivelación en Lenguaje",
+      "creditos": 2.0,
+      "ciclo_sugerido": 0,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "138649",
+      "nombre": "Matemáticas I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["134654"]
+    },
+    {
+      "codigo": "132641",
+      "nombre": "Economía General I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["134654"]
+    },
+    {
+      "codigo": "120001",
+      "nombre": "Lenguaje I",
+      "creditos": 4.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["120000"]
+    },
+    {
+      "codigo": "141038",
+      "nombre": "Fundamentos de las Ciencias Empresariales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["170131"]
+    },
+    {
+      "codigo": "160092",
+      "nombre": "Fundamentos de Contabilidad",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["141038"]
+    },
+    {
+      "codigo": "120006",
+      "nombre": "Lenguaje II",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["120001"]
+    },
+    {
+      "codigo": "138652",
+      "nombre": "Matemáticas para los Negocios",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["138649"]
+    },
+    {
+      "codigo": "142081",
+      "nombre": "Diseño Organizacional y Estrategia",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["141038"]
+    },
+    {
+      "codigo": "SELLO-CS01",
+      "nombre": "Bloque de Ciencias Sociales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "160171",
+      "nombre": "Contabilidad Financiera Intermedia",
+      "creditos": 5.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["160092"]
+    },
+    {
+      "codigo": "130224",
+      "nombre": "Estadística I",
+      "creditos": 4.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["138652"]
+    },
+    {
+      "codigo": "130642",
+      "nombre": "Economía General II",
+      "creditos": 5.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["132641"]
+    },
+    {
+      "codigo": "142277",
+      "nombre": "Analítica de Datos para los Negocios",
+      "creditos": 3.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["138652"]
+    },
+    {
+      "codigo": "1MN019",
+      "nombre": "Marketing Estratégico",
+      "creditos": 4.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["141038"]
+    },
+    {
+      "codigo": "150140",
+      "nombre": "Investigación Académica",
+      "creditos": 3.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["120006"]
+    },
+    {
+      "codigo": "120133",
+      "nombre": "Ética",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["120006"]
+    },
+    {
+      "codigo": "142096",
+      "nombre": "Métodos Cuantitativos para la Gestión en las Organizaciones",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["130224"]
+    },
+    {
+      "codigo": "141036",
+      "nombre": "Análisis Multivariado para los Negocios",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["142277"]
+    },
+    {
+      "codigo": "142086",
+      "nombre": "Derecho Civil y Comercial",
+      "creditos": 3.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "1F0112",
+      "nombre": "Fundamentos de Finanzas",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["160171"]
+    },
+    {
+      "codigo": "1MN020",
+      "nombre": "Investigación de Mercados",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["1MN019", "130224"]
+    },
+    {
+      "codigo": "160175",
+      "nombre": "Contabilidad para la Toma de Decisiones",
+      "creditos": 5.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["160171"]
+    },
+    {
+      "codigo": "142087",
+      "nombre": "Derecho Laboral y Tributario",
+      "creditos": 3.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["142086"]
+    },
+    {
+      "codigo": "142273",
+      "nombre": "Sistemas de Información y Análisis de Datos",
+      "creditos": 3.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["142277"]
+    },
+    {
+      "codigo": "1F0120",
+      "nombre": "Finanzas Corporativas I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["1F0112"]
+    },
+    {
+      "codigo": "142092",
+      "nombre": "Gestión del Cambio y Transformación Cultural",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["142081"]
+    },
+    {
+      "codigo": "142095",
+      "nombre": "Gestión de Personas",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["142081"]
+    },
+    {
+      "codigo": "142091",
+      "nombre": "Innovación y Gestión en Negocios Digitales",
+      "creditos": 3.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["142273"]
+    },
+    {
+      "codigo": "142094",
+      "nombre": "Gestión de Operaciones en las Organizaciones",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["142096"]
+    },
+    {
+      "codigo": "142280",
+      "nombre": "Business Agility",
+      "creditos": 3.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["142091"]
+    },
+    {
+      "codigo": "142097",
+      "nombre": "Creación de Valor y Toma de Decisiones",
+      "creditos": 3.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["160175"]
+    },
+    {
+      "codigo": "142098",
+      "nombre": "Gestión de la Cadena de Suministros",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["142094"]
+    },
+    {
+      "codigo": "1F0125",
+      "nombre": "Evaluación Financiera de las Organizaciones",
+      "creditos": 5.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["1F0120"]
+    },
+    {
+      "codigo": "SELLO-DP01",
+      "nombre": "Bloque Desarrollo Personal",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "142100",
+      "nombre": "Gestión del Comercio Internacional",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["142098"]
+    },
+    {
+      "codigo": "142101",
+      "nombre": "Gestión Internacional de las Empresas",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["142081"]
+    },
+    {
+      "codigo": "142102",
+      "nombre": "Gestión de la Sostenibilidad Social y Ambiental en las Empresas",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "SELLO-QC01",
+      "nombre": "Bloque Introducción al Quehacer Científico",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "142110",
+      "nombre": "Dirección Estratégica",
+      "creditos": 4.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 120.0,
+      "prerrequisitos": ["142081", "1F0120"]
+    },
+    {
+      "codigo": "142111",
+      "nombre": "Investigación Aplicada a los Negocios",
+      "creditos": 3.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 120.0,
+      "prerrequisitos": ["150140"]
+    },
+    {
+      "codigo": "SELLO-PSOC",
+      "nombre": "Proyección Social",
+      "creditos": 4.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 120.0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "142120",
+      "nombre": "Proyecto Empresarial",
+      "creditos": 5.0,
+      "ciclo_sugerido": 10,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 160.0,
+      "prerrequisitos": ["142110", "142111"]
+    },
+    {
+      "codigo": "ELE-ADM01",
+      "nombre": "Gobierno Corporativo y Compliance",
+      "creditos": 4.0,
+      "ciclo_sugerido": 10,
+      "tipo": "ELECTIVA",
+      "concentracion_codigo": "CONC-STRAT",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 140.0,
+      "prerrequisitos": ["142110"]
+    },
+    {
+      "codigo": "ELE-ADM02",
+      "nombre": "Gestión Avanzada de Compras y Abastecimiento",
+      "creditos": 4.0,
+      "ciclo_sugerido": 10,
+      "tipo": "ELECTIVA",
+      "concentracion_codigo": "CONC-SUPPLY",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 140.0,
+      "prerrequisitos": ["142098"]
+    }
+  ]
+}
+

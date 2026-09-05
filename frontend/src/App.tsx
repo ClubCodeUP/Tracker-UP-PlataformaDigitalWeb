@@ -6,10 +6,19 @@ import { CurriculumMap } from './components/Map/CurriculumMap';
 import { CourseDetailDrawer } from './components/Drawer/CourseDetailDrawer';
 import { RecommendationModal } from './components/Recommendation/RecommendationModal';
 import { useCurriculumMap } from './hooks/useCurriculumMap';
-import { DEFAULT_MALLA_UP, trackerApi } from './services/trackerApi';
-import { AcademicMetrics, HistorialEntry, RiskAlert } from './types/curriculum';
+import { DEFAULT_MALLA_UP, trackerApi, CareerSummary } from './services/trackerApi';
+import { Asignatura, AcademicMetrics, HistorialEntry, RiskAlert } from './types/curriculum';
 
 export function App() {
+  // Lista de carreras y carrera activa
+  const [careers, setCareers] = useState<CareerSummary[]>([
+    { id: 1, codigo: 'INF', nombre: 'Ingeniería de la Información', total_creditos_graduacion: 205, total_ciclos: 10, max_creditos_ciclo_regular: 22.0, concentraciones: [] },
+    { id: 3, codigo: 'MKT', nombre: 'Marketing', total_creditos_graduacion: 205, total_ciclos: 10, max_creditos_ciclo_regular: 22.0, concentraciones: [] },
+    { id: 4, codigo: 'ADM', nombre: 'Administración', total_creditos_graduacion: 205, total_ciclos: 10, max_creditos_ciclo_regular: 22.0, concentraciones: [] },
+  ]);
+  const [selectedCareerId, setSelectedCareerId] = useState<number>(1);
+  const [activeMalla, setActiveMalla] = useState<Asignatura[]>(DEFAULT_MALLA_UP);
+
   // Estados de datos
   const [metrics, setMetrics] = useState<AcademicMetrics>({
     usuario_id: 1,
@@ -27,7 +36,7 @@ export function App() {
     cursos_en_riesgo_count: 1,
   });
 
-  // Historial semilla por defecto (Ciclo 1 completo + parte de Ciclo 2)
+  // Historial semilla por defecto
   const [historial] = useState<HistorialEntry[]>([
     { id: 1, asignaturaId: 1, periodo: '2023-1', estado: 'APROBADA', calificacion: 15.0, numeroMatricula: 1 },
     { id: 2, asignaturaId: 2, periodo: '2023-1', estado: 'APROBADA', calificacion: 16.0, numeroMatricula: 1 },
@@ -63,16 +72,8 @@ export function App() {
       nivel_severidad: 'INFORMATIVA',
       codigo_asignatura: 'PRO-1102',
       nombre_asignatura: 'Algoritmos y Estructuras de Datos',
-      mensaje: 'Materia crítica cuello de botella que condiciona 5 asignaturas posteriores.',
+      mensaje: 'Materia crítica cuello de botella que condiciona múltiples asignaturas posteriores.',
       detalles: { cursos_desbloqueados_count: 5 },
-    },
-    {
-      tipo_alerta: 'CUELLO_DE_BOTELLA',
-      nivel_severidad: 'INFORMATIVA',
-      codigo_asignatura: 'BD-1101',
-      nombre_asignatura: 'Fundamentos de Bases de Datos',
-      mensaje: 'Cuello de botella pendiente que condiciona 3 asignaturas posteriores.',
-      detalles: { cursos_desbloqueados_count: 3 },
     },
   ]);
 
@@ -80,9 +81,46 @@ export function App() {
   const [isRecommendationOpen, setIsRecommendationOpen] = useState(false);
   const [recommendationData, setRecommendationData] = useState<any>(null);
 
-  // Intentar conectar con la API backend si está activa
+  // Cargar catálogo de carreras al inicio
   useEffect(() => {
-    async function loadData() {
+    async function loadCareers() {
+      try {
+        const list = await trackerApi.getCareers();
+        if (list && list.length > 0) {
+          setCareers(list);
+        }
+      } catch {
+        // Fallback a lista semilla
+      }
+    }
+    loadCareers();
+  }, []);
+
+  // Cargar la malla curricular dinámicamente cuando cambia la carrera
+  useEffect(() => {
+    async function loadMalla() {
+      try {
+        const mallaRes = await trackerApi.getMalla(selectedCareerId);
+        if (mallaRes && mallaRes.cursos && mallaRes.cursos.length > 0) {
+          setActiveMalla(mallaRes.cursos);
+          if (mallaRes.carrera) {
+            setMetrics(prev => ({
+              ...prev,
+              carrera: mallaRes.carrera.nombre,
+              total_creditos_carrera: mallaRes.carrera.total_creditos,
+            }));
+          }
+        }
+      } catch {
+        // En modo demostración/desconectado conserva la malla actual
+      }
+    }
+    loadMalla();
+  }, [selectedCareerId]);
+
+  // Sincronizar datos analíticos del estudiante si la API está disponible
+  useEffect(() => {
+    async function loadUserData() {
       try {
         const evalData = await trackerApi.getCurriculumEvaluation();
         if (evalData) {
@@ -94,13 +132,13 @@ export function App() {
           setMetrics(metricsData);
         }
       } catch {
-        // Modo autónomo/demostración con datos semilla precargados
+        // Modo demostración
       }
     }
-    loadData();
+    loadUserData();
   }, []);
 
-  // Hook del Grafo React Flow
+  // Hook del Grafo React Flow (recalcula automáticamente al cambiar activeMalla)
   const {
     nodes,
     edges,
@@ -108,17 +146,23 @@ export function App() {
     setSelectedCourse,
     selectedCourseHistory,
   } = useCurriculumMap({
-    malla: DEFAULT_MALLA_UP,
+    malla: activeMalla,
     historial,
     alertas,
   });
 
+  // Calcular el máximo de ciclos presentes en la malla (mínimo 5, máximo 10)
+  const maxCiclos = Math.max(5, ...activeMalla.map(c => c.ciclo || 1));
+
   return (
     <div className="flex flex-col h-screen w-screen overflow-hidden bg-slate-950 font-sans">
-      {/* 1. Header institucional */}
+      {/* 1. Header institucional con Selector Dinámico de Carrera (RF-02, CA-01) */}
       <Header
         studentName={metrics.estudiante}
         careerName={metrics.carrera}
+        careers={careers}
+        selectedCareerId={selectedCareerId}
+        onSelectCareer={setSelectedCareerId}
         onOpenRecommendation={() => setIsRecommendationOpen(true)}
       />
 
@@ -130,7 +174,7 @@ export function App() {
 
       {/* 4. Mapa Curricular Interactivo (React Flow) */}
       <main className="flex-1 relative w-full h-full">
-        <CurriculumMap nodes={nodes} edges={edges} maxCiclos={5} />
+        <CurriculumMap nodes={nodes} edges={edges} maxCiclos={maxCiclos} />
       </main>
 
       {/* 5. Panel Lateral con la Ficha Técnica de la Asignatura */}
@@ -151,4 +195,3 @@ export function App() {
 }
 
 export default App;
-

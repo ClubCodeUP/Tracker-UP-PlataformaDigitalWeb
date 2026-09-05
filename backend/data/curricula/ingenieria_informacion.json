@@ -1,0 +1,279 @@
+{
+  "carrera": {
+    "id": 1,
+    "codigo": "INF",
+    "nombre": "Ingeniería de la Información",
+    "facultad": "Facultad de Ingeniería",
+    "plan": "2022",
+    "total_creditos_graduacion": 205,
+    "total_ciclos": 10,
+    "max_creditos_ciclo_regular": 22.0
+  },
+  "concentraciones": [
+    {
+      "id": 1,
+      "codigo": "CONC-SWE",
+      "nombre": "Ingeniería de Software y Sistemas Cloud",
+      "descripcion": "Arquitecturas distribuidas, desarrollo web/móvil y DevOps."
+    },
+    {
+      "id": 2,
+      "codigo": "CONC-DS",
+      "nombre": "Ciencia de Datos e Inteligencia Artificial",
+      "descripcion": "Modelado estadístico, machine learning y procesamiento big data."
+    }
+  ],
+  "cursos": [
+    {
+      "id": 1,
+      "codigo": "MAT-1101",
+      "nombre": "Álgebra y Geometría Analítica",
+      "creditos": 4.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": []
+    },
+    {
+      "id": 2,
+      "codigo": "PRO-1101",
+      "nombre": "Fundamentos de Programación",
+      "creditos": 4.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": []
+    },
+    {
+      "id": 3,
+      "codigo": "COM-1101",
+      "nombre": "Comunicación Académica",
+      "creditos": 3.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": []
+    },
+    {
+      "id": 4,
+      "codigo": "ADM-1101",
+      "nombre": "Administración y Organizaciones",
+      "creditos": 3.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": []
+    },
+    {
+      "id": 5,
+      "codigo": "ECO-1101",
+      "nombre": "Economía General",
+      "creditos": 4.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": []
+    },
+    {
+      "id": 6,
+      "codigo": "MAT-1102",
+      "nombre": "Cálculo Diferencial e Integral",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["MAT-1101"]
+    },
+    {
+      "id": 7,
+      "codigo": "PRO-1102",
+      "nombre": "Algoritmos y Estructuras de Datos",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["PRO-1101"]
+    },
+    {
+      "id": 8,
+      "codigo": "EST-1101",
+      "nombre": "Estadística y Probabilidades",
+      "creditos": 4.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["MAT-1101"]
+    },
+    {
+      "id": 9,
+      "codigo": "CON-1101",
+      "nombre": "Contabilidad Financiera",
+      "creditos": 3.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["ADM-1101"]
+    },
+    {
+      "id": 10,
+      "codigo": "MAT-1103",
+      "nombre": "Álgebra Lineal Computacional",
+      "creditos": 4.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["MAT-1102"]
+    },
+    {
+      "id": 11,
+      "codigo": "BD-1101",
+      "nombre": "Fundamentos de Bases de Datos",
+      "creditos": 4.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["PRO-1102"]
+    },
+    {
+      "id": 12,
+      "codigo": "ARQ-1101",
+      "nombre": "Arquitectura de Computadoras",
+      "creditos": 4.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["PRO-1102"]
+    },
+    {
+      "id": 13,
+      "codigo": "EST-1102",
+      "nombre": "Estadística Inferencial",
+      "creditos": 4.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["EST-1101"]
+    },
+    {
+      "id": 14,
+      "codigo": "SOF-1101",
+      "nombre": "Ingeniería de Software I",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["BD-1101"]
+    },
+    {
+      "id": 15,
+      "codigo": "BD-1102",
+      "nombre": "Bases de Datos NoSQL y Big Data",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["BD-1101"]
+    },
+    {
+      "id": 16,
+      "codigo": "RED-1101",
+      "nombre": "Redes y Comunicaciones",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 0,
+      "prerrequisitos": ["ARQ-1101"]
+    },
+    {
+      "id": 17,
+      "codigo": "ELE-SW01",
+      "nombre": "Arquitecturas Cloud y DevOps",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "ELECTIVA",
+      "concentracion_codigo": "CONC-SWE",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 50.0,
+      "prerrequisitos": ["SOF-1101"]
+    },
+    {
+      "id": 18,
+      "codigo": "ELE-DS01",
+      "nombre": "Machine Learning Supervisado",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "ELECTIVA",
+      "concentracion_codigo": "CONC-DS",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 50.0,
+      "prerrequisitos": ["EST-1102"]
+    },
+    {
+      "codigo": "170170",
+      "nombre": "Ingeniería de Datos Avanzada",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 60.0,
+      "prerrequisitos": ["BD-1102"]
+    },
+    {
+      "codigo": "170190",
+      "nombre": "Deep Learning e Inteligencia Computacional",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 80.0,
+      "prerrequisitos": ["ELE-DS01"]
+    },
+    {
+      "codigo": "170210",
+      "nombre": "Big Data Analytics en Tiempo Real",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 100.0,
+      "prerrequisitos": ["170170"]
+    },
+    {
+      "codigo": "170212",
+      "nombre": "Proyecto de Tesis I",
+      "creditos": 4.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "creditos_minimos_requeridos": 140.0,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "170220",
+      "nombre": "Proyecto de Tesis II",
+      "creditos": 4.0,
+      "ciclo_sugerido": 10,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "creditos_minimos_requeridos": 160.0,
+      "prerrequisitos": ["170212"]
+    }
+  ]
+}
+

@@ -9,10 +9,40 @@ export interface CurriculumEvaluationPayload {
   resumen_alertas: Record<string, number>;
 }
 
+export interface CareerSummary {
+  id: number;
+  codigo: string;
+  nombre: string;
+  total_creditos_graduacion: number;
+  total_ciclos: number;
+  max_creditos_ciclo_regular: number;
+  concentraciones: Array<{
+    id: number;
+    codigo: string;
+    nombre: string;
+    descripcion?: string;
+  }>;
+}
+
+export interface MallaResponse {
+  carrera: {
+    id: number;
+    codigo: string;
+    nombre: string;
+    total_creditos: number;
+    total_ciclos: number;
+    max_creditos_regular: number;
+  };
+  cursos: Asignatura[];
+}
+
 export const trackerApi = {
   getMetrics: () => request<AcademicMetrics>('/metrics/me'),
   getHistory: () => request<HistorialEntry[]>('/history'),
   getCurriculumEvaluation: () => request<CurriculumEvaluationPayload>('/curriculum/evaluate'),
+  getCareers: () => request<CareerSummary[]>('/curriculum/careers'),
+  getMalla: (carreraId?: number) =>
+    request<MallaResponse>(carreraId ? `/curriculum/malla?carrera_id=${carreraId}` : '/curriculum/malla'),
   updateCourseStatus: (historyId: number, estado: string, calificacion?: number) =>
     request(`/history/${historyId}`, {
       method: 'PUT',
