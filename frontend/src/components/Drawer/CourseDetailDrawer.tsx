@@ -8,16 +8,61 @@ import {
 interface CourseDetailDrawerProps {
   asignatura: Asignatura | null;
   historialEntry?: HistorialEntry;
+  isAuth?: boolean;
+  onOpenAuth?: () => void;
   onClose: () => void;
-  onUpdateState?: (asignaturaId: number, newState: EstadoAsignatura, calificacion?: number) => void;
+  onUpdateState?: (
+    asignaturaId: number,
+    newState: EstadoAsignatura,
+    calificacion?: number | null,
+    numeroMatricula?: number
+  ) => Promise<void>;
 }
 
 export const CourseDetailDrawer: React.FC<CourseDetailDrawerProps> = ({
   asignatura,
   historialEntry,
+  isAuth = false,
+  onOpenAuth,
   onClose,
+  onUpdateState,
 }) => {
   if (!asignatura) return null;
+
+  const [formState, setFormState] = React.useState<EstadoAsignatura>(historialEntry?.estado || 'PENDIENTE');
+  const [formGrade, setFormGrade] = React.useState<string>(historialEntry?.calificacion !== undefined && historialEntry?.calificacion !== null ? String(historialEntry.calificacion) : '15.0');
+  const [formMatricula, setFormMatricula] = React.useState<number>(historialEntry?.numeroMatricula || 1);
+  const [isSaving, setIsSaving] = React.useState(false);
+  const [saveSuccess, setSaveSuccess] = React.useState(false);
+
+  React.useEffect(() => {
+    setFormState(historialEntry?.estado || 'PENDIENTE');
+    setFormGrade(historialEntry?.calificacion !== undefined && historialEntry?.calificacion !== null ? String(historialEntry.calificacion) : '15.0');
+    setFormMatricula(historialEntry?.numeroMatricula || 1);
+    setSaveSuccess(false);
+  }, [asignatura, historialEntry]);
+
+  const handleSave = async () => {
+    if (!onUpdateState) return;
+    setIsSaving(true);
+    setSaveSuccess(false);
+    try {
+      let grade: number | null = null;
+      if (formState === 'APROBADA') {
+        grade = Math.max(11.0, Math.min(20.0, parseFloat(formGrade) || 11.0));
+      } else if (formState === 'DESAPROBADA') {
+        grade = Math.max(0.0, Math.min(10.9, parseFloat(formGrade) || 8.0));
+      }
+
+      await onUpdateState(asignatura.id, formState, grade, formMatricula);
+      setSaveSuccess(true);
+      setTimeout(() => setSaveSuccess(false), 2500);
+    } catch {
+      // Error handled by parent
+    } finally {
+      setIsSaving(false);
+    }
+  };
 
   const isAprobada = historialEntry?.estado === 'APROBADA';
   const isEnCurso = historialEntry?.estado === 'EN_CURSO';
@@ -108,6 +153,171 @@ export const CourseDetailDrawer: React.FC<CourseDetailDrawerProps> = ({
                   )}
                 </span>
               </div>
+            </div>
+
+            {/* Gestión del Historial del Estudiante */}
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+              <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wide mb-2 flex items-center justify-between">
+                <span>Mi Récord Académico</span>
+                {saveSuccess && (
+                  <span className="text-[11px] text-emerald-600 font-semibold flex items-center gap-1 animate-in fade-in">
+                    <CheckCircle2 className="w-3.5 h-3.5" /> ¡Guardado!
+                  </span>
+                )}
+              </h4>
+
+              {isAuth ? (
+                <div className="space-y-3">
+                  <div>
+                    <label className="block text-[11px] font-medium text-slate-600 mb-1">
+                      Estado de la Asignatura
+                    </label>
+                    <div className="grid grid-cols-2 gap-1.5">
+                      <button
+                        type="button"
+                        onClick={() => setFormState('APROBADA')}
+                        className={`py-1.5 px-2 text-xs font-semibold rounded-lg border transition-all ${
+                          formState === 'APROBADA'
+                            ? 'bg-emerald-600 text-white border-emerald-600 shadow-sm'
+                            : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
+                        }`}
+                      >
+                        ✓ Aprobada
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setFormState('EN_CURSO')}
+                        className={`py-1.5 px-2 text-xs font-semibold rounded-lg border transition-all ${
+                          formState === 'EN_CURSO'
+                            ? 'bg-amber-600 text-white border-amber-600 shadow-sm'
+                            : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
+                        }`}
+                      >
+                        ⏳ En Curso
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setFormState('DESAPROBADA')}
+                        className={`py-1.5 px-2 text-xs font-semibold rounded-lg border transition-all ${
+                          formState === 'DESAPROBADA'
+                            ? 'bg-red-600 text-white border-red-600 shadow-sm'
+                            : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
+                        }`}
+                      >
+                        ✕ Desaprobada
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setFormState('PENDIENTE')}
+                        className={`py-1.5 px-2 text-xs font-semibold rounded-lg border transition-all ${
+                          formState === 'PENDIENTE'
+                            ? 'bg-slate-700 text-white border-slate-700 shadow-sm'
+                            : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
+                        }`}
+                      >
+                        ⚪ Pendiente
+                      </button>
+                    </div>
+                  </div>
+
+                  {formState === 'APROBADA' && (
+                    <div>
+                      <label className="block text-[11px] font-medium text-slate-600 mb-1">
+                        Calificación Aprobatoria (11.00 a 20.00)
+                      </label>
+                      <input
+                        type="number"
+                        min="11.0"
+                        max="20.0"
+                        step="0.1"
+                        value={formGrade}
+                        onChange={(e) => setFormGrade(e.target.value)}
+                        className="w-full bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 font-semibold focus:outline-none focus:border-blue-500"
+                        placeholder="ej. 15.5"
+                      />
+                    </div>
+                  )}
+
+                  {formState === 'DESAPROBADA' && (
+                    <div className="grid grid-cols-2 gap-2">
+                      <div>
+                        <label className="block text-[11px] font-medium text-slate-600 mb-1">
+                          Nota (0.0 a 10.9)
+                        </label>
+                        <input
+                          type="number"
+                          min="0.0"
+                          max="10.9"
+                          step="0.1"
+                          value={formGrade}
+                          onChange={(e) => setFormGrade(e.target.value)}
+                          className="w-full bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 font-semibold focus:outline-none focus:border-red-500"
+                          placeholder="ej. 08.0"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[11px] font-medium text-slate-600 mb-1">
+                          Matrícula Cursada
+                        </label>
+                        <select
+                          value={formMatricula}
+                          onChange={(e) => setFormMatricula(Number(e.target.value))}
+                          className="w-full bg-white border border-slate-300 rounded-lg px-2 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-blue-500"
+                        >
+                          <option value="1">1ª Matrícula</option>
+                          <option value="2">2ª Matrícula</option>
+                          <option value="3">3ª Matrícula</option>
+                        </select>
+                      </div>
+                    </div>
+                  )}
+
+                  {formState === 'EN_CURSO' && (
+                    <div>
+                      <label className="block text-[11px] font-medium text-slate-600 mb-1">
+                        Número de Matrícula Actual
+                      </label>
+                      <select
+                        value={formMatricula}
+                        onChange={(e) => setFormMatricula(Number(e.target.value))}
+                        className="w-full bg-white border border-slate-300 rounded-lg px-2 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-blue-500"
+                      >
+                        <option value="1">1ª Matrícula Regular</option>
+                        <option value="2">2ª Matrícula (Reiteración)</option>
+                        <option value="3">3ª Matrícula (Riesgo Crítico)</option>
+                      </select>
+                    </div>
+                  )}
+
+                  <button
+                    type="button"
+                    onClick={handleSave}
+                    disabled={isSaving}
+                    className="w-full py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-lg transition-all shadow-sm active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-1.5 mt-2"
+                  >
+                    {isSaving ? (
+                      <div className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    ) : (
+                      <span>Actualizar en Mi Historial</span>
+                    )}
+                  </button>
+                </div>
+              ) : (
+                <div className="text-center py-2 space-y-2">
+                  <p className="text-xs text-slate-500">
+                    Inicia sesión o regístrate con tu correo UP para registrar notas, materias aprobadas y calcular tus riesgos académicos.
+                  </p>
+                  {onOpenAuth && (
+                    <button
+                      type="button"
+                      onClick={onOpenAuth}
+                      className="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded-lg shadow-sm transition-all"
+                    >
+                      Iniciar Sesión / Registrarme
+                    </button>
+                  )}
+                </div>
+              )}
             </div>
 
             {/* Alerta de Cuello de Botella si aplica */}

@@ -58,10 +58,41 @@ class CurriculumLoader:
                 logger.error(f"Error cargando malla desde {file_path}: {e}")
                 raise e
 
+        # Purgar asignaturas huérfanas (como datos de prueba antiguos) del catálogo global
+        cls.purge_orphan_courses(db)
+
         # Validar consistencia global del DAG de prerrequisitos
         cls.validate_dag_acyclic(db)
 
         return results
+
+    @classmethod
+    def purge_orphan_courses(cls, db: Session) -> int:
+        """
+        Elimina del catálogo global cualquier asignatura que no pertenezca a ninguna malla curricular activa,
+        así como sus dependencias en la tabla de prerrequisitos.
+        """
+        active_asig_subquery = db.query(MallaCurricularModel.asignatura_id).distinct()
+        orphan_asigs = db.query(AsignaturaModel).filter(
+            ~AsignaturaModel.id.in_(active_asig_subquery)
+        ).all()
+
+        if not orphan_asigs:
+            return 0
+
+        orphan_ids = [a.id for a in orphan_asigs]
+        db.query(PrerrequisitoModel).filter(
+            (PrerrequisitoModel.asignatura_id.in_(orphan_ids)) |
+            (PrerrequisitoModel.prerrequisito_asignatura_id.in_(orphan_ids))
+        ).delete(synchronize_session=False)
+
+        deleted_count = db.query(AsignaturaModel).filter(
+            AsignaturaModel.id.in_(orphan_ids)
+        ).delete(synchronize_session=False)
+
+        db.commit()
+        logger.info(f"Se purgaron {deleted_count} asignaturas huérfanas del catálogo.")
+        return deleted_count
 
     @classmethod
     def load_curriculum_from_file(cls, db: Session, file_path: str) -> Dict:
@@ -131,6 +162,7 @@ class CurriculumLoader:
 
         # 3. Upsert Asignaturas del catálogo
         courses_count = 0
+        active_asig_ids: Set[int] = set()
         prereqs_to_create: List[tuple] = []  # (target_code, req_code)
 
         for c_def in curriculum.cursos:
@@ -162,6 +194,8 @@ class CurriculumLoader:
                     asignatura.es_cuello_botella = True
                 db.flush()
 
+            active_asig_ids.add(asignatura.id)
+
             # 4. Vincular a la Malla Curricular
             conc_id = conc_map.get(c_def.concentracion_codigo.upper()) if c_def.concentracion_codigo else None
             malla = db.query(MallaCurricularModel).filter(
@@ -188,6 +222,13 @@ class CurriculumLoader:
             for req_code in c_def.prerrequisitos:
                 if req_code and req_code.strip():
                     prereqs_to_create.append((c_code, req_code.strip().upper()))
+
+        # Sincronización estricta: eliminar de la malla asignaturas que ya no pertenecen a esta carrera
+        if active_asig_ids:
+            db.query(MallaCurricularModel).filter(
+                MallaCurricularModel.carrera_id == carrera.id,
+                ~MallaCurricularModel.asignatura_id.in_(active_asig_ids)
+            ).delete(synchronize_session=False)
 
         db.flush()
 

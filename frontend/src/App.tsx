@@ -1,102 +1,126 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Header } from './components/Header';
 import { MetricsBar } from './components/Metrics/MetricsBar';
 import { RiskAlertsBanner } from './components/Alerts/RiskAlertsBanner';
 import { CurriculumMap } from './components/Map/CurriculumMap';
 import { CourseDetailDrawer } from './components/Drawer/CourseDetailDrawer';
 import { RecommendationModal } from './components/Recommendation/RecommendationModal';
+import { AuthModal } from './components/Auth/AuthModal';
 import { useCurriculumMap } from './hooks/useCurriculumMap';
-import { DEFAULT_MALLA_UP, trackerApi, CareerSummary } from './services/trackerApi';
-import { Asignatura, AcademicMetrics, HistorialEntry, RiskAlert } from './types/curriculum';
+import { trackerApi, CareerSummary, UserProfile } from './services/trackerApi';
+import { Asignatura, AcademicMetrics, HistorialEntry, RiskAlert, EstadoAsignatura } from './types/curriculum';
+
+const GUEST_METRICS: AcademicMetrics = {
+  usuario_id: 0,
+  estudiante: 'Visitante (Sin Iniciar Sesión)',
+  carrera: 'Ingeniería de la Información',
+  total_creditos_carrera: 205,
+  creditos_aprobados: 0,
+  creditos_en_curso: 0,
+  creditos_pendientes: 205,
+  porcentaje_avance: 0,
+  ciclo_referencial: 1,
+  promedio_ponderado: null,
+  cursos_aprobados_count: 0,
+  cursos_en_curso_count: 0,
+  cursos_en_riesgo_count: 0,
+};
 
 export function App() {
-  // Lista de carreras y carrera activa
-  const [careers, setCareers] = useState<CareerSummary[]>([
-    { id: 1, codigo: 'INF', nombre: 'Ingeniería de la Información', total_creditos_graduacion: 205, total_ciclos: 10, max_creditos_ciclo_regular: 22.0, concentraciones: [] },
-    { id: 3, codigo: 'MKT', nombre: 'Marketing', total_creditos_graduacion: 205, total_ciclos: 10, max_creditos_ciclo_regular: 22.0, concentraciones: [] },
-    { id: 4, codigo: 'ADM', nombre: 'Administración', total_creditos_graduacion: 205, total_ciclos: 10, max_creditos_ciclo_regular: 22.0, concentraciones: [] },
-  ]);
+  // Usuario autenticado
+  const [currentUser, setCurrentUser] = useState<UserProfile | null>(null);
+
+  // Modal de autenticación
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [authModalMode, setAuthModalMode] = useState<'login' | 'register'>('login');
+
+  // Catálogo de carreras y carrera seleccionada
+  const [careers, setCareers] = useState<CareerSummary[]>([]);
   const [selectedCareerId, setSelectedCareerId] = useState<number>(1);
-  const [activeMalla, setActiveMalla] = useState<Asignatura[]>(DEFAULT_MALLA_UP);
+  const [activeMalla, setActiveMalla] = useState<Asignatura[]>([]);
 
-  // Estados de datos
-  const [metrics, setMetrics] = useState<AcademicMetrics>({
-    usuario_id: 1,
-    estudiante: 'Carlos Gutiérrez Mendoza',
-    carrera: 'Ingeniería de la Información',
-    total_creditos_carrera: 205,
-    creditos_aprobados: 29.0,
-    creditos_en_curso: 8.0,
-    creditos_pendientes: 176.0,
-    porcentaje_avance: 14.15,
-    ciclo_referencial: 2,
-    promedio_ponderado: 15.65,
-    cursos_aprobados_count: 7,
-    cursos_en_curso_count: 2,
-    cursos_en_riesgo_count: 1,
-  });
+  // Datos académicos reales del usuario
+  const [metrics, setMetrics] = useState<AcademicMetrics>(GUEST_METRICS);
+  const [historial, setHistorial] = useState<HistorialEntry[]>([]);
+  const [alertas, setAlertas] = useState<RiskAlert[]>([]);
 
-  // Historial semilla por defecto
-  const [historial] = useState<HistorialEntry[]>([
-    { id: 1, asignaturaId: 1, periodo: '2023-1', estado: 'APROBADA', calificacion: 15.0, numeroMatricula: 1 },
-    { id: 2, asignaturaId: 2, periodo: '2023-1', estado: 'APROBADA', calificacion: 16.0, numeroMatricula: 1 },
-    { id: 3, asignaturaId: 3, periodo: '2023-1', estado: 'APROBADA', calificacion: 14.0, numeroMatricula: 1 },
-    { id: 4, asignaturaId: 4, periodo: '2023-1', estado: 'APROBADA', calificacion: 14.0, numeroMatricula: 1 },
-    { id: 5, asignaturaId: 5, periodo: '2023-1', estado: 'APROBADA', calificacion: 15.0, numeroMatricula: 1 },
-    { id: 6, asignaturaId: 6, periodo: '2023-2', estado: 'EN_CURSO', calificacion: null, numeroMatricula: 2 }, // 2da matrícula
-    { id: 7, asignaturaId: 7, periodo: '2023-2', estado: 'EN_CURSO', calificacion: null, numeroMatricula: 1 },
-    { id: 8, asignaturaId: 8, periodo: '2023-2', estado: 'APROBADA', calificacion: 16.0, numeroMatricula: 1 },
-    { id: 9, asignaturaId: 9, periodo: '2023-2', estado: 'APROBADA', calificacion: 14.0, numeroMatricula: 1 },
-  ]);
-
-  // Alertas semilla por defecto
-  const [alertas, setAlertas] = useState<RiskAlert[]>([
-    {
-      tipo_alerta: 'REITERACION_MATRICULA',
-      nivel_severidad: 'CRITICA',
-      codigo_asignatura: 'MAT-1102',
-      nombre_asignatura: 'Cálculo Diferencial e Integral',
-      mensaje: 'Asignatura en 2ª matrícula en el periodo 2023-2. Riesgo reglamentario prioritario.',
-      detalles: { numero_matricula: 2 },
-    },
-    {
-      tipo_alerta: 'PRERREQUISITO_NOTA_LIMITE',
-      nivel_severidad: 'ADVERTENCIA',
-      codigo_asignatura: 'MAT-1102',
-      nombre_asignatura: 'Cálculo Diferencial e Integral',
-      mensaje: 'Depende de Álgebra y Geometría (MAT-1101), aprobada en el límite con 11.00/20.',
-      detalles: { nota_obtenida: 11.0 },
-    },
-    {
-      tipo_alerta: 'CUELLO_DE_BOTELLA',
-      nivel_severidad: 'INFORMATIVA',
-      codigo_asignatura: 'PRO-1102',
-      nombre_asignatura: 'Algoritmos y Estructuras de Datos',
-      mensaje: 'Materia crítica cuello de botella que condiciona múltiples asignaturas posteriores.',
-      detalles: { cursos_desbloqueados_count: 5 },
-    },
-  ]);
-
-  // Modal y Drawer states
+  // Modales y Drawer
   const [isRecommendationOpen, setIsRecommendationOpen] = useState(false);
   const [recommendationData, setRecommendationData] = useState<any>(null);
 
-  // Cargar catálogo de carreras al inicio
+  // Cargar datos académicos del estudiante autenticado
+  const loadStudentData = useCallback(async () => {
+    const token = localStorage.getItem('tracker_up_token');
+    if (!token) {
+      setHistorial([]);
+      setAlertas([]);
+      setRecommendationData(null);
+      return;
+    }
+
+    try {
+      const [metricsRes, evalRes, histRes] = await Promise.all([
+        trackerApi.getMetrics().catch(() => null),
+        trackerApi.getCurriculumEvaluation().catch(() => null),
+        trackerApi.getHistory().catch(() => []),
+      ]);
+
+      if (metricsRes) {
+        setMetrics(metricsRes);
+      }
+      if (evalRes) {
+        setAlertas(evalRes.alertas_riesgo || []);
+        setRecommendationData(evalRes.recomendacion_matricula);
+      }
+      if (histRes) {
+        setHistorial(histRes);
+      }
+    } catch (err) {
+      console.error('Error sincronizando datos del estudiante:', err);
+    }
+  }, []);
+
+  // 1. Inicialización en el montaje: catálogo de carreras y verificación de sesión JWT
   useEffect(() => {
-    async function loadCareers() {
+    async function init() {
+      // Cargar lista oficial de carreras
       try {
         const list = await trackerApi.getCareers();
         if (list && list.length > 0) {
           setCareers(list);
         }
-      } catch {
-        // Fallback a lista semilla
+      } catch (e) {
+        console.warn('No se pudo cargar catálogo de carreras:', e);
       }
-    }
-    loadCareers();
-  }, []);
 
-  // Cargar la malla curricular dinámicamente cuando cambia la carrera
+      // Verificar si existe token guardado
+      const token = localStorage.getItem('tracker_up_token');
+      if (token) {
+        try {
+          const profile = await trackerApi.getProfile();
+          if (profile) {
+            setCurrentUser(profile);
+            setSelectedCareerId(profile.carrera_id);
+            await loadStudentData();
+            return;
+          }
+        } catch {
+          // Token inválido o expirado
+          trackerApi.logout();
+          setCurrentUser(null);
+        }
+      }
+
+      // Modo visitante inicial
+      setCurrentUser(null);
+      setHistorial([]);
+      setAlertas([]);
+    }
+
+    init();
+  }, [loadStudentData]);
+
+  // 2. Cargar la malla curricular cuando cambia la carrera seleccionada
   useEffect(() => {
     async function loadMalla() {
       try {
@@ -104,41 +128,79 @@ export function App() {
         if (mallaRes && mallaRes.cursos && mallaRes.cursos.length > 0) {
           setActiveMalla(mallaRes.cursos);
           if (mallaRes.carrera) {
-            setMetrics(prev => ({
+            setMetrics((prev) => ({
               ...prev,
               carrera: mallaRes.carrera.nombre,
               total_creditos_carrera: mallaRes.carrera.total_creditos,
+              creditos_pendientes: currentUser ? prev.creditos_pendientes : mallaRes.carrera.total_creditos,
             }));
           }
         }
-      } catch {
-        // En modo demostración/desconectado conserva la malla actual
+      } catch (err) {
+        console.error('Error al cargar la malla:', err);
       }
     }
     loadMalla();
-  }, [selectedCareerId]);
+  }, [selectedCareerId, currentUser]);
 
-  // Sincronizar datos analíticos del estudiante si la API está disponible
-  useEffect(() => {
-    async function loadUserData() {
-      try {
-        const evalData = await trackerApi.getCurriculumEvaluation();
-        if (evalData) {
-          setAlertas(evalData.alertas_riesgo || []);
-          setRecommendationData(evalData.recomendacion_matricula);
-        }
-        const metricsData = await trackerApi.getMetrics();
-        if (metricsData) {
-          setMetrics(metricsData);
-        }
-      } catch {
-        // Modo demostración
-      }
+  // Manejo de Inicio de Sesión / Registro exitoso
+  const handleAuthSuccess = async (profile: UserProfile) => {
+    setCurrentUser(profile);
+    setSelectedCareerId(profile.carrera_id);
+    await loadStudentData();
+  };
+
+  // Manejo de Cierre de Sesión
+  const handleLogout = () => {
+    trackerApi.logout();
+    setCurrentUser(null);
+    setHistorial([]);
+    setAlertas([]);
+    setRecommendationData(null);
+    const activeCareer = careers.find((c) => c.id === selectedCareerId);
+    setMetrics({
+      ...GUEST_METRICS,
+      carrera: activeCareer?.nombre || 'Ingeniería de la Información',
+      total_creditos_carrera: activeCareer?.total_creditos_graduacion || 205,
+      creditos_pendientes: activeCareer?.total_creditos_graduacion || 205,
+    });
+  };
+
+  // Manejo de actualización de estado de curso desde la Ficha Técnica
+  const handleUpdateCourseState = async (
+    asignaturaId: number,
+    newState: EstadoAsignatura,
+    calificacion?: number | null,
+    numeroMatricula: number = 1
+  ) => {
+    if (!currentUser) {
+      setAuthModalMode('login');
+      setIsAuthModalOpen(true);
+      return;
     }
-    loadUserData();
-  }, []);
 
-  // Hook del Grafo React Flow (recalcula automáticamente al cambiar activeMalla)
+    const existing = historial.find((h) => h.asignaturaId === asignaturaId);
+
+    if (newState === 'PENDIENTE') {
+      if (existing) {
+        await trackerApi.deleteCourseHistory(existing.id);
+      }
+    } else {
+      await trackerApi.saveCourseHistory({
+        asignaturaId,
+        periodo: existing?.periodo || `${new Date().getFullYear()}-1`,
+        estado: newState,
+        calificacion: calificacion ?? null,
+        numeroMatricula: numeroMatricula || 1,
+        existingHistoryId: existing?.id || null,
+      });
+    }
+
+    // Refrescar analítica del estudiante tras el cambio
+    await loadStudentData();
+  };
+
+  // Hook del Grafo React Flow
   const {
     nodes,
     edges,
@@ -151,20 +213,69 @@ export function App() {
     alertas,
   });
 
-  // Calcular el máximo de ciclos presentes en la malla (mínimo 5, máximo 10)
-  const maxCiclos = Math.max(5, ...activeMalla.map(c => c.ciclo || 1));
+  // Determinar máximo de ciclos para las cabeceras de columnas
+  const maxCiclos = Math.max(5, ...activeMalla.map((c) => c.ciclo || 1));
 
   return (
     <div className="flex flex-col h-screen w-screen overflow-hidden bg-slate-950 font-sans">
-      {/* 1. Header institucional con Selector Dinámico de Carrera (RF-02, CA-01) */}
+      {/* 1. Header institucional con Selector de Carrera y Control de Usuarios */}
       <Header
+        currentUser={currentUser}
         studentName={metrics.estudiante}
         careerName={metrics.carrera}
         careers={careers}
         selectedCareerId={selectedCareerId}
         onSelectCareer={setSelectedCareerId}
-        onOpenRecommendation={() => setIsRecommendationOpen(true)}
+        onOpenRecommendation={() => {
+          if (!currentUser) {
+            setAuthModalMode('login');
+            setIsAuthModalOpen(true);
+          } else {
+            setIsRecommendationOpen(true);
+          }
+        }}
+        onOpenLogin={() => {
+          setAuthModalMode('login');
+          setIsAuthModalOpen(true);
+        }}
+        onOpenRegister={() => {
+          setAuthModalMode('register');
+          setIsAuthModalOpen(true);
+        }}
+        onLogout={handleLogout}
       />
+
+      {/* Banner de Bienvenida si es visitante no autenticado */}
+      {!currentUser && (
+        <div className="bg-gradient-to-r from-blue-950/90 via-slate-900 to-indigo-950/90 border-b border-blue-800/30 px-6 py-2 flex items-center justify-between text-xs text-slate-300 select-none">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-blue-400 animate-ping" />
+            <span>
+              <strong className="text-white">Modo Explorador:</strong> Estás visualizando la malla curricular pública. Para registrar tus notas, avance y alertas, inicia sesión o regístrate con tu correo UP.
+            </span>
+          </div>
+          <div className="flex items-center gap-2 shrink-0 ml-4">
+            <button
+              onClick={() => {
+                setAuthModalMode('login');
+                setIsAuthModalOpen(true);
+              }}
+              className="px-2.5 py-1 text-slate-300 hover:text-white font-medium hover:underline text-xs"
+            >
+              Iniciar Sesión
+            </button>
+            <button
+              onClick={() => {
+                setAuthModalMode('register');
+                setIsAuthModalOpen(true);
+              }}
+              className="px-3 py-1 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg shadow-sm transition-all text-xs"
+            >
+              Registrar Mi Cuenta
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* 2. Barra de Métricas y Avance Curricular */}
       <MetricsBar metrics={metrics} />
@@ -181,7 +292,13 @@ export function App() {
       <CourseDetailDrawer
         asignatura={selectedCourse}
         historialEntry={selectedCourseHistory}
+        isAuth={!!currentUser}
+        onOpenAuth={() => {
+          setAuthModalMode('login');
+          setIsAuthModalOpen(true);
+        }}
         onClose={() => setSelectedCourse(null)}
+        onUpdateState={handleUpdateCourseState}
       />
 
       {/* 6. Modal de Sugerencia Determinística de Matrícula */}
@@ -189,6 +306,15 @@ export function App() {
         isOpen={isRecommendationOpen}
         onClose={() => setIsRecommendationOpen(false)}
         recommendationData={recommendationData}
+      />
+
+      {/* 7. Modal de Autenticación y Registro UP */}
+      <AuthModal
+        isOpen={isAuthModalOpen}
+        initialMode={authModalMode}
+        careers={careers}
+        onClose={() => setIsAuthModalOpen(false)}
+        onSuccess={handleAuthSuccess}
       />
     </div>
   );

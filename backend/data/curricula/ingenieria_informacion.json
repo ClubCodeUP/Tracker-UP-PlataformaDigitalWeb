@@ -498,17 +498,18 @@
       ]
     },
     {
-      "codigo": "ELE-INF02",
-      "nombre": "Electivo II",
-      "creditos": 3.0,
+      "codigo": "120048",
+      "nombre": "Procesos Sociales 2",
+      "creditos": 4.0,
       "ciclo_sugerido": 9,
-      "tipo": "ELECTIVA",
-      "prerrequisitos": [],
-      "creditos_minimos_requeridos": 120.0
+      "tipo": "OBLIGATORIA",
+      "prerrequisitos": [
+        "120046"
+      ]
     },
     {
-      "codigo": "ELE-INF03",
-      "nombre": "Electivo III",
+      "codigo": "ELE-INF02",
+      "nombre": "Electivo II",
       "creditos": 3.0,
       "ciclo_sugerido": 9,
       "tipo": "ELECTIVA",
@@ -535,16 +536,6 @@
       "creditos_minimos_requeridos": 135.0
     },
     {
-      "codigo": "120048",
-      "nombre": "Procesos Sociales 2",
-      "creditos": 4.0,
-      "ciclo_sugerido": 10,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120046"
-      ]
-    },
-    {
       "codigo": "120050",
       "nombre": "Ética",
       "creditos": 4.0,
@@ -553,6 +544,15 @@
       "prerrequisitos": [
         "120047"
       ]
+    },
+    {
+      "codigo": "ELE-INF03",
+      "nombre": "Electivo III",
+      "creditos": 3.0,
+      "ciclo_sugerido": 10,
+      "tipo": "ELECTIVA",
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 135.0
     },
     {
       "codigo": "ELE-INF04",
