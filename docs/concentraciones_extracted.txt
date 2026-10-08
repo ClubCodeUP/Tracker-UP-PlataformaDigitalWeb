@@ -1,0 +1,930 @@
+
+=== PAGE 4 ===
+ 
+ 
+ 
+Normas especiales para acceder a 
+las concentraciones de pregrado 
+Nivel de aprobación: 
+Consejo Académico 
+Vigente a partir del: 
+25 de junio de 2026 
+Sesión de fecha: 
+24 de junio de 2026 Pág. 4 de 22 
+ 
+CONCENTRACIONES DE PREGRADO 
+ 
+ 
+Las concentraciones listadas en el presente documento son ofrecidas por las cuatro 
+Facultades, en coordinación con los respectivos departamentos académicos de la UP. 
+Los estudiantes de cualquier carrera pueden optar por llevarlas, de acuerdo con sus 
+preferencias, siempre que cumplan con los requisitos que cada una exige, excepto 
+aquellas concentraciones que explícitamente indiquen en el documento que están 
+dirigidas a los alumnos de determinadas carreras. 
+ 
+1. Agronegocios 
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignatura DA T P C 
+1MN399 From Agroscience to Agribusiness MNI 4 0 4 
+1MN373 Global Food & Agribusiness Strategy MNI 4 0 4 
+1MN398 Food Suply Management MNI 4 0 4 
+ 
+ 
+2. Analítica avanzada  
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignatura DA T P C 
+170508 Agentes Inteligentes ING 2 2 3 
+170509 Ciberseguridad ING 2 2 3 
+170353 Computación de alto desempeño y cloud computing ING 3 2 4 
+170328 Deel Learning ING 3 2 4 
+170448 Fundamentos de procesamiento de lenguaje natural ING 2 2 3 
+170369 Natural language processing ING  3 1 3 
+170494 Optimización para Machine Learning ING 2 2 3 
+170447 Procesamiento digital de imágenes: Principios y 
+aplicaciones ING 2 2 3 
+170375 Series temporales con inteligencia computacional ING  3 1 3 
+170294 Técnicas Avanzadas de Deep Learning ING 4 0 4 
+170368 Técnicas de optimización ING  3 1 3 
+170483 Time Series Forecasting with Artificial Intelligence ING 2 2 3 
+170455 Tópicos avanzados de Analítica I ING 2 2 3 
+170370 Tópicos avanzados de estadística ING  3 1 3 
+170358 Tópicos avanzados en inteligencia artificial ING  3 1 3 
+=== PAGE 5 ===
+ 
+ 
+ 
+Normas especiales para acceder a 
+las concentraciones de pregrado 
+Nivel de aprobación: 
+Consejo Académico 
+Vigente a partir del: 
+25 de junio de 2026 
+Sesión de fecha: 
+24 de junio de 2026 Pág. 5 de 22 
+ 
+ 
+ 
+3. Analítica de negocios 
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignatura DA T P C 
+170107 
+ 
+170065 
+ 
+170449 
+Programación Avanzada para Ciencia de Datos  
+                      o 
+Algoritmos y Estructura de Datos 
+                      o 
+Técnicas Avanzadas para el análisis de datos 
+ING 
+3 
+ 
+3 
+ 
+4 
+2 
+ 
+2 
+ 
+0 
+4 
+ 
+4 
+ 
+4 
+170325 Analítica aplicada a los negocios ING 4 0 4 
+170507 Business Analytics ING 2 2 3 
+170322 Digital Innovation and Transformation ING 1 1 1 
+170448 Fundamentos de procesamiento de lenguaje natural ING 2 2 3 
+170438 Google Analytics y Herramientas Esenciales para la 
+Analítica Digital ING 2 1 2 
+179091 Huawei Academy: Inteligencia Artificial y 
+Transformación Digital ING 2 0 2 
+179092 IA Generativa: Fundamentos y Aplicaciones ING 2 2 3 
+170386 Introducción a la Computación Evolutiva ING  3 1 3 
+170319 Machine learning para la toma de decisiones ING 4 1 4 
+170442 Power BI: Transforma y visualiza datos para 
+decisiones informadas ING 2 2 3 
+170500 RapidMiner: Machine learning aplicado ING 2 2 3 
+170371 Tópicos avanzados de analítica aplicada ING 4 0 4 
+170455 Tópicos avanzados de analítica I ING 2 2 3 
+170373 Tópicos avanzados de analítica II ING 3 1 3 
+170374 Tópicos avanzados de analítica III ING 2 2 3 
+ 
+ 
+ 
+  
+=== PAGE 6 ===
+ 
+ 
+ 
+Normas especiales para acceder a 
+las concentraciones de pregrado 
+Nivel de aprobación: 
+Consejo Académico 
+Vigente a partir del: 
+25 de junio de 2026 
+Sesión de fecha: 
+24 de junio de 2026 Pág. 6 de 22 
+ 
+ 
+4. Asset Management  
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignaturas DA T P C 
+1F0045 Sem. Crisis Financiera Internacional FIN 2 0 2 
+1F0200 Sem. de Alternative Investment FIN 2 0 2 
+1F0319 Sem. de Arquitectura Financiera FIN 2 0 2 
+1F0432 Sem. de Commodities & Volatility FIN 2 0 2 
+1F0272 Sem. de Dark Finance FIN 2 0 2 
+1F0430 Sem. de Investment Tools and Case Studies FIN 2 0 2 
+1F0325 Sem. de Estrategias de Fondeo FIN 2 0 2 
+1F0274 Sem. de Insurance Markets FIN 2 0 2 
+1F0431 Sem. de Real Estate FIN 2 0 2 
+1F0281 Sem. de Value Investing FIN 2 0 2 
+1F0043 Sem. de Wealth Management FIN 2 0 2 
+1F0048 Sem. Sistema de Pensiones FIN 2 0 2 
+ 
+ 
+ 
+5. Cultura y sociedad digital  
+• Esta concentración no aplica para estudiantes de Humanidades 
+Digitales 
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignatura DA T P C 
+120259 Cultura, visualidad y Política  HUM 4 0 4 
+120270 Comunicación digital HUM 4 0 4 
+120264 Ciencia, tecnología y sociedad HUM 4 0 4 
+120241 Ética en la era digital HUM 4 0 4 
+120252 Lectura crítica de la prensa digital y de las redes 
+sociales HUM 4 0 4 
+ 
+ 
+ 
+  
+=== PAGE 7 ===
+ 
+ 
+ 
+Normas especiales para acceder a 
+las concentraciones de pregrado 
+Nivel de aprobación: 
+Consejo Académico 
+Vigente a partir del: 
+25 de junio de 2026 
+Sesión de fecha: 
+24 de junio de 2026 Pág. 7 de 22 
+ 
+ 
+6. Derecho empresarial 
+• Esta concentración no aplica para estudiantes de Derecho 
+• Creditaje mínimo: 15 créditos académicos 
+• Los estudiantes de las carreras de administración y contabilidad solo deberán 
+aprobar 12 créditos. 
+Código Asignaturas DA T P C 
+180122 
+ 
+186108 
+Derecho de la Empresa 
+                 o 
+Economía y Derecho  
+DER 4 0 4 
+180266 Derecho Civil y Comercial DER 2 2 3 
+180276 Instituciones de Derecho Mercantil DER 4 0 4 
+180350 Sociedades DER 3 2 4 
+ 
+ 
+ 
+7. Dirección en Innovación  
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignaturas DA T P C 
+142390 Gestión de procesos de diseño y desarrollo de nuevos 
+productos ADM 2 2 3 
+142379 Sistemas de gestión de la innovación ADM 2 2 3 
+Seis (6) créditos correspondientes a las asignaturas de la siguiente lista:  
+170329 Design thinking and technological innovation ING 3 2 4 
+142391 Ecosistema de innovación ADM 2 2 3 
+140752 Gestión de la cultura empresarial ADM 2 0 2 
+146771 Gestión de la innovación ADM 3 0 3 
+180276 Instituciones de derecho mercantil DER 4 0 4 
+1F0426 Proyectos de inversión FIN 4 0 4 
+141715 Toma de Decisiones – Simulador: Blue Ocean Strategy ADM 2 0 2 
+ 
+ 
+ 
+  
+=== PAGE 8 ===
+ 
+ 
+ 
+Normas especiales para acceder a 
+las concentraciones de pregrado 
+Nivel de aprobación: 
+Consejo Académico 
+Vigente a partir del: 
+25 de junio de 2026 
+Sesión de fecha: 
+24 de junio de 2026 Pág. 8 de 22 
+ 
+ 
+8. Dirección financiera  
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignaturas DA T P C 
+1F0351 Gestión financiera FIN 4 0 4 
+1F0426 Proyectos de inversión FIN 4 0 4 
+Cuatro (4) créditos correspondientes a las asignaturas de la siguiente lista:  
+160208 Curso de preparación: Certificación Internacional 
+ACCA IFRS CON 3 0 3 
+160172 Evaluación financiera de las organizaciones CON 4 2 5 
+160314 Inteligencia Artificial Generativa Aplicada a la 
+Información Financiera CON 3 0 3 
+N Pricing y revenue management MNI 2 0 2 
+ 
+Asignaturas ofrecidas por del Departamento 
+Académico de Finanzas que no podrán corresponder a 
+cursos obligatorios de ninguna carrera que ofrece la 
+Universidad 
+    
+ 
+ 
+ 
+9. Diseño  
+• Esta concentración no aplica para los estudiantes de Ingeniería en 
+Innovación y Diseño 
+• Creditaje mínimo: 12 créditos académicos  
+• Los estudiantes de Humanidades Digitales deberán completar 12 créditos 
+adicionales al curso elegido del Bloque de Experiencia del usuario (obligatorio)  
+Código Asignatura DA T P C 
+170329 Design thinking and technological innovation  ING 3 2 4 
+170432 Diseño gráfico digital ING 3 2 4 
+170441 Historia crítica del diseño ING 3 2 4 
+170481 Materiales y Tecnologías de Envase y Empaque ING 1 0 1 
+170427 Prototipea tu idea con impresión 3D ING 0 2 1 
+170462 Semiótica y teoría del diseño ING 3 2 4 
+170450 Teoría de los sentidos ING 3 2 4 
+ 
+ 
+  
+=== PAGE 9 ===
+ 
+ 
+ 
+Normas especiales para acceder a 
+las concentraciones de pregrado 
+Nivel de aprobación: 
+Consejo Académico 
+Vigente a partir del: 
+25 de junio de 2026 
+Sesión de fecha: 
+24 de junio de 2026 Pág. 9 de 22 
+ 
+ 
+10. Economía conductual y experimental 
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignaturas DA T P C 
+130613 Economía conductual ECO 4 0 4 
+130614 Economía experimental ECO 4 0 4 
+130615 Métodos para el diseño y análisis de intervenciones 
+conductuales ECO 4 0 4 
+ 
+ 
+ 
+11. Experiencia del usuario  
+• Esta concentración no aplica para estudiantes de Ingeniería en 
+Innovación y Diseño. 
+• Creditaje mínimo: 12 créditos académicos 
+• Los estudiantes de Humanidades Digitales deberán completar 12 créditos 
+académicos adicionales al curso elegido del Bloque de Experiencia del usuario 
+(obligatorio) 
+Código Asignatura DA T P C 
+1MN017 Comportamiento del consumidor MNI 4 0 4 
+170446 Experiencia del usuario ING 2 2 4 
+170456 Tecnología y medios de comunicación ING 2 2 4 
+170466 Urbanismo y espacios sociales ING 3 2 4 
+ 
+ 
+=== PAGE 10 ===
+ 
+ 
+ 
+Normas especiales para acceder a 
+las concentraciones de pregrado 
+Nivel de aprobación: 
+Consejo Académico 
+Vigente a partir del: 
+25 de junio de 2026 
+Sesión de fecha: 
+24 de junio de 2026 Pág. 10 de 22 
+ 
+12. Entrepreneurship  
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignaturas DA T P C 
+142399 Ecosistema de emprendimiento ADM 2 2 3 
+Nueve (9) créditos correspondientes a las asignaturas de la siguiente lista: 
+N Aspectos legales para startups globales DER 2 2 3 
+142460 Asset-Light Business Models ADM 3 0 3 
+170329 Design thinking and technological innovation ING 3 2 4 
+1MN391 Digital advertising  MNI 4 0 4 
+142400 Estrategias de crecimiento para startups ADM 2 0 2 
+142211 Gestión de Eventos Deportivos ADM 2 0 2 
+142285 Gestión Estratégica de Organizaciones Deportivas ADM 2 0 2 
+142462 Gestión y Emprendimiento en la Industria Musical ADM 2 0 2 
+170331 Infraestructura tecnológica ING 4 1 4 
+160314 Inteligencia Artificial Generativa Aplicada a la 
+Información Financiera CON 3 0 3 
+142461 Leading The Family Business Sucessfully Across 
+Generations ADM 2 0 2 
+1MN642 Marketing Deportivo MNI 3 0 3 
+N Marketing digital y growth hacking MNI 2 2 3 
+1MN029 Marketing digital y redes sociales MNI 4 0 4 
+141613 Marketplace Management ADM 2 0 2 
+170344 Metodologías ágiles ING 4 0 4 
+142385 Prototipado de empresas sociales ADM 2 2 3 
+1F0018 Sem. de Finanzas para el Emprendimiento FIN 2 0 2 
+1F0202 Sem de Fintech FIN 2 0 2 
+1F0127 Sem. Venture Capital FIN 2 0 2 
+170350 Tecnología y negocios digitales ING 3 2 4 
+142098 Toma de Decisiones en un Servicio de Hotelería  ADM 2 0 2 
+1MN390 Web based project management  MNI 4 0 4 
+ 
+ 
+ 
+  
+=== PAGE 11 ===
+ 
+ 
+ 
+Normas especiales para acceder a 
+las concentraciones de pregrado 
+Nivel de aprobación: 
+Consejo Académico 
+Vigente a partir del: 
+25 de junio de 2026 
+Sesión de fecha: 
+24 de junio de 2026 Pág. 11 de 22 
+ 
+ 
+13. Finanzas  
+ 
+13.1. Solo para estudiantes de Economía  
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignatura DA T P C
+1F0229 Economía Financiera II FIN 3 2 4 
+Ocho (8) créditos correspondientes a asignaturas ofrecidas por del Departamento 
+Académico de Finanzas que no podrán corresponder a cursos obligatorios de 
+ninguna carrera que ofrece la Universidad 
+ 
+ 
+13.2. Para los estudiantes de cualquier carrera de la Facultad de Ciencias 
+Empresariales y la Facultad de Ingeniería  
+• Creditaje mínimo: 12 créditos académicos  
+Código Asignatura DA T P C 
+1F0120 Finanzas Corporativas I FIN 4 2 5 
+Siete (7) créditos correspondientes a asignaturas ofrecidas por del Departamento 
+Académico de Finanzas que no podrán corresponder a cursos obligatorios de 
+ninguna carrera que ofrece la Universidad 
+ 
+ 
+ 
+14. Finanzas Corporativas  
+• Solo para estudiantes de Derecho. 
+• Creditaje mínimo: 17 créditos académicos 
+Código Asignatura DA T P C 
+130224 Estadística I ECO 4 1 4 
+1F0162 Análisis Financiero  FIN 3 2 4 
+1F0112 Fundamentos de Finanzas FIN 3 2 4 
+1F0120 Finanzas Corporativas I  FIN 4 2 5 
+ 
+ 
+  
+=== PAGE 12 ===
+ 
+ 
+ 
+Normas especiales para acceder a 
+las concentraciones de pregrado 
+Nivel de aprobación: 
+Consejo Académico 
+Vigente a partir del: 
+25 de junio de 2026 
+Sesión de fecha: 
+24 de junio de 2026 Pág. 12 de 22 
+ 
+ 
+15. Gestión de los sistemas de información  
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignatura DA T P C 
+170507 Business Analytics ING 2 2 3 
+170509 Ciberseguridad ING 2 2 3 
+170484 Ciberseguridad empresarial ING 2 2 3 
+170436 Ciberseguridad: Prácticas para Gestionar los Riesgos 
+Digitales ING  2 2 3 
+170212 Desarrollo de soluciones empresariales ING 4 1 4 
+170322 Digital Innovation and Transformation ING  1 0 1 
+170425 Excel Avanzado para la Gestión Empresarial ING 2 2 3 
+170331 Infraestructura tecnológica  ING 4 1 4 
+170179 
+ 
+142273 
+Ingeniería de datos 
+              o 
+Sistemas de Información y Análisis de Datos  
+ING 
+ 
+ADM 
+3 
+ 
+2 
+2 
+ 
+2 
+4 
+ 
+3 
+170438 Google Analytics y Herramientas Esenciales para la 
+Analítica Digital ING  1 2 2 
+179091 Huawei Academy: Inteligencia Artificial y Transformación 
+Digital ING 2 0 2 
+179092 IA Generativa: Fundamentos y Aplicaciones ING 2 2 3 
+142313 Macros en Excel para no programadores ADM 3 0 3 
+170367 Nuevas tecnologías y sistemas de información ING 2 2 3 
+170453 Programa tu Chatbot Inteligente Usando Modelos LLM: 
+GPT, LlaMa y BERT ING  1 0 1 
+170388 SAP Hana para la Gestión Integral de Negocios ING 2 2 3 
+170365 Seminario de ingeniería sobre sistemas de información o 
+tecnología ING  2 0 2 
+170506 SQL para la toma de decisiones ING 2 2 3 
+170366 Tópicos avanzados sobre sistemas de información o 
+tecnología ING  3 1 3 
+ 
+ 
+  
+=== PAGE 13 ===
+ 
+ 
+ 
+Normas especiales para acceder a 
+las concentraciones de pregrado 
+Nivel de aprobación: 
+Consejo Académico 
+Vigente a partir del: 
+25 de junio de 2026 
+Sesión de fecha: 
+24 de junio de 2026 Pág. 13 de 22 
+ 
+ 
+16. Gestión de proyectos y cadena de suministros  
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignaturas DA T P C 
+142270 Gestión de Proyectos según PMI ADM 2 2 3 
+Nueve (9) créditos correspondientes a las asignaturas de la siguiente lista:  
+Sección de Proyectos 
+170345 Gestión de Proyectos ING 2 2 3 
+142314 Gestión de Riesgos según el PMI ADM 2 2 3 
+Sección Cadena de Suministros 
+142071 Gestión de E-Commerce y Logística de la última milla ADM 4 0 4 
+142501 Gestión de la Calidad  ADM 2 0 2 
+140465 Gestión de Procesos en Servicios ADM 3 0 3 
+1MN005 Logística Internacional MNI 4 0 4 
+170337 Procesos de Suministros ING 3 2 4 
+1MN345 Procesos de Ventas y el Cliente MNI 3 0 3 
+142060 Sustainable Global Value Chains: A Management 
+Perspective ADM 3 0 3 
+142404 Tecnología y Operación Logística ADM 2 2 3 
+ 
+ 
+ 
+17. Gestión de ventas y área comercial  
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignatura DA T P C 
+1MN661 Negotiation and Deal-Making MNI 3 0 3 
+1MN662 Sales Tech Stack Bootcamp MNI 3 0 3 
+1MN663 Key Account Managament and Enterprise selling MNI 3 0 3 
+1MN664 Sales Leadership Practicum MNI 3 0 3 
+ Asignaturas ofrecidas por del Departamento 
+Académico de Marketing y Negocios Internacionales MNI    
+ 
+  
+=== PAGE 14 ===
+ 
+ 
+ 
+Normas especiales para acceder a 
+las concentraciones de pregrado 
+Nivel de aprobación: 
+Consejo Académico 
+Vigente a partir del: 
+25 de junio de 2026 
+Sesión de fecha: 
+24 de junio de 2026 Pág. 14 de 22 
+ 
+ 
+18. Gestión empresarial sostenible  
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignatura DA T P C 
+142315 Diseño de Negocios Circulares y Desafío Climático ADM 3 0 3 
+160173 Gestión de la Información y Métricas de Sostenibilidad 
+Empresarial CON 4 0 4 
+Cinco (5) créditos correspondientes a las asignaturas de la siguiente lista a excepción de
+los estudiantes de Contabilidad que deberán aprobar nueve (9) créditos correspondientes 
+a las asignaturas de la siguiente lista: 
+ 
+1MN665 Comunicación para el Desarrollo  MNI 2 0 2 
+180093 Derecho Ambiental DER 3 0 3 
+142405 Diseño de Proyectos de Organizaciones sin Fines de 
+Lucro ADM 1 2 2 
+142212 Estilos de Vida y Desarrollo Sostenible ADM 3 0 3 
+1F0324 Finanzas Sostenibles FIN 4 0 4 
+142419 Innovación para la Sostenibilidad ADM 2 1 2 
+140663 Negocios Inclusivos ADM 2 0 2 
+142385 Prototipado de Empresas Sociales ADM 2 2 3 
+142418 Retos del Desarrollo Sostenible para las 
+Organizaciones ADM 2 2 3 
+142416 Sistemas de Dirección y Control Corporativo ADM 3 0 3 
+142102 Sostenibilidad y Alianzas Multiactor ADM 2 0 2 
+142060 Sustainable Global Value Chains: A Management 
+Perspective ADM 3 0 3 
+170346 Tecnología para el desarrollo sostenible ING 3 1 3 
+142144 Toma de Decisiones para los Negocios Sostenibles: 
+Simulador The Triple Connection ADM 2 0 2 
+ 
+  
+=== PAGE 15 ===
+ 
+ 
+ 
+Normas especiales para acceder a 
+las concentraciones de pregrado 
+Nivel de aprobación: 
+Consejo Académico 
+Vigente a partir del: 
+25 de junio de 2026 
+Sesión de fecha: 
+24 de junio de 2026 Pág. 15 de 22 
+ 
+ 
+19. Gestión humana 
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignaturas DA T P C 
+180088 Derecho Laboral I DER 4 0 4 
+180089 Derecho Laboral II DER 3 0 3 
+142063 Estrés y Salud Mental en el Trabajo ADM 2 0 2 
+141748 Formación y Desarrollo del Talento ADM 4 0 4 
+142209 Gestión del Conocimiento ADM 3 0 3 
+142070 Gestión Estratégica de Equipos ADM 3 0 3 
+141510 Gestión por Competencias ADM 3 0 3 
+142010 Habilidades Directivas ADM 4 0 4 
+1MN646 Intercultural Competence ADM 3 0 3 
+141401 Manejo de Conflictos ADM 2 0 2 
+142208 People Analytics ADM 3 0 3 
+145763 Relaciones laborales ADM 2 0 2 
+143764 Retención y Compensación del Talento ADM 4 0 4 
+141765 Selección y Evaluación del Personal ADM 4 0 4 
+ 
+ 
+ 
+20. Global affairs  
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignatura DA T P C 
+1MN653 Diplomacy MNI 3 0 3 
+1MN654 Foreign Policy Analysis and Scenarios MNI 3 0 3 
+1MN651 Global Political Economy MNI 3 0 3 
+1MN652 Global Security MNI 3 0 3 
+1MN655 International Trade negotiations and policies MNI 3 0 3 
+ 
+ 
+  
+=== PAGE 16 ===
+ 
+ 
+ 
+Normas especiales para acceder a 
+las concentraciones de pregrado 
+Nivel de aprobación: 
+Consejo Académico 
+Vigente a partir del: 
+25 de junio de 2026 
+Sesión de fecha: 
+24 de junio de 2026 Pág. 16 de 22 
+ 
+ 
+21. Historia económica y empresarial  
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignaturas DA T P C 
+120269 Historia Económica del Perú HUM 4 0 4 
+Ocho (8) créditos correspondientes a las asignaturas de la siguiente lista 
+120271 Historia Económica Global HUM 4 0 4 
+120279 Historia Empresarial Global HUM 4 0 4 
+120267 Historia Financiera de América Latina HUM 4 0 4 
+ 
+ 
+22. Inteligencia artificial generativa aplicada para los negocios 
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignaturas DA T P C 
+142312 Fundamentos de inteligencia artificial para los 
+negocios ADM 4 0 4 
+Ocho (8) créditos correspondientes a las asignaturas de la siguiente lista:  
+120241 Ética en la era digital HUM 4 0 4 
+142378 Gobernanza y regulación de la IA ADM 2 0 2 
+142463 IA Aplicada a los Negocios ADM 2 0 2 
+142464 IA Generativa para la Innovación y Productividad 
+Empresarial ADM 2 2 3 
+142311 IA Generativa & Prompt Engineering para los Negocios ADM 4 0 4 
+160314 Inteligencia Artificial Generativa Aplicada a la 
+Información Financiera CON 3 0 3 
+170331 Infraestructura tecnológica ING 4 1 4 
+142380 Metodologías y frameworks de implementación de IA 
+en las empresas ADM 4 0 4 
+160197 SAP Hana para la Gestión de la Información CON 3 2 4 
+142381 Seguridad de la información en entornos 
+empresariales ADM 2 0 2 
+ 
+ 
+ 
+  
+=== PAGE 17 ===
+ 
+ 
+ 
+Normas especiales para acceder a 
+las concentraciones de pregrado 
+Nivel de aprobación: 
+Consejo Académico 
+Vigente a partir del: 
+25 de junio de 2026 
+Sesión de fecha: 
+24 de junio de 2026 Pág. 17 de 22 
+ 
+23. International trade and logistics  
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignaturas DA T P C 
+1MN656 Gestión aduanera MNI 3 0 3 
+Nuevo (9) créditos correspondientes a las asignaturas de la siguiente lista 
+1MN033 Análisis y Simulación de Negocios Internacionales MNI 3 0 3 
+1MN658 Gestión de certificaciones y documentación en el 
+comercio internacional MNI 3 0 3 
+1MN657 Gestión de compras internacionales MNI 3 0 3 
+1MN659 Gestión de sistemas de información del comercio 
+internacional e inteligencia comercial MNI 2 2 3 
+1MN015 Gestión del comercio internacional MNI 4 0 4 
+1MN660 Gestión de puertos y operadores logísticos MNI 3 0 3 
+1MN005 Logística internacional MNI 4 0 4 
+ 
+ 
+24. Literatura  
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignatura DA T P C 
+128129 Literatura hispanoamericana HUM 4 0 4 
+120131 Literatura y sociedad en los siglos de oro español e 
+hispanoamericano HUM 4 0 4 
+127039 Literatura universal HUM 4 0 4 
+ 
+ 
+25. Machine Learning  
+• Esta concentración no aplica para los estudiantes de Ingeniería de la 
+Información. 
+• Creditaje mínimo: 15 créditos académicos 
+Código Asignatura DA T P C 
+170423 Principios de Machine Learning ING 4 1 4 
+170338 Machine Learning ING 4 0 4 
+170339 Inteligencia Computacional ING 4 0 4 
+170328 Deep Learning ING 3 2 4 
+ 
+=== PAGE 18 ===
+ 
+ 
+ 
+Normas especiales para acceder a 
+las concentraciones de pregrado 
+Nivel de aprobación: 
+Consejo Académico 
+Vigente a partir del: 
+25 de junio de 2026 
+Sesión de fecha: 
+24 de junio de 2026 Pág. 18 de 22 
+ 
+26. Marketing analytics  
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignaturas DA T P C 
+1MN392 Analítica Digital con Google Analytics y Big Query MNI 4 0 4 
+1MN645 Computational Models in Strategy MNI 3 0 3 
+1MN397 Consumer Science: Understanding, Predicting, and 
+Profiling People  MNI 4 0 4 
+1MN393 Digital Marketing KPIs MNI 4 0 4 
+1MN396 Generación de Experimentos con Google Optimize y 
+Visualización con Data Studio MNI 4 0 4 
+1MN395 Growth Hacking MNI 4 0 4 
+1MN394 Inteligencia Artificial en Marketing MNI 4 0 4 
+170357 Machine Learning y Big Data ING 4 0 4 
+ 
+ 
+ 
+27. Marketing digital 
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignaturas DA T P C 
+1MN391 Digital Advertising  MNI 4 0 4 
+1MN389 Digital branding  MNI 4 0 4 
+1MN393 Digital Marketing KPIs MNI 4 0 4 
+1MN643 Digital Product Design & Metrics MNI 3 0 3 
+1MN045 E-commerce MNI 4 0 4 
+1MN388 Marketing de Contenido MNI 4 0 4 
+1MN029 Marketing Digital y Redes Sociales MNI 4 0 4 
+1MN369 Mobile Marketing MNI 4 0 4 
+1MN390 Web based project management  MNI 4 0 4 
+ 
+ 
+ 
+  
+=== PAGE 19 ===
+ 
+ 
+ 
+Normas especiales para acceder a 
+las concentraciones de pregrado 
+Nivel de aprobación: 
+Consejo Académico 
+Vigente a partir del: 
+25 de junio de 2026 
+Sesión de fecha: 
+24 de junio de 2026 Pág. 19 de 22 
+ 
+ 
+28. Marketing estratégico  
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignaturas DA T P C 
+1MN512 Business Planning Analytics MNI 3 0 3 
+1MN367 Canales de Distribución MNI 4 0 4 
+1MN017 Comportamiento del Consumidor MNI 4 0 4 
+1MN645 Computational Models in Strategy MNI 3 0 3 
+1MN387 Customer Experience Management (CEM) MNI 3 0 3 
+1MN644 Diseño Conductual MNI 3 0 3 
+1MN027 Estrategias de Branding MNI 2 2 3 
+1MN368 Estrategias de Comunicación y Promoción MNI 4 0 4 
+1MN018 Fundamentos de Marketing MNI 4 0 4 
+1MN372 Gestión de Productos MNI 2 2 3 
+1MN049 International Marketing MNI 3 0 4 
+1MN642 Marketing Deportivo MNI 3 0 3 
+1MN029 Marketing Digital y Redes Sociales MNI 4 0 4 
+1MN152 Marketing Sectorial MNI 3 0 3 
+1MN381 Marketing Sostenible MNI 3 0 3 
+1MN382 Métricas y Analítica de Marketing MNI 4 0 4 
+1MN062 Neuromarketing MNI 4 0 4 
+1MN383 Omnicanalidad MNI 3 0 3 
+1MN715 Pensamiento Crítico para Marketing MNI 2 0 2 
+1MN385 Pricing MNI 2 2 3 
+1MN345 Procesos de Ventas y el Cliente MNI 3 0 3 
+1MN246 Simulación de Decisiones de Marketing MNI 3 0 3 
+1MN346 Tiendas Virtuales y Comercio Electrónico MNI 3 0 3 
+ 
+29. Matemáticas 
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignaturas DA T P C 
+130537 Análisis Real y Convexo ECO 4 0 4 
+130146 Métodos Numéricos ECO 4 0 4 
+130540 Procesos Estocásticos ECO 4 0 4 
+=== PAGE 20 ===
+ 
+ 
+ 
+Normas especiales para acceder a 
+las concentraciones de pregrado 
+Nivel de aprobación: 
+Consejo Académico 
+Vigente a partir del: 
+25 de junio de 2026 
+Sesión de fecha: 
+24 de junio de 2026 Pág. 20 de 22 
+ 
+ 
+30. Política Pública  
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignatura DA T P C 
+130289 Análisis Político Relevante para la Perspectiva 
+Económica ECO 2 0 2 
+130593 Control Gubernamental ECO 3 0 3 
+130639 Diseño y Evaluación Social de Proyectos ECO 4 1 4 
+130043 Economía Pública ECO 4 0 4 
+130619 Economía Ambiental Aplicada a las Políticas Públicas 
+en el Perú ECO 4 0 4 
+130369 Herramientas para el Diagnóstico y Análisis de 
+Políticas Sociales ECO 3 0 3 
+130235 Sem. de Economía del Turismo ECO 2 0 2 
+130372 Sem. de Economía y Gestión de Programas Sociales ECO 2 0 2 
+1F0323 Sem. de Finanzas Públicas FIN 2 0 2 
+1F0274 Sem. de Insurance Markets FIN 2 0 2 
+130578 Sem. de la estrategia a la implementación de políticas 
+públicas ECO 2 0 2 
+130422 Sem. Economía y Financiamiento en Salud ECO 2 0 2 
+1F0048 Sem. Sistema de Pensiones FIN 2 0 2 
+136443 Teoría de la Regulación Económica ECO 3 0 3 
+130591 Transformación Digital Gubernamental ECO 3 0 3 
+ 
+ 
+  
+=== PAGE 21 ===
+ 
+ 
+ 
+Normas especiales para acceder a 
+las concentraciones de pregrado 
+Nivel de aprobación: 
+Consejo Académico 
+Vigente a partir del: 
+25 de junio de 2026 
+Sesión de fecha: 
+24 de junio de 2026 Pág. 21 de 22 
+ 
+ 
+31. Procesos y tecnología 
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignatura DA T P C 
+142071 Gestión de E-Commerce y Logística de la última milla ADM 4 0 4 
+170307 Herramientas de Programación con Python ING 3 2 4
+170135 
+ 
+142084
+Ingeniería de procesos 
+               o 
+Gestión de Operaciones en las organizaciones
+ING 
+ 
+ADM
+4 
+ 
+3
+1 
+ 
+2
+4 
+ 
+4
+170495 Instalaciones Deportivas: Tecnología y Eficiencia ING 3 0 3 
+170498 Inteligencia Artificial aplicada a la Cadena de 
+Suministros ING 2 2 3 
+170424 Introduction to Industrial Ecology and Sustainable 
+Systems ING 2 2 3 
+170352 Investigación de operaciones ING 4 1 4 
+1MN005 Logística Internacional MNI 4 0 4 
+170337 Procesos de suministros ING 3 2 4 
+170340 Procesos de producción ING 3 2 4 
+170341 Procesos de distribución ING 3 2 4 
+170387 Procesos de venta ING 3 0 3 
+1MN345 Procesos de Ventas y el Cliente MNI 3 0 3 
+170388 SAP Hanna para la gestión integral de negocios ING 2 2 3 
+142060 Sustainable Global Value Chains: A Management 
+Perspective ADM 3 0 3 
+142404 Tecnología y Operación Logística ADM 2 2 3 
+ 
+ 
+ 
+Oferta UTEC* 
+ 
+Código Asignatura DA C 
+IN5009  Estrategia de Operaciones ING 4 
+IN4007  Lean Six Sigma ING 4 
+IN4304  Planeamiento Avanzado de la Cadena de Suministro ING 4 
+* De acuerdo con la disponibilidad de UTEC 
+ 
+  
+=== PAGE 22 ===
+ 
+ 
+ 
+Normas especiales para acceder a 
+las concentraciones de pregrado 
+Nivel de aprobación: 
+Consejo Académico 
+Vigente a partir del: 
+25 de junio de 2026 
+Sesión de fecha: 
+24 de junio de 2026 Pág. 22 de 22 
+ 
+ 
+32. Proyectos y tecnología   
+• Creditaje mínimo: 12 créditos académicos 
+Código Asignatura DA T P C 
+170329 Design thinking and technological innovation ING 3 2 4 
+170345 Gestión de proyectos ING 4 0 4 
+142270 Gestión de Proyectos según PMI ADM 2 2 3 
+142314 Gestión de Riesgos según el PMI ADM 2 2 3 
+170307 Herramientas de Programación con Python ING 3 2 4 
+170495 Instalaciones Deportivas: Tecnología y Eficiencia ING 3 0 3 
+170424 Introduction to Industrial Ecology and Sustainable 
+Systems ING 2 2 3 
+170344 Metodologías ágiles ING 4 0 4 
+170351 Métodos de investigación cuantitativa ING 3 2 4 
+170426 Project Management Office (PMO) ING 2 0 2 
+170427 Prototipea tu idea con impresión 3D I NG 0 2 1 
+170347 Transformación digital y gestión del cambio ING 3 2 4 
+ 
+ 
+ 
+33. Teoría Económica (15 créditos) 
+Código Asignaturas DA T P C 
+135483 Macroeconomía Avanzada I (M) ECO - - 5 
+131485 Matemáticas Avanzada (M) ECO - - 5 
+133484 Microeconomía Avanzada I (M) ECO - - 5 
+ 
+ 
+ 
+ 

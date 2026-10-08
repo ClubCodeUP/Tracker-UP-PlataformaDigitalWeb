@@ -82,15 +82,20 @@ CREATE TABLE carreras (
     creado_en TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
--- 2.2. Concentraciones Temáticas (RF-02, RF-06)
+-- 2.2. Concentraciones Temáticas (RF-02, RF-06, Normas Oficiales CA 24.06.2026)
 CREATE TABLE concentraciones (
     id SERIAL PRIMARY KEY,
-    carrera_id INT NOT NULL REFERENCES carreras(id) ON DELETE CASCADE,
-    codigo VARCHAR(30) NOT NULL,
+    carrera_id INT REFERENCES carreras(id) ON DELETE SET NULL,
+    codigo VARCHAR(30) NOT NULL UNIQUE,
     nombre VARCHAR(150) NOT NULL,
+    creditos_minimos INT NOT NULL DEFAULT 12,
+    carreras_excluidas TEXT,
+    carreras_exclusivas TEXT,
+    creditos_por_carrera TEXT,
+    notas_reglamento TEXT,
+    cursos_info TEXT,
     descripcion TEXT,
-    creado_en TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT uq_carrera_concentracion UNIQUE (carrera_id, codigo)
+    creado_en TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 -- 2.3. Catálogo Normalizado de Asignaturas
@@ -141,10 +146,12 @@ CREATE TABLE prerrequisitos (
 CREATE TABLE usuarios (
     id SERIAL PRIMARY KEY,
     email email_institucional_up NOT NULL UNIQUE, -- Restricción vía DOMAIN a @up.edu.pe
+    password_hash VARCHAR(255) NOT NULL,
     nombres VARCHAR(100) NOT NULL,
     apellidos VARCHAR(100) NOT NULL,
     carrera_id INT NOT NULL REFERENCES carreras(id) ON DELETE RESTRICT,
     concentracion_id INT REFERENCES concentraciones(id) ON DELETE SET NULL,
+    concentracion_secundaria_id INT REFERENCES concentraciones(id) ON DELETE SET NULL,
     periodo_ingreso VARCHAR(10) NOT NULL CHECK (periodo_ingreso ~* '^[0-9]{4}-(0|1|2)$'),
     activo BOOLEAN NOT NULL DEFAULT TRUE,
     creado_en TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -274,11 +281,11 @@ INSERT INTO carreras (id, codigo, nombre, total_creditos_graduacion, total_ciclo
 (1, 'INF', 'Ingeniería de la Información', 205, 10, 22.0),
 (2, 'EMP', 'Ingeniería Empresarial', 205, 10, 22.0);
 
--- 8.2. Concentraciones Especializadas
-INSERT INTO concentraciones (id, carrera_id, codigo, nombre, descripcion) VALUES
-(1, 1, 'CONC-SWE', 'Ingeniería de Software y Sistemas Cloud', 'Arquitecturas distribuidas, desarrollo web/móvil y DevOps.'),
-(2, 1, 'CONC-DS',  'Ciencia de Datos e Inteligencia Artificial', 'Modelado estadístico, machine learning y procesamiento big data.'),
-(3, 2, 'CONC-BIZ', 'Gestión de Procesos y Transformación Digital', 'Optimización de procesos operativos, gobernanza y estrategia digital.');
+-- 8.2. Concentraciones Especializadas (Oficiales CA 24.06.2026)
+INSERT INTO concentraciones (id, carrera_id, codigo, nombre, creditos_minimos, carreras_excluidas, descripcion) VALUES
+(1, NULL, 'TRANS-DIGITAL', 'Transformación Digital', 12, NULL, 'Enfoque en tecnologías emergentes, modelos de negocio digitales y analítica.'),
+(2, NULL, 'FINANZAS', 'Finanzas', 12, NULL, 'Mercados de capitales, valoración corporativa y gestión de inversiones.'),
+(3, NULL, 'BUSINESS-ANALYTICS', 'Business Analytics', 12, NULL, 'Toma de decisiones orientada a datos, analítica predictiva y business intelligence.');
 
 -- 8.3. Asignaturas Reales (Malla Formativa de Ciclos 1 al 5 + Electivos)
 INSERT INTO asignaturas (id, codigo, nombre, creditos, tipo, es_cuello_botella, descripcion) VALUES
@@ -353,9 +360,9 @@ INSERT INTO prerrequisitos (asignatura_id, prerrequisito_asignatura_id, grupo_lo
 (18, 13, 1, 'AND', 11.00); -- Machine Learning requiere Estadística Inferencial (13)
 
 -- 8.6. Usuarios Semilla (Estudiantes UP con correos institucionales verificados)
-INSERT INTO usuarios (id, email, nombres, apellidos, carrera_id, concentracion_id, periodo_ingreso) VALUES
-(1, '20230145@up.edu.pe', 'Carlos', 'Gutiérrez Mendoza', 1, 1, '2023-1'),
-(2, '20220892@up.edu.pe', 'Andrea', 'Morales Benavides', 1, 2, '2022-1');
+INSERT INTO usuarios (id, email, password_hash, nombres, apellidos, carrera_id, concentracion_id, concentracion_secundaria_id, periodo_ingreso) VALUES
+(1, '20230145@up.edu.pe', '$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW', 'Carlos', 'Gutiérrez Mendoza', 1, 1, NULL, '2023-1'),
+(2, '20220892@up.edu.pe', '$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW', 'Andrea', 'Morales Benavides', 1, 2, NULL, '2022-1');
 
 -- 8.7. Historial Académico Semilla (Escenarios de prueba rigurosos)
 -- Caso Estudiante 1: Carlos Gutiérrez (Avance regular sin contingencias)
