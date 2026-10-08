@@ -408,7 +408,6 @@
       "creditos": 4.0,
       "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
-      "concentracion_codigo": "CONC-SWE",
       "prerrequisitos": [
         "170008"
       ]
@@ -419,7 +418,6 @@
       "creditos": 4.0,
       "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
-      "concentracion_codigo": "CONC-DS",
       "prerrequisitos": [
         "170013"
       ]

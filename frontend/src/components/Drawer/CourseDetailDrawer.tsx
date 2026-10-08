@@ -17,7 +17,8 @@ interface CourseDetailDrawerProps {
     asignaturaId: number,
     newState: EstadoAsignatura,
     calificacion?: number | null,
-    numeroMatricula?: number
+    numeroMatricula?: number,
+    periodo?: string
   ) => Promise<void>;
 }
 
@@ -33,9 +34,13 @@ export const CourseDetailDrawer: React.FC<CourseDetailDrawerProps> = ({
 }) => {
   if (!asignatura) return null;
 
+  const currentYear = new Date().getFullYear();
+  const defaultPeriod = historialEntry?.periodo || (asignatura.ciclo === 0 ? `${currentYear}-0` : `${currentYear}-1`);
+
   const [formState, setFormState] = React.useState<EstadoAsignatura>(historialEntry?.estado || 'PENDIENTE');
   const [formGrade, setFormGrade] = React.useState<string>(historialEntry?.calificacion !== undefined && historialEntry?.calificacion !== null ? String(historialEntry.calificacion) : '15.0');
   const [formMatricula, setFormMatricula] = React.useState<number>(historialEntry?.numeroMatricula || 1);
+  const [formPeriodo, setFormPeriodo] = React.useState<string>(defaultPeriod);
   const [isSaving, setIsSaving] = React.useState(false);
   const [saveSuccess, setSaveSuccess] = React.useState(false);
 
@@ -43,6 +48,7 @@ export const CourseDetailDrawer: React.FC<CourseDetailDrawerProps> = ({
     setFormState(historialEntry?.estado || 'PENDIENTE');
     setFormGrade(historialEntry?.calificacion !== undefined && historialEntry?.calificacion !== null ? String(historialEntry.calificacion) : '15.0');
     setFormMatricula(historialEntry?.numeroMatricula || 1);
+    setFormPeriodo(historialEntry?.periodo || (asignatura.ciclo === 0 ? `${new Date().getFullYear()}-0` : `${new Date().getFullYear()}-1`));
     setSaveSuccess(false);
   }, [asignatura, historialEntry]);
 
@@ -58,7 +64,7 @@ export const CourseDetailDrawer: React.FC<CourseDetailDrawerProps> = ({
         grade = Math.max(0.0, Math.min(10.9, parseFloat(formGrade) || 8.0));
       }
 
-      await onUpdateState(asignatura.id, formState, grade, formMatricula);
+      await onUpdateState(asignatura.id, formState, grade, formMatricula, formPeriodo);
       setSaveSuccess(true);
       setTimeout(() => setSaveSuccess(false), 2500);
     } catch {
@@ -330,6 +336,38 @@ export const CourseDetailDrawer: React.FC<CourseDetailDrawerProps> = ({
                     </div>
                   )}
 
+                  {/* Periodo Académico (Ciclo 0 en Verano, o semestres regulares) */}
+                  <div>
+                    <label className="block text-[11px] font-medium text-slate-600 mb-1">
+                      Periodo Académico Cursado
+                    </label>
+                    <select
+                      value={formPeriodo}
+                      onChange={(e) => setFormPeriodo(e.target.value)}
+                      className="w-full bg-white border border-slate-300 rounded-lg px-2 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-blue-500 font-mono"
+                    >
+                      <option value="2026-1">2026-1 (Semestre I)</option>
+                      <option value="2026-0">2026-0 (Verano / Nivelación)</option>
+                      <option value="2025-2">2025-2 (Semestre II)</option>
+                      <option value="2025-1">2025-1 (Semestre I)</option>
+                      <option value="2025-0">2025-0 (Verano / Nivelación)</option>
+                      <option value="2024-2">2024-2 (Semestre II)</option>
+                      <option value="2024-1">2024-1 (Semestre I)</option>
+                      <option value="2024-0">2024-0 (Verano / Nivelación)</option>
+                      <option value="2023-2">2023-2 (Semestre II)</option>
+                      <option value="2023-1">2023-1 (Semestre I)</option>
+                      <option value="2023-0">2023-0 (Verano / Nivelación)</option>
+                      <option value="2022-2">2022-2</option>
+                      <option value="2022-1">2022-1</option>
+                      <option value="2022-0">2022-0 (Verano / Nivelación)</option>
+                    </select>
+                    {asignatura.ciclo === 0 && (
+                      <p className="text-[10px] text-blue-600 mt-1 font-medium">
+                        ℹ️ Las materias de Ciclo 0 (Nivelaciones) se cursan en el periodo de Verano (ej. 2025-0 / 2026-0) antes del inicio del año académico.
+                      </p>
+                    )}
+                  </div>
+
                   <button
                     type="button"
                     onClick={handleSave}
@@ -377,8 +415,20 @@ export const CourseDetailDrawer: React.FC<CourseDetailDrawerProps> = ({
               </div>
             )}
 
-            {/* Concentración (en caso de electivas) */}
-            {asignatura.concentracionNombre && (
+            {/* Asignatura Electiva / Concentración */}
+            {asignatura.tipo === 'ELECTIVA' ? (
+              <div className="border-t border-slate-100 pt-4">
+                <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
+                  Asignatura Electiva
+                </h4>
+                <div className="bg-purple-50 border border-purple-200 rounded-lg p-3 text-xs text-purple-900">
+                  <p className="font-semibold text-purple-950">Materia de Libre Elección</p>
+                  <p className="text-[11px] text-purple-800 mt-1 leading-relaxed">
+                    La apertura de cursos electivos específicos depende de la programación académica semestral y la disponibilidad de vacantes de la facultad.
+                  </p>
+                </div>
+              </div>
+            ) : asignatura.concentracionNombre ? (
               <div className="border-t border-slate-100 pt-4">
                 <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
                   Concentración Temática
@@ -387,7 +437,7 @@ export const CourseDetailDrawer: React.FC<CourseDetailDrawerProps> = ({
                   {asignatura.concentracionNombre}
                 </div>
               </div>
-            )}
+            ) : null}
 
             {/* Requisito de Bolsa de Créditos */}
             {asignatura.creditosMinimosRequeridos > 0 && (

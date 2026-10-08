@@ -35,17 +35,12 @@ export const AuthModal: React.FC<AuthModalProps> = ({
     setError(null);
   }, [initialMode, isOpen]);
 
-  // Si cambia la carrera en registro, actualizar concentración si aplica
+  // Si cambia la carrera en registro, resetear concentración a null (plan regular por defecto)
   useEffect(() => {
     if (careers.length > 0 && !carreraId) {
       setCarreraId(careers[0].id);
     }
-    const currentCareer = careers.find((c) => c.id === carreraId);
-    if (currentCareer && currentCareer.concentraciones && currentCareer.concentraciones.length > 0) {
-      setConcentracionId(currentCareer.concentraciones[0].id);
-    } else {
-      setConcentracionId(null);
-    }
+    setConcentracionId(null);
   }, [carreraId, careers]);
 
   if (!isOpen) return null;
@@ -233,7 +228,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               {availableConcentraciones.length > 0 && (
                 <div>
                   <label className="block text-[11px] font-semibold text-slate-300 mb-1">
-                    Línea de Concentración / Especialidad
+                    Línea de Concentración / Especialidad (Opcional)
                   </label>
                   <select
                     value={concentracionId || ''}
@@ -241,7 +236,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                     className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 appearance-none cursor-pointer"
                   >
                     <option value="" className="bg-slate-900 text-slate-400">
-                      Sin concentración definida / General
+                      Plan Regular / Sin concentración obligatoria
                     </option>
                     {availableConcentraciones.map((co) => (
                       <option key={co.id} value={co.id} className="bg-slate-900 text-white">
@@ -249,6 +244,9 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                       </option>
                     ))}
                   </select>
+                  <p className="text-[10px] text-slate-500 mt-1">
+                    Las asignaturas electivas dependen de la programación y apertura semestral de cursos por facultad.
+                  </p>
                 </div>
               )}
 
@@ -263,16 +261,20 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                     onChange={(e) => setPeriodoIngreso(e.target.value)}
                     className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-8 py-2 text-xs text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 appearance-none cursor-pointer"
                   >
-                    <option value="2026-1" className="bg-slate-900">2026-1 (Ingresante actual)</option>
-                    <option value="2025-2" className="bg-slate-900">2025-2</option>
-                    <option value="2025-1" className="bg-slate-900">2025-1</option>
-                    <option value="2024-2" className="bg-slate-900">2024-2</option>
-                    <option value="2024-1" className="bg-slate-900">2024-1</option>
-                    <option value="2023-2" className="bg-slate-900">2023-2</option>
-                    <option value="2023-1" className="bg-slate-900">2023-1</option>
+                    <option value="2026-1" className="bg-slate-900">2026-1 (Semestre I)</option>
+                    <option value="2026-0" className="bg-slate-900">2026-0 (Verano / Nivelación)</option>
+                    <option value="2025-2" className="bg-slate-900">2025-2 (Semestre II)</option>
+                    <option value="2025-1" className="bg-slate-900">2025-1 (Semestre I)</option>
+                    <option value="2025-0" className="bg-slate-900">2025-0 (Verano / Nivelación)</option>
+                    <option value="2024-2" className="bg-slate-900">2024-2 (Semestre II)</option>
+                    <option value="2024-1" className="bg-slate-900">2024-1 (Semestre I)</option>
+                    <option value="2024-0" className="bg-slate-900">2024-0 (Verano / Nivelación)</option>
+                    <option value="2023-2" className="bg-slate-900">2023-2 (Semestre II)</option>
+                    <option value="2023-1" className="bg-slate-900">2023-1 (Semestre I)</option>
+                    <option value="2023-0" className="bg-slate-900">2023-0 (Verano / Nivelación)</option>
                     <option value="2022-2" className="bg-slate-900">2022-2</option>
                     <option value="2022-1" className="bg-slate-900">2022-1</option>
-                    <option value="2021-1" className="bg-slate-900">2021-1</option>
+                    <option value="2022-0" className="bg-slate-900">2022-0 (Verano / Nivelación)</option>
                   </select>
                 </div>
               </div>

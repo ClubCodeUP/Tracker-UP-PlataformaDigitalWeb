@@ -171,7 +171,8 @@ export function App() {
     asignaturaId: number,
     newState: EstadoAsignatura,
     calificacion?: number | null,
-    numeroMatricula: number = 1
+    numeroMatricula: number = 1,
+    periodo?: string
   ) => {
     if (!currentUser) {
       setAuthModalMode('login');
@@ -186,9 +187,13 @@ export function App() {
         await trackerApi.deleteCourseHistory(existing.id);
       }
     } else {
+      const course = activeMalla.find((c) => c.id === asignaturaId);
+      const currentYear = new Date().getFullYear();
+      const defaultPeriod = course?.ciclo === 0 ? `${currentYear}-0` : `${currentYear}-1`;
+
       await trackerApi.saveCourseHistory({
         asignaturaId,
-        periodo: existing?.periodo || `${new Date().getFullYear()}-1`,
+        periodo: periodo || existing?.periodo || defaultPeriod,
         estado: newState,
         calificacion: calificacion ?? null,
         numeroMatricula: numeroMatricula || 1,
