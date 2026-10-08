@@ -62,3 +62,7 @@ class CourseHistoryResponse(BaseModel):
     numero_matricula: int
     es_cuello_botella: bool
 
+
+class BulkDeleteRequest(BaseModel):
+    asignatura_ids: list[int] = Field(..., min_length=1, description="Lista de IDs de asignaturas a eliminar")
+

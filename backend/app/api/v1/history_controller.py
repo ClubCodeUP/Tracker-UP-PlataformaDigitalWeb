@@ -8,7 +8,7 @@ from app.core.database import get_db
 from app.api.dependencies import get_current_user
 from app.domain.exceptions import EntityNotFoundException, InvalidAcademicRecordException
 from app.infrastructure.models.user_model import UsuarioModel
-from app.schemas.history import CourseHistoryCreate, CourseHistoryUpdate, CourseHistoryResponse
+from app.schemas.history import CourseHistoryCreate, CourseHistoryUpdate, CourseHistoryResponse, BulkDeleteRequest
 from app.services.history_service import HistoryService
 
 router = APIRouter(prefix="/history", tags=["Historial Académico"])
@@ -89,6 +89,46 @@ def delete_course_history(
         return None
     except EntityNotFoundException as e:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=e.message)
+    except Exception as e:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
+
+
+@router.post(
+    "/bulk",
+    response_model=List[CourseHistoryResponse],
+    summary="Registrar asignaturas en lote",
+    description="Permite registrar o actualizar múltiples asignaturas de una sola vez."
+)
+def add_bulk_history(
+    items: List[CourseHistoryCreate],
+    current_user: UsuarioModel = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    try:
+        return HistoryService.add_bulk_entries(db, current_user.id, items)
+    except EntityNotFoundException as e:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=e.message)
+    except InvalidAcademicRecordException as e:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=e.message)
+    except ValueError as e:
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
+
+
+@router.post(
+    "/bulk-delete",
+    summary="Eliminar asignaturas en lote",
+    description="Permite desmarcar o eliminar múltiples asignaturas del historial en lote."
+)
+def delete_bulk_history(
+    data: BulkDeleteRequest,
+    current_user: UsuarioModel = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    try:
+        count = HistoryService.delete_bulk_entries(db, current_user.id, data.asignatura_ids)
+        return {"deleted_count": count}
     except Exception as e:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
 

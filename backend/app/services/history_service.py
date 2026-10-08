@@ -99,3 +99,20 @@ class HistoryService:
 
         HistoryRepository.delete(db, entry)
 
+    @classmethod
+    def add_bulk_entries(
+        cls, db: Session, user_id: int, items: List[CourseHistoryCreate]
+    ) -> List[CourseHistoryResponse]:
+        """Registra o actualiza un lote de asignaturas en el historial."""
+        results = []
+        for item in items:
+            results.append(cls.add_entry(db, user_id, item))
+        return results
+
+    @classmethod
+    def delete_bulk_entries(
+        cls, db: Session, user_id: int, asignatura_ids: List[int]
+    ) -> int:
+        """Elimina en lote un conjunto de asignaturas del historial."""
+        return HistoryRepository.delete_by_user_and_courses(db, user_id, asignatura_ids)
+

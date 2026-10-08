@@ -186,6 +186,33 @@ def test_history_crud_and_grade_validations(client: TestClient):
     del_res = client.delete(f"/api/v1/history/{entry_id}", headers=headers)
     assert del_res.status_code == 204
 
+    # 7. Operación en lote (Bulk Create / Update)
+    bulk_res = client.post("/api/v1/history/bulk", headers=headers, json=[
+        {
+            "asignatura_id": 1,
+            "periodo_academico": "2023-1",
+            "estado": "APROBADA",
+            "calificacion": 14.0,
+            "numero_matricula": 1
+        },
+        {
+            "asignatura_id": 2,
+            "periodo_academico": "2023-1",
+            "estado": "APROBADA",
+            "calificacion": 16.0,
+            "numero_matricula": 1
+        }
+    ])
+    assert bulk_res.status_code == 200
+    assert len(bulk_res.json()) == 2
+
+    # 8. Operación en lote (Bulk Delete)
+    del_bulk_res = client.post("/api/v1/history/bulk-delete", headers=headers, json={
+        "asignatura_ids": [1, 2]
+    })
+    assert del_bulk_res.status_code == 200
+    assert del_bulk_res.json()["deleted_count"] == 2
+
 
 # -----------------------------------------------------------------------------
 # 4. PRUEBAS DEL SERVICIO DE CÁLCULO DINÁMICO DE MÉTRICAS (RF-04, RF-08)

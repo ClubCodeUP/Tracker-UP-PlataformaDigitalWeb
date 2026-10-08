@@ -164,24 +164,22 @@ class CurriculumLoader:
         curriculum = CurriculumFileSchema.model_validate(data)
         carrera_def = curriculum.carrera
 
-        # 1. Upsert Carrera
-        carrera = None
-        if carrera_def.id:
+        # 1. Upsert Carrera (priorizar código único)
+        carrera = db.query(CarreraModel).filter(CarreraModel.codigo == carrera_def.codigo.upper()).first()
+        if not carrera and carrera_def.id:
             carrera = db.query(CarreraModel).filter(CarreraModel.id == carrera_def.id).first()
-        if not carrera:
-            carrera = db.query(CarreraModel).filter(CarreraModel.codigo == carrera_def.codigo.upper()).first()
 
         if not carrera:
-            kwargs = {
-                "codigo": carrera_def.codigo.upper(),
-                "nombre": carrera_def.nombre,
-                "total_creditos_graduacion": carrera_def.total_creditos_graduacion,
-                "total_ciclos": carrera_def.total_ciclos,
-                "max_creditos_ciclo_regular": carrera_def.max_creditos_ciclo_regular
-            }
-            if carrera_def.id:
-                kwargs["id"] = carrera_def.id
-            carrera = CarreraModel(**kwargs)
+            if db.bind.dialect.name == "postgresql":
+                from sqlalchemy import text
+                db.execute(text("SELECT setval('carreras_id_seq', (SELECT COALESCE(MAX(id), 1) FROM carreras));"))
+            carrera = CarreraModel(
+                codigo=carrera_def.codigo.upper(),
+                nombre=carrera_def.nombre,
+                total_creditos_graduacion=carrera_def.total_creditos_graduacion,
+                total_ciclos=carrera_def.total_ciclos,
+                max_creditos_ciclo_regular=carrera_def.max_creditos_ciclo_regular
+            )
             db.add(carrera)
             db.flush()
         else:
@@ -194,13 +192,11 @@ class CurriculumLoader:
         # 2. Upsert Concentraciones
         conc_map: Dict[str, int] = {}
         for conc_def in curriculum.concentraciones:
-            conc = None
-            if conc_def.id:
+            conc = db.query(ConcentracionModel).filter(
+                ConcentracionModel.codigo == conc_def.codigo.upper()
+            ).first()
+            if not conc and conc_def.id:
                 conc = db.query(ConcentracionModel).filter(ConcentracionModel.id == conc_def.id).first()
-            if not conc:
-                conc = db.query(ConcentracionModel).filter(
-                    ConcentracionModel.codigo == conc_def.codigo.upper()
-                ).first()
 
             if not conc:
                 conc_kwargs = {
@@ -209,7 +205,7 @@ class CurriculumLoader:
                     "nombre": conc_def.nombre,
                     "descripcion": conc_def.descripcion
                 }
-                if conc_def.id:
+                if conc_def.id and not db.query(ConcentracionModel).filter(ConcentracionModel.id == conc_def.id).first():
                     conc_kwargs["id"] = conc_def.id
                 conc = ConcentracionModel(**conc_kwargs)
                 db.add(conc)
@@ -220,18 +216,18 @@ class CurriculumLoader:
                 db.flush()
             conc_map[conc_def.codigo.upper()] = conc.id
 
-        # 3. Upsert Asignaturas del catálogo
+        # 3. Precargar Asignaturas del catálogo en memoria para evitar cientos de llamadas de red
+        all_db_asigs = db.query(AsignaturaModel).all()
+        asig_by_code: Dict[str, AsignaturaModel] = {a.codigo: a for a in all_db_asigs}
+
         courses_count = 0
         active_asig_ids: Set[int] = set()
         prereqs_to_create: List[tuple] = []  # (target_code, req_code)
 
+        new_asigs = []
         for c_def in curriculum.cursos:
             c_code = c_def.codigo.strip().upper()
-            asignatura = None
-            if c_def.id:
-                asignatura = db.query(AsignaturaModel).filter(AsignaturaModel.id == c_def.id).first()
-            if not asignatura:
-                asignatura = db.query(AsignaturaModel).filter(AsignaturaModel.codigo == c_code).first()
+            asignatura = asig_by_code.get(c_code)
 
             if not asignatura:
                 asig_kwargs = {
@@ -241,28 +237,46 @@ class CurriculumLoader:
                     "tipo": c_def.tipo.upper(),
                     "es_cuello_botella": c_def.es_cuello_botella
                 }
-                if c_def.id:
-                    asig_kwargs["id"] = c_def.id
                 asignatura = AsignaturaModel(**asig_kwargs)
                 db.add(asignatura)
-                db.flush()
+                asig_by_code[c_code] = asignatura
+                new_asigs.append(asignatura)
             else:
                 asignatura.nombre = c_def.nombre.strip()
                 asignatura.creditos = c_def.creditos
                 asignatura.tipo = c_def.tipo.upper()
                 if c_def.es_cuello_botella:
                     asignatura.es_cuello_botella = True
-                db.flush()
 
+        if new_asigs:
+            if db.bind.dialect.name == "postgresql":
+                from sqlalchemy import text
+                db.execute(text("SELECT setval('asignaturas_id_seq', (SELECT COALESCE(MAX(id), 1) FROM asignaturas));"))
+            db.flush()
+
+        for c_def in curriculum.cursos:
+            c_code = c_def.codigo.strip().upper()
+            asignatura = asig_by_code[c_code]
             active_asig_ids.add(asignatura.id)
 
             # 4. Vincular a la Malla Curricular
             conc_id = conc_map.get(c_def.concentracion_codigo.upper()) if c_def.concentracion_codigo else None
-            malla = db.query(MallaCurricularModel).filter(
-                MallaCurricularModel.carrera_id == carrera.id,
-                MallaCurricularModel.asignatura_id == asignatura.id
-            ).first()
 
+            for req_code in c_def.prerrequisitos:
+                if req_code and req_code.strip():
+                    prereqs_to_create.append((c_code, req_code.strip().upper()))
+
+        # Precargar malla existente de la carrera
+        existing_mallas = {
+            m.asignatura_id: m for m in db.query(MallaCurricularModel).filter(MallaCurricularModel.carrera_id == carrera.id).all()
+        }
+
+        for c_def in curriculum.cursos:
+            c_code = c_def.codigo.strip().upper()
+            asignatura = asig_by_code[c_code]
+            conc_id = conc_map.get(c_def.concentracion_codigo.upper()) if c_def.concentracion_codigo else None
+
+            malla = existing_mallas.get(asignatura.id)
             if not malla:
                 malla = MallaCurricularModel(
                     carrera_id=carrera.id,
@@ -279,10 +293,6 @@ class CurriculumLoader:
 
             courses_count += 1
 
-            for req_code in c_def.prerrequisitos:
-                if req_code and req_code.strip():
-                    prereqs_to_create.append((c_code, req_code.strip().upper()))
-
         # Sincronización estricta: eliminar de la malla asignaturas que ya no pertenecen a esta carrera
         if active_asig_ids:
             db.query(MallaCurricularModel).filter(
@@ -290,21 +300,24 @@ class CurriculumLoader:
                 ~MallaCurricularModel.asignatura_id.in_(active_asig_ids)
             ).delete(synchronize_session=False)
 
+        if db.bind.dialect.name == "postgresql":
+            from sqlalchemy import text
+            db.execute(text("SELECT setval('malla_curricular_id_seq', (SELECT COALESCE(MAX(id), 1) FROM malla_curricular));"))
         db.flush()
 
-        # 5. Conectar Prerrequisitos
+        # 5. Conectar Prerrequisitos de forma eficiente
+        existing_prereqs = {
+            (p.asignatura_id, p.prerrequisito_asignatura_id)
+            for p in db.query(PrerrequisitoModel.asignatura_id, PrerrequisitoModel.prerrequisito_asignatura_id).all()
+        }
+
         prereqs_count = 0
         for target_code, req_code in prereqs_to_create:
-            asig_target = db.query(AsignaturaModel).filter(AsignaturaModel.codigo == target_code).first()
-            asig_req = db.query(AsignaturaModel).filter(AsignaturaModel.codigo == req_code).first()
+            asig_target = asig_by_code.get(target_code)
+            asig_req = asig_by_code.get(req_code)
 
             if asig_target and asig_req and asig_target.id != asig_req.id:
-                existing_prereq = db.query(PrerrequisitoModel).filter(
-                    PrerrequisitoModel.asignatura_id == asig_target.id,
-                    PrerrequisitoModel.prerrequisito_asignatura_id == asig_req.id
-                ).first()
-
-                if not existing_prereq:
+                if (asig_target.id, asig_req.id) not in existing_prereqs:
                     new_prereq = PrerrequisitoModel(
                         asignatura_id=asig_target.id,
                         prerrequisito_asignatura_id=asig_req.id,
@@ -313,6 +326,7 @@ class CurriculumLoader:
                         nota_minima_aprobatoria=11.00
                     )
                     db.add(new_prereq)
+                    existing_prereqs.add((asig_target.id, asig_req.id))
                     prereqs_count += 1
 
         db.commit()

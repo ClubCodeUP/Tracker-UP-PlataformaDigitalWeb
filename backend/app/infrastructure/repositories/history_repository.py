@@ -59,3 +59,12 @@ class HistoryRepository:
         db.delete(entry)
         db.commit()
 
+    @staticmethod
+    def delete_by_user_and_courses(db: Session, user_id: int, asignatura_ids: List[int]) -> int:
+        deleted = db.query(HistorialAcademicoModel).filter(
+            HistorialAcademicoModel.usuario_id == user_id,
+            HistorialAcademicoModel.asignatura_id.in_(asignatura_ids)
+        ).delete(synchronize_session=False)
+        db.commit()
+        return deleted
+

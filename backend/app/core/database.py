@@ -7,10 +7,12 @@ from sqlalchemy.orm import sessionmaker, DeclarativeBase, Session
 from app.core.config import settings
 
 # Normalizar URL de conexión para compatibilidad con PostgreSQL / Supabase
-# (Supabase/Render suelen proveer URLs iniciando con "postgres://", pero SQLAlchemy 2.0 requiere "postgresql://")
 raw_url = settings.DATABASE_URL
 if raw_url.startswith("postgres://"):
     raw_url = raw_url.replace("postgres://", "postgresql://", 1)
+
+# Eliminar parámetros específicos de Prisma que no son válidos en psycopg2
+raw_url = raw_url.replace("?pgbouncer=true", "").replace("&pgbouncer=true", "")
 
 # Configuración específica por motor (SQLite vs PostgreSQL)
 engine_kwargs = {"echo": False}
