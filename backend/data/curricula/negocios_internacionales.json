@@ -8,18 +8,7 @@
     "total_ciclos": 10,
     "max_creditos_ciclo_regular": 24.0
   },
-  "concentraciones": [
-    {
-      "codigo": "CONC-GLOBALLOG",
-      "nombre": "Cadena de Suministro Global y Operaciones Internacionales",
-      "descripcion": "Logística portuaria, aduanas, distribución internacional y comercio marítimo."
-    },
-    {
-      "codigo": "CONC-INTMKT",
-      "nombre": "Estrategias de Internacionalización y Expansión Global",
-      "descripcion": "Penetración de mercados, negociaciones internacionales y global branding."
-    }
-  ],
+  "concentraciones": [],
   "cursos": [
     {
       "codigo": "134654",

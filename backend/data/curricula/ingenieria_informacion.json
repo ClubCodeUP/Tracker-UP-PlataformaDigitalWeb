@@ -9,20 +9,7 @@
     "total_ciclos": 10,
     "max_creditos_ciclo_regular": 22.0
   },
-  "concentraciones": [
-    {
-      "id": 1,
-      "codigo": "CONC-SWE",
-      "nombre": "Ingeniería de Software y Sistemas Cloud",
-      "descripcion": "Arquitecturas distribuidas, desarrollo web/móvil y DevOps."
-    },
-    {
-      "id": 2,
-      "codigo": "CONC-DS",
-      "nombre": "Ciencia de Datos e Inteligencia Artificial",
-      "descripcion": "Modelado estadístico, machine learning y procesamiento big data."
-    }
-  ],
+  "concentraciones": [],
   "cursos": [
     {
       "codigo": "134654",

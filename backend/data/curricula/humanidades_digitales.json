@@ -8,18 +8,7 @@
     "total_ciclos": 10,
     "max_creditos_ciclo_regular": 22.0
   },
-  "concentraciones": [
-    {
-      "codigo": "CONC-CULTDATA",
-      "nombre": "Patrimonio Cultural Digital y Archivos",
-      "descripcion": "Digitalización de archivos, curaduría digital, visualización del patrimonio cultural."
-    },
-    {
-      "codigo": "CONC-COMUX",
-      "nombre": "Comunicación Digital, Medios y UX",
-      "descripcion": "Diseño de experiencia de usuario, análisis de redes sociales y medios digitales interactivos."
-    }
-  ],
+  "concentraciones": [],
   "cursos": [
     {
       "codigo": "134654",

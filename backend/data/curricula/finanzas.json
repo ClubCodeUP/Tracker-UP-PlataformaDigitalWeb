@@ -8,18 +8,7 @@
     "total_ciclos": 10,
     "max_creditos_ciclo_regular": 22.0
   },
-  "concentraciones": [
-    {
-      "codigo": "CONC-RISK",
-      "nombre": "Gestión de Riesgos y Mercado de Capitales",
-      "descripcion": "Riesgo de crédito, mercado y liquidez, derivados e inversión cuantitativa."
-    },
-    {
-      "codigo": "CONC-CORPFIN",
-      "nombre": "Banca de Inversión y Finanzas Corporativas",
-      "descripcion": "M&A, estructuración de deuda, valorización de empresas y venture capital."
-    }
-  ],
+  "concentraciones": [],
   "cursos": [
     {
       "codigo": "134654",

@@ -38,8 +38,16 @@ class AuthService:
         # 4. Validar concentración si fue provista
         if request.concentracion_id:
             concentracion = UserRepository.get_concentracion_by_id(db, request.concentracion_id)
-            if not concentracion or concentracion.carrera_id != request.carrera_id:
-                raise EntityNotFoundException("Concentración válida para la carrera", request.concentracion_id)
+            if not concentracion:
+                raise EntityNotFoundException("Concentración válida", request.concentracion_id)
+            if concentracion.carreras_excluidas:
+                import json
+                try:
+                    excluidas = json.loads(concentracion.carreras_excluidas)
+                    if carrera.codigo.upper() in excluidas:
+                        raise EntityNotFoundException("Concentración no aplicable para esta carrera", request.concentracion_id)
+                except Exception:
+                    pass
 
         # 5. Crear usuario
         user = UsuarioModel(

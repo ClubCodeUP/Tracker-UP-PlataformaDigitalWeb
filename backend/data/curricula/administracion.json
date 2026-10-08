@@ -8,18 +8,7 @@
     "total_ciclos": 10,
     "max_creditos_ciclo_regular": 22.0
   },
-  "concentraciones": [
-    {
-      "codigo": "CONC-STRAT",
-      "nombre": "Dirección Estratégica y Sostenibilidad",
-      "descripcion": "Gestión estratégica, modelos organizacionales y sostenibilidad corporativa."
-    },
-    {
-      "codigo": "CONC-SUPPLY",
-      "nombre": "Supply Chain y Operaciones Globales",
-      "descripcion": "Logística internacional, compras y optimización de cadenas de suministro."
-    }
-  ],
+  "concentraciones": [],
   "cursos": [
     {
       "codigo": "134654",
@@ -59,7 +48,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["134654"]
+      "prerrequisitos": [
+        "134654"
+      ]
     },
     {
       "codigo": "132641",
@@ -69,7 +60,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": false,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["134654"]
+      "prerrequisitos": [
+        "134654"
+      ]
     },
     {
       "codigo": "120001",
@@ -79,7 +72,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": false,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["120000"]
+      "prerrequisitos": [
+        "120000"
+      ]
     },
     {
       "codigo": "141038",
@@ -89,7 +84,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["170131"]
+      "prerrequisitos": [
+        "170131"
+      ]
     },
     {
       "codigo": "160092",
@@ -99,7 +96,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["141038"]
+      "prerrequisitos": [
+        "141038"
+      ]
     },
     {
       "codigo": "120006",
@@ -109,7 +108,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": false,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["120001"]
+      "prerrequisitos": [
+        "120001"
+      ]
     },
     {
       "codigo": "138652",
@@ -119,7 +120,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["138649"]
+      "prerrequisitos": [
+        "138649"
+      ]
     },
     {
       "codigo": "142081",
@@ -129,7 +132,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["141038"]
+      "prerrequisitos": [
+        "141038"
+      ]
     },
     {
       "codigo": "SELLO-CS01",
@@ -149,7 +154,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["160092"]
+      "prerrequisitos": [
+        "160092"
+      ]
     },
     {
       "codigo": "130224",
@@ -159,7 +166,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["138652"]
+      "prerrequisitos": [
+        "138652"
+      ]
     },
     {
       "codigo": "130642",
@@ -169,7 +178,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": false,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["132641"]
+      "prerrequisitos": [
+        "132641"
+      ]
     },
     {
       "codigo": "142277",
@@ -179,7 +190,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["138652"]
+      "prerrequisitos": [
+        "138652"
+      ]
     },
     {
       "codigo": "1MN019",
@@ -189,7 +202,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["141038"]
+      "prerrequisitos": [
+        "141038"
+      ]
     },
     {
       "codigo": "150140",
@@ -199,7 +214,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["120006"]
+      "prerrequisitos": [
+        "120006"
+      ]
     },
     {
       "codigo": "120133",
@@ -209,7 +226,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": false,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["120006"]
+      "prerrequisitos": [
+        "120006"
+      ]
     },
     {
       "codigo": "142096",
@@ -219,7 +238,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["130224"]
+      "prerrequisitos": [
+        "130224"
+      ]
     },
     {
       "codigo": "141036",
@@ -229,7 +250,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": false,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["142277"]
+      "prerrequisitos": [
+        "142277"
+      ]
     },
     {
       "codigo": "142086",
@@ -249,7 +272,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["160171"]
+      "prerrequisitos": [
+        "160171"
+      ]
     },
     {
       "codigo": "1MN020",
@@ -259,7 +284,10 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": false,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["1MN019", "130224"]
+      "prerrequisitos": [
+        "1MN019",
+        "130224"
+      ]
     },
     {
       "codigo": "160175",
@@ -269,7 +297,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["160171"]
+      "prerrequisitos": [
+        "160171"
+      ]
     },
     {
       "codigo": "142087",
@@ -279,7 +309,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": false,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["142086"]
+      "prerrequisitos": [
+        "142086"
+      ]
     },
     {
       "codigo": "142273",
@@ -289,7 +321,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": false,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["142277"]
+      "prerrequisitos": [
+        "142277"
+      ]
     },
     {
       "codigo": "1F0120",
@@ -299,7 +333,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["1F0112"]
+      "prerrequisitos": [
+        "1F0112"
+      ]
     },
     {
       "codigo": "142092",
@@ -309,7 +345,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": false,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["142081"]
+      "prerrequisitos": [
+        "142081"
+      ]
     },
     {
       "codigo": "142095",
@@ -319,7 +357,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": false,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["142081"]
+      "prerrequisitos": [
+        "142081"
+      ]
     },
     {
       "codigo": "142091",
@@ -329,7 +369,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": false,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["142273"]
+      "prerrequisitos": [
+        "142273"
+      ]
     },
     {
       "codigo": "142094",
@@ -339,7 +381,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["142096"]
+      "prerrequisitos": [
+        "142096"
+      ]
     },
     {
       "codigo": "142280",
@@ -349,7 +393,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": false,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["142091"]
+      "prerrequisitos": [
+        "142091"
+      ]
     },
     {
       "codigo": "142097",
@@ -359,7 +405,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": false,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["160175"]
+      "prerrequisitos": [
+        "160175"
+      ]
     },
     {
       "codigo": "142098",
@@ -369,7 +417,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["142094"]
+      "prerrequisitos": [
+        "142094"
+      ]
     },
     {
       "codigo": "1F0125",
@@ -379,7 +429,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": false,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["1F0120"]
+      "prerrequisitos": [
+        "1F0120"
+      ]
     },
     {
       "codigo": "SELLO-DP01",
@@ -399,7 +451,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": false,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["142098"]
+      "prerrequisitos": [
+        "142098"
+      ]
     },
     {
       "codigo": "142101",
@@ -409,7 +463,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": false,
       "creditos_minimos_requeridos": 0,
-      "prerrequisitos": ["142081"]
+      "prerrequisitos": [
+        "142081"
+      ]
     },
     {
       "codigo": "142102",
@@ -439,7 +495,10 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
       "creditos_minimos_requeridos": 120.0,
-      "prerrequisitos": ["142081", "1F0120"]
+      "prerrequisitos": [
+        "142081",
+        "1F0120"
+      ]
     },
     {
       "codigo": "142111",
@@ -449,7 +508,9 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
       "creditos_minimos_requeridos": 120.0,
-      "prerrequisitos": ["150140"]
+      "prerrequisitos": [
+        "150140"
+      ]
     },
     {
       "codigo": "SELLO-PSOC",
@@ -469,7 +530,10 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": false,
       "creditos_minimos_requeridos": 160.0,
-      "prerrequisitos": ["142110", "142111"]
+      "prerrequisitos": [
+        "142110",
+        "142111"
+      ]
     },
     {
       "codigo": "ELE-ADM01",
@@ -477,10 +541,11 @@
       "creditos": 4.0,
       "ciclo_sugerido": 10,
       "tipo": "ELECTIVA",
-      "concentracion_codigo": "CONC-STRAT",
       "es_cuello_botella": false,
       "creditos_minimos_requeridos": 140.0,
-      "prerrequisitos": ["142110"]
+      "prerrequisitos": [
+        "142110"
+      ]
     },
     {
       "codigo": "ELE-ADM02",
@@ -488,11 +553,11 @@
       "creditos": 4.0,
       "ciclo_sugerido": 10,
       "tipo": "ELECTIVA",
-      "concentracion_codigo": "CONC-SUPPLY",
       "es_cuello_botella": false,
       "creditos_minimos_requeridos": 140.0,
-      "prerrequisitos": ["142098"]
+      "prerrequisitos": [
+        "142098"
+      ]
     }
   ]
 }
-

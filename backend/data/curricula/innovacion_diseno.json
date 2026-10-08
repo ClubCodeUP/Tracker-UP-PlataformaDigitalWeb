@@ -8,18 +8,7 @@
     "total_ciclos": 10,
     "max_creditos_ciclo_regular": 22.0
   },
-  "concentraciones": [
-    {
-      "codigo": "CONC-UXUI",
-      "nombre": "Diseño de Experiencia de Usuario y Productos Digitales",
-      "descripcion": "UX Research, diseño interactivo y prototipado avanzado de productos digitales."
-    },
-    {
-      "codigo": "CONC-INDDES",
-      "nombre": "Innovación de Materiales y Diseño Industrial",
-      "descripcion": "Diseño de productos físicos sostenibles, fabricación digital e ingeniería de materiales."
-    }
-  ],
+  "concentraciones": [],
   "cursos": [
     {
       "codigo": "134654",

@@ -265,3 +265,78 @@ def test_full_curriculum_evaluation_endpoint(client: TestClient):
     assert "resumen_alertas" in data
     assert data["recomendacion_matricula"]["creditos_totales_sugeridos"] > 0
 
+
+def test_list_33_official_concentrations(client: TestClient):
+    """Verifica que el catálogo oficial exponga exactamente las 33 concentraciones del CA 24.06.2026."""
+    # Listar concentraciones evaluando la carrera INF (id=1)
+    res = client.get("/api/v1/curriculum/concentrations?carrera_id=1")
+    assert res.status_code == 200
+    concs = res.json()
+    assert len(concs) == 33
+
+    # Verificar que Machine Learning (CONC-25) esté excluida para INF
+    ml_conc = next(c for c in concs if c["codigo"] == "CONC-25")
+    assert ml_conc["aplica_a_carrera_estudiante"] is False
+    assert "No aplica para estudiantes de Ingeniería de la Información" in ml_conc["motivo_exclusion"]
+
+    # Verificar que Analítica avanzada (CONC-02) sea elegible
+    aa_conc = next(c for c in concs if c["codigo"] == "CONC-02")
+    assert aa_conc["aplica_a_carrera_estudiante"] is True
+    assert len(aa_conc["cursos_electivos"]) > 0
+
+
+def test_student_concentration_status_and_declaration_rules(client: TestClient):
+    """Verifica la regla de 110 créditos para declarar concentraciones (Norma III)."""
+    token = register_user(client, "20230555@up.edu.pe", ingreso="2023-1")
+    headers = {"Authorization": f"Bearer {token}"}
+
+    # 1. Consultar estado sin créditos acumulados
+    status_res = client.get("/api/v1/curriculum/concentrations/status", headers=headers)
+    assert status_res.status_code == 200
+    st = status_res.json()
+    assert st["creditos_aprobados_totales"] == 0.0
+    assert st["creditos_minimos_requeridos_acceso"] == 110.0
+    assert st["puede_declarar_concentracion"] is False
+    assert "Aún no alcanzas el requisito de 110 créditos" in st["mensaje_estado"]
+
+    # 2. Intentar declarar concentración con 0 créditos acumulados debe fallar con 400
+    decl_bad = client.post("/api/v1/curriculum/concentrations/declare", headers=headers, json={
+        "concentracion_id": 2
+    })
+    assert decl_bad.status_code == 400
+    assert "110 créditos acumulados" in decl_bad.json()["detail"]
+
+    # 3. Simular que el alumno aprueba asignaturas para superar los 110 créditos acumulados
+    # Obtenemos asignaturas de la malla de INF
+    malla_res = client.get("/api/v1/curriculum/malla", headers=headers)
+    cursos = malla_res.json()["cursos"]
+    creditos_acum = 0.0
+    for c in cursos:
+        if creditos_acum >= 112.0:
+            break
+        # Registrar como aprobada
+        client.post("/api/v1/history", headers=headers, json={
+            "asignatura_id": c["id"],
+            "periodo_academico": "2023-1",
+            "estado": "APROBADA",
+            "calificacion": 16.0,
+            "numero_matricula": 1
+        })
+        creditos_acum += float(c["creditos"])
+
+    # 4. Ahora debe poder declarar concentración
+    status_ready = client.get("/api/v1/curriculum/concentrations/status", headers=headers)
+    assert status_ready.status_code == 200
+    assert status_ready.json()["puede_declarar_concentracion"] is True
+
+    # 5. Declarar concentración 2 (Analítica avanzada) y 3 (Analítica de negocios)
+    decl_ok = client.post("/api/v1/curriculum/concentrations/declare", headers=headers, json={
+        "concentracion_id": 2,
+        "concentracion_secundaria_id": 3
+    })
+    assert decl_ok.status_code == 200
+    result = decl_ok.json()
+    assert result["total_concentraciones_declaradas"] == 2
+    assert result["concentracion_primaria"]["codigo"] == "CONC-02"
+    assert result["concentracion_secundaria"]["codigo"] == "CONC-03"
+

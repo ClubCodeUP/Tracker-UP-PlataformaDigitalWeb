@@ -8,18 +8,7 @@
     "total_ciclos": 10,
     "max_creditos_ciclo_regular": 24.0
   },
-  "concentraciones": [
-    {
-      "codigo": "CONC-AUDIT",
-      "nombre": "Auditoría Financiera y Control de Riesgos",
-      "descripcion": "Auditoría interna, forense, compliance y evaluación de control interno."
-    },
-    {
-      "codigo": "CONC-TRIB",
-      "nombre": "Tributación Internacional y Planeamiento Fiscal",
-      "descripcion": "Tributación corporativa, fiscalidad internacional y precios de transferencia."
-    }
-  ],
+  "concentraciones": [],
   "cursos": [
     {
       "codigo": "134654",

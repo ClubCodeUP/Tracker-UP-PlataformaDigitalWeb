@@ -33,12 +33,73 @@ class CurriculumLoader:
         os.path.join(os.path.dirname(__file__), "..", "..", "data", "curricula")
     )
 
+    OFFICIAL_CONCENTRATIONS_FILE = os.path.abspath(
+        os.path.join(os.path.dirname(__file__), "..", "..", "data", "concentraciones_oficiales.json")
+    )
+
+    @classmethod
+    def load_official_concentrations(cls, db: Session, file_path: str = None) -> List[Dict]:
+        """
+        Carga las 33 concentraciones oficiales aprobadas por el Consejo Académico (CA 24.06.2026).
+        """
+        target_file = file_path or cls.OFFICIAL_CONCENTRATIONS_FILE
+        if not os.path.exists(target_file):
+            logger.warning(f"Archivo de concentraciones oficiales no encontrado: {target_file}")
+            return []
+
+        with open(target_file, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        results = []
+        for item in data:
+            c_code = item["codigo"].upper()
+            conc = db.query(ConcentracionModel).filter(ConcentracionModel.codigo == c_code).first()
+            if not conc:
+                conc = ConcentracionModel(
+                    id=item.get("id"),
+                    codigo=c_code,
+                    nombre=item["nombre"],
+                    creditos_minimos=item.get("creditos_minimos", 12),
+                    carreras_excluidas=json.dumps(item.get("carreras_excluidas", [])),
+                    carreras_exclusivas=json.dumps(item.get("carreras_exclusivas", [])),
+                    creditos_por_carrera=json.dumps(item.get("creditos_por_carrera", {})),
+                    notas_reglamento=item.get("notas_reglamento"),
+                    cursos_info=json.dumps({
+                        "cursos_obligatorios": item.get("cursos_obligatorios", []),
+                        "cursos_electivos": item.get("cursos_electivos", [])
+                    }),
+                    descripcion=item.get("notas_reglamento")
+                )
+                db.add(conc)
+                db.flush()
+            else:
+                conc.nombre = item["nombre"]
+                conc.creditos_minimos = item.get("creditos_minimos", 12)
+                conc.carreras_excluidas = json.dumps(item.get("carreras_excluidas", []))
+                conc.carreras_exclusivas = json.dumps(item.get("carreras_exclusivas", []))
+                conc.creditos_por_carrera = json.dumps(item.get("creditos_por_carrera", {}))
+                conc.notas_reglamento = item.get("notas_reglamento")
+                conc.cursos_info = json.dumps({
+                    "cursos_obligatorios": item.get("cursos_obligatorios", []),
+                    "cursos_electivos": item.get("cursos_electivos", [])
+                })
+                conc.descripcion = item.get("notas_reglamento")
+                db.flush()
+            results.append({"codigo": c_code, "nombre": conc.nombre})
+
+        db.commit()
+        logger.info(f"Cargadas {len(results)} concentraciones oficiales con éxito.")
+        return results
+
     @classmethod
     def load_all_curricula(cls, db: Session, directory: str = None) -> List[Dict]:
         """
         Escanea el directorio de mallas y procesa cada archivo JSON.
-        Ordena para dar prioridad a las carreras con ID explícito.
+        Primero carga las 33 concentraciones oficiales del CA 24.06.2026.
         """
+        # Cargar catálogo de concentraciones oficiales
+        cls.load_official_concentrations(db)
+
         target_dir = directory or cls.DEFAULT_CURRICULA_DIR
         if not os.path.exists(target_dir):
             os.makedirs(target_dir, exist_ok=True)
@@ -138,7 +199,6 @@ class CurriculumLoader:
                 conc = db.query(ConcentracionModel).filter(ConcentracionModel.id == conc_def.id).first()
             if not conc:
                 conc = db.query(ConcentracionModel).filter(
-                    ConcentracionModel.carrera_id == carrera.id,
                     ConcentracionModel.codigo == conc_def.codigo.upper()
                 ).first()
 

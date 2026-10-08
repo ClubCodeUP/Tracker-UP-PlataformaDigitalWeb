@@ -1,13 +1,14 @@
 """
 Motor determinístico de reglas curriculares y evaluación de riesgos académicos (RF-10 al RF-16).
 """
+import json
 import re
-from typing import Dict, List, Set, Tuple
+from typing import Any, Dict, List, Optional, Set, Tuple
 from collections import defaultdict
 from sqlalchemy.orm import Session
 
 from app.domain.entities import EstadoAsignatura, TipoAlerta, SeveridadAlerta
-from app.infrastructure.models.user_model import UsuarioModel
+from app.infrastructure.models.user_model import UsuarioModel, ConcentracionModel
 from app.infrastructure.models.course_model import MallaCurricularModel, AsignaturaModel
 from app.infrastructure.repositories.course_repository import CourseRepository
 from app.infrastructure.repositories.history_repository import HistoryRepository
@@ -17,6 +18,8 @@ from app.schemas.rules_engine import (
     CreditRange,
     RecommendationResponse,
     CurriculumEvaluationResponse,
+    ConcentrationTrackingProgress,
+    StudentConcentrationsStatusResponse,
 )
 
 
@@ -258,6 +261,19 @@ class CurriculumEngineService:
         for p in CourseRepository.get_all_prerrequisitos(db):
             prerreqs_by_course[p.asignatura_id].append(p)
 
+        # Identificar cursos que aportan a las concentraciones declaradas por el estudiante
+        conc_course_codes: Set[str] = set()
+        for conc_obj in [user.concentracion, user.concentracion_secundaria]:
+            if conc_obj and conc_obj.cursos_info:
+                try:
+                    c_info = json.loads(conc_obj.cursos_info)
+                    for c_item in c_info.get("cursos_obligatorios", []) + c_info.get("cursos_electivos", []):
+                        code = c_item.get("codigo", "").strip().upper()
+                        if code:
+                            conc_course_codes.add(code)
+                except Exception:
+                    pass
+
         # 3. Filtrar asignaturas elegibles (que cumplen bolsa de créditos y prerrequisitos)
         eligible_candidates: List[SuggestedCourseItem] = []
 
@@ -305,11 +321,16 @@ class CurriculumEngineService:
                 score += 5000.0 + (unlock_count * 500.0)
                 motivos.append(f"Cuello de botella (desbloquea {unlock_count} materias)")
 
-            # Prioridad 3: Ciclo sugerido en la malla (cursos de ciclos inferiores tienen prioridad)
+            # Prioridad 3: Ciclo sugerido en la malla
             score += (14 - m.ciclo_sugerido) * 200.0
             motivos.append(f"Malla Ciclo {m.ciclo_sugerido}")
 
-            # Prioridad 4: Obligatoria antes que Electiva
+            # Prioridad 4: Electivo perteneciente a la(s) concentración(es) declarada(s)
+            if asig.codigo.upper() in conc_course_codes:
+                score += 350.0
+                motivos.append("Aporta a concentración declarada")
+
+            # Prioridad 5: Obligatoria antes que Electiva general
             if asig.tipo == "OBLIGATORIA":
                 score += 100.0
 
@@ -344,11 +365,13 @@ class CurriculumEngineService:
 
         periodo_proyectado = cls._next_academic_period(latest_period)
         concentracion_nombre = user.concentracion.nombre if user.concentracion else "General / Sin concentración"
+        concentracion_sec_nombre = user.concentracion_secundaria.nombre if user.concentracion_secundaria else None
 
         return RecommendationResponse(
             usuario_id=user.id,
             carrera=user.carrera.nombre if user.carrera else "No definida",
             concentracion=concentracion_nombre,
+            concentracion_secundaria=concentracion_sec_nombre,
             periodo_proyectado=periodo_proyectado,
             creditos_totales_sugeridos=round(accumulated_credits, 1),
             rango_creditos_permitido=CreditRange(
@@ -361,8 +384,187 @@ class CurriculumEngineService:
                 "1. Obligatoriedad legal de matricular asignaturas desaprobadas en 2ª o 3ª matrícula en primer orden.",
                 "2. Priorización de cursos 'cuello de botella' según índice de desbloqueo transitivo en el grafo curricular.",
                 "3. Priorización por ciclo curricular referencial inferior para evitar desfasaje.",
-                f"4. Ajuste estricto dentro de la carga crediticia regular ({min_creditos_permitidos} a {max_creditos_permitidos} créditos)."
+                "4. Impulso a cursos electivos que computan hacia la(s) concentración(es) declarada(s) del estudiante.",
+                f"5. Ajuste estricto dentro de la carga crediticia regular ({min_creditos_permitidos} a {max_creditos_permitidos} créditos)."
             ]
+        )
+
+    @classmethod
+    def evaluate_concentration_progress(
+        cls, db: Session, user: UsuarioModel, conc: ConcentracionModel, used_course_codes: Optional[Set[str]] = None
+    ) -> ConcentrationTrackingProgress:
+        """
+        Evalúa el progreso del estudiante en una concentración específica, aplicando las reglas de:
+        - Incompatibilidad con cursos obligatorios del plan de estudios (Norma IV CA 24.06.2026).
+        - No duplicidad de cursos entre concentraciones.
+        - Verificación de creditaje mínimo y materias obligatorias de la concentración.
+        """
+        if used_course_codes is None:
+            used_course_codes = set()
+
+        history_entries = HistoryRepository.get_all_by_user(db, user.id)
+        approved_map = {
+            e.asignatura.codigo.upper(): (e.asignatura, float(e.calificacion) if e.calificacion else 11.0)
+            for e in history_entries
+            if e.estado == EstadoAsignatura.APROBADA.value and e.asignatura
+        }
+
+        # Cursos obligatorios de la carrera del estudiante
+        malla_usuario = CourseRepository.get_malla_by_carrera(db, user.carrera_id)
+        carrera_obligatorias = {
+            m.asignatura.codigo.upper() for m in malla_usuario if m.asignatura and m.asignatura.tipo == "OBLIGATORIA"
+        }
+
+        # Excepción única de la Norma IV: Finanzas para FCE
+        is_fce = bool(user.carrera and user.carrera.codigo.upper() in {"ADM", "CON", "MKT", "NEG", "FIN"})
+        is_finanzas_fce = is_fce and "FINANZAS" in conc.nombre.upper()
+
+        cursos_info: Dict[str, Any] = {}
+        if conc.cursos_info:
+            try:
+                cursos_info = json.loads(conc.cursos_info)
+            except Exception:
+                cursos_info = {}
+
+        raw_oblig = cursos_info.get("cursos_obligatorios", [])
+        raw_elect = cursos_info.get("cursos_electivos", [])
+
+        # Evaluar cursos obligatorios de la concentración
+        cursos_aprobados_computados: List[Dict[str, Any]] = []
+        cursos_oblig_pendientes: List[Dict[str, Any]] = []
+        creditos_completados = 0.0
+
+        for co in raw_oblig:
+            c_code = co["codigo"].upper()
+            # Si el curso es obligatorio de la carrera y no es la excepción Finanzas FCE, no cuenta
+            if not is_finanzas_fce and c_code in carrera_obligatorias:
+                continue
+
+            if c_code in approved_map and c_code not in used_course_codes:
+                asig, nota = approved_map[c_code]
+                c_cred = float(co.get("creditos", asig.creditos))
+                creditos_completados += c_cred
+                used_course_codes.add(c_code)
+                cursos_aprobados_computados.append({
+                    "codigo": c_code,
+                    "nombre": co["nombre"],
+                    "creditos": c_cred,
+                    "tipo": "OBLIGATORIO_CONCENTRACION",
+                    "calificacion": nota
+                })
+            else:
+                cursos_oblig_pendientes.append({
+                    "codigo": c_code,
+                    "nombre": co["nombre"],
+                    "creditos": float(co.get("creditos", 4.0)),
+                    "departamento": co.get("departamento", "")
+                })
+
+        # Evaluar electivos de la concentración
+        cursos_elect_disponibles: List[Dict[str, Any]] = []
+        for ce in raw_elect:
+            c_code = ce["codigo"].upper()
+            if not is_finanzas_fce and c_code in carrera_obligatorias:
+                continue
+
+            if c_code in approved_map and c_code not in used_course_codes:
+                asig, nota = approved_map[c_code]
+                c_cred = float(ce.get("creditos", asig.creditos))
+                creditos_completados += c_cred
+                used_course_codes.add(c_code)
+                cursos_aprobados_computados.append({
+                    "codigo": c_code,
+                    "nombre": ce["nombre"],
+                    "creditos": c_cred,
+                    "tipo": "ELECTIVO_CONCENTRACION",
+                    "calificacion": nota
+                })
+            elif c_code not in approved_map:
+                cursos_elect_disponibles.append({
+                    "codigo": c_code,
+                    "nombre": ce["nombre"],
+                    "creditos": float(ce.get("creditos", 3.0)),
+                    "departamento": ce.get("departamento", "")
+                })
+
+        cred_min = conc.creditos_minimos or 12
+        # Ajuste de creditaje especial por carrera (ej: Derecho empresarial para ADM/CON = 12 cr)
+        if conc.creditos_por_carrera and user.carrera:
+            try:
+                c_rules = json.loads(conc.creditos_por_carrera)
+                if user.carrera.codigo.upper() in c_rules:
+                    cred_min = c_rules[user.carrera.codigo.upper()]
+            except Exception:
+                pass
+
+        esta_completada = (creditos_completados >= cred_min) and (len(cursos_oblig_pendientes) == 0)
+        porcentaje_avance = min(100.0, round((creditos_completados / cred_min) * 100.0, 1))
+
+        return ConcentrationTrackingProgress(
+            concentracion_id=conc.id,
+            codigo=conc.codigo,
+            nombre=conc.nombre,
+            creditos_minimos=cred_min,
+            creditos_completados=round(creditos_completados, 1),
+            porcentaje_avance=porcentaje_avance,
+            esta_completada=esta_completada,
+            cursos_aprobados_computados=cursos_aprobados_computados,
+            cursos_obligatorios_pendientes=cursos_oblig_pendientes,
+            cursos_electivos_disponibles=cursos_elect_disponibles
+        )
+
+    @classmethod
+    def get_student_concentrations_status(cls, db: Session, user: UsuarioModel) -> StudentConcentrationsStatusResponse:
+        """Determina el estado global de concentraciones del estudiante, umbral de 110 créditos y progreso de las declaradas."""
+        history = HistoryRepository.get_all_by_user(db, user.id)
+        creditos_aprobados = round(sum(
+            float(e.asignatura.creditos) for e in history if e.estado == EstadoAsignatura.APROBADA.value and e.asignatura
+        ), 1)
+
+        puede_declarar = creditos_aprobados >= 110.0
+        if puede_declarar:
+            mensaje = "Cumples con el requisito de 110 créditos acumulados. Puedes declarar hasta dos concentraciones."
+        else:
+            faltantes = round(110.0 - creditos_aprobados, 1)
+            mensaje = f"Aún no alcanzas el requisito de 110 créditos acumulados (te faltan {faltantes} créditos). Norma III CA 24.06.2026."
+
+        used_codes: Set[str] = set()
+        prog_primaria = None
+        if user.concentracion:
+            prog_primaria = cls.evaluate_concentration_progress(db, user, user.concentracion, used_codes)
+
+        prog_secundaria = None
+        if user.concentracion_secundaria:
+            prog_secundaria = cls.evaluate_concentration_progress(db, user, user.concentracion_secundaria, used_codes)
+
+        # Contar concentraciones elegibles para la carrera
+        todas_concs = db.query(ConcentracionModel).all()
+        carrera_code = user.carrera.codigo.upper() if user.carrera else ""
+        elegibles_count = 0
+        for c in todas_concs:
+            excluidas = json.loads(c.carreras_excluidas) if c.carreras_excluidas else []
+            exclusivas = json.loads(c.carreras_exclusivas) if c.carreras_exclusivas else []
+            if carrera_code in excluidas:
+                continue
+            if exclusivas and carrera_code not in exclusivas:
+                continue
+            elegibles_count += 1
+
+        total_declaradas = (1 if user.concentracion_id else 0) + (1 if user.concentracion_secundaria_id else 0)
+
+        return StudentConcentrationsStatusResponse(
+            usuario_id=user.id,
+            carrera_id=user.carrera_id,
+            carrera_codigo=carrera_code,
+            carrera_nombre=user.carrera.nombre if user.carrera else "No definida",
+            creditos_aprobados_totales=creditos_aprobados,
+            creditos_minimos_requeridos_acceso=110.0,
+            puede_declarar_concentracion=puede_declarar,
+            mensaje_estado=mensaje,
+            concentracion_primaria=prog_primaria,
+            concentracion_secundaria=prog_secundaria,
+            total_concentraciones_declaradas=total_declaradas,
+            concentraciones_elegibles_count=elegibles_count
         )
 
     @classmethod

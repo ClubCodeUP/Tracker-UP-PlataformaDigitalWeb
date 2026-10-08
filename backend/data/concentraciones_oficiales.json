@@ -1,0 +1,3193 @@
+[
+  {
+    "id": 1,
+    "codigo": "CONC-01",
+    "nombre": "Agronegocios",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Abierta a estudiantes de todas las carreras (a partir de 110 créditos acumulados).",
+    "total_cursos_en_lista": 3,
+    "cursos_obligatorios": [],
+    "cursos_electivos": [
+      {
+        "codigo": "1MN399",
+        "nombre": "From Agroscience to Agribusiness",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN373",
+        "nombre": "Global Food & Agribusiness Strategy",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN398",
+        "nombre": "Food Suply Management",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "codigo": "CONC-02",
+    "nombre": "Analítica avanzada",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Abierta a estudiantes de todas las carreras (a partir de 110 créditos acumulados).",
+    "total_cursos_en_lista": 15,
+    "cursos_obligatorios": [],
+    "cursos_electivos": [
+      {
+        "codigo": "170508",
+        "nombre": "Agentes Inteligentes",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170509",
+        "nombre": "Ciberseguridad",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170353",
+        "nombre": "Computación de alto desempeño y cloud computing",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170328",
+        "nombre": "Deel Learning",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170448",
+        "nombre": "Fundamentos de procesamiento de lenguaje natural",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170369",
+        "nombre": "Natural language processing",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 1,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170494",
+        "nombre": "Optimización para Machine Learning",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170447",
+        "nombre": "Procesamiento digital de imágenes: Principios y aplicaciones",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170375",
+        "nombre": "Series temporales con inteligencia computacional",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 1,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170294",
+        "nombre": "Técnicas Avanzadas de Deep Learning",
+        "departamento": "ING",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170368",
+        "nombre": "Técnicas de optimización",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 1,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170483",
+        "nombre": "Time Series Forecasting with Artificial Intelligence",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170455",
+        "nombre": "Tópicos avanzados de Analítica I",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170370",
+        "nombre": "Tópicos avanzados de estadística",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 1,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170358",
+        "nombre": "Tópicos avanzados en inteligencia artificial",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 1,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "codigo": "CONC-03",
+    "nombre": "Analítica de negocios",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Abierta a estudiantes de todas las carreras (a partir de 110 créditos acumulados).",
+    "total_cursos_en_lista": 15,
+    "cursos_obligatorios": [],
+    "cursos_electivos": [
+      {
+        "codigo": "170325",
+        "nombre": "Analítica aplicada a los negocios",
+        "departamento": "ING",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170507",
+        "nombre": "Business Analytics",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170322",
+        "nombre": "Digital Innovation and Transformation",
+        "departamento": "ING",
+        "horas_teoria": 1,
+        "horas_practica": 1,
+        "creditos": 1.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170448",
+        "nombre": "Fundamentos de procesamiento de lenguaje natural",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170438",
+        "nombre": "Google Analytics y Herramientas Esenciales para la Analítica Digital",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 1,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "179091",
+        "nombre": "Huawei Academy: Inteligencia Artificial y Transformación Digital",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "179092",
+        "nombre": "IA Generativa: Fundamentos y Aplicaciones",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170386",
+        "nombre": "Introducción a la Computación Evolutiva",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 1,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170319",
+        "nombre": "Machine learning para la toma de decisiones",
+        "departamento": "ING",
+        "horas_teoria": 4,
+        "horas_practica": 1,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170442",
+        "nombre": "Power BI: Transforma y visualiza datos para decisiones informadas",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170500",
+        "nombre": "RapidMiner: Machine learning aplicado",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170371",
+        "nombre": "Tópicos avanzados de analítica aplicada",
+        "departamento": "ING",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170455",
+        "nombre": "Tópicos avanzados de analítica I",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170373",
+        "nombre": "Tópicos avanzados de analítica II",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 1,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170374",
+        "nombre": "Tópicos avanzados de analítica III",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "codigo": "CONC-04",
+    "nombre": "Asset Management",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Abierta a estudiantes de todas las carreras (a partir de 110 créditos acumulados).",
+    "total_cursos_en_lista": 12,
+    "cursos_obligatorios": [],
+    "cursos_electivos": [
+      {
+        "codigo": "1F0045",
+        "nombre": "Sem. Crisis Financiera Internacional",
+        "departamento": "FIN",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1F0200",
+        "nombre": "Sem. de Alternative Investment",
+        "departamento": "FIN",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1F0319",
+        "nombre": "Sem. de Arquitectura Financiera",
+        "departamento": "FIN",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1F0432",
+        "nombre": "Sem. de Commodities & Volatility",
+        "departamento": "FIN",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1F0272",
+        "nombre": "Sem. de Dark Finance",
+        "departamento": "FIN",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1F0430",
+        "nombre": "Sem. de Investment Tools and Case Studies",
+        "departamento": "FIN",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1F0325",
+        "nombre": "Sem. de Estrategias de Fondeo",
+        "departamento": "FIN",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1F0274",
+        "nombre": "Sem. de Insurance Markets",
+        "departamento": "FIN",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1F0431",
+        "nombre": "Sem. de Real Estate",
+        "departamento": "FIN",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1F0281",
+        "nombre": "Sem. de Value Investing",
+        "departamento": "FIN",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1F0043",
+        "nombre": "Sem. de Wealth Management",
+        "departamento": "FIN",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1F0048",
+        "nombre": "Sem. Sistema de Pensiones",
+        "departamento": "FIN",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "codigo": "CONC-05",
+    "nombre": "Cultura y sociedad digital",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [
+      "HUM"
+    ],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "No aplica para estudiantes de Humanidades Digitales.",
+    "total_cursos_en_lista": 5,
+    "cursos_obligatorios": [],
+    "cursos_electivos": [
+      {
+        "codigo": "120259",
+        "nombre": "Cultura, visualidad y Política",
+        "departamento": "HUM",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "120270",
+        "nombre": "Comunicación digital",
+        "departamento": "HUM",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "120264",
+        "nombre": "Ciencia, tecnología y sociedad",
+        "departamento": "HUM",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "120241",
+        "nombre": "Ética en la era digital",
+        "departamento": "HUM",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "120252",
+        "nombre": "Lectura crítica de la prensa digital y de las redes sociales",
+        "departamento": "HUM",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "codigo": "CONC-06",
+    "nombre": "Derecho empresarial",
+    "creditos_minimos": 15,
+    "carreras_excluidas": [
+      "DER"
+    ],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {
+      "ADM": 12,
+      "CON": 12
+    },
+    "notas_reglamento": "No aplica para estudiantes de Derecho. Para Administración y Contabilidad el creditaje mínimo es 12 créditos.",
+    "total_cursos_en_lista": 3,
+    "cursos_obligatorios": [],
+    "cursos_electivos": [
+      {
+        "codigo": "180266",
+        "nombre": "Derecho Civil y Comercial",
+        "departamento": "DER",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "180276",
+        "nombre": "Instituciones de Derecho Mercantil",
+        "departamento": "DER",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "180350",
+        "nombre": "Sociedades",
+        "departamento": "DER",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "codigo": "CONC-07",
+    "nombre": "Dirección en Innovación",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Abierta a estudiantes de todas las carreras (a partir de 110 créditos acumulados).",
+    "total_cursos_en_lista": 9,
+    "cursos_obligatorios": [
+      {
+        "codigo": "142390",
+        "nombre": "Gestión de procesos de diseño y desarrollo de nuevos productos",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": true
+      },
+      {
+        "codigo": "142379",
+        "nombre": "Sistemas de gestión de la innovación",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": true
+      }
+    ],
+    "cursos_electivos": [
+      {
+        "codigo": "170329",
+        "nombre": "Design thinking and technological innovation",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142391",
+        "nombre": "Ecosistema de innovación",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "140752",
+        "nombre": "Gestión de la cultura empresarial",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "146771",
+        "nombre": "Gestión de la innovación",
+        "departamento": "ADM",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "180276",
+        "nombre": "Instituciones de derecho mercantil",
+        "departamento": "DER",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1F0426",
+        "nombre": "Proyectos de inversión",
+        "departamento": "FIN",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "141715",
+        "nombre": "Toma de Decisiones – Simulador: Blue Ocean Strategy",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "codigo": "CONC-08",
+    "nombre": "Dirección financiera",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Abierta a estudiantes de todas las carreras (a partir de 110 créditos acumulados).",
+    "total_cursos_en_lista": 6,
+    "cursos_obligatorios": [
+      {
+        "codigo": "1F0351",
+        "nombre": "Gestión financiera",
+        "departamento": "FIN",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": true
+      },
+      {
+        "codigo": "1F0426",
+        "nombre": "Proyectos de inversión",
+        "departamento": "FIN",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": true
+      }
+    ],
+    "cursos_electivos": [
+      {
+        "codigo": "160208",
+        "nombre": "Curso de preparación: Certificación Internacional ACCA IFRS",
+        "departamento": "CON",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "160172",
+        "nombre": "Evaluación financiera de las organizaciones",
+        "departamento": "CON",
+        "horas_teoria": 4,
+        "horas_practica": 2,
+        "creditos": 5.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "160314",
+        "nombre": "Inteligencia Artificial Generativa Aplicada a la Información Financiera",
+        "departamento": "CON",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "N",
+        "nombre": "Pricing y revenue management",
+        "departamento": "MNI",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "codigo": "CONC-09",
+    "nombre": "Diseño",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [
+      "IID"
+    ],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "No aplica para Ingeniería en Innovación y Diseño. Humanidades Digitales deberá completar 12 créditos adicionales al curso obligatorio de UX.",
+    "total_cursos_en_lista": 7,
+    "cursos_obligatorios": [],
+    "cursos_electivos": [
+      {
+        "codigo": "170329",
+        "nombre": "Design thinking and technological innovation",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170432",
+        "nombre": "Diseño gráfico digital",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170441",
+        "nombre": "Historia crítica del diseño",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170481",
+        "nombre": "Materiales y Tecnologías de Envase y Empaque",
+        "departamento": "ING",
+        "horas_teoria": 1,
+        "horas_practica": 0,
+        "creditos": 1.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170427",
+        "nombre": "Prototipea tu idea con impresión 3D",
+        "departamento": "ING",
+        "horas_teoria": 0,
+        "horas_practica": 2,
+        "creditos": 1.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170462",
+        "nombre": "Semiótica y teoría del diseño",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170450",
+        "nombre": "Teoría de los sentidos",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "codigo": "CONC-10",
+    "nombre": "Economía conductual y experimental",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Abierta a estudiantes de todas las carreras (a partir de 110 créditos acumulados).",
+    "total_cursos_en_lista": 3,
+    "cursos_obligatorios": [],
+    "cursos_electivos": [
+      {
+        "codigo": "130613",
+        "nombre": "Economía conductual",
+        "departamento": "ECO",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "130614",
+        "nombre": "Economía experimental",
+        "departamento": "ECO",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "130615",
+        "nombre": "Métodos para el diseño y análisis de intervenciones conductuales",
+        "departamento": "ECO",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "codigo": "CONC-11",
+    "nombre": "Experiencia del usuario",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [
+      "IID"
+    ],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "No aplica para Ingeniería en Innovación y Diseño. Humanidades Digitales deberá completar 12 créditos adicionales al bloque de UX.",
+    "total_cursos_en_lista": 4,
+    "cursos_obligatorios": [],
+    "cursos_electivos": [
+      {
+        "codigo": "1MN017",
+        "nombre": "Comportamiento del consumidor",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170446",
+        "nombre": "Experiencia del usuario",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170456",
+        "nombre": "Tecnología y medios de comunicación",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170466",
+        "nombre": "Urbanismo y espacios sociales",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "codigo": "CONC-12",
+    "nombre": "Entrepreneurship",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Abierta a estudiantes de todas las carreras (a partir de 110 créditos acumulados).",
+    "total_cursos_en_lista": 24,
+    "cursos_obligatorios": [
+      {
+        "codigo": "142399",
+        "nombre": "Ecosistema de emprendimiento",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": true
+      }
+    ],
+    "cursos_electivos": [
+      {
+        "codigo": "N",
+        "nombre": "Aspectos legales para startups globales",
+        "departamento": "DER",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142460",
+        "nombre": "Asset-Light Business Models",
+        "departamento": "ADM",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170329",
+        "nombre": "Design thinking and technological innovation",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN391",
+        "nombre": "Digital advertising",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142400",
+        "nombre": "Estrategias de crecimiento para startups",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142211",
+        "nombre": "Gestión de Eventos Deportivos",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142285",
+        "nombre": "Gestión Estratégica de Organizaciones Deportivas",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142462",
+        "nombre": "Gestión y Emprendimiento en la Industria Musical",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170331",
+        "nombre": "Infraestructura tecnológica",
+        "departamento": "ING",
+        "horas_teoria": 4,
+        "horas_practica": 1,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "160314",
+        "nombre": "Inteligencia Artificial Generativa Aplicada a la Información Financiera",
+        "departamento": "CON",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142461",
+        "nombre": "Leading The Family Business Sucessfully Across Generations",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN642",
+        "nombre": "Marketing Deportivo",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "N",
+        "nombre": "Marketing digital y growth hacking",
+        "departamento": "MNI",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN029",
+        "nombre": "Marketing digital y redes sociales",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "141613",
+        "nombre": "Marketplace Management",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170344",
+        "nombre": "Metodologías ágiles",
+        "departamento": "ING",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142385",
+        "nombre": "Prototipado de empresas sociales",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1F0018",
+        "nombre": "Sem. de Finanzas para el Emprendimiento",
+        "departamento": "FIN",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1F0202",
+        "nombre": "Sem de Fintech",
+        "departamento": "FIN",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1F0127",
+        "nombre": "Sem. Venture Capital",
+        "departamento": "FIN",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170350",
+        "nombre": "Tecnología y negocios digitales",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142098",
+        "nombre": "Toma de Decisiones en un Servicio de Hotelería",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN390",
+        "nombre": "Web based project management",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "codigo": "CONC-13",
+    "nombre": "Finanzas",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [
+      "DER",
+      "HUM",
+      "PFE"
+    ],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "13.1 Solo para estudiantes de Economía (12 cr: 1F0229 + 8 cr electivos DA Finanzas). 13.2 Para FCE e Ingeniería (12 cr: 1F0120 + 7 cr electivos DA Finanzas).",
+    "total_cursos_en_lista": 2,
+    "cursos_obligatorios": [
+      {
+        "codigo": "1F0229",
+        "nombre": "Economía Financiera II",
+        "departamento": "FIN",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": true
+      },
+      {
+        "codigo": "1F0120",
+        "nombre": "Finanzas Corporativas I",
+        "departamento": "FIN",
+        "horas_teoria": 4,
+        "horas_practica": 2,
+        "creditos": 5.0,
+        "es_obligatorio_concentracion": true
+      }
+    ],
+    "cursos_electivos": []
+  },
+  {
+    "id": 14,
+    "codigo": "CONC-14",
+    "nombre": "Finanzas Corporativas",
+    "creditos_minimos": 17,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [
+      "DER"
+    ],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Solo para estudiantes de Derecho (17 créditos obligatorios de la concentración).",
+    "total_cursos_en_lista": 4,
+    "cursos_obligatorios": [
+      {
+        "codigo": "130224",
+        "nombre": "Estadística I",
+        "departamento": "ECO",
+        "horas_teoria": 4,
+        "horas_practica": 1,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": true
+      },
+      {
+        "codigo": "1F0162",
+        "nombre": "Análisis Financiero",
+        "departamento": "FIN",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": true
+      },
+      {
+        "codigo": "1F0112",
+        "nombre": "Fundamentos de Finanzas",
+        "departamento": "FIN",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": true
+      },
+      {
+        "codigo": "1F0120",
+        "nombre": "Finanzas Corporativas I",
+        "departamento": "FIN",
+        "horas_teoria": 4,
+        "horas_practica": 2,
+        "creditos": 5.0,
+        "es_obligatorio_concentracion": true
+      }
+    ],
+    "cursos_electivos": []
+  },
+  {
+    "id": 15,
+    "codigo": "CONC-15",
+    "nombre": "Gestión de los sistemas de información",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Abierta a estudiantes de todas las carreras (a partir de 110 créditos acumulados).",
+    "total_cursos_en_lista": 18,
+    "cursos_obligatorios": [],
+    "cursos_electivos": [
+      {
+        "codigo": "170507",
+        "nombre": "Business Analytics",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170509",
+        "nombre": "Ciberseguridad",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170484",
+        "nombre": "Ciberseguridad empresarial",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170436",
+        "nombre": "Ciberseguridad: Prácticas para Gestionar los Riesgos Digitales",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170212",
+        "nombre": "Desarrollo de soluciones empresariales",
+        "departamento": "ING",
+        "horas_teoria": 4,
+        "horas_practica": 1,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170322",
+        "nombre": "Digital Innovation and Transformation",
+        "departamento": "ING",
+        "horas_teoria": 1,
+        "horas_practica": 0,
+        "creditos": 1.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170425",
+        "nombre": "Excel Avanzado para la Gestión Empresarial",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170331",
+        "nombre": "Infraestructura tecnológica",
+        "departamento": "ING",
+        "horas_teoria": 4,
+        "horas_practica": 1,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170438",
+        "nombre": "Google Analytics y Herramientas Esenciales para la Analítica Digital",
+        "departamento": "ING",
+        "horas_teoria": 1,
+        "horas_practica": 2,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "179091",
+        "nombre": "Huawei Academy: Inteligencia Artificial y Transformación Digital",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "179092",
+        "nombre": "IA Generativa: Fundamentos y Aplicaciones",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142313",
+        "nombre": "Macros en Excel para no programadores",
+        "departamento": "ADM",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170367",
+        "nombre": "Nuevas tecnologías y sistemas de información",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170453",
+        "nombre": "Programa tu Chatbot Inteligente Usando Modelos LLM: GPT, LlaMa y BERT",
+        "departamento": "ING",
+        "horas_teoria": 1,
+        "horas_practica": 0,
+        "creditos": 1.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170388",
+        "nombre": "SAP Hana para la Gestión Integral de Negocios",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170365",
+        "nombre": "Seminario de ingeniería sobre sistemas de información o tecnología",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170506",
+        "nombre": "SQL para la toma de decisiones",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170366",
+        "nombre": "Tópicos avanzados sobre sistemas de información o tecnología",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 1,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "codigo": "CONC-16",
+    "nombre": "Gestión de proyectos y cadena de suministros",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Abierta a estudiantes de todas las carreras (a partir de 110 créditos acumulados).",
+    "total_cursos_en_lista": 11,
+    "cursos_obligatorios": [
+      {
+        "codigo": "142270",
+        "nombre": "Gestión de Proyectos según PMI",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": true
+      }
+    ],
+    "cursos_electivos": [
+      {
+        "codigo": "170345",
+        "nombre": "Gestión de Proyectos",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142314",
+        "nombre": "Gestión de Riesgos según el PMI",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142071",
+        "nombre": "Gestión de E-Commerce y Logística de la última milla",
+        "departamento": "ADM",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142501",
+        "nombre": "Gestión de la Calidad",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "140465",
+        "nombre": "Gestión de Procesos en Servicios",
+        "departamento": "ADM",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN005",
+        "nombre": "Logística Internacional",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170337",
+        "nombre": "Procesos de Suministros",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN345",
+        "nombre": "Procesos de Ventas y el Cliente",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142060",
+        "nombre": "Sustainable Global Value Chains: A Management Perspective",
+        "departamento": "ADM",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142404",
+        "nombre": "Tecnología y Operación Logística",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "codigo": "CONC-17",
+    "nombre": "Gestión de ventas y área comercial",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Abierta a estudiantes de todas las carreras (a partir de 110 créditos acumulados).",
+    "total_cursos_en_lista": 4,
+    "cursos_obligatorios": [],
+    "cursos_electivos": [
+      {
+        "codigo": "1MN661",
+        "nombre": "Negotiation and Deal-Making",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN662",
+        "nombre": "Sales Tech Stack Bootcamp",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN663",
+        "nombre": "Key Account Managament and Enterprise selling",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN664",
+        "nombre": "Sales Leadership Practicum",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "codigo": "CONC-18",
+    "nombre": "Gestión empresarial sostenible",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {
+      "CON": 12
+    },
+    "notas_reglamento": "Requiere 7 créditos obligatorios (142315 y 160173) + 5 electivos (para Contabilidad son 9 créditos electivos de la lista).",
+    "total_cursos_en_lista": 16,
+    "cursos_obligatorios": [
+      {
+        "codigo": "142315",
+        "nombre": "Diseño de Negocios Circulares y Desafío Climático",
+        "departamento": "ADM",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": true
+      },
+      {
+        "codigo": "160173",
+        "nombre": "Gestión de la Información y Métricas de Sostenibilidad Empresarial",
+        "departamento": "CON",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": true
+      }
+    ],
+    "cursos_electivos": [
+      {
+        "codigo": "1MN665",
+        "nombre": "Comunicación para el Desarrollo",
+        "departamento": "MNI",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "180093",
+        "nombre": "Derecho Ambiental",
+        "departamento": "DER",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142405",
+        "nombre": "Diseño de Proyectos de Organizaciones sin Fines de Lucro",
+        "departamento": "ADM",
+        "horas_teoria": 1,
+        "horas_practica": 2,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142212",
+        "nombre": "Estilos de Vida y Desarrollo Sostenible",
+        "departamento": "ADM",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1F0324",
+        "nombre": "Finanzas Sostenibles",
+        "departamento": "FIN",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142419",
+        "nombre": "Innovación para la Sostenibilidad",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 1,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "140663",
+        "nombre": "Negocios Inclusivos",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142385",
+        "nombre": "Prototipado de Empresas Sociales",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142418",
+        "nombre": "Retos del Desarrollo Sostenible para las Organizaciones",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142416",
+        "nombre": "Sistemas de Dirección y Control Corporativo",
+        "departamento": "ADM",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142102",
+        "nombre": "Sostenibilidad y Alianzas Multiactor",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142060",
+        "nombre": "Sustainable Global Value Chains: A Management Perspective",
+        "departamento": "ADM",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170346",
+        "nombre": "Tecnología para el desarrollo sostenible",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 1,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142144",
+        "nombre": "Toma de Decisiones para los Negocios Sostenibles: Simulador The Triple Connection",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "codigo": "CONC-19",
+    "nombre": "Gestión humana",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Abierta a estudiantes de todas las carreras (a partir de 110 créditos acumulados).",
+    "total_cursos_en_lista": 14,
+    "cursos_obligatorios": [],
+    "cursos_electivos": [
+      {
+        "codigo": "180088",
+        "nombre": "Derecho Laboral I",
+        "departamento": "DER",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "180089",
+        "nombre": "Derecho Laboral II",
+        "departamento": "DER",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142063",
+        "nombre": "Estrés y Salud Mental en el Trabajo",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "141748",
+        "nombre": "Formación y Desarrollo del Talento",
+        "departamento": "ADM",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142209",
+        "nombre": "Gestión del Conocimiento",
+        "departamento": "ADM",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142070",
+        "nombre": "Gestión Estratégica de Equipos",
+        "departamento": "ADM",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "141510",
+        "nombre": "Gestión por Competencias",
+        "departamento": "ADM",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142010",
+        "nombre": "Habilidades Directivas",
+        "departamento": "ADM",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN646",
+        "nombre": "Intercultural Competence",
+        "departamento": "ADM",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "141401",
+        "nombre": "Manejo de Conflictos",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142208",
+        "nombre": "People Analytics",
+        "departamento": "ADM",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "145763",
+        "nombre": "Relaciones laborales",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "143764",
+        "nombre": "Retención y Compensación del Talento",
+        "departamento": "ADM",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "141765",
+        "nombre": "Selección y Evaluación del Personal",
+        "departamento": "ADM",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "codigo": "CONC-20",
+    "nombre": "Global affairs",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Abierta a estudiantes de todas las carreras (a partir de 110 créditos acumulados).",
+    "total_cursos_en_lista": 5,
+    "cursos_obligatorios": [],
+    "cursos_electivos": [
+      {
+        "codigo": "1MN653",
+        "nombre": "Diplomacy",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN654",
+        "nombre": "Foreign Policy Analysis and Scenarios",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN651",
+        "nombre": "Global Political Economy",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN652",
+        "nombre": "Global Security",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN655",
+        "nombre": "International Trade negotiations and policies",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "codigo": "CONC-21",
+    "nombre": "Historia económica y empresarial",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Abierta a estudiantes de todas las carreras (a partir de 110 créditos acumulados).",
+    "total_cursos_en_lista": 4,
+    "cursos_obligatorios": [
+      {
+        "codigo": "120269",
+        "nombre": "Historia Económica del Perú",
+        "departamento": "HUM",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": true
+      }
+    ],
+    "cursos_electivos": [
+      {
+        "codigo": "120271",
+        "nombre": "Historia Económica Global",
+        "departamento": "HUM",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "120279",
+        "nombre": "Historia Empresarial Global",
+        "departamento": "HUM",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "120267",
+        "nombre": "Historia Financiera de América Latina",
+        "departamento": "HUM",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "codigo": "CONC-22",
+    "nombre": "Inteligencia artificial generativa aplicada para los negocios",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Abierta a estudiantes de todas las carreras (a partir de 110 créditos acumulados).",
+    "total_cursos_en_lista": 11,
+    "cursos_obligatorios": [
+      {
+        "codigo": "142312",
+        "nombre": "Fundamentos de inteligencia artificial para los negocios",
+        "departamento": "ADM",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": true
+      }
+    ],
+    "cursos_electivos": [
+      {
+        "codigo": "120241",
+        "nombre": "Ética en la era digital",
+        "departamento": "HUM",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142378",
+        "nombre": "Gobernanza y regulación de la IA",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142463",
+        "nombre": "IA Aplicada a los Negocios",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142464",
+        "nombre": "IA Generativa para la Innovación y Productividad Empresarial",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142311",
+        "nombre": "IA Generativa & Prompt Engineering para los Negocios",
+        "departamento": "ADM",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "160314",
+        "nombre": "Inteligencia Artificial Generativa Aplicada a la Información Financiera",
+        "departamento": "CON",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170331",
+        "nombre": "Infraestructura tecnológica",
+        "departamento": "ING",
+        "horas_teoria": 4,
+        "horas_practica": 1,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142380",
+        "nombre": "Metodologías y frameworks de implementación de IA en las empresas",
+        "departamento": "ADM",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "160197",
+        "nombre": "SAP Hana para la Gestión de la Información",
+        "departamento": "CON",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142381",
+        "nombre": "Seguridad de la información en entornos empresariales",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "codigo": "CONC-23",
+    "nombre": "International trade and logistics",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Abierta a estudiantes de todas las carreras (a partir de 110 créditos acumulados).",
+    "total_cursos_en_lista": 8,
+    "cursos_obligatorios": [
+      {
+        "codigo": "1MN656",
+        "nombre": "Gestión aduanera",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": true
+      }
+    ],
+    "cursos_electivos": [
+      {
+        "codigo": "1MN033",
+        "nombre": "Análisis y Simulación de Negocios Internacionales",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN658",
+        "nombre": "Gestión de certificaciones y documentación en el comercio internacional",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN657",
+        "nombre": "Gestión de compras internacionales",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN659",
+        "nombre": "Gestión de sistemas de información del comercio internacional e inteligencia comercial",
+        "departamento": "MNI",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN015",
+        "nombre": "Gestión del comercio internacional",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN660",
+        "nombre": "Gestión de puertos y operadores logísticos",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN005",
+        "nombre": "Logística internacional",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "codigo": "CONC-24",
+    "nombre": "Literatura",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Abierta a estudiantes de todas las carreras (a partir de 110 créditos acumulados).",
+    "total_cursos_en_lista": 3,
+    "cursos_obligatorios": [],
+    "cursos_electivos": [
+      {
+        "codigo": "128129",
+        "nombre": "Literatura hispanoamericana",
+        "departamento": "HUM",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "120131",
+        "nombre": "Literatura y sociedad en los siglos de oro español e hispanoamericano",
+        "departamento": "HUM",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "127039",
+        "nombre": "Literatura universal",
+        "departamento": "HUM",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "codigo": "CONC-25",
+    "nombre": "Machine Learning",
+    "creditos_minimos": 15,
+    "carreras_excluidas": [
+      "INF"
+    ],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "No aplica para estudiantes de Ingeniería de la Información (sus asignaturas ya forman parte de su malla obligatoria).",
+    "total_cursos_en_lista": 4,
+    "cursos_obligatorios": [],
+    "cursos_electivos": [
+      {
+        "codigo": "170423",
+        "nombre": "Principios de Machine Learning",
+        "departamento": "ING",
+        "horas_teoria": 4,
+        "horas_practica": 1,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170338",
+        "nombre": "Machine Learning",
+        "departamento": "ING",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170339",
+        "nombre": "Inteligencia Computacional",
+        "departamento": "ING",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170328",
+        "nombre": "Deep Learning",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "codigo": "CONC-26",
+    "nombre": "Marketing analytics",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Abierta a estudiantes de todas las carreras (a partir de 110 créditos acumulados).",
+    "total_cursos_en_lista": 8,
+    "cursos_obligatorios": [],
+    "cursos_electivos": [
+      {
+        "codigo": "1MN392",
+        "nombre": "Analítica Digital con Google Analytics y Big Query",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN645",
+        "nombre": "Computational Models in Strategy",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN397",
+        "nombre": "Consumer Science: Understanding, Predicting, and Profiling People",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN393",
+        "nombre": "Digital Marketing KPIs",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN396",
+        "nombre": "Generación de Experimentos con Google Optimize y Visualización con Data Studio",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN395",
+        "nombre": "Growth Hacking",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN394",
+        "nombre": "Inteligencia Artificial en Marketing",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170357",
+        "nombre": "Machine Learning y Big Data",
+        "departamento": "ING",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "codigo": "CONC-27",
+    "nombre": "Marketing digital",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Abierta a estudiantes de todas las carreras (a partir de 110 créditos acumulados).",
+    "total_cursos_en_lista": 9,
+    "cursos_obligatorios": [],
+    "cursos_electivos": [
+      {
+        "codigo": "1MN391",
+        "nombre": "Digital Advertising",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN389",
+        "nombre": "Digital branding",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN393",
+        "nombre": "Digital Marketing KPIs",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN643",
+        "nombre": "Digital Product Design & Metrics",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN045",
+        "nombre": "E-commerce",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN388",
+        "nombre": "Marketing de Contenido",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN029",
+        "nombre": "Marketing Digital y Redes Sociales",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN369",
+        "nombre": "Mobile Marketing",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN390",
+        "nombre": "Web based project management",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "codigo": "CONC-28",
+    "nombre": "Marketing estratégico",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Abierta a estudiantes de todas las carreras (a partir de 110 créditos acumulados).",
+    "total_cursos_en_lista": 23,
+    "cursos_obligatorios": [],
+    "cursos_electivos": [
+      {
+        "codigo": "1MN512",
+        "nombre": "Business Planning Analytics",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN367",
+        "nombre": "Canales de Distribución",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN017",
+        "nombre": "Comportamiento del Consumidor",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN645",
+        "nombre": "Computational Models in Strategy",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN387",
+        "nombre": "Customer Experience Management (CEM)",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN644",
+        "nombre": "Diseño Conductual",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN027",
+        "nombre": "Estrategias de Branding",
+        "departamento": "MNI",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN368",
+        "nombre": "Estrategias de Comunicación y Promoción",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN018",
+        "nombre": "Fundamentos de Marketing",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN372",
+        "nombre": "Gestión de Productos",
+        "departamento": "MNI",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN049",
+        "nombre": "International Marketing",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN642",
+        "nombre": "Marketing Deportivo",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN029",
+        "nombre": "Marketing Digital y Redes Sociales",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN152",
+        "nombre": "Marketing Sectorial",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN381",
+        "nombre": "Marketing Sostenible",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN382",
+        "nombre": "Métricas y Analítica de Marketing",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN062",
+        "nombre": "Neuromarketing",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN383",
+        "nombre": "Omnicanalidad",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN715",
+        "nombre": "Pensamiento Crítico para Marketing",
+        "departamento": "MNI",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN385",
+        "nombre": "Pricing",
+        "departamento": "MNI",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN345",
+        "nombre": "Procesos de Ventas y el Cliente",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN246",
+        "nombre": "Simulación de Decisiones de Marketing",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN346",
+        "nombre": "Tiendas Virtuales y Comercio Electrónico",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "codigo": "CONC-29",
+    "nombre": "Matemáticas",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Abierta a estudiantes de todas las carreras (a partir de 110 créditos acumulados).",
+    "total_cursos_en_lista": 3,
+    "cursos_obligatorios": [],
+    "cursos_electivos": [
+      {
+        "codigo": "130537",
+        "nombre": "Análisis Real y Convexo",
+        "departamento": "ECO",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "130146",
+        "nombre": "Métodos Numéricos",
+        "departamento": "ECO",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "130540",
+        "nombre": "Procesos Estocásticos",
+        "departamento": "ECO",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "codigo": "CONC-30",
+    "nombre": "Política Pública",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Abierta a estudiantes de todas las carreras (a partir de 110 créditos acumulados).",
+    "total_cursos_en_lista": 15,
+    "cursos_obligatorios": [],
+    "cursos_electivos": [
+      {
+        "codigo": "130289",
+        "nombre": "Análisis Político Relevante para la Perspectiva Económica",
+        "departamento": "ECO",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "130593",
+        "nombre": "Control Gubernamental",
+        "departamento": "ECO",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "130639",
+        "nombre": "Diseño y Evaluación Social de Proyectos",
+        "departamento": "ECO",
+        "horas_teoria": 4,
+        "horas_practica": 1,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "130043",
+        "nombre": "Economía Pública",
+        "departamento": "ECO",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "130619",
+        "nombre": "Economía Ambiental Aplicada a las Políticas Públicas en el Perú",
+        "departamento": "ECO",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "130369",
+        "nombre": "Herramientas para el Diagnóstico y Análisis de Políticas Sociales",
+        "departamento": "ECO",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "130235",
+        "nombre": "Sem. de Economía del Turismo",
+        "departamento": "ECO",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "130372",
+        "nombre": "Sem. de Economía y Gestión de Programas Sociales",
+        "departamento": "ECO",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1F0323",
+        "nombre": "Sem. de Finanzas Públicas",
+        "departamento": "FIN",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1F0274",
+        "nombre": "Sem. de Insurance Markets",
+        "departamento": "FIN",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "130578",
+        "nombre": "Sem. de la estrategia a la implementación de políticas públicas",
+        "departamento": "ECO",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "130422",
+        "nombre": "Sem. Economía y Financiamiento en Salud",
+        "departamento": "ECO",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1F0048",
+        "nombre": "Sem. Sistema de Pensiones",
+        "departamento": "FIN",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "136443",
+        "nombre": "Teoría de la Regulación Económica",
+        "departamento": "ECO",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "130591",
+        "nombre": "Transformación Digital Gubernamental",
+        "departamento": "ECO",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "codigo": "CONC-31",
+    "nombre": "Procesos y tecnología",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Incluye asignaturas UP y 3 asignaturas del convenio con UTEC (IN5009, IN4007, IN4304).",
+    "total_cursos_en_lista": 18,
+    "cursos_obligatorios": [],
+    "cursos_electivos": [
+      {
+        "codigo": "142071",
+        "nombre": "Gestión de E-Commerce y Logística de la última milla",
+        "departamento": "ADM",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170307",
+        "nombre": "Herramientas de Programación con Python",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170495",
+        "nombre": "Instalaciones Deportivas: Tecnología y Eficiencia",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170498",
+        "nombre": "Inteligencia Artificial aplicada a la Cadena de Suministros",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170424",
+        "nombre": "Introduction to Industrial Ecology and Sustainable Systems",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170352",
+        "nombre": "Investigación de operaciones",
+        "departamento": "ING",
+        "horas_teoria": 4,
+        "horas_practica": 1,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN005",
+        "nombre": "Logística Internacional",
+        "departamento": "MNI",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170337",
+        "nombre": "Procesos de suministros",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170340",
+        "nombre": "Procesos de producción",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170341",
+        "nombre": "Procesos de distribución",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170387",
+        "nombre": "Procesos de venta",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "1MN345",
+        "nombre": "Procesos de Ventas y el Cliente",
+        "departamento": "MNI",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170388",
+        "nombre": "SAP Hanna para la gestión integral de negocios",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142060",
+        "nombre": "Sustainable Global Value Chains: A Management Perspective",
+        "departamento": "ADM",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142404",
+        "nombre": "Tecnología y Operación Logística",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "IN5009",
+        "nombre": "Estrategia de Operaciones",
+        "departamento": "ING",
+        "horas_teoria": 0,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "IN4007",
+        "nombre": "Lean Six Sigma",
+        "departamento": "ING",
+        "horas_teoria": 0,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "IN4304",
+        "nombre": "Planeamiento Avanzado de la Cadena de Suministro",
+        "departamento": "ING",
+        "horas_teoria": 0,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "codigo": "CONC-32",
+    "nombre": "Proyectos y tecnología",
+    "creditos_minimos": 12,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "Abierta a estudiantes de todas las carreras (a partir de 110 créditos acumulados).",
+    "total_cursos_en_lista": 11,
+    "cursos_obligatorios": [],
+    "cursos_electivos": [
+      {
+        "codigo": "170329",
+        "nombre": "Design thinking and technological innovation",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170345",
+        "nombre": "Gestión de proyectos",
+        "departamento": "ING",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142270",
+        "nombre": "Gestión de Proyectos según PMI",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "142314",
+        "nombre": "Gestión de Riesgos según el PMI",
+        "departamento": "ADM",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170307",
+        "nombre": "Herramientas de Programación con Python",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170495",
+        "nombre": "Instalaciones Deportivas: Tecnología y Eficiencia",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 0,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170424",
+        "nombre": "Introduction to Industrial Ecology and Sustainable Systems",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 2,
+        "creditos": 3.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170344",
+        "nombre": "Metodologías ágiles",
+        "departamento": "ING",
+        "horas_teoria": 4,
+        "horas_practica": 0,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170351",
+        "nombre": "Métodos de investigación cuantitativa",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170426",
+        "nombre": "Project Management Office (PMO)",
+        "departamento": "ING",
+        "horas_teoria": 2,
+        "horas_practica": 0,
+        "creditos": 2.0,
+        "es_obligatorio_concentracion": false
+      },
+      {
+        "codigo": "170427",
+        "nombre": "Prototipea tu idea con impresión 3D I NG 0 2 1 170347 Transformación digital y gestión del cambio",
+        "departamento": "ING",
+        "horas_teoria": 3,
+        "horas_practica": 2,
+        "creditos": 4.0,
+        "es_obligatorio_concentracion": false
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "codigo": "CONC-33",
+    "nombre": "Teoría Económica",
+    "creditos_minimos": 15,
+    "carreras_excluidas": [],
+    "carreras_exclusivas": [],
+    "creditos_por_carrera": {},
+    "notas_reglamento": "15 créditos académicos obligatorios de la concentración (Macroeconomía Avanzada I, Matemáticas Avanzada, Microeconomía Avanzada I).",
+    "total_cursos_en_lista": 3,
+    "cursos_obligatorios": [
+      {
+        "codigo": "135483",
+        "nombre": "Macroeconomía Avanzada I (M)",
+        "departamento": "ECO",
+        "horas_teoria": 0,
+        "horas_practica": 0,
+        "creditos": 5.0,
+        "es_obligatorio_concentracion": true
+      },
+      {
+        "codigo": "131485",
+        "nombre": "Matemáticas Avanzada (M)",
+        "departamento": "ECO",
+        "horas_teoria": 0,
+        "horas_practica": 0,
+        "creditos": 5.0,
+        "es_obligatorio_concentracion": true
+      },
+      {
+        "codigo": "133484",
+        "nombre": "Microeconomía Avanzada I (M)",
+        "departamento": "ECO",
+        "horas_teoria": 0,
+        "horas_practica": 0,
+        "creditos": 5.0,
+        "es_obligatorio_concentracion": true
+      }
+    ],
+    "cursos_electivos": []
+  }
+]

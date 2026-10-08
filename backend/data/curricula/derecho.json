@@ -8,18 +8,7 @@
     "total_ciclos": 12,
     "max_creditos_ciclo_regular": 23.0
   },
-  "concentraciones": [
-    {
-      "codigo": "CONC-CORP",
-      "nombre": "Derecho Corporativo y Financiero",
-      "descripcion": "Especialización en sociedades, finanzas corporativas, banca y mercado de valores."
-    },
-    {
-      "codigo": "CONC-PUB",
-      "nombre": "Regulación, Arbitraje y Políticas Públicas",
-      "descripcion": "Especialización en derecho administrativo, regulación económica y arbitraje internacional."
-    }
-  ],
+  "concentraciones": [],
   "cursos": [
     {
       "codigo": "134654",

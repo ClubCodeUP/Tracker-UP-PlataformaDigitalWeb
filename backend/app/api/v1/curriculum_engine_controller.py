@@ -1,6 +1,4 @@
-"""
-Controlador RESTful para el motor de recomendaciones, evaluación de riesgos curriculares y catálogo de mallas (RF-05, RF-10 al RF-16).
-"""
+import json
 from typing import Dict, List, Optional
 from collections import defaultdict
 from fastapi import APIRouter, Depends, HTTPException, Query, status
@@ -9,14 +7,20 @@ from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.api.dependencies import get_current_user, get_current_user_optional
 from app.core.curriculum_loader import CurriculumLoader
-from app.infrastructure.models import CarreraModel, MallaCurricularModel, AsignaturaModel
+from app.domain.exceptions import ConcentrationEligibilityException, EntityNotFoundException
+from app.infrastructure.models import CarreraModel, MallaCurricularModel, AsignaturaModel, ConcentracionModel
 from app.infrastructure.models.user_model import UsuarioModel
 from app.infrastructure.repositories.course_repository import CourseRepository
 from app.infrastructure.repositories.history_repository import HistoryRepository
 from app.schemas.rules_engine import (
     CurriculumEvaluationResponse,
     RecommendationResponse,
-    RiskAlertResponse
+    RiskAlertResponse,
+    OfficialConcentrationResponse,
+    OfficialConcentrationCourseItem,
+    ConcentrationTrackingProgress,
+    StudentConcentrationsStatusResponse,
+    DeclareConcentrationsRequest,
 )
 from app.services.curriculum_engine_service import CurriculumEngineService
 
@@ -26,21 +30,30 @@ router = APIRouter(prefix="/curriculum", tags=["Motor Curricular y Alertas"])
 @router.get(
     "/careers",
     summary="Listar programas académicos y concentraciones disponibles (RF-02)",
-    description="Devuelve el catálogo de todas las carreras precargadas en el sistema junto con sus concentraciones."
+    description="Devuelve el catálogo de todas las carreras precargadas en el sistema junto con sus concentraciones oficiales elegibles."
 )
 def list_careers(db: Session = Depends(get_db)):
     carreras = db.query(CarreraModel).all()
+    all_concs = db.query(ConcentracionModel).all()
     results = []
     for c in carreras:
-        concs = [
-            {
+        c_code = c.codigo.upper()
+        career_concs = []
+        for co in all_concs:
+            excluidas = json.loads(co.carreras_excluidas) if co.carreras_excluidas else []
+            exclusivas = json.loads(co.carreras_exclusivas) if co.carreras_exclusivas else []
+            if c_code in excluidas:
+                continue
+            if exclusivas and c_code not in exclusivas:
+                continue
+            career_concs.append({
                 "id": co.id,
                 "codigo": co.codigo,
                 "nombre": co.nombre,
-                "descripcion": co.descripcion
-            }
-            for co in c.concentraciones
-        ]
+                "creditos_minimos": co.creditos_minimos,
+                "descripcion": co.descripcion or co.notas_reglamento
+            })
+
         results.append({
             "id": c.id,
             "codigo": c.codigo,
@@ -48,7 +61,7 @@ def list_careers(db: Session = Depends(get_db)):
             "total_creditos_graduacion": c.total_creditos_graduacion,
             "total_ciclos": c.total_ciclos,
             "max_creditos_ciclo_regular": float(c.max_creditos_ciclo_regular),
-            "concentraciones": concs
+            "concentraciones": career_concs
         })
     return results
 
@@ -215,3 +228,145 @@ def get_risk_alerts(
         return CurriculumEngineService.evaluate_risks(db, current_user)
     except Exception as e:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
+
+
+@router.get(
+    "/concentrations",
+    response_model=List[OfficialConcentrationResponse],
+    summary="Listar las 33 concentraciones oficiales de pregrado (CA 24.06.2026)",
+    description="Devuelve el catálogo de 33 concentraciones oficiales con reglas de creditaje, exclusiones por carrera y desglose de asignaturas."
+)
+def list_official_concentrations(
+    carrera_id: Optional[int] = Query(None, description="Filtrar o evaluar elegibilidad para una carrera específica"),
+    current_user: Optional[UsuarioModel] = Depends(get_current_user_optional),
+    db: Session = Depends(get_db)
+):
+    target_carrera = None
+    if carrera_id:
+        target_carrera = db.query(CarreraModel).filter(CarreraModel.id == carrera_id).first()
+    elif current_user and current_user.carrera:
+        target_carrera = current_user.carrera
+
+    carrera_code = target_carrera.codigo.upper() if target_carrera else None
+
+    concs = db.query(ConcentracionModel).order_by(ConcentracionModel.id.asc()).all()
+    results = []
+
+    for c in concs:
+        excluidas = json.loads(c.carreras_excluidas) if c.carreras_excluidas else []
+        exclusivas = json.loads(c.carreras_exclusivas) if c.carreras_exclusivas else []
+
+        aplica = True
+        motivo = None
+
+        if carrera_code:
+            if carrera_code in excluidas:
+                aplica = False
+                motivo = f"No aplica para estudiantes de {target_carrera.nombre} (Normativa oficial CA 24.06.2026)."
+            elif exclusivas and carrera_code not in exclusivas:
+                aplica = False
+                motivo = f"Concentración reservada exclusivamente para estudiantes de {', '.join(exclusivas)}."
+
+        cursos_info = {}
+        if c.cursos_info:
+            try:
+                cursos_info = json.loads(c.cursos_info)
+            except Exception:
+                cursos_info = {}
+
+        raw_oblig = cursos_info.get("cursos_obligatorios", [])
+        raw_elect = cursos_info.get("cursos_electivos", [])
+
+        cred_min = c.creditos_minimos
+        if c.creditos_por_carrera and carrera_code:
+            try:
+                c_rules = json.loads(c.creditos_por_carrera)
+                if carrera_code in c_rules:
+                    cred_min = c_rules[carrera_code]
+            except Exception:
+                pass
+
+        results.append(OfficialConcentrationResponse(
+            id=c.id,
+            codigo=c.codigo,
+            nombre=c.nombre,
+            creditos_minimos=cred_min,
+            carreras_excluidas=excluidas,
+            carreras_exclusivas=exclusivas,
+            notas_reglamento=c.notas_reglamento or "",
+            aplica_a_carrera_estudiante=aplica,
+            motivo_exclusion=motivo,
+            total_cursos=len(raw_oblig) + len(raw_elect),
+            cursos_obligatorios=[
+                OfficialConcentrationCourseItem(
+                    codigo=co.get("codigo", ""),
+                    nombre=co.get("nombre", ""),
+                    departamento=co.get("departamento", ""),
+                    creditos=float(co.get("creditos", 4.0)),
+                    es_obligatorio_concentracion=True,
+                    horas_teoria=co.get("horas_teoria", 0),
+                    horas_practica=co.get("horas_practica", 0)
+                )
+                for co in raw_oblig
+            ],
+            cursos_electivos=[
+                OfficialConcentrationCourseItem(
+                    codigo=ce.get("codigo", ""),
+                    nombre=ce.get("nombre", ""),
+                    departamento=ce.get("departamento", ""),
+                    creditos=float(ce.get("creditos", 3.0)),
+                    es_obligatorio_concentracion=False,
+                    horas_teoria=ce.get("horas_teoria", 0),
+                    horas_practica=ce.get("horas_practica", 0)
+                )
+                for ce in raw_elect
+            ]
+        ))
+
+    return results
+
+
+@router.get(
+    "/concentrations/status",
+    response_model=StudentConcentrationsStatusResponse,
+    summary="Consultar estado de concentraciones del estudiante autenticado",
+    description="Evalúa el requisito de 110 créditos acumulados (Norma III CA 24.06.2026) y el progreso de avance en concentraciones declaradas."
+)
+def get_concentrations_status(
+    current_user: UsuarioModel = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    try:
+        return CurriculumEngineService.get_student_concentrations_status(db, current_user)
+    except Exception as e:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
+
+
+@router.post(
+    "/concentrations/declare",
+    response_model=StudentConcentrationsStatusResponse,
+    summary="Declarar o actualizar concentraciones de pregrado (hasta 2)",
+    description="Permite al estudiante oficializar la declaración de hasta 2 concentraciones cuando cuente con 110+ créditos acumulados."
+)
+def declare_concentrations(
+    request: DeclareConcentrationsRequest,
+    current_user: UsuarioModel = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    from app.schemas.user import UserProfileUpdate
+    from app.services.profile_service import ProfileService
+
+    update_dto = UserProfileUpdate(
+        concentracion_id=request.concentracion_id,
+        concentracion_secundaria_id=request.concentracion_secundaria_id
+    )
+    try:
+        ProfileService.update_profile(db, current_user, update_dto)
+    except ConcentrationEligibilityException as e:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=e.message)
+    except EntityNotFoundException as e:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=e.message)
+    except Exception as e:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
+
+    return CurriculumEngineService.get_student_concentrations_status(db, current_user)

@@ -31,3 +31,8 @@ class InvalidAcademicRecordException(DomainException):
     def __init__(self, detail: str):
         super().__init__(f"Registro académico inválido: {detail}")
 
+
+class ConcentrationEligibilityException(DomainException):
+    def __init__(self, message: str):
+        super().__init__(message)
+

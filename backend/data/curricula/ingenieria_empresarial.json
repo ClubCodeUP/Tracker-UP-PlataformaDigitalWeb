@@ -8,18 +8,7 @@
     "total_ciclos": 10,
     "max_creditos_ciclo_regular": 22.0
   },
-  "concentraciones": [
-    {
-      "codigo": "CONC-PROC",
-      "nombre": "Gestión de Procesos y Operaciones",
-      "descripcion": "Optimización de procesos, supply chain y analítica operacional."
-    },
-    {
-      "codigo": "CONC-PROJ",
-      "nombre": "Dirección de Proyectos y Transformación Digital",
-      "descripcion": "Metodologías ágiles, gestión del cambio e innovación empresarial."
-    }
-  ],
+  "concentraciones": [],
   "cursos": [
     {
       "codigo": "134654",

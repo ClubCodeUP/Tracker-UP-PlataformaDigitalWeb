@@ -8,6 +8,7 @@ from pydantic import BaseModel, ConfigDict, Field
 class UserProfileUpdate(BaseModel):
     carrera_id: Optional[int] = Field(None, examples=[1])
     concentracion_id: Optional[int] = Field(None, examples=[2])
+    concentracion_secundaria_id: Optional[int] = Field(None, examples=[3])
     periodo_ingreso: Optional[str] = Field(None, pattern=r"^[0-9]{4}-(0|1|2)$", examples=["2023-1"])
 
 
@@ -23,6 +24,10 @@ class UserProfileResponse(BaseModel):
     carrera_codigo: Optional[str] = None
     concentracion_id: Optional[int] = None
     concentracion_nombre: Optional[str] = None
+    concentracion_secundaria_id: Optional[int] = None
+    concentracion_secundaria_nombre: Optional[str] = None
+    creditos_acumulados: Optional[float] = None
+    puede_declarar_concentracion: Optional[bool] = None
     periodo_ingreso: str
     activo: bool
 

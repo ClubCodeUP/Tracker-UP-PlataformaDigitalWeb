@@ -8,18 +8,7 @@
     "total_ciclos": 10,
     "max_creditos_ciclo_regular": 22.0
   },
-  "concentraciones": [
-    {
-      "codigo": "CONC-POLPHIL",
-      "nombre": "Filosofía Política y Gobernanza",
-      "descripcion": "Teoría política avanzada, ética pública y diseño institucional."
-    },
-    {
-      "codigo": "CONC-POLDEV",
-      "nombre": "Economía Política y Desarrollo",
-      "descripcion": "Políticas de desarrollo, economía institucional y análisis global."
-    }
-  ],
+  "concentraciones": [],
   "cursos": [
     {
       "codigo": "170131",

@@ -114,13 +114,22 @@ def test_profile_endpoints(client: TestClient):
     profile = get_res.json()
     assert profile["email"] == "20230999@up.edu.pe"
     assert profile["carrera_codigo"] == "INF"
+    assert profile["creditos_acumulados"] == 0.0
+    assert profile["puede_declarar_concentracion"] is False
 
-    # 2. Actualizar perfil (cambio de concentración)
-    put_res = client.put("/api/v1/profile/me", headers=headers, json={
+    # 2. Intentar declarar concentración con 0 créditos debe ser rechazado por la regla de 110 créditos (CA 24.06.2026)
+    put_bad = client.put("/api/v1/profile/me", headers=headers, json={
         "concentracion_id": 2
     })
-    assert put_res.status_code == 200
-    assert put_res.json()["concentracion_id"] == 2
+    assert put_bad.status_code == 400
+    assert "110 créditos" in put_bad.json()["detail"]
+
+    # 3. Actualizar periodo de ingreso sí está permitido
+    put_period = client.put("/api/v1/profile/me", headers=headers, json={
+        "periodo_ingreso": "2023-2"
+    })
+    assert put_period.status_code == 200
+    assert put_period.json()["periodo_ingreso"] == "2023-2"
 
 
 # -----------------------------------------------------------------------------

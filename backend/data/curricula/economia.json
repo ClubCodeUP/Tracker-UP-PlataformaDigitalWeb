@@ -8,18 +8,7 @@
     "total_ciclos": 10,
     "max_creditos_ciclo_regular": 22.0
   },
-  "concentraciones": [
-    {
-      "codigo": "CONC-MACRO",
-      "nombre": "Macroeconomía y Finanzas Cuantitativas",
-      "descripcion": "Modelos DSGE, política monetaria y análisis macrofinanciero."
-    },
-    {
-      "codigo": "CONC-APPLIED",
-      "nombre": "Economía Aplicada y Políticas Públicas",
-      "descripcion": "Microeconometría, evaluación de impacto y organización industrial."
-    }
-  ],
+  "concentraciones": [],
   "cursos": [
     {
       "codigo": "134654",
