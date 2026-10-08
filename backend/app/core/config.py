@@ -18,8 +18,11 @@ class Settings(BaseSettings):
     INSTITUTIONAL_DOMAIN: str = "@alum.up.edu.pe"
     INSTITUTIONAL_EMAIL_REGEX: str = r"^[a-zA-Z0-9._%+-]+@(alum\.)?up\.edu\.pe$"
     
-    # Base de Datos: SQLite por defecto para desarrollo autocontenido, configurable a PostgreSQL
+    # Base de Datos: SQLite por defecto para desarrollo autocontenido, configurable a PostgreSQL (Supabase)
     DATABASE_URL: str = "sqlite:///./tracker_up.db"
+    
+    # Orígenes permitidos para CORS (comas para múltiples URLs en producción, o "*" para desarrollo)
+    CORS_ORIGINS: str = "*"
     
     model_config = SettingsConfigDict(
         env_file=".env",

@@ -27,10 +27,16 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# Configuración de CORS
+# Configuración de CORS dinámico para desarrollo y producción (Netlify / Vercel)
+cors_origins = (
+    ["*"]
+    if settings.CORS_ORIGINS.strip() == "*"
+    else [o.strip() for o in settings.CORS_ORIGINS.split(",") if o.strip()]
+)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=cors_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
