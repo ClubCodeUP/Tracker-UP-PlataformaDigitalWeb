@@ -23,6 +23,7 @@ El repositorio cuenta con documentación exhaustiva para desarrolladores, diseñ
 
 | Documento | Enlace | Propósito y Contenido |
 | :--- | :--- | :--- |
+| **Informe de Entrega Backend** | [docs/entregable-backend.md](docs/entregable-backend.md) | **Entregable oficial:** Arquitectura técnica, conectividad a Supabase Cloud, reglas de 110 créditos, endpoints por lote y 20 tests. |
 | **Alcance del MVP** | [docs/alcance-mvp.md](docs/alcance-mvp.md) | Definición formal del producto, requerimientos funcionales (RF-01 al RF-16), requerimientos no funcionales y exclusiones. |
 | **Sistema de Diseño UI/UX** | [docs/ui-ux-design-system.md](docs/ui-ux-design-system.md) | **Guía para diseñadores y frontends:** Design tokens, paleta de colores, tipografía, anatomía de nodos, aristas del flujograma, ficha lateral y UX user flows. |
 | **Mallas Curriculares Oficiales** | [backend/data/curricula/](backend/data/curricula/) | Archivos JSON fuente con el catálogo curricular oficial de las 12 carreras UP sincronizados con los PDFs institucionales en `docs/mallas/`. |
@@ -40,10 +41,10 @@ El repositorio cuenta con documentación exhaustiva para desarrolladores, diseñ
 
 ### Backend
 * **Framework:** Python 3.11+ / FastAPI
-* **ORM & Base de Datos:** SQLAlchemy 2.0 sobre SQLite (`tracker_up.db`)
+* **ORM & Base de Datos:** SQLAlchemy 2.0 sobre **PostgreSQL en Supabase Cloud** (Transaction Pooler IPv4) con fallback a SQLite local
 * **Seguridad:** JWT (OAuth2 Bearer) con encriptación de contraseñas mediante `passlib` / `bcrypt`
 * **Validación de Esquemas:** Pydantic 2.10 y Pydantic Settings
-* **Testing:** Pytest + AnyIO + HTTPX TestClient
+* **Testing:** Pytest (20 pruebas unitarias y de integración pasando al 100%)
 
 ---
 
@@ -56,33 +57,34 @@ El repositorio cuenta con documentación exhaustiva para desarrolladores, diseñ
 
 ### 2. Configurar y Ejecutar el Backend (FastAPI)
 ```powershell
-# En la raíz del proyecto
-.\.venv\Scripts\activate       # O crear venv: python -m venv .venv
-pip install -r backend/requirements.txt
+# Ingresar a la carpeta backend
+cd backend
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install -r requirements.txt
 
-# Iniciar servidor FastAPI (puerto 8000)
-$env:PYTHONPATH="backend"
+# Iniciar servidor FastAPI (arranque en < 1s, puerto 8000)
 uvicorn app.main:app --reload --port 8000
 ```
 * API disponible en: `http://localhost:8000`
-* Documentación Swagger interactiva: `http://localhost:8000/docs`
+* Documentación interactiva Swagger: `http://localhost:8000/docs`
 
 ### 3. Configurar y Ejecutar el Frontend (React + Vite)
 ```powershell
-# En una nueva terminal
+# En una nueva terminal, ingresar a la carpeta frontend
 cd frontend
 npm install
 npm run dev
 ```
-* Aplicación web disponible en: `http://localhost:5173`
+* Aplicación web disponible en: `http://localhost:3000`
 
 ---
 
 ## 🧪 Ejecución de Pruebas Automatizadas
 
 ```powershell
-# 1. Pruebas Backend (18 pruebas: API, autenticación, métricas, prerrequisitos dinámicos)
-$env:PYTHONPATH="backend"; .\.venv\Scripts\python.exe -m pytest backend/tests
+# 1. Pruebas Backend (20 pruebas: API, autenticación, concentraciones, métricas, bulk)
+python -m pytest backend/tests
 
 # 2. Verificación de Compilación y Tipos Frontend
 cd frontend
