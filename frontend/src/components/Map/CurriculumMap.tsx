@@ -13,6 +13,8 @@ import {
 import '@xyflow/react/dist/style.css';
 import { CourseNode } from './CourseNode';
 import { CycleHeader } from './CycleHeader';
+import { QuickEditToolbar } from './QuickEditToolbar';
+import { Asignatura } from '../../types/curriculum';
 
 interface CurriculumMapProps {
   nodes: Node[];
@@ -20,6 +22,14 @@ interface CurriculumMapProps {
   onNodesChange?: OnNodesChange;
   onEdgesChange?: OnEdgesChange;
   maxCiclos?: number;
+  isQuickEditMode?: boolean;
+  onCloseQuickEdit?: () => void;
+  defaultGrade?: number;
+  onChangeDefaultGrade?: (grade: number) => void;
+  allCourses?: Asignatura[];
+  onApproveCycle?: (ciclo: number) => void;
+  onClearCycle?: (ciclo: number) => void;
+  periodoIngreso?: string;
 }
 
 export const CurriculumMap: React.FC<CurriculumMapProps> = ({
@@ -28,6 +38,14 @@ export const CurriculumMap: React.FC<CurriculumMapProps> = ({
   onNodesChange,
   onEdgesChange,
   maxCiclos = 5,
+  isQuickEditMode = false,
+  onCloseQuickEdit,
+  defaultGrade = 14,
+  onChangeDefaultGrade,
+  allCourses = [],
+  onApproveCycle,
+  onClearCycle,
+  periodoIngreso,
 }) => {
   // Registrar el tipo de nodo personalizado memoizado
   const nodeTypes = useMemo(() => ({ courseNode: CourseNode as any }), []);
@@ -36,6 +54,18 @@ export const CurriculumMap: React.FC<CurriculumMapProps> = ({
     <div className="relative w-full h-full bg-slate-950 overflow-hidden flex flex-col">
       {/* Cabecera fija de ciclos académicos */}
       <CycleHeader maxCiclos={maxCiclos} />
+
+      {/* Barra Flotante de Edición Rápida */}
+      <QuickEditToolbar
+        isOpen={isQuickEditMode}
+        onClose={onCloseQuickEdit || (() => {})}
+        defaultGrade={defaultGrade}
+        onChangeDefaultGrade={onChangeDefaultGrade || (() => {})}
+        allCourses={allCourses}
+        onApproveCycle={onApproveCycle || (() => {})}
+        onClearCycle={onClearCycle || (() => {})}
+        periodoIngreso={periodoIngreso}
+      />
 
       {/* Contenedor React Flow */}
       <div className="flex-1 w-full h-full">

@@ -6,9 +6,17 @@ interface UseCurriculumMapProps {
   malla: Asignatura[];
   historial: HistorialEntry[];
   alertas: RiskAlert[];
+  isQuickEditMode?: boolean;
+  onQuickToggleCourse?: (asignatura: Asignatura) => void;
 }
 
-export function useCurriculumMap({ malla, historial, alertas }: UseCurriculumMapProps) {
+export function useCurriculumMap({
+  malla,
+  historial,
+  alertas,
+  isQuickEditMode = false,
+  onQuickToggleCourse,
+}: UseCurriculumMapProps) {
   const [selectedCourseId, setSelectedCourseId] = useState<number | null>(null);
 
   // Mapeo rápido de historial por id de asignatura
@@ -89,6 +97,8 @@ export function useCurriculumMap({ malla, historial, alertas }: UseCurriculumMap
           numeroMatricula: userHistory?.numeroMatricula || 1,
           alertas: courseAlerts,
           onSelectCourse: (selected: Asignatura) => setSelectedCourseId(selected.id),
+          isQuickEditMode,
+          onQuickToggleCourse,
         },
       });
     }
@@ -124,7 +134,7 @@ export function useCurriculumMap({ malla, historial, alertas }: UseCurriculumMap
     }
 
     return { nodes: generatedNodes, edges: generatedEdges };
-  }, [malla, historyMap, alertMap, courseCodeToId]);
+  }, [malla, historyMap, alertMap, courseCodeToId, isQuickEditMode, onQuickToggleCourse]);
 
   const selectedCourse = useMemo(() => {
     if (selectedCourseId === null) return null;

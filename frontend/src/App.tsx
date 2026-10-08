@@ -7,7 +7,7 @@ import { CourseDetailDrawer } from './components/Drawer/CourseDetailDrawer';
 import { RecommendationModal } from './components/Recommendation/RecommendationModal';
 import { AuthModal } from './components/Auth/AuthModal';
 import { useCurriculumMap } from './hooks/useCurriculumMap';
-import { trackerApi, CareerSummary, UserProfile } from './services/trackerApi';
+import { trackerApi, CareerSummary, UserProfile, calculatePeriodForCycle } from './services/trackerApi';
 import { Asignatura, AcademicMetrics, HistorialEntry, RiskAlert, EstadoAsignatura } from './types/curriculum';
 
 const GUEST_METRICS: AcademicMetrics = {
@@ -33,6 +33,10 @@ export function App() {
   // Modal de autenticación
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [authModalMode, setAuthModalMode] = useState<'login' | 'register'>('login');
+
+  // Modo Edición Rápida (Opción 1)
+  const [isQuickEditMode, setIsQuickEditMode] = useState(false);
+  const [quickEditDefaultGrade, setQuickEditDefaultGrade] = useState(14);
 
   // Catálogo de carreras y carrera seleccionada
   const [careers, setCareers] = useState<CareerSummary[]>([]);
@@ -205,6 +209,136 @@ export function App() {
     await loadStudentData();
   };
 
+  // Manejo de Aprobación/Desaprobación con 1 Clic (Modo Rápido)
+  const handleQuickToggleCourse = async (asignatura: Asignatura) => {
+    if (!currentUser) {
+      setAuthModalMode('login');
+      setIsAuthModalOpen(true);
+      return;
+    }
+
+    const existing = historial.find((h) => h.asignaturaId === asignatura.id);
+    const isCurrentlyApproved = existing?.estado === 'APROBADA';
+
+    if (isCurrentlyApproved) {
+      // Optimistic update: revertir a PENDIENTE (eliminar del historial)
+      setHistorial((prev) => prev.filter((h) => h.asignaturaId !== asignatura.id));
+      try {
+        await trackerApi.deleteCourseHistory(existing.id);
+        await loadStudentData();
+      } catch (err) {
+        console.error('Error desmarcando curso:', err);
+        await loadStudentData();
+      }
+    } else {
+      // Optimistic update: marcar como APROBADA
+      const period =
+        existing?.periodo ||
+        calculatePeriodForCycle(currentUser.periodo_ingreso, asignatura.ciclo);
+
+      const optimisticEntry: HistorialEntry = {
+        id: existing?.id || -Date.now(),
+        asignaturaId: asignatura.id,
+        periodo: period,
+        estado: 'APROBADA',
+        calificacion: quickEditDefaultGrade,
+        numeroMatricula: existing?.numeroMatricula || 1,
+      };
+
+      setHistorial((prev) => {
+        const filtered = prev.filter((h) => h.asignaturaId !== asignatura.id);
+        return [...filtered, optimisticEntry];
+      });
+
+      try {
+        await trackerApi.saveCourseHistory({
+          asignaturaId: asignatura.id,
+          periodo: period,
+          estado: 'APROBADA',
+          calificacion: quickEditDefaultGrade,
+          numeroMatricula: existing?.numeroMatricula || 1,
+          existingHistoryId: existing?.id || null,
+        });
+        await loadStudentData();
+      } catch (err) {
+        console.error('Error aprobando curso en modo rápido:', err);
+        await loadStudentData();
+      }
+    }
+  };
+
+  // Manejo de Aprobación de Todo un Ciclo en Lote
+  const handleApproveCycle = async (ciclo: number) => {
+    if (!currentUser) {
+      setAuthModalMode('login');
+      setIsAuthModalOpen(true);
+      return;
+    }
+
+    const coursesInCycle = activeMalla.filter((c) => c.ciclo === ciclo);
+    if (coursesInCycle.length === 0) return;
+
+    const period = calculatePeriodForCycle(currentUser.periodo_ingreso, ciclo);
+
+    // Optimistic update
+    const newEntries: HistorialEntry[] = coursesInCycle.map((c) => {
+      const existing = historial.find((h) => h.asignaturaId === c.id);
+      return {
+        id: existing?.id || -Date.now() - c.id,
+        asignaturaId: c.id,
+        periodo: period,
+        estado: 'APROBADA',
+        calificacion: quickEditDefaultGrade,
+        numeroMatricula: existing?.numeroMatricula || 1,
+      };
+    });
+
+    const courseIdsInCycle = new Set(coursesInCycle.map((c) => c.id));
+    setHistorial((prev) => [
+      ...prev.filter((h) => !courseIdsInCycle.has(h.asignaturaId)),
+      ...newEntries,
+    ]);
+
+    try {
+      await trackerApi.saveBulkCourseHistory(
+        coursesInCycle.map((c) => ({
+          asignatura_id: c.id,
+          periodo_academico: period,
+          estado: 'APROBADA',
+          calificacion: quickEditDefaultGrade,
+          numero_matricula: 1,
+        }))
+      );
+      await loadStudentData();
+    } catch (err) {
+      console.error('Error aprobando ciclo en lote:', err);
+      await loadStudentData();
+    }
+  };
+
+  // Manejo de Limpiar Todo un Ciclo en Lote
+  const handleClearCycle = async (ciclo: number) => {
+    if (!currentUser) {
+      setAuthModalMode('login');
+      setIsAuthModalOpen(true);
+      return;
+    }
+
+    const coursesInCycle = activeMalla.filter((c) => c.ciclo === ciclo);
+    const courseIds = coursesInCycle.map((c) => c.id);
+
+    // Optimistic update
+    setHistorial((prev) => prev.filter((h) => !courseIds.includes(h.asignaturaId)));
+
+    try {
+      await trackerApi.deleteBulkCourseHistory(courseIds);
+      await loadStudentData();
+    } catch (err) {
+      console.error('Error limpiando ciclo:', err);
+      await loadStudentData();
+    }
+  };
+
   // Hook del Grafo React Flow
   const {
     nodes,
@@ -216,6 +350,8 @@ export function App() {
     malla: activeMalla,
     historial,
     alertas,
+    isQuickEditMode,
+    onQuickToggleCourse: handleQuickToggleCourse,
   });
 
   // Determinar máximo de ciclos para las cabeceras de columnas
@@ -231,6 +367,8 @@ export function App() {
         careers={careers}
         selectedCareerId={selectedCareerId}
         onSelectCareer={setSelectedCareerId}
+        isQuickEditMode={isQuickEditMode}
+        onToggleQuickEdit={() => setIsQuickEditMode(!isQuickEditMode)}
         onOpenRecommendation={() => {
           if (!currentUser) {
             setAuthModalMode('login');
@@ -290,7 +428,19 @@ export function App() {
 
       {/* 4. Mapa Curricular Interactivo (React Flow) */}
       <main className="flex-1 relative w-full h-full">
-        <CurriculumMap nodes={nodes} edges={edges} maxCiclos={maxCiclos} />
+        <CurriculumMap
+          nodes={nodes}
+          edges={edges}
+          maxCiclos={maxCiclos}
+          isQuickEditMode={isQuickEditMode}
+          onCloseQuickEdit={() => setIsQuickEditMode(false)}
+          defaultGrade={quickEditDefaultGrade}
+          onChangeDefaultGrade={setQuickEditDefaultGrade}
+          allCourses={activeMalla}
+          onApproveCycle={handleApproveCycle}
+          onClearCycle={handleClearCycle}
+          periodoIngreso={currentUser?.periodo_ingreso}
+        />
       </main>
 
       {/* 5. Panel Lateral con la Ficha Técnica de la Asignatura */}

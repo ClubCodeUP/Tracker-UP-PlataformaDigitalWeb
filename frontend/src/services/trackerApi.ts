@@ -166,6 +166,26 @@ export const trackerApi = {
   deleteCourseHistory: (historyId: number) =>
     request(`/history/${historyId}`, { method: 'DELETE' }),
 
+  deleteBulkCourseHistory: (asignaturaIds: number[]) =>
+    request<{ deleted_count: number }>('/history/bulk-delete', {
+      method: 'POST',
+      body: JSON.stringify({ asignatura_ids: asignaturaIds }),
+    }),
+
+  saveBulkCourseHistory: (
+    items: Array<{
+      asignatura_id: number;
+      periodo_academico: string;
+      estado: string;
+      calificacion?: number | null;
+      numero_matricula?: number;
+    }>
+  ) =>
+    request<any[]>('/history/bulk', {
+      method: 'POST',
+      body: JSON.stringify(items),
+    }),
+
   updateCourseStatus: (historyId: number, estado: string, calificacion?: number) =>
     request(`/history/${historyId}`, {
       method: 'PUT',
@@ -177,6 +197,31 @@ export const trackerApi = {
   getMalla: (carreraId?: number) =>
     request<MallaResponse>(carreraId ? `/curriculum/malla?carrera_id=${carreraId}` : '/curriculum/malla'),
 };
+
+/**
+ * Calcula determinísticamente el periodo académico estimado para un ciclo dado
+ * a partir del periodo de ingreso del estudiante (ej. 2023-1 + ciclo 3 = 2024-1).
+ */
+export function calculatePeriodForCycle(periodoIngreso: string | undefined, ciclo: number): string {
+  const currentYear = new Date().getFullYear();
+  if (!periodoIngreso || !/^\d{4}-[0-2]$/.test(periodoIngreso)) {
+    return ciclo === 0 ? `${currentYear}-0` : `${currentYear}-1`;
+  }
+  const [yearStr, semStr] = periodoIngreso.split('-');
+  const year = parseInt(yearStr, 10);
+  const sem = parseInt(semStr, 10);
+
+  if (ciclo === 0) {
+    return `${year}-0`;
+  }
+
+  const currentSem = sem === 0 ? 1 : sem;
+  const offset = ciclo - 1;
+  const totalSems = year * 2 + (currentSem - 1) + offset;
+  const resultYear = Math.floor(totalSems / 2);
+  const resultSem = (totalSems % 2) + 1;
+  return `${resultYear}-${resultSem}`;
+}
 
 // Datos maestros reales de la carrera de Ingeniería de la Información (UP)
 export const DEFAULT_MALLA_UP: Asignatura[] = [

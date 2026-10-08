@@ -1,5 +1,5 @@
 import React from 'react';
-import { Compass, Sparkles, GraduationCap, LogIn, UserPlus, LogOut } from 'lucide-react';
+import { Compass, Sparkles, GraduationCap, LogIn, UserPlus, LogOut, Zap } from 'lucide-react';
 import { CareerSummary, UserProfile } from '../services/trackerApi';
 
 interface HeaderProps {
@@ -10,6 +10,8 @@ interface HeaderProps {
   selectedCareerId?: number;
   onSelectCareer?: (careerId: number) => void;
   onOpenRecommendation?: () => void;
+  isQuickEditMode?: boolean;
+  onToggleQuickEdit?: () => void;
   onOpenLogin?: () => void;
   onOpenRegister?: () => void;
   onLogout?: () => void;
@@ -23,6 +25,8 @@ export const Header: React.FC<HeaderProps> = ({
   selectedCareerId,
   onSelectCareer,
   onOpenRecommendation,
+  isQuickEditMode = false,
+  onToggleQuickEdit,
   onOpenLogin,
   onOpenRegister,
   onLogout,
@@ -82,6 +86,33 @@ export const Header: React.FC<HeaderProps> = ({
             <Sparkles className="w-3.5 h-3.5" />
             <span className="hidden sm:inline">Sugerir Matrícula</span>
             <span className="sm:hidden">Sugerir</span>
+          </button>
+        )}
+
+        {/* Botón de Modo Edición Rápida (Opción 1) */}
+        {onToggleQuickEdit && (
+          <button
+            onClick={onToggleQuickEdit}
+            title={
+              isQuickEditMode
+                ? 'Desactivar Modo Edición Rápida'
+                : 'Activar Modo Edición Rápida (Aprobar cursos con 1 solo clic)'
+            }
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all active:scale-95 border ${
+              isQuickEditMode
+                ? 'bg-emerald-500 text-slate-950 border-emerald-400 shadow-md shadow-emerald-500/30 ring-2 ring-emerald-400/50'
+                : 'bg-slate-900 hover:bg-slate-800 text-slate-200 border-slate-700 hover:border-slate-600'
+            }`}
+          >
+            <Zap
+              className={`w-3.5 h-3.5 ${
+                isQuickEditMode ? 'fill-slate-950 text-slate-950' : 'text-emerald-400'
+              }`}
+            />
+            <span className="hidden sm:inline">Edición Rápida</span>
+            {isQuickEditMode && (
+              <span className="w-1.5 h-1.5 rounded-full bg-slate-950 animate-ping ml-0.5" />
+            )}
           </button>
         )}
 

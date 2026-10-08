@@ -1,11 +1,20 @@
 import { memo } from 'react';
 import { Handle, Position, NodeProps } from '@xyflow/react';
 import { CourseNodeData } from '../../types/curriculum';
-import { AlertTriangle, Flame, CheckCircle2, Clock, BookOpen, Layers } from 'lucide-react';
+import { AlertTriangle, Flame, CheckCircle2, Clock, BookOpen, Layers, Check, Info } from 'lucide-react';
 
 export const CourseNode = memo(({ data }: NodeProps<any>) => {
   const nodeData = data as CourseNodeData;
-  const { asignatura, estado, calificacion, numeroMatricula, alertas, onSelectCourse } = nodeData;
+  const {
+    asignatura,
+    estado,
+    calificacion,
+    numeroMatricula,
+    alertas,
+    onSelectCourse,
+    isQuickEditMode = false,
+    onQuickToggleCourse,
+  } = nodeData;
 
   const isElectiva = asignatura.tipo === 'ELECTIVA';
   const isAprobada = estado === 'APROBADA';
@@ -17,16 +26,49 @@ export const CourseNode = memo(({ data }: NodeProps<any>) => {
   const hasNotaLimite = alertas?.some(a => a.tipo_alerta === 'PRERREQUISITO_NOTA_LIMITE');
   const isBottleneck = asignatura.esCuelloBotella || alertas?.some(a => a.tipo_alerta === 'CUELLO_DE_BOTELLA');
 
+  const handleCardClick = (e: React.MouseEvent) => {
+    if (isQuickEditMode && onQuickToggleCourse) {
+      e.stopPropagation();
+      onQuickToggleCourse(asignatura);
+    } else {
+      onSelectCourse(asignatura);
+    }
+  };
+
+  const handleQuickToggleBtn = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (onQuickToggleCourse) {
+      onQuickToggleCourse(asignatura);
+    }
+  };
+
+  const handleOpenDrawerBtn = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    onSelectCourse(asignatura);
+  };
+
   return (
     <div
-      onClick={() => onSelectCourse(asignatura)}
+      onClick={handleCardClick}
+      title={
+        isQuickEditMode
+          ? isAprobada
+            ? '⚡ Clic para desmarcar y dejar como pendiente'
+            : '⚡ Clic para marcar como APROBADO al instante'
+          : 'Clic para ver Ficha Técnica'
+      }
       className={`
         relative w-[230px] rounded-xl bg-white transition-all duration-200 cursor-pointer select-none text-left shadow-sm hover:shadow-md
-        ${isElectiva 
-          ? 'border-2 border-dashed border-purple-400 hover:border-purple-600 bg-purple-50/20' 
-          : 'border-2 border-solid border-slate-200 hover:border-slate-400'
+        ${
+          isQuickEditMode
+            ? isAprobada
+              ? 'ring-2 ring-emerald-500 shadow-emerald-500/20 hover:ring-red-400 hover:shadow-red-500/10'
+              : 'border-2 border-dashed border-emerald-400/80 hover:border-emerald-600 hover:ring-2 hover:ring-emerald-400/50 bg-emerald-50/10'
+            : isElectiva
+            ? 'border-2 border-dashed border-purple-400 hover:border-purple-600 bg-purple-50/20'
+            : 'border-2 border-solid border-slate-200 hover:border-slate-400'
         }
-        ${isAprobada ? 'ring-1 ring-emerald-400/50' : ''}
+        ${!isQuickEditMode && isAprobada ? 'ring-1 ring-emerald-400/50' : ''}
         ${isEnCurso ? 'ring-2 ring-amber-400 ring-offset-1' : ''}
         ${hasReiteracion ? 'ring-2 ring-red-500 ring-offset-2 animate-pulse' : ''}
       `}
@@ -39,10 +81,18 @@ export const CourseNode = memo(({ data }: NodeProps<any>) => {
       />
 
       {/* Cabecera del Curso */}
-      <div className={`
+      <div
+        className={`
         px-3 py-2 rounded-t-[10px] flex items-center justify-between
-        ${isElectiva ? 'bg-purple-900 text-white' : 'bg-slate-900 text-white'}
-      `}>
+        ${
+          isQuickEditMode && isAprobada
+            ? 'bg-emerald-900 text-white'
+            : isElectiva
+            ? 'bg-purple-900 text-white'
+            : 'bg-slate-900 text-white'
+        }
+      `}
+      >
         <div className="flex items-center gap-1.5 overflow-hidden">
           <span className="font-mono text-xs font-bold tracking-wider truncate">
             {asignatura.codigo}
@@ -53,9 +103,38 @@ export const CourseNode = memo(({ data }: NodeProps<any>) => {
             </span>
           )}
         </div>
-        <span className="text-[11px] font-semibold opacity-90 whitespace-nowrap bg-white/10 px-1.5 py-0.5 rounded">
-          {asignatura.creditos} cr
-        </span>
+
+        <div className="flex items-center gap-1">
+          <span className="text-[11px] font-semibold opacity-90 whitespace-nowrap bg-white/10 px-1.5 py-0.5 rounded">
+            {asignatura.creditos} cr
+          </span>
+
+          {/* Botón de toggle rápido (1-clic aprobación) */}
+          {onQuickToggleCourse && (
+            <button
+              onClick={handleQuickToggleBtn}
+              title={isAprobada ? 'Desmarcar (volver a pendiente)' : 'Aprobar al instante (1 clic)'}
+              className={`p-1 rounded-md transition-all active:scale-90 flex items-center justify-center ${
+                isAprobada
+                  ? 'bg-emerald-500 text-white hover:bg-red-500'
+                  : 'bg-white/20 text-white hover:bg-emerald-500 hover:text-white'
+              }`}
+            >
+              <Check className="w-3 h-3 stroke-[3]" />
+            </button>
+          )}
+
+          {/* Botón de Ficha Técnica cuando está en modo rápido */}
+          {isQuickEditMode && (
+            <button
+              onClick={handleOpenDrawerBtn}
+              title="Abrir Ficha Técnica detallada"
+              className="p-1 rounded-md bg-white/15 text-white/80 hover:text-white hover:bg-white/25 transition-all"
+            >
+              <Info className="w-3 h-3" />
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Cuerpo de la tarjeta */}
@@ -70,7 +149,7 @@ export const CourseNode = memo(({ data }: NodeProps<any>) => {
           {isAprobada && (
             <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded-md">
               <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-              Aprobada {calificacion !== undefined && calificacion !== null ? `(${calificacion.toFixed(1)})` : ''}
+              Aprobada {calificacion !== undefined && calificacion !== null ? `(${Number(calificacion).toFixed(1)})` : ''}
             </span>
           )}
           {isEnCurso && (
@@ -134,7 +213,7 @@ export const CourseNode = memo(({ data }: NodeProps<any>) => {
             </span>
           ) : (
             <span>
-              {asignatura.prerrequisitos.length > 0
+              {asignatura.prerrequisitos && asignatura.prerrequisitos.length > 0
                 ? `${asignatura.prerrequisitos.length} prereq.`
                 : 'Sin prereq.'}
             </span>

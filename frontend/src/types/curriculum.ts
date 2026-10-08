@@ -74,5 +74,7 @@ export interface CourseNodeData {
   alertas: RiskAlert[];
   isSelected?: boolean;
   onSelectCourse: (asignatura: Asignatura) => void;
+  isQuickEditMode?: boolean;
+  onQuickToggleCourse?: (asignatura: Asignatura) => void;
 }
 
