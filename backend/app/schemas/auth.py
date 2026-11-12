@@ -27,6 +27,7 @@ class TokenResponse(BaseModel):
     email: str
     nombres: str
     apellidos: str
+    rol: str = "ESTUDIANTE"
 
 
 class TokenPayload(BaseModel):

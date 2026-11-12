@@ -120,28 +120,28 @@ export const CourseDetailDrawer: React.FC<CourseDetailDrawerProps> = ({
       {/* Backdrop con desenfoque moderno */}
       <div 
         onClick={onClose}
-        className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity duration-300"
+        className="absolute inset-0 bg-violet-950/20 backdrop-blur-sm transition-opacity duration-300"
       />
 
       {/* Panel deslizante lateral (Drawer) */}
       <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-md bg-white shadow-2xl flex flex-col transform transition-transform duration-300 ease-in-out border-l border-slate-200">
+        <div className="w-screen max-w-md bg-white/90 backdrop-blur-md shadow-2xl shadow-purple-500/10 flex flex-col transform transition-transform duration-300 ease-in-out border-l border-white/70">
           
           {/* Header del Drawer */}
-          <div className="px-6 py-5 bg-slate-900 text-white flex items-center justify-between">
+          <div className="px-6 py-5 bg-gradient-to-r from-violet-700 to-purple-600 text-white flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <span className="font-mono text-sm font-bold bg-white/10 px-2 py-0.5 rounded text-slate-200">
+              <span className="font-mono text-sm font-bold bg-white/15 px-2 py-0.5 rounded-lg text-violet-50">
                 {asignatura.codigo}
               </span>
               <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${
-                asignatura.tipo === 'ELECTIVA' ? 'bg-purple-600 text-purple-100' : 'bg-blue-600 text-blue-100'
+                asignatura.tipo === 'ELECTIVA' ? 'bg-white/20 text-violet-50' : 'bg-violet-500/40 text-white'
               }`}>
                 {asignatura.tipo}
               </span>
             </div>
             <button
               onClick={onClose}
-              className="rounded-lg p-1.5 text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+              className="rounded-xl p-1.5 text-violet-100 hover:text-white hover:bg-white/15 transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -163,15 +163,15 @@ export const CourseDetailDrawer: React.FC<CourseDetailDrawerProps> = ({
 
             {/* Tarjetas de Métricas Rápidas */}
             <div className="grid grid-cols-2 gap-3">
-              <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5">
+              <div className="bg-violet-50/60 border border-violet-100 rounded-2xl p-3.5">
                 <span className="text-xs text-slate-500 font-medium block">Valor Crediticio</span>
                 <span className="text-lg font-bold text-slate-800 flex items-center gap-1 mt-0.5">
-                  <Award className="w-4 h-4 text-blue-600" />
+                  <Award className="w-4 h-4 text-violet-600" />
                   {asignatura.creditos} Créditos
                 </span>
               </div>
 
-              <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5">
+              <div className="bg-violet-50/60 border border-violet-100 rounded-2xl p-3.5">
                 <span className="text-xs text-slate-500 font-medium block">Estado Actual</span>
                 <span className="text-sm font-bold mt-1 inline-flex items-center gap-1.5">
                   {isAprobada && (
@@ -203,7 +203,7 @@ export const CourseDetailDrawer: React.FC<CourseDetailDrawerProps> = ({
             </div>
 
             {/* Gestión del Historial del Estudiante */}
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <div className="bg-white/70 border border-violet-100 rounded-2xl p-4 shadow-sm">
               <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wide mb-2 flex items-center justify-between">
                 <span>Mi Récord Académico</span>
                 {saveSuccess && (
@@ -226,7 +226,7 @@ export const CourseDetailDrawer: React.FC<CourseDetailDrawerProps> = ({
                         className={`py-1.5 px-2 text-xs font-semibold rounded-lg border transition-all ${
                           formState === 'APROBADA'
                             ? 'bg-emerald-600 text-white border-emerald-600 shadow-sm'
-                            : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
+                            : 'bg-white text-slate-700 border-violet-100 hover:bg-violet-50'
                         }`}
                       >
                         ✓ Aprobada
@@ -237,7 +237,7 @@ export const CourseDetailDrawer: React.FC<CourseDetailDrawerProps> = ({
                         className={`py-1.5 px-2 text-xs font-semibold rounded-lg border transition-all ${
                           formState === 'EN_CURSO'
                             ? 'bg-amber-600 text-white border-amber-600 shadow-sm'
-                            : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
+                            : 'bg-white text-slate-700 border-violet-100 hover:bg-violet-50'
                         }`}
                       >
                         ⏳ En Curso
@@ -248,7 +248,7 @@ export const CourseDetailDrawer: React.FC<CourseDetailDrawerProps> = ({
                         className={`py-1.5 px-2 text-xs font-semibold rounded-lg border transition-all ${
                           formState === 'DESAPROBADA'
                             ? 'bg-red-600 text-white border-red-600 shadow-sm'
-                            : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
+                            : 'bg-white text-slate-700 border-violet-100 hover:bg-violet-50'
                         }`}
                       >
                         ✕ Desaprobada
@@ -258,8 +258,8 @@ export const CourseDetailDrawer: React.FC<CourseDetailDrawerProps> = ({
                         onClick={() => setFormState('PENDIENTE')}
                         className={`py-1.5 px-2 text-xs font-semibold rounded-lg border transition-all ${
                           formState === 'PENDIENTE'
-                            ? 'bg-slate-700 text-white border-slate-700 shadow-sm'
-                            : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
+                            ? 'bg-violet-600 text-white border-violet-600 shadow-sm'
+                            : 'bg-white text-slate-700 border-violet-100 hover:bg-violet-50'
                         }`}
                       >
                         ⚪ Pendiente
@@ -372,7 +372,7 @@ export const CourseDetailDrawer: React.FC<CourseDetailDrawerProps> = ({
                     type="button"
                     onClick={handleSave}
                     disabled={isSaving}
-                    className="w-full py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-lg transition-all shadow-sm active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-1.5 mt-2"
+                    className="w-full py-2 bg-violet-600 hover:bg-violet-700 text-white text-xs font-bold rounded-xl transition-all shadow-sm shadow-violet-500/20 active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-1.5 mt-2"
                   >
                     {isSaving ? (
                       <div className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -390,7 +390,7 @@ export const CourseDetailDrawer: React.FC<CourseDetailDrawerProps> = ({
                     <button
                       type="button"
                       onClick={onOpenAuth}
-                      className="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded-lg shadow-sm transition-all"
+                      className="px-3 py-1.5 bg-violet-600 hover:bg-violet-700 text-white text-xs font-bold rounded-xl shadow-sm transition-all"
                     >
                       Iniciar Sesión / Registrarme
                     </button>
@@ -433,7 +433,7 @@ export const CourseDetailDrawer: React.FC<CourseDetailDrawerProps> = ({
                 <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
                   Concentración Temática
                 </h4>
-                <div className="bg-purple-50 border border-purple-200 rounded-lg p-3 text-xs text-purple-900 font-medium">
+                <div className="bg-violet-50 border border-violet-200 rounded-xl p-3 text-xs text-violet-900 font-medium">
                   {asignatura.concentracionNombre}
                 </div>
               </div>
@@ -445,8 +445,8 @@ export const CourseDetailDrawer: React.FC<CourseDetailDrawerProps> = ({
                 <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
                   Bolsa Mínima de Créditos
                 </h4>
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-xs text-blue-900 flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-blue-600 shrink-0" />
+                <div className="bg-violet-50 border border-violet-200 rounded-xl p-3 text-xs text-violet-900 flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-violet-600 shrink-0" />
                   <span>Requiere al menos <strong>{asignatura.creditosMinimosRequeridos} créditos aprobados</strong> para su matrícula.</span>
                 </div>
               </div>
@@ -532,7 +532,7 @@ export const CourseDetailDrawer: React.FC<CourseDetailDrawerProps> = ({
           <div className="p-4 bg-slate-50 border-t border-slate-200 flex items-center justify-end">
             <button
               onClick={onClose}
-              className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold rounded-lg shadow transition-colors"
+              className="px-4 py-2 bg-violet-600 hover:bg-violet-700 text-white text-xs font-semibold rounded-xl shadow transition-colors"
             >
               Cerrar Ficha Técnica
             </button>

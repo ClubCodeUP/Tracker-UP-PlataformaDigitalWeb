@@ -47,3 +47,13 @@ def client():
     """Provee un TestClient de FastAPI conectado a la base de datos de prueba."""
     return TestClient(app)
 
+
+@pytest.fixture
+def db_session():
+    """Provee una sesión de base de datos en memoria para pruebas."""
+    db = TestingSessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+

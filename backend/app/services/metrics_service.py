@@ -1,13 +1,15 @@
 """
 Servicio optimizado para el cálculo dinámico de métricas curriculares (RF-04, RF-08).
 """
-from typing import Dict, Set
+from typing import Dict, Set, Tuple
+import re
+from datetime import datetime
 from sqlalchemy.orm import Session
 from app.domain.entities import EstadoAsignatura
 from app.infrastructure.models.user_model import UsuarioModel
 from app.infrastructure.repositories.history_repository import HistoryRepository
 from app.infrastructure.repositories.course_repository import CourseRepository
-from app.schemas.metrics import AcademicMetricsResponse
+from app.schemas.metrics import AcademicMetricsResponse, CohortBenchmarkResponse
 
 
 class MetricsService:
@@ -101,5 +103,98 @@ class MetricsService:
             cursos_aprobados_count=len(approved_courses),
             cursos_en_curso_count=len(in_progress_courses),
             cursos_en_riesgo_count=risk_courses_count
+        )
+
+    @classmethod
+    def calculate_cohort_benchmark(cls, db: Session, user: UsuarioModel) -> CohortBenchmarkResponse:
+        """Calcula la comparativa dual: 1) Vs. Cohorte/Promoción real y 2) Vs. Ritmo teórico de la Malla."""
+        student_metrics = cls.calculate_metrics(db, user)
+
+        # 1. Semestres transcurridos
+        match = re.match(r"^(\d{4})-(0|1|2)$", (user.periodo_ingreso or "2023-1").strip())
+        y_adm, t_adm = (int(match.group(1)), int(match.group(2))) if match else (2023, 1)
+        t_adm_norm = 1 if t_adm == 0 else t_adm
+
+        now = datetime.now()
+        current_year = now.year
+        current_term = 1 if now.month <= 7 else 2
+
+        semesters = ((current_year - y_adm) * 2) + (current_term - t_adm_norm) + 1
+        elapsed_semesters = max(1, min(12, semesters))
+
+        # 2. Promedio y avance de la cohorte real
+        cohort_users = db.query(UsuarioModel).filter(
+            UsuarioModel.carrera_id == user.carrera_id,
+            UsuarioModel.periodo_ingreso == user.periodo_ingreso,
+            UsuarioModel.activo == True
+        ).all()
+
+        cohort_credits = []
+        cohort_gpas = []
+        for peer in cohort_users:
+            peer_metric = cls.calculate_metrics(db, peer)
+            cohort_credits.append(peer_metric.creditos_aprobados)
+            if peer_metric.promedio_ponderado is not None:
+                cohort_gpas.append(peer_metric.promedio_ponderado)
+
+        cohorte_tamano = len(cohort_users)
+        cohorte_media_creditos = (
+            round(sum(cohort_credits) / len(cohort_credits), 1)
+            if cohort_credits
+            else student_metrics.creditos_aprobados
+        )
+        cohorte_media_promedio = (
+            round(sum(cohort_gpas) / len(cohort_gpas), 2)
+            if cohort_gpas
+            else student_metrics.promedio_ponderado
+        )
+        total_creditos = float(student_metrics.total_creditos_carrera)
+        cohorte_media_avance = round((cohorte_media_creditos / total_creditos) * 100, 1)
+        diferencia_creditos_cohorte = round(student_metrics.creditos_aprobados - cohorte_media_creditos, 1)
+
+        # 3. Trayectoria teórica según la Malla Oficial
+        malla = CourseRepository.get_malla_by_carrera(db, user.carrera_id)
+        malla_creditos_esperados = sum(
+            float(m.asignatura.creditos)
+            for m in malla
+            if m.ciclo_sugerido <= elapsed_semesters and m.ciclo_sugerido > 0
+        )
+        if malla_creditos_esperados == 0:
+            malla_creditos_esperados = round(elapsed_semesters * 20.5, 1)
+
+        malla_avance_esperado = round((malla_creditos_esperados / total_creditos) * 100, 1)
+        diferencia_creditos_malla = round(student_metrics.creditos_aprobados - malla_creditos_esperados, 1)
+
+        # 4. Evaluación y redacción positiva/constructiva
+        if student_metrics.creditos_aprobados >= malla_creditos_esperados:
+            estado_ritmo = "ADELANTADO"
+            mensaje_evaluacion = f"¡Excelente avance! Te encuentras {abs(diferencia_creditos_malla):.1f} créditos por delante del plan sugerido de estudios."
+            recomendacion = "Vas a paso firme. Es un momento propicio para enfocar electivos de tu concentración o proyectar prácticas preprofesionales."
+        elif abs(diferencia_creditos_malla) <= 12:
+            estado_ritmo = "AL_DIA"
+            mensaje_evaluacion = "Ritmo académico consistente y alineado al plan de estudios regular de la facultad."
+            recomendacion = "Mantener una matrícula de 18 a 21 créditos te permitirá continuar en tu ciclo objetivo con total estabilidad."
+        else:
+            estado_ritmo = "EN_PROGRESO"
+            mensaje_evaluacion = f"Tu trayectoria continúa avanzando. Estás a {abs(diferencia_creditos_malla):.1f} créditos de equilibrar la meta ideal de tu semestre."
+            recomendacion = "Recomendamos priorizar los cursos que funcionan como prerrequisito de múltiples materias para optimizar tus opciones de matrícula futura."
+
+        return CohortBenchmarkResponse(
+            periodo_ingreso=user.periodo_ingreso,
+            semestres_transcurridos=elapsed_semesters,
+            estudiante_creditos_aprobados=student_metrics.creditos_aprobados,
+            estudiante_promedio_ponderado=student_metrics.promedio_ponderado,
+            estudiante_porcentaje_avance=student_metrics.porcentaje_avance,
+            cohorte_tamano=cohorte_tamano,
+            cohorte_media_creditos=cohorte_media_creditos,
+            cohorte_media_promedio=cohorte_media_promedio,
+            cohorte_media_avance=cohorte_media_avance,
+            diferencia_creditos_cohorte=diferencia_creditos_cohorte,
+            malla_creditos_esperados=round(malla_creditos_esperados, 1),
+            malla_avance_esperado=malla_avance_esperado,
+            diferencia_creditos_malla=diferencia_creditos_malla,
+            estado_ritmo=estado_ritmo,
+            mensaje_evaluacion=mensaje_evaluacion,
+            recomendacion_constructiva=recomendacion,
         )
 

@@ -1,14 +1,20 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Header } from './components/Header';
+import { ActiveTab, NavbarTabs } from './components/Navigation/NavbarTabs';
+import { DashboardView } from './components/Dashboard/DashboardView';
 import { MetricsBar } from './components/Metrics/MetricsBar';
 import { RiskAlertsBanner } from './components/Alerts/RiskAlertsBanner';
 import { CurriculumMap } from './components/Map/CurriculumMap';
+import { ConcentrationsView } from './components/Concentrations/ConcentrationsView';
+import { ProjectionView } from './components/Projection/ProjectionView';
+import { AdminPanelView } from './components/Admin/AdminPanelView';
 import { CourseDetailDrawer } from './components/Drawer/CourseDetailDrawer';
 import { RecommendationModal } from './components/Recommendation/RecommendationModal';
 import { AuthModal } from './components/Auth/AuthModal';
+import { ImportTranscriptModal } from './components/History/ImportTranscriptModal';
 import { useCurriculumMap } from './hooks/useCurriculumMap';
 import { trackerApi, CareerSummary, UserProfile, calculatePeriodForCycle } from './services/trackerApi';
-import { Asignatura, AcademicMetrics, HistorialEntry, RiskAlert, EstadoAsignatura } from './types/curriculum';
+import { Asignatura, AcademicMetrics, CohortBenchmark, HistorialEntry, RiskAlert, EstadoAsignatura } from './types/curriculum';
 
 const GUEST_METRICS: AcademicMetrics = {
   usuario_id: 0,
@@ -27,6 +33,9 @@ const GUEST_METRICS: AcademicMetrics = {
 };
 
 export function App() {
+  // Pestaña activa
+  const [activeTab, setActiveTab] = useState<ActiveTab>('dashboard');
+
   // Usuario autenticado
   const [currentUser, setCurrentUser] = useState<UserProfile | null>(null);
 
@@ -45,11 +54,13 @@ export function App() {
 
   // Datos académicos reales del usuario
   const [metrics, setMetrics] = useState<AcademicMetrics>(GUEST_METRICS);
+  const [benchmark, setBenchmark] = useState<CohortBenchmark | null>(null);
   const [historial, setHistorial] = useState<HistorialEntry[]>([]);
   const [alertas, setAlertas] = useState<RiskAlert[]>([]);
 
-  // Modales y Drawer
-  const [isRecommendationOpen, setIsRecommendationOpen] = useState(false);
+  // Modal y Drawer
+  const [isRecommendationModalOpen, setIsRecommendationModalOpen] = useState(false);
+  const [isImportModalOpen, setIsImportModalOpen] = useState(false);
   const [recommendationData, setRecommendationData] = useState<any>(null);
 
   // Cargar datos académicos del estudiante autenticado
@@ -58,15 +69,17 @@ export function App() {
     if (!token) {
       setHistorial([]);
       setAlertas([]);
+      setBenchmark(null);
       setRecommendationData(null);
       return;
     }
 
     try {
-      const [metricsRes, evalRes, histRes] = await Promise.all([
+      const [metricsRes, evalRes, histRes, benchRes] = await Promise.all([
         trackerApi.getMetrics().catch(() => null),
         trackerApi.getCurriculumEvaluation().catch(() => null),
         trackerApi.getHistory().catch(() => []),
+        trackerApi.getCohortBenchmark().catch(() => null),
       ]);
 
       if (metricsRes) {
@@ -79,6 +92,9 @@ export function App() {
       if (histRes) {
         setHistorial(histRes);
       }
+      if (benchRes) {
+        setBenchmark(benchRes);
+      }
     } catch (err) {
       console.error('Error sincronizando datos del estudiante:', err);
     }
@@ -87,7 +103,6 @@ export function App() {
   // 1. Inicialización en el montaje: catálogo de carreras y verificación de sesión JWT
   useEffect(() => {
     async function init() {
-      // Cargar lista oficial de carreras
       try {
         const list = await trackerApi.getCareers();
         if (list && list.length > 0) {
@@ -97,7 +112,6 @@ export function App() {
         console.warn('No se pudo cargar catálogo de carreras:', e);
       }
 
-      // Verificar si existe token guardado
       const token = localStorage.getItem('tracker_up_token');
       if (token) {
         try {
@@ -109,16 +123,16 @@ export function App() {
             return;
           }
         } catch {
-          // Token inválido o expirado
           trackerApi.logout();
           setCurrentUser(null);
         }
       }
 
-      // Modo visitante inicial
       setCurrentUser(null);
       setHistorial([]);
       setAlertas([]);
+      setBenchmark(null);
+      setActiveTab('map'); // Para visitante, iniciar directamente en el mapa
     }
 
     init();
@@ -151,6 +165,7 @@ export function App() {
   const handleAuthSuccess = async (profile: UserProfile) => {
     setCurrentUser(profile);
     setSelectedCareerId(profile.carrera_id);
+    setActiveTab('dashboard');
     await loadStudentData();
   };
 
@@ -160,7 +175,9 @@ export function App() {
     setCurrentUser(null);
     setHistorial([]);
     setAlertas([]);
+    setBenchmark(null);
     setRecommendationData(null);
+    setActiveTab('map');
     const activeCareer = careers.find((c) => c.id === selectedCareerId);
     setMetrics({
       ...GUEST_METRICS,
@@ -168,6 +185,17 @@ export function App() {
       total_creditos_carrera: activeCareer?.total_creditos_graduacion || 205,
       creditos_pendientes: activeCareer?.total_creditos_graduacion || 205,
     });
+  };
+
+  // Manejo de selección/cambio de concentración
+  const handleSelectConcentration = async (concId: number | null) => {
+    try {
+      const updated = await trackerApi.updateProfile({ concentracion_id: concId });
+      setCurrentUser(updated);
+      await loadStudentData();
+    } catch (err) {
+      console.error('Error actualizando concentración:', err);
+    }
   };
 
   // Manejo de actualización de estado de curso desde la Ficha Técnica
@@ -205,7 +233,6 @@ export function App() {
       });
     }
 
-    // Refrescar analítica del estudiante tras el cambio
     await loadStudentData();
   };
 
@@ -346,35 +373,44 @@ export function App() {
     selectedCourse,
     setSelectedCourse,
     selectedCourseHistory,
+    reloadBlockSelections,
   } = useCurriculumMap({
     malla: activeMalla,
     historial,
     alertas,
     isQuickEditMode,
     onQuickToggleCourse: handleQuickToggleCourse,
+    selectedConcentrationId: currentUser?.concentracion_id || null,
   });
 
-  // Determinar máximo de ciclos para las cabeceras de columnas
   const maxCiclos = Math.max(5, ...activeMalla.map((c) => c.ciclo || 1));
+  const activeCareerObj = careers.find((c) => c.id === selectedCareerId);
+  const activeCareerName = activeCareerObj?.nombre || metrics.carrera;
 
   return (
-    <div className="flex flex-col h-screen w-screen overflow-hidden bg-slate-950 font-sans">
-      {/* 1. Header institucional con Selector de Carrera y Control de Usuarios */}
+    <div className="flex flex-col h-screen w-screen overflow-hidden bg-[#FBFBFE] font-sans text-slate-800">
+      {/* 1. Header principal con Logo, Selector y Tabs */}
       <Header
         currentUser={currentUser}
+        activeTab={activeTab}
+        onTabChange={setActiveTab}
         studentName={metrics.estudiante}
         careerName={metrics.carrera}
         careers={careers}
         selectedCareerId={selectedCareerId}
         onSelectCareer={setSelectedCareerId}
         isQuickEditMode={isQuickEditMode}
-        onToggleQuickEdit={() => setIsQuickEditMode(!isQuickEditMode)}
+        onToggleQuickEdit={() => {
+          const next = !isQuickEditMode;
+          setIsQuickEditMode(next);
+          if (next) setActiveTab('map');
+        }}
         onOpenRecommendation={() => {
           if (!currentUser) {
             setAuthModalMode('login');
             setIsAuthModalOpen(true);
           } else {
-            setIsRecommendationOpen(true);
+            setIsRecommendationModalOpen(true);
           }
         }}
         onOpenLogin={() => {
@@ -386,15 +422,32 @@ export function App() {
           setIsAuthModalOpen(true);
         }}
         onLogout={handleLogout}
+        onOpenImportTranscript={() => {
+          if (!currentUser) {
+            setAuthModalMode('login');
+            setIsAuthModalOpen(true);
+            return;
+          }
+          setIsImportModalOpen(true);
+        }}
       />
+
+      {/* Tabs móviles/secundarios visibles en pantallas medianas o pequeñas */}
+      <div className="md:hidden bg-white border-b border-violet-100 px-4 py-2 flex items-center justify-center">
+        <NavbarTabs
+          activeTab={activeTab}
+          onTabChange={setActiveTab}
+          isAdmin={currentUser?.rol === 'ADMIN'}
+        />
+      </div>
 
       {/* Banner de Bienvenida si es visitante no autenticado */}
       {!currentUser && (
-        <div className="bg-gradient-to-r from-blue-950/90 via-slate-900 to-indigo-950/90 border-b border-blue-800/30 px-6 py-2 flex items-center justify-between text-xs text-slate-300 select-none">
+        <div className="bg-gradient-to-r from-violet-50 via-white to-purple-50 border-b border-violet-100 px-6 py-2 flex items-center justify-between text-xs text-slate-600 select-none">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-blue-400 animate-ping" />
+            <span className="w-2 h-2 rounded-full bg-violet-500 animate-ping" />
             <span>
-              <strong className="text-white">Modo Explorador:</strong> Estás visualizando la malla curricular pública. Para registrar tus notas, avance y alertas, inicia sesión o regístrate con tu correo UP.
+              <strong className="text-violet-900">Modo Explorador:</strong> Visualizando la malla oficial pública. Inicia sesión para registrar tu historial de notas y acceder a la comparativa de cohorte.
             </span>
           </div>
           <div className="flex items-center gap-2 shrink-0 ml-4">
@@ -403,7 +456,7 @@ export function App() {
                 setAuthModalMode('login');
                 setIsAuthModalOpen(true);
               }}
-              className="px-2.5 py-1 text-slate-300 hover:text-white font-medium hover:underline text-xs"
+              className="px-2.5 py-1 text-slate-600 hover:text-violet-700 font-medium hover:underline text-xs"
             >
               Iniciar Sesión
             </button>
@@ -412,38 +465,88 @@ export function App() {
                 setAuthModalMode('register');
                 setIsAuthModalOpen(true);
               }}
-              className="px-3 py-1 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg shadow-sm transition-all text-xs"
+              className="px-3 py-1 bg-violet-600 hover:bg-violet-700 text-white font-bold rounded-xl shadow-sm text-xs"
             >
-              Registrar Mi Cuenta
+              Registrarse
             </button>
           </div>
         </div>
       )}
 
-      {/* 2. Barra de Métricas y Avance Curricular */}
-      <MetricsBar metrics={metrics} />
+      {/* 2. Contenido Principal según la Pestaña Activa */}
+      <div className="flex-1 relative w-full h-full overflow-hidden flex flex-col">
+        {/* Pestaña: Dashboard / Inicio */}
+        {activeTab === 'dashboard' && (
+          <DashboardView
+            currentUser={currentUser}
+            metrics={metrics}
+            benchmark={benchmark}
+            malla={activeMalla}
+            historial={historial}
+            alertas={alertas}
+            careers={careers}
+            onNavigateToTab={setActiveTab}
+            onRequestChangeCareerSuccess={loadStudentData}
+          />
+        )}
 
-      {/* 3. Banner Desplegable de Diagnóstico de Riesgos */}
-      <RiskAlertsBanner alertas={alertas} />
+        {/* Pestaña: Mapa Académico */}
+        {activeTab === 'map' && (
+          <div className="flex-1 flex flex-col h-full w-full overflow-hidden">
+            <MetricsBar metrics={metrics} />
+            <RiskAlertsBanner alertas={alertas} />
+            <main className="flex-1 relative w-full h-full">
+              <CurriculumMap
+                nodes={nodes}
+                edges={edges}
+                maxCiclos={maxCiclos}
+                selectedConcentrationName={currentUser?.concentracion_nombre}
+                isQuickEditMode={isQuickEditMode}
+                onCloseQuickEdit={() => setIsQuickEditMode(false)}
+                defaultGrade={quickEditDefaultGrade}
+                onChangeDefaultGrade={setQuickEditDefaultGrade}
+                allCourses={activeMalla}
+                onApproveCycle={handleApproveCycle}
+                onClearCycle={handleClearCycle}
+                periodoIngreso={currentUser?.periodo_ingreso}
+              />
+            </main>
+          </div>
+        )}
 
-      {/* 4. Mapa Curricular Interactivo (React Flow) */}
-      <main className="flex-1 relative w-full h-full">
-        <CurriculumMap
-          nodes={nodes}
-          edges={edges}
-          maxCiclos={maxCiclos}
-          isQuickEditMode={isQuickEditMode}
-          onCloseQuickEdit={() => setIsQuickEditMode(false)}
-          defaultGrade={quickEditDefaultGrade}
-          onChangeDefaultGrade={setQuickEditDefaultGrade}
-          allCourses={activeMalla}
-          onApproveCycle={handleApproveCycle}
-          onClearCycle={handleClearCycle}
-          periodoIngreso={currentUser?.periodo_ingreso}
-        />
-      </main>
+        {/* Pestaña: Concentraciones */}
+        {activeTab === 'concentrations' && (
+          <ConcentrationsView
+            currentUser={currentUser}
+            careerId={selectedCareerId}
+            careerName={activeCareerName}
+            selectedConcentrationId={currentUser?.concentracion_id || null}
+            onSelectConcentration={handleSelectConcentration}
+            onNavigateToMap={() => setActiveTab('map')}
+            onOpenLogin={() => {
+              setAuthModalMode('login');
+              setIsAuthModalOpen(true);
+            }}
+          />
+        )}
 
-      {/* 5. Panel Lateral con la Ficha Técnica de la Asignatura */}
+        {/* Pestaña: Proyección */}
+        {activeTab === 'projection' && (
+          <ProjectionView
+            recommendationData={recommendationData}
+            malla={activeMalla}
+            onNavigateToMap={() => setActiveTab('map')}
+            onSelectCourse={(course) => setSelectedCourse(course)}
+          />
+        )}
+
+        {/* Pestaña: Administración */}
+        {activeTab === 'admin' && currentUser?.rol === 'ADMIN' && (
+          <AdminPanelView />
+        )}
+      </div>
+
+      {/* 3. Panel Lateral con la Ficha Técnica de la Asignatura */}
       <CourseDetailDrawer
         asignatura={selectedCourse}
         historialEntry={selectedCourseHistory}
@@ -458,20 +561,30 @@ export function App() {
         onUpdateState={handleUpdateCourseState}
       />
 
-      {/* 6. Modal de Sugerencia Determinística de Matrícula */}
+      {/* 4. Modal de Sugerencia Determinística (accesible si se requiere) */}
       <RecommendationModal
-        isOpen={isRecommendationOpen}
-        onClose={() => setIsRecommendationOpen(false)}
+        isOpen={isRecommendationModalOpen}
+        onClose={() => setIsRecommendationModalOpen(false)}
         recommendationData={recommendationData}
       />
 
-      {/* 7. Modal de Autenticación y Registro UP */}
+      {/* 5. Modal de Autenticación y Registro UP */}
       <AuthModal
         isOpen={isAuthModalOpen}
         initialMode={authModalMode}
         careers={careers}
         onClose={() => setIsAuthModalOpen(false)}
         onSuccess={handleAuthSuccess}
+      />
+
+      {/* 6. Modal de Importación de Unofficial Transcript (PDF) */}
+      <ImportTranscriptModal
+        isOpen={isImportModalOpen}
+        onClose={() => setIsImportModalOpen(false)}
+        onImportSuccess={async () => {
+          reloadBlockSelections();
+          await loadStudentData();
+        }}
       />
     </div>
   );

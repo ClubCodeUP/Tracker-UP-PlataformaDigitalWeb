@@ -45,6 +45,7 @@ class ProfileService:
             creditos_acumulados=creditos_acumulados,
             puede_declarar_concentracion=puede_declarar,
             periodo_ingreso=user.periodo_ingreso,
+            rol=getattr(user, "rol", "ESTUDIANTE"),
             activo=user.activo
         )
 

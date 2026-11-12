@@ -54,6 +54,7 @@ class UsuarioModel(Base):
     concentracion_id = Column(Integer, ForeignKey("concentraciones.id", ondelete="SET NULL"), nullable=True)
     concentracion_secundaria_id = Column(Integer, ForeignKey("concentraciones.id", ondelete="SET NULL"), nullable=True)
     periodo_ingreso = Column(String(10), nullable=False)  # Ej: '2023-1'
+    rol = Column(String(20), default="ESTUDIANTE", nullable=False)  # ESTUDIANTE / ADMIN
     activo = Column(Boolean, default=True, nullable=False)
     creado_en = Column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
     actualizado_en = Column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
@@ -62,4 +63,22 @@ class UsuarioModel(Base):
     concentracion = relationship("ConcentracionModel", foreign_keys=[concentracion_id])
     concentracion_secundaria = relationship("ConcentracionModel", foreign_keys=[concentracion_secundaria_id])
     historial = relationship("HistorialAcademicoModel", back_populates="usuario", cascade="all, delete-orphan")
+
+
+class SolicitudCambioCarreraModel(Base):
+    __tablename__ = "solicitudes_cambio_carrera"
+
+    id = Column(Integer, primary_key=True, index=True)
+    usuario_id = Column(Integer, ForeignKey("usuarios.id", ondelete="CASCADE"), nullable=False)
+    carrera_actual_id = Column(Integer, ForeignKey("carreras.id"), nullable=False)
+    carrera_destino_id = Column(Integer, ForeignKey("carreras.id"), nullable=False)
+    motivo = Column(Text, nullable=True)
+    estado = Column(String(20), default="PENDIENTE", nullable=False)  # PENDIENTE / APROBADA / RECHAZADA
+    respuesta_admin = Column(Text, nullable=True)
+    creado_en = Column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
+    actualizado_en = Column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
+
+    usuario = relationship("UsuarioModel")
+    carrera_actual = relationship("CarreraModel", foreign_keys=[carrera_actual_id])
+    carrera_destino = relationship("CarreraModel", foreign_keys=[carrera_destino_id])
 

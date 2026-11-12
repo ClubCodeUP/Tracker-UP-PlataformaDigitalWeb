@@ -74,7 +74,8 @@ class AuthService:
             user_id=saved_user.id,
             email=saved_user.email,
             nombres=saved_user.nombres,
-            apellidos=saved_user.apellidos
+            apellidos=saved_user.apellidos,
+            rol=getattr(saved_user, "rol", "ESTUDIANTE")
         )
 
     @classmethod
@@ -103,6 +104,7 @@ class AuthService:
             user_id=user.id,
             email=user.email,
             nombres=user.nombres,
-            apellidos=user.apellidos
+            apellidos=user.apellidos,
+            rol=getattr(user, "rol", "ESTUDIANTE")
         )
 

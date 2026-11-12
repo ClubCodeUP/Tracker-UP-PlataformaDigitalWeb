@@ -142,6 +142,7 @@ def get_malla(
             "creditosMinimosRequeridos": float(m.creditos_minimos_requeridos),
             "concentracion": m.concentracion.nombre if m.concentracion else None,
             "concentracionCodigo": m.concentracion.codigo if m.concentracion else None,
+            "concentracionId": m.concentracion_id,
             "desbloqueaCount": u_count,
             "prerrequisitos": reqs
         })
@@ -370,3 +371,54 @@ def declare_concentrations(
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
 
     return CurriculumEngineService.get_student_concentrations_status(db, current_user)
+
+
+@router.get(
+    "/careers/{career_id}/concentrations",
+    summary="Detalle de concentraciones y sus cursos asignados",
+    description="Devuelve las concentraciones de una carrera con el listado de cursos que pertenecen a cada una."
+)
+def get_career_concentrations(
+    career_id: int,
+    db: Session = Depends(get_db)
+):
+    carrera = db.query(CarreraModel).filter(CarreraModel.id == career_id).first()
+    if not carrera:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Carrera no encontrada.")
+
+    malla_entries = CourseRepository.get_malla_by_carrera(db, career_id)
+    courses_by_conc: Dict[int, List] = defaultdict(list)
+    general_electives = []
+
+    for m in malla_entries:
+        course_data = {
+            "id": m.asignatura.id,
+            "codigo": m.asignatura.codigo,
+            "nombre": m.asignatura.nombre,
+            "creditos": float(m.asignatura.creditos),
+            "ciclo": m.ciclo_sugerido,
+            "tipo": m.asignatura.tipo
+        }
+        if m.concentracion_id:
+            courses_by_conc[m.concentracion_id].append(course_data)
+        elif m.asignatura.tipo == "ELECTIVA":
+            general_electives.append(course_data)
+
+    results = []
+    for conc in carrera.concentraciones:
+        results.append({
+            "id": conc.id,
+            "codigo": conc.codigo,
+            "nombre": conc.nombre,
+            "descripcion": conc.descripcion,
+            "cursos": courses_by_conc.get(conc.id, []),
+            "total_cursos": len(courses_by_conc.get(conc.id, [])),
+            "creditos_totales": sum(c["creditos"] for c in courses_by_conc.get(conc.id, []))
+        })
+
+    return {
+        "carrera_id": carrera.id,
+        "carrera_nombre": carrera.nombre,
+        "concentraciones": results,
+        "electivos_generales": general_electives
+    }

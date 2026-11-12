@@ -1,10 +1,11 @@
 {
   "carrera": {
+    "id": 7,
     "codigo": "HUM",
     "nombre": "Humanidades Digitales",
-    "facultad": "Facultad de Humanidades",
+    "facultad": "Facultad de Ciencias Empresariales",
     "plan": "2022",
-    "total_creditos_graduacion": 200,
+    "total_creditos_graduacion": 205,
     "total_ciclos": 10,
     "max_creditos_ciclo_regular": 22.0
   },
@@ -12,26 +13,29 @@
   "cursos": [
     {
       "codigo": "134654",
-      "nombre": "Nivelación en Matemáticas",
+      "nombre": "Nivelación en matemáticas",
       "creditos": 0.0,
       "ciclo_sugerido": 0,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": []
     },
     {
       "codigo": "170131",
-      "nombre": "Nivelación en Informática",
+      "nombre": "Nivelación en informática",
       "creditos": 0.0,
       "ciclo_sugerido": 0,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": []
     },
     {
       "codigo": "120000",
-      "nombre": "Nivelación en Lenguaje",
+      "nombre": "Nivelación en lenguaje",
       "creditos": 0.0,
       "ciclo_sugerido": 0,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": []
     },
     {
@@ -40,16 +44,29 @@
       "creditos": 5.0,
       "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [
+        "134654"
+      ]
+    },
+    {
+      "codigo": "130642",
+      "nombre": "Economía General II",
+      "creditos": 5.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
         "134654"
       ]
     },
     {
       "codigo": "132641",
-      "nombre": "Economía General I",
+      "nombre": "Economía general I",
       "creditos": 5.0,
       "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": []
     },
     {
@@ -58,71 +75,77 @@
       "creditos": 4.0,
       "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
         "120000"
-      ]
-    },
-    {
-      "codigo": "120101",
-      "nombre": "Introducción a las Humanidades Digitales",
-      "creditos": 4.0,
-      "ciclo_sugerido": 1,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": []
-    },
-    {
-      "codigo": "120102",
-      "nombre": "Lectura Crítica de la Prensa Digital y Redes Sociales",
-      "creditos": 4.0,
-      "ciclo_sugerido": 1,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": []
-    },
-    {
-      "codigo": "170002",
-      "nombre": "Herramientas de Programación",
-      "creditos": 4.0,
-      "ciclo_sugerido": 2,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170131"
-      ]
-    },
-    {
-      "codigo": "132642",
-      "nombre": "Economía General II",
-      "creditos": 5.0,
-      "ciclo_sugerido": 2,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "132641"
       ]
     },
     {
       "codigo": "120006",
       "nombre": "Lenguaje II",
       "creditos": 4.0,
-      "ciclo_sugerido": 2,
+      "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [
-        "120001"
+        "120000"
       ]
     },
     {
-      "codigo": "120103",
-      "nombre": "Cultura, Visualidad y Política",
+      "codigo": "GEN-014",
+      "nombre": "Quehacer científico",
       "creditos": 4.0,
-      "ciclo_sugerido": 2,
+      "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": []
     },
     {
-      "codigo": "120040",
-      "nombre": "Ciencias Sociales",
+      "codigo": "120244",
+      "nombre": "Introducción a las humanidades digitales",
       "creditos": 4.0,
-      "ciclo_sugerido": 2,
+      "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": []
+    },
+    {
+      "codigo": "120259",
+      "nombre": "Cultura, visualidad y política",
+      "creditos": 4.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "120252",
+      "nombre": "Lectura crítica de la prensa digital y en las redes sociales",
+      "creditos": 2.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "GEN-011",
+      "nombre": "Ciencias sociales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "170335",
+      "nombre": "Herramientas de programación",
+      "creditos": 4.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "170131"
+      ]
     },
     {
       "codigo": "130224",
@@ -130,346 +153,408 @@
       "creditos": 4.0,
       "ciclo_sugerido": 3,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [
-        "138649"
+        "138649",
+        "170131"
       ]
     },
     {
-      "codigo": "141040",
-      "nombre": "Marketing Estratégico",
+      "codigo": "1MN035",
+      "nombre": "Marketing estratégico",
       "creditos": 4.0,
       "ciclo_sugerido": 3,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": []
     },
     {
-      "codigo": "120020",
-      "nombre": "Quehacer Científico",
+      "codigo": "120270",
+      "nombre": "Comunicación digital",
       "creditos": 4.0,
       "ciclo_sugerido": 3,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": []
+      "es_cuello_botella": false,
+      "prerrequisitos": [
+        "120006",
+        "120252"
+      ]
     },
     {
-      "codigo": "120104",
-      "nombre": "Comunicación Digital",
-      "creditos": 4.0,
-      "ciclo_sugerido": 3,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": []
-    },
-    {
-      "codigo": "120015",
-      "nombre": "Investigación Académica",
+      "codigo": "150140",
+      "nombre": "Investigación académica",
       "creditos": 3.0,
       "ciclo_sugerido": 3,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120006"
-      ]
+      "es_cuello_botella": false,
+      "prerrequisitos": []
     },
     {
-      "codigo": "170006",
-      "nombre": "Arquitectura del Sistema de Información",
-      "creditos": 4.0,
-      "ciclo_sugerido": 4,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170002"
-      ]
-    },
-    {
-      "codigo": "170005",
-      "nombre": "Matemáticas Discretas para la Computación",
-      "creditos": 4.0,
-      "ciclo_sugerido": 4,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "138649"
-      ]
-    },
-    {
-      "codigo": "120105",
-      "nombre": "Taller de Humanidades Digitales 1",
+      "codigo": "170119",
+      "nombre": "Arquitectura del sistema de información",
       "creditos": 4.0,
       "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
       "prerrequisitos": [
-        "120101"
+        "170335"
       ]
     },
     {
-      "codigo": "120106",
-      "nombre": "Curaduría Digital de Contenidos Culturales",
+      "codigo": "170333",
+      "nombre": "Matemáticas discretas para la computación",
       "creditos": 4.0,
       "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [
-        "120103"
+        "170335"
       ]
     },
     {
-      "codigo": "120107",
-      "nombre": "Análisis Cuantitativo en las Ciencias Humanas",
+      "codigo": "120265",
+      "nombre": "Taller de Humanidades Digitales 1",
       "creditos": 4.0,
       "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [
+        "150140"
+      ]
+    },
+    {
+      "codigo": "120245",
+      "nombre": "Curaduría digital de contenidos culturales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [
+        "120244"
+      ]
+    },
+    {
+      "codigo": "150283",
+      "nombre": "Análisis cuantitativo en la C Humanas",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [
         "130224"
       ]
     },
     {
-      "codigo": "120108",
-      "nombre": "Análisis de Datos Geográficos",
+      "codigo": "170439",
+      "nombre": "Análisis de datos geográficos",
       "creditos": 4.0,
       "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170006"
-      ]
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 60.0
     },
     {
-      "codigo": "170007",
-      "nombre": "Fundamentos de Analítica",
+      "codigo": "170336",
+      "nombre": "Fundamentos de analítica",
       "creditos": 4.0,
       "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "130224"
-      ]
+      "es_cuello_botella": true,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 60.0
     },
     {
-      "codigo": "170031",
-      "nombre": "Design Thinking and Technological Innovation",
+      "codigo": "170329",
+      "nombre": "Design thinking and technological innovation",
       "creditos": 4.0,
       "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 60.0
+    },
+    {
+      "codigo": "GEN-015",
+      "nombre": "Desarrollo personal",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 60.0
     },
     {
       "codigo": "160092",
-      "nombre": "Fundamentos de Contabilidad",
+      "nombre": "Fundamentos de contabilidad",
       "creditos": 4.0,
       "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 60.0
     },
     {
-      "codigo": "120045",
-      "nombre": "Pensamiento Crítico 1",
+      "codigo": "GEN-017",
+      "nombre": "Pensamiento crítico 1",
       "creditos": 4.0,
       "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 60.0
     },
     {
-      "codigo": "120109",
+      "codigo": "170433",
       "nombre": "Procesamiento de Datos Multimedia",
       "creditos": 4.0,
       "ciclo_sugerido": 6,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 75.0
+    },
+    {
+      "codigo": "170467",
+      "nombre": "Introducción al análisis de texto",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 75.0
+    },
+    {
+      "codigo": "120264",
+      "nombre": "Ciencia, tecnología y sociedad",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "120108"
+        "GEN-014"
       ]
     },
     {
-      "codigo": "120110",
-      "nombre": "Introducción al Análisis de Texto",
+      "codigo": "120246",
+      "nombre": "Literatura y videojuegos",
       "creditos": 4.0,
       "ciclo_sugerido": 6,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "170007"
+        "120245"
       ]
     },
     {
-      "codigo": "120030",
-      "nombre": "Desarrollo Personal",
-      "creditos": 4.0,
-      "ciclo_sugerido": 6,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [],
-      "creditos_minimos_requeridos": 75.0
-    },
-    {
-      "codigo": "120111",
-      "nombre": "Ciencia, Tecnología y Sociedad",
-      "creditos": 4.0,
-      "ciclo_sugerido": 6,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [],
-      "creditos_minimos_requeridos": 75.0
-    },
-    {
-      "codigo": "120112",
-      "nombre": "Literatura y Videojuegos",
-      "creditos": 4.0,
-      "ciclo_sugerido": 6,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [],
-      "creditos_minimos_requeridos": 75.0
-    },
-    {
-      "codigo": "120113",
-      "nombre": "Análisis de Datos Multimedia",
+      "codigo": "170476",
+      "nombre": "Análisis de datos multimedia",
       "creditos": 4.0,
       "ciclo_sugerido": 7,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "120109"
+        "170433"
       ]
     },
     {
-      "codigo": "120114",
+      "codigo": "GEN-053",
       "nombre": "Diseño",
       "creditos": 4.0,
       "ciclo_sugerido": 7,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [
-        "170031"
+        "170329"
       ]
     },
     {
-      "codigo": "120047",
-      "nombre": "Pensamiento Crítico 2",
+      "codigo": "GEN-018",
+      "nombre": "Pensamiento crítico 2",
       "creditos": 4.0,
       "ciclo_sugerido": 7,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120045"
-      ]
-    },
-    {
-      "codigo": "120046",
-      "nombre": "Procesos Sociales 1",
-      "creditos": 4.0,
-      "ciclo_sugerido": 7,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120040"
-      ]
-    },
-    {
-      "codigo": "120115",
-      "nombre": "Dinámicas Espaciales y Territoriales del Perú",
-      "creditos": 4.0,
-      "ciclo_sugerido": 7,
-      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 90.0
     },
     {
-      "codigo": "170010",
-      "nombre": "Ingeniería de Datos",
+      "codigo": "GEN-013",
+      "nombre": "Procesos sociales 1",
       "creditos": 4.0,
-      "ciclo_sugerido": 8,
+      "ciclo_sugerido": 7,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 90.0
+    },
+    {
+      "codigo": "150294",
+      "nombre": "Dinámicas espaciales y territoriales de Perú",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "120113"
+        "150283"
       ]
     },
     {
-      "codigo": "120116",
-      "nombre": "Machine Learning para Negocios y Humanidades",
+      "codigo": "170179",
+      "nombre": "Ingeniería de datos",
       "creditos": 4.0,
       "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120110",
-        "170005"
-      ]
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 105.0
     },
     {
-      "codigo": "120117",
-      "nombre": "Experiencia del Usuario",
+      "codigo": "170499",
+      "nombre": "Machine Learning para negocios y humanidades",
       "creditos": 4.0,
       "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "120114"
+        "170336"
       ]
     },
     {
-      "codigo": "120118",
+      "codigo": "GEN-052",
+      "nombre": "Experiencia del usuario",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "170119",
+        "1MN035"
+      ]
+    },
+    {
+      "codigo": "GEN-031",
+      "nombre": "Electivo",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "ELECTIVA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 105.0
+    },
+    {
+      "codigo": "150199",
       "nombre": "Taller de Humanidades Digitales 2",
       "creditos": 4.0,
       "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "120105"
+        "120265"
       ]
     },
     {
-      "codigo": "120119",
+      "codigo": "170491",
       "nombre": "Taller de Humanidades Digitales 3",
       "creditos": 4.0,
       "ciclo_sugerido": 9,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "120118"
+        "150199"
       ]
     },
     {
-      "codigo": "120048",
-      "nombre": "Procesos Sociales 2",
+      "codigo": "GEN-033",
+      "nombre": "Electivo",
+      "creditos": 4.0,
+      "ciclo_sugerido": 9,
+      "tipo": "ELECTIVA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 120.0
+    },
+    {
+      "codigo": "GEN-016",
+      "nombre": "Procesos sociales 2",
       "creditos": 4.0,
       "ciclo_sugerido": 9,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120046"
-      ]
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 120.0
     },
     {
-      "codigo": "120050",
+      "codigo": "120133",
       "nombre": "Ética",
       "creditos": 4.0,
       "ciclo_sugerido": 9,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 120.0
     },
     {
-      "codigo": "120060",
+      "codigo": "150013",
       "nombre": "Proyección Social",
       "creditos": 4.0,
       "ciclo_sugerido": 9,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 120.0
     },
     {
-      "codigo": "120120",
-      "nombre": "Gobierno Electrónico",
+      "codigo": "170458",
+      "nombre": "Gobierno electrónico",
       "creditos": 4.0,
       "ciclo_sugerido": 10,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 135.0
+    },
+    {
+      "codigo": "120257",
+      "nombre": "Trabajo final de humanidades digitales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 10,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "170010"
+        "170491"
       ]
     },
     {
-      "codigo": "120121",
-      "nombre": "Trabajo Final de Humanidades Digitales",
-      "creditos": 4.0,
+      "codigo": "GEN-035",
+      "nombre": "Electivo",
+      "creditos": 3.0,
       "ciclo_sugerido": 10,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120116",
-        "120119"
-      ]
+      "tipo": "ELECTIVA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 135.0
     },
     {
-      "codigo": "120122",
-      "nombre": "Ética en la Era Digital",
+      "codigo": "GEN-034",
+      "nombre": "Electivo",
+      "creditos": 3.0,
+      "ciclo_sugerido": 10,
+      "tipo": "ELECTIVA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 135.0
+    },
+    {
+      "codigo": "120241",
+      "nombre": "Ética en la era digital",
       "creditos": 4.0,
       "ciclo_sugerido": 10,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "120050"
+        "120133",
+        "120264"
       ]
     }
   ]

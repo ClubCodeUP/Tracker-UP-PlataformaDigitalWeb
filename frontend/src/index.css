@@ -17,7 +17,7 @@ html, body, #root {
 
 .react-flow__edge:hover .react-flow__edge-path {
   stroke-width: 3px !important;
-  stroke: #3b82f6 !important;
+  stroke: #7c3aed !important;
 }
 
 /* Custom scrollbar */
@@ -27,15 +27,15 @@ html, body, #root {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(245, 243, 255, 0.8);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(100, 116, 139, 0.5);
+  background: rgba(139, 92, 246, 0.35);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(148, 163, 184, 0.8);
+  background: rgba(124, 58, 237, 0.6);
 }
 

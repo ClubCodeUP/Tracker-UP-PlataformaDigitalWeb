@@ -71,15 +71,15 @@ export const RecommendationModal: React.FC<RecommendationModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4">
       {/* Backdrop con blur */}
-      <div onClick={onClose} className="fixed inset-0 bg-slate-950/70 backdrop-blur-sm transition-opacity" />
+      <div onClick={onClose} className="fixed inset-0 bg-violet-950/25 backdrop-blur-md transition-opacity" />
 
       {/* Modal */}
-      <div className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden z-10 text-left">
+      <div className="relative w-full max-w-2xl bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl shadow-purple-500/10 border border-white/70 overflow-hidden z-10 text-left">
         {/* Cabecera del Modal */}
-        <div className="px-6 py-5 bg-gradient-to-r from-slate-900 to-indigo-950 text-white flex items-center justify-between">
+        <div className="px-6 py-5 bg-gradient-to-r from-violet-700 to-purple-600 text-white flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center">
-              <Sparkles className="w-5 h-5 text-blue-300" />
+            <div className="w-9 h-9 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-center">
+              <Sparkles className="w-5 h-5 text-violet-100" />
             </div>
             <div>
               <h3 className="text-base font-bold text-white flex items-center gap-2">
@@ -95,18 +95,18 @@ export const RecommendationModal: React.FC<RecommendationModalProps> = ({
           </div>
           <button
             onClick={onClose}
-            className="rounded-lg p-1.5 text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+            className="rounded-xl p-1.5 text-violet-100 hover:text-white hover:bg-white/15 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Resumen de Carga Crediticia */}
-        <div className="px-6 py-4 bg-slate-50 border-b border-slate-200 grid grid-cols-3 gap-4 text-center">
+        <div className="px-6 py-4 bg-violet-50/60 border-b border-violet-100 grid grid-cols-3 gap-4 text-center">
           <div>
             <span className="text-[11px] text-slate-500 font-medium block">Créditos Sugeridos</span>
             <span className="text-xl font-black text-slate-900 flex items-center justify-center gap-1 mt-0.5">
-              <Award className="w-4 h-4 text-blue-600" />
+              <Award className="w-4 h-4 text-violet-600" />
               {data.creditos_totales_sugeridos} cr
             </span>
           </div>
@@ -134,11 +134,11 @@ export const RecommendationModal: React.FC<RecommendationModalProps> = ({
           {data.cursos_sugeridos.map((curso: any, index: number) => (
             <div
               key={index}
-              className="p-3.5 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-colors flex items-start justify-between gap-3"
+              className="p-3.5 rounded-2xl border border-violet-100 bg-white/80 hover:border-violet-300 transition-colors flex items-start justify-between gap-3 shadow-sm"
             >
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="font-mono text-xs font-bold text-slate-800 bg-slate-100 px-1.5 py-0.5 rounded">
+                  <span className="font-mono text-xs font-bold text-violet-800 bg-violet-50 px-1.5 py-0.5 rounded-lg">
                     {curso.codigo}
                   </span>
                   <span className="text-xs font-semibold text-slate-900">
@@ -148,7 +148,7 @@ export const RecommendationModal: React.FC<RecommendationModalProps> = ({
 
                 <div className="flex flex-wrap items-center gap-1.5 text-[11px] text-slate-600 mt-1.5">
                   <span className="text-slate-400">Motivo de selección:</span>
-                  <span className="font-medium text-slate-700 bg-slate-50 border border-slate-200 px-1.5 py-0.2 rounded">
+                  <span className="font-medium text-violet-700 bg-violet-50 border border-violet-100 px-1.5 py-0.2 rounded-lg">
                     {curso.motivo_prioridad}
                   </span>
                 </div>
@@ -179,13 +179,13 @@ export const RecommendationModal: React.FC<RecommendationModalProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between">
+        <div className="px-6 py-4 bg-violet-50/60 border-t border-violet-100 flex items-center justify-between">
           <p className="text-[11px] text-slate-500">
             * Motor determinístico de reglas según normativa de matrícula UP.
           </p>
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold rounded-lg shadow transition-colors"
+            className="px-4 py-2 bg-violet-600 hover:bg-violet-700 text-white text-xs font-semibold rounded-xl shadow shadow-violet-500/20 transition-colors"
           >
             Entendido
           </button>

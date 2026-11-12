@@ -1,31 +1,67 @@
 import React from 'react';
+import { CYCLE_COL_WIDTH, MAP_OFFSET_X, NODE_WIDTH } from './mapConstants';
 
 interface CycleHeaderProps {
   maxCiclos?: number;
+  viewportX?: number;
+  zoom?: number;
+  activeCiclo?: number;
+  onJumpToCiclo?: (ciclo: number) => void;
 }
 
-export const CycleHeader: React.FC<CycleHeaderProps> = ({ maxCiclos = 5 }) => {
+export const CycleHeader: React.FC<CycleHeaderProps> = ({
+  maxCiclos = 10,
+  viewportX = 0,
+  zoom = 1,
+  activeCiclo = 1,
+  onJumpToCiclo,
+}) => {
   const ciclos = Array.from({ length: maxCiclos }, (_, i) => i + 1);
 
   return (
-    <div className="flex pointer-events-none sticky top-0 z-10 pl-[30px] py-3 bg-slate-900/90 backdrop-blur-md border-b border-slate-700/60 shadow-md">
-      {ciclos.map((ciclo) => (
-        <div
-          key={ciclo}
-          style={{ width: '290px' }}
-          className="flex-shrink-0 px-2"
-        >
-          <div className="bg-slate-800/80 border border-slate-700 rounded-lg px-3 py-1.5 flex items-center justify-between text-slate-200">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-100">
-              Ciclo {ciclo}
-            </span>
-            <span className="text-[10px] text-slate-400 font-medium">
-              Semestre regular
-            </span>
-          </div>
-        </div>
-      ))}
+    <div className="relative w-full overflow-hidden bg-white/95 backdrop-blur-md border-b border-violet-100/90 shadow-xs z-20">
+      <div
+        className="flex py-2 transition-transform duration-75 will-change-transform"
+        style={{
+          transform: `translateX(${viewportX + MAP_OFFSET_X * zoom}px)`,
+        }}
+      >
+        {ciclos.map((ciclo) => {
+          const baseWidth = CYCLE_COL_WIDTH * zoom;
+          const cardWidth = NODE_WIDTH * zoom;
+          const isCurrent = activeCiclo === ciclo;
+
+          return (
+            <div
+              key={ciclo}
+              style={{ width: `${baseWidth}px` }}
+              className="flex-shrink-0"
+            >
+              <button
+                type="button"
+                style={{ width: `${cardWidth}px` }}
+                onClick={() => onJumpToCiclo?.(ciclo)}
+                className={`w-full group cursor-pointer rounded-xl px-3 py-1.5 flex items-center justify-center gap-2 transition-all whitespace-nowrap ${
+                  isCurrent
+                    ? 'bg-violet-600 text-white shadow-sm ring-1 ring-violet-500'
+                    : 'bg-white hover:bg-violet-50/80 border border-violet-100/90 text-slate-700 hover:text-violet-900 shadow-2xs'
+                }`}
+                title={`Ver Ciclo ${ciclo}`}
+              >
+                <span
+                  className={`text-xs font-bold uppercase tracking-wider ${
+                    isCurrent ? 'text-white' : 'text-slate-800 group-hover:text-violet-900'
+                  }`}
+                >
+                  Ciclo {ciclo}
+                </span>
+              </button>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
+
 

@@ -1,5 +1,13 @@
 import { request } from './apiClient';
-import { Asignatura, HistorialEntry, RiskAlert, AcademicMetrics } from '../types/curriculum';
+import {
+  Asignatura,
+  HistorialEntry,
+  RiskAlert,
+  AcademicMetrics,
+  CohortBenchmark,
+  ConcentrationDetail,
+  CareerChangeRequest
+} from '../types/curriculum';
 
 export interface CurriculumEvaluationPayload {
   usuario_id: number;
@@ -47,6 +55,7 @@ export interface UserProfile {
   concentracion_id?: number | null;
   concentracion_nombre?: string | null;
   periodo_ingreso: string;
+  rol?: 'ESTUDIANTE' | 'ADMIN' | string;
   activo: boolean;
 }
 
@@ -72,6 +81,7 @@ export interface AuthResponse {
   email: string;
   nombres: string;
   apellidos: string;
+  rol?: 'ESTUDIANTE' | 'ADMIN' | string;
 }
 
 export const trackerApi = {
@@ -116,7 +126,48 @@ export const trackerApi = {
 
   // Métricas y Evaluación Curricular
   getMetrics: () => request<AcademicMetrics>('/metrics/me'),
+  getCohortBenchmark: () => request<CohortBenchmark>('/metrics/cohort-benchmark'),
   getCurriculumEvaluation: () => request<CurriculumEvaluationPayload>('/curriculum/evaluate'),
+
+  // Concentraciones
+  getCareerConcentrations: (careerId: number) =>
+    request<{
+      carrera_id: number;
+      carrera_nombre: string;
+      concentraciones: ConcentrationDetail[];
+      electivos_generales: any[];
+    }>(`/curriculum/careers/${careerId}/concentrations`),
+
+  // Solicitudes de Cambio de Carrera
+  requestCareerChange: (carrera_destino_id: number, motivo?: string) =>
+    request<CareerChangeRequest>('/profile/career-change-request', {
+      method: 'POST',
+      body: JSON.stringify({ carrera_destino_id, motivo }),
+    }),
+
+  getMyCareerChangeRequests: () =>
+    request<CareerChangeRequest[]>('/profile/career-change-requests'),
+
+  // Panel Administrativo
+  getAdminCareerRequests: (estado?: string) =>
+    request<CareerChangeRequest[]>(estado ? `/admin/career-requests?estado=${estado}` : '/admin/career-requests'),
+
+  handleAdminCareerRequest: (requestId: number, accion: 'APROBAR' | 'RECHAZAR', respuesta_admin?: string) =>
+    request<CareerChangeRequest>(`/admin/career-requests/${requestId}/action`, {
+      method: 'POST',
+      body: JSON.stringify({ accion, respuesta_admin }),
+    }),
+
+  getAdminStats: () => request<any>('/admin/stats'),
+
+  uploadAdminCurriculum: async (file: File) => {
+    const formData = new FormData();
+    formData.append('file', file);
+    return request<any>('/admin/curriculum/upload', {
+      method: 'POST',
+      body: formData,
+    });
+  },
 
   // Historial Académico
   getHistory: async (): Promise<HistorialEntry[]> => {
@@ -191,6 +242,38 @@ export const trackerApi = {
       method: 'PUT',
       body: JSON.stringify({ estado, calificacion }),
     }),
+
+  importTranscriptPdf: (file: File) => {
+    const formData = new FormData();
+    formData.append('file', file);
+    return request<{
+      detected_program?: string | null;
+      imported_count: number;
+      approved_count: number;
+      in_progress_count: number;
+      failed_count: number;
+      retired_skipped_count: number;
+      block_selections: Record<number, string>;
+      imported_courses: Array<{
+        codigo: string;
+        nombre: string;
+        estado: string;
+        calificacion?: number | null;
+        periodo: string;
+        matched_to?: string | null;
+      }>;
+      unmatched_courses: Array<{
+        codigo: string;
+        titulo: string;
+        estado: string;
+        calificacion?: number | null;
+        periodo: string;
+      }>;
+    }>('/history/import-transcript', {
+      method: 'POST',
+      body: formData,
+    });
+  },
 
   // Catálogos
   getCareers: () => request<CareerSummary[]>('/curriculum/careers'),

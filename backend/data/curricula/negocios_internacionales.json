@@ -1,12 +1,13 @@
 {
   "carrera": {
+    "id": 11,
     "codigo": "NEG",
     "nombre": "Negocios Internacionales",
     "facultad": "Facultad de Ciencias Empresariales",
     "plan": "2022",
-    "total_creditos_graduacion": 205,
+    "total_creditos_graduacion": 204,
     "total_ciclos": 10,
-    "max_creditos_ciclo_regular": 24.0
+    "max_creditos_ciclo_regular": 22.0
   },
   "concentraciones": [],
   "cursos": [
@@ -16,6 +17,7 @@
       "creditos": 0.0,
       "ciclo_sugerido": 0,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": []
     },
     {
@@ -24,6 +26,7 @@
       "creditos": 0.0,
       "ciclo_sugerido": 0,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": []
     },
     {
@@ -32,16 +35,27 @@
       "creditos": 0.0,
       "ciclo_sugerido": 0,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": []
     },
     {
       "codigo": "138649",
       "nombre": "Matemáticas I",
-      "creditos": 5.0,
+      "creditos": 2.0,
       "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "130230",
+      "nombre": "Matemáticas para los Negocios",
+      "creditos": 2.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "134654"
+        "138649"
       ]
     },
     {
@@ -50,6 +64,7 @@
       "creditos": 4.0,
       "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": []
     },
     {
@@ -58,7 +73,19 @@
       "creditos": 4.0,
       "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": []
+    },
+    {
+      "codigo": "160171",
+      "nombre": "Contabilidad Financiera Intermedia",
+      "creditos": 5.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [
+        "160092"
+      ]
     },
     {
       "codigo": "132641",
@@ -66,6 +93,27 @@
       "creditos": 5.0,
       "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "130642",
+      "nombre": "Economía General II",
+      "creditos": 5.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [
+        "132641"
+      ]
+    },
+    {
+      "codigo": "GEN-032",
+      "nombre": "Bloque ciencias sociales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": []
     },
     {
@@ -74,54 +122,16 @@
       "creditos": 4.0,
       "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120000"
-      ]
-    },
-    {
-      "codigo": "138651",
-      "nombre": "Matemáticas para los Negocios",
-      "creditos": 4.0,
-      "ciclo_sugerido": 2,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "138649"
-      ]
-    },
-    {
-      "codigo": "160093",
-      "nombre": "Contabilidad Financiera Intermedia",
-      "creditos": 5.0,
-      "ciclo_sugerido": 2,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "160092"
-      ]
-    },
-    {
-      "codigo": "132642",
-      "nombre": "Economía General II",
-      "creditos": 5.0,
-      "ciclo_sugerido": 2,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "132641"
-      ]
-    },
-    {
-      "codigo": "120040",
-      "nombre": "Bloque Ciencias Sociales",
-      "creditos": 4.0,
-      "ciclo_sugerido": 2,
-      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": []
     },
     {
       "codigo": "120006",
       "nombre": "Lenguaje II",
       "creditos": 4.0,
-      "ciclo_sugerido": 2,
+      "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [
         "120001"
       ]
@@ -132,365 +142,416 @@
       "creditos": 4.0,
       "ciclo_sugerido": 3,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [
-        "138651"
+        "138649"
       ]
     },
     {
-      "codigo": "141061",
+      "codigo": "142081",
       "nombre": "Diseño Organizacional y Estrategia",
       "creditos": 4.0,
       "ciclo_sugerido": 3,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [
         "141038"
       ]
     },
     {
-      "codigo": "160107",
+      "codigo": "160025",
       "nombre": "Contabilidad para la Toma de Decisiones",
       "creditos": 5.0,
       "ciclo_sugerido": 3,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "160093"
+        "160171"
       ]
     },
     {
-      "codigo": "120045",
-      "nombre": "Bloque Pensamiento Crítico 1",
+      "codigo": "GEN-043",
+      "nombre": "Bloque pensamiento crítico",
       "creditos": 4.0,
       "ciclo_sugerido": 3,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": []
     },
     {
-      "codigo": "120030",
-      "nombre": "Bloque Desarrollo Personal",
+      "codigo": "GEN-033",
+      "nombre": "Bloque de desarrollo personal",
       "creditos": 4.0,
       "ciclo_sugerido": 3,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": []
     },
     {
-      "codigo": "141060",
+      "codigo": "142277",
       "nombre": "Analítica de Datos para los Negocios",
       "creditos": 3.0,
       "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [
         "130224"
       ]
     },
     {
-      "codigo": "141040",
+      "codigo": "1MN035",
       "nombre": "Marketing Estratégico",
       "creditos": 4.0,
       "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "141061"
-      ]
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 50.0
     },
     {
-      "codigo": "150020",
+      "codigo": "1F0112",
       "nombre": "Fundamentos de Finanzas",
       "creditos": 4.0,
       "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "160093"
+        "160092"
       ]
     },
     {
-      "codigo": "141070",
+      "codigo": "1MN400",
       "nombre": "Teoría del Comercio Internacional y Proceso de Integración",
       "creditos": 4.0,
       "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
       "prerrequisitos": [
-        "132642"
+        "130642"
       ]
     },
     {
-      "codigo": "120046",
-      "nombre": "Bloque Procesos Sociales 1",
+      "codigo": "GEN-041",
+      "nombre": "Bloque procesos sociales",
       "creditos": 4.0,
       "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [],
-      "creditos_minimos_requeridos": 50.0
-    },
-    {
-      "codigo": "141062",
-      "nombre": "Análisis Multivariado para los Negocios",
-      "creditos": 4.0,
-      "ciclo_sugerido": 5,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "141060"
-      ]
-    },
-    {
-      "codigo": "141071",
-      "nombre": "Investigación de Mercados",
-      "creditos": 4.0,
-      "ciclo_sugerido": 5,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "141040",
-        "130224"
-      ]
-    },
-    {
-      "codigo": "141072",
-      "nombre": "Fundamentos Económicos y Organizacionales para los Negocios",
-      "creditos": 4.0,
-      "ciclo_sugerido": 5,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "141061"
-      ]
-    },
-    {
-      "codigo": "150004",
-      "nombre": "Finanzas Corporativas I",
-      "creditos": 5.0,
-      "ciclo_sugerido": 5,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "150020"
-      ]
-    },
-    {
-      "codigo": "120015",
-      "nombre": "Investigación Académica",
-      "creditos": 3.0,
-      "ciclo_sugerido": 5,
-      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
         "120006"
       ]
     },
     {
-      "codigo": "120048",
-      "nombre": "Bloque Procesos Sociales 2",
+      "codigo": "141036",
+      "nombre": "Análisis Multivariado para los Negocios",
       "creditos": 4.0,
       "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [
-        "120046"
+        "142277"
       ]
     },
     {
-      "codigo": "141073",
+      "codigo": "1MN020",
+      "nombre": "Investigación de Mercados",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [
+        "1MN035"
+      ]
+    },
+    {
+      "codigo": "1MN370",
+      "nombre": "Fundamentos Económicos y Organizacionales para los Negocios",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "142081",
+        "1MN400"
+      ]
+    },
+    {
+      "codigo": "1F0120",
+      "nombre": "Finanzas Corporativas I",
+      "creditos": 5.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "130224",
+        "1F0112"
+      ]
+    },
+    {
+      "codigo": "150140",
+      "nombre": "Investigación Académica",
+      "creditos": 3.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 60.0
+    },
+    {
+      "codigo": "GEN-040",
+      "nombre": "Bloque procesos sociales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 5,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [
+        "120006"
+      ]
+    },
+    {
+      "codigo": "142273",
+      "nombre": "Sistemas de Información y Análisis de Datos",
+      "creditos": 3.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [
+        "141036"
+      ]
+    },
+    {
+      "codigo": "142091",
       "nombre": "Innovación y Gestión en Negocios Digitales",
       "creditos": 3.0,
       "ciclo_sugerido": 6,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "141061"
+        "142081"
       ]
     },
     {
-      "codigo": "141074",
+      "codigo": "1MN003",
       "nombre": "Gestión Sostenible de la Oferta Exportable",
       "creditos": 4.0,
       "ciclo_sugerido": 6,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [
-        "141070"
+        "1MN370"
       ]
     },
     {
-      "codigo": "141075",
+      "codigo": "1MN366",
       "nombre": "Administración del Comercio Internacional",
       "creditos": 4.0,
       "ciclo_sugerido": 6,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [
-        "141070"
+        "130224",
+        "142277",
+        "1MN370"
       ]
     },
     {
-      "codigo": "150031",
+      "codigo": "1F0326",
       "nombre": "International Finance",
       "creditos": 4.0,
       "ciclo_sugerido": 6,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "150004"
+        "1F0120"
       ]
     },
     {
-      "codigo": "180072",
-      "nombre": "Derecho para los Negocios Internacionales",
-      "creditos": 4.0,
-      "ciclo_sugerido": 6,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "141070"
-      ]
-    },
-    {
-      "codigo": "141066",
-      "nombre": "Sistemas de Información y Análisis de Datos",
-      "creditos": 3.0,
-      "ciclo_sugerido": 7,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "141062"
-      ]
-    },
-    {
-      "codigo": "141076",
+      "codigo": "1MN005",
       "nombre": "Logística Internacional",
       "creditos": 4.0,
       "ciclo_sugerido": 7,
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
       "prerrequisitos": [
-        "141075"
+        "1MN003",
+        "1MN366"
       ]
     },
     {
-      "codigo": "141077",
+      "codigo": "1MN006",
       "nombre": "Dirección Internacional de Empresas",
       "creditos": 4.0,
       "ciclo_sugerido": 7,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [
-        "141072"
+        "141036",
+        "1MN003",
+        "1MN366"
       ]
     },
     {
-      "codigo": "141078",
+      "codigo": "180092",
+      "nombre": "Derecho para los Negocios Internacionales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [
+        "1MN003",
+        "1MN366"
+      ]
+    },
+    {
+      "codigo": "1MN007",
       "nombre": "International Affairs",
       "creditos": 4.0,
       "ciclo_sugerido": 7,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [
-        "180072"
+        "1MN400"
       ]
     },
     {
-      "codigo": "120047",
-      "nombre": "Bloque Pensamiento Crítico 2",
+      "codigo": "GEN-036",
+      "nombre": "Bloque pensamiento crítico",
       "creditos": 4.0,
       "ciclo_sugerido": 7,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120045"
-      ]
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 90.0
     },
     {
-      "codigo": "141051",
-      "nombre": "Dirección Estratégica",
+      "codigo": "149078",
+      "nombre": "Dirección Estrategica",
       "creditos": 4.0,
       "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "141077"
+        "142081",
+        "1F0120",
+        "1MN005"
       ]
     },
     {
-      "codigo": "141079",
+      "codigo": "1MN008",
       "nombre": "Gestión de Mercados Globales",
       "creditos": 4.0,
       "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [
-        "141071"
+        "1MN005",
+        "1MN006",
+        "1MN020"
       ]
     },
     {
-      "codigo": "141080",
+      "codigo": "1MN009",
       "nombre": "Cross Cultural & International Management",
       "creditos": 4.0,
       "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [
-        "141077"
+        "1MN007",
+        "1MN366"
       ]
     },
     {
-      "codigo": "141081",
+      "codigo": "1MN401",
       "nombre": "Negociaciones Comerciales Internacionales",
       "creditos": 4.0,
       "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [
-        "180072"
+        "1MN006",
+        "1MN007"
       ]
     },
     {
-      "codigo": "120020",
-      "nombre": "Bloque Quehacer Científico",
+      "codigo": "GEN-042",
+      "nombre": "Bloque quehacer cientifico",
       "creditos": 4.0,
       "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 105.0
     },
     {
-      "codigo": "141082",
+      "codigo": "1MN376",
       "nombre": "Investigación Aplicada en Negocios Internacionales",
       "creditos": 4.0,
       "ciclo_sugerido": 9,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "141076",
-        "141079"
+        "142273",
+        "1MN008"
       ]
     },
     {
-      "codigo": "141083",
+      "codigo": "1MN402",
       "nombre": "Estrategias de Internacionalización",
       "creditos": 4.0,
       "ciclo_sugerido": 9,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "141051",
-        "141080"
+        "149078",
+        "1MN008",
+        "1MN009",
+        "1MN401"
       ]
     },
     {
-      "codigo": "141084",
+      "codigo": "1MN375",
       "nombre": "International Human Resources Management",
       "creditos": 4.0,
       "ciclo_sugerido": 9,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "141080"
+        "1MN009"
       ]
     },
     {
-      "codigo": "120060",
+      "codigo": "150013",
       "nombre": "Proyección Social",
       "creditos": 4.0,
       "ciclo_sugerido": 9,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 120.0
     },
     {
-      "codigo": "141085",
+      "codigo": "1MN374",
       "nombre": "International Business Plan",
       "creditos": 5.0,
       "ciclo_sugerido": 10,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "141082",
-        "141083"
+        "160025",
+        "1F0326",
+        "1MN375",
+        "1MN401",
+        "1MN402"
       ]
     },
     {
-      "codigo": "120050",
+      "codigo": "120133",
       "nombre": "Ética",
-      "creditos": 4.0,
+      "creditos": 9.0,
       "ciclo_sugerido": 10,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 135.0
     }

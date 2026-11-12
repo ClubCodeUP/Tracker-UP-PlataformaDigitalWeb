@@ -16,41 +16,41 @@ export const RiskAlertsBanner: React.FC<RiskAlertsBannerProps> = ({ alertas }) =
   const infoCount = alertas.filter(a => a.nivel_severidad === 'INFORMATIVA').length;
 
   return (
-    <div className="bg-slate-900/95 border-b border-slate-800 text-xs">
+    <div className="bg-white/80 backdrop-blur-md border-b border-violet-100 text-xs shadow-sm">
       {/* Barra de resumen colapsable */}
       <div 
         onClick={() => setIsOpen(!isOpen)}
-        className="px-6 py-2.5 flex items-center justify-between cursor-pointer hover:bg-slate-800/50 transition-colors select-none"
+        className="px-6 py-2.5 flex items-center justify-between cursor-pointer hover:bg-violet-50/70 transition-colors select-none"
       >
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-1.5 text-slate-200 font-bold">
-            <ShieldAlert className="w-4 h-4 text-amber-400" />
+          <div className="flex items-center gap-1.5 text-slate-800 font-bold">
+            <ShieldAlert className="w-4 h-4 text-violet-600" />
             <span>Diagnóstico de Riesgos Académicos ({alertas.length})</span>
           </div>
 
           <div className="flex items-center gap-2">
             {criticalCount > 0 && (
-              <span className="inline-flex items-center gap-1 bg-red-500/20 text-red-300 border border-red-500/30 px-2 py-0.5 rounded-full text-[10px] font-bold">
-                <AlertTriangle className="w-3 h-3 text-red-400" />
+                <span className="inline-flex items-center gap-1 bg-red-50 text-red-700 border border-red-200 px-2 py-0.5 rounded-full text-[10px] font-bold">
+                <AlertTriangle className="w-3 h-3 text-red-600" />
                 {criticalCount} Crítica{criticalCount > 1 ? 's' : ''}
               </span>
             )}
             {warningCount > 0 && (
-              <span className="inline-flex items-center gap-1 bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-full text-[10px] font-medium">
-                <AlertTriangle className="w-3 h-3 text-amber-400" />
+                <span className="inline-flex items-center gap-1 bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded-full text-[10px] font-medium">
+                <AlertTriangle className="w-3 h-3 text-amber-600" />
                 {warningCount} Advertencia{warningCount > 1 ? 's' : ''}
               </span>
             )}
             {infoCount > 0 && (
-              <span className="inline-flex items-center gap-1 bg-orange-500/20 text-orange-300 border border-orange-500/30 px-2 py-0.5 rounded-full text-[10px] font-medium hidden sm:inline-flex">
-                <Flame className="w-3 h-3 text-orange-400" />
+                <span className="inline-flex items-center gap-1 bg-orange-50 text-orange-700 border border-orange-200 px-2 py-0.5 rounded-full text-[10px] font-medium hidden sm:inline-flex">
+                <Flame className="w-3 h-3 text-orange-600" />
                 {infoCount} Cuellos de botella
               </span>
             )}
           </div>
         </div>
 
-        <div className="flex items-center gap-1 text-slate-400 hover:text-slate-200">
+        <div className="flex items-center gap-1 text-slate-500 hover:text-violet-700">
           <span className="text-[11px] font-medium">{isOpen ? 'Ocultar detalles' : 'Ver alertas detalladas'}</span>
           {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
         </div>
@@ -58,7 +58,7 @@ export const RiskAlertsBanner: React.FC<RiskAlertsBannerProps> = ({ alertas }) =
 
       {/* Lista desplegable de alertas */}
       {isOpen && (
-        <div className="px-6 py-4 bg-slate-950/80 border-t border-slate-800 space-y-2.5 max-h-60 overflow-y-auto">
+        <div className="px-6 py-4 bg-violet-50/40 border-t border-violet-100 space-y-2.5 max-h-60 overflow-y-auto">
           {alertas.map((alerta, index) => {
             const isCritica = alerta.nivel_severidad === 'CRITICA';
             const isAdvertencia = alerta.nivel_severidad === 'ADVERTENCIA';
@@ -68,10 +68,10 @@ export const RiskAlertsBanner: React.FC<RiskAlertsBannerProps> = ({ alertas }) =
                 key={index}
                 className={`p-3 rounded-lg border flex items-start gap-3 ${
                   isCritica 
-                    ? 'bg-red-950/30 border-red-900/50 text-red-200' 
+                    ? 'bg-red-50 border-red-200 text-red-800' 
                     : isAdvertencia 
-                    ? 'bg-amber-950/30 border-amber-900/50 text-amber-200' 
-                    : 'bg-orange-950/30 border-orange-900/50 text-orange-200'
+                    ? 'bg-amber-50 border-amber-200 text-amber-800' 
+                    : 'bg-orange-50 border-orange-200 text-orange-800'
                 }`}
               >
                 {isCritica ? (

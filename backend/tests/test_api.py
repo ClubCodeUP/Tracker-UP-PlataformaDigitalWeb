@@ -225,19 +225,19 @@ def test_dynamic_metrics_calculation(client: TestClient):
     init_metrics = client.get("/api/v1/metrics/me", headers=headers).json()
     assert init_metrics["creditos_aprobados"] == 0.0
     assert init_metrics["porcentaje_avance"] == 0.0
-    assert init_metrics["total_creditos_carrera"] == 205
+    assert init_metrics["total_creditos_carrera"] == 218
 
     # Obtener cursos reales de la malla para asociar créditos exactos
     malla_res = client.get("/api/v1/curriculum/malla?carrera_id=1")
     assert malla_res.status_code == 200
     by_code = {c["codigo"]: c for c in malla_res.json()["cursos"]}
 
-    # 170001 (Introducción a la Ingeniería): 4.0 créditos
+    # 170211 (Introducción a la Ingeniería): 4.0 créditos
     # 120001 (Lenguaje I): 4.0 créditos
-    # 170022 (Business Intelligence): 3.0 créditos
-    asig_intro = by_code["170001"]
+    # 170342 (Business Intelligence): 3.0 créditos
+    asig_intro = by_code["170211"]
     asig_lenguaje = by_code["120001"]
-    asig_bi = by_code["170022"]
+    asig_bi = by_code["170342"]
 
     # Registrar 2 cursos aprobados (4.0 cr nota 15.0 y 4.0 cr nota 17.0):
     client.post("/api/v1/history", headers=headers, json={
@@ -270,9 +270,9 @@ def test_dynamic_metrics_calculation(client: TestClient):
 
     assert metrics["creditos_aprobados"] == 8.0
     assert metrics["creditos_en_curso"] == 3.0
-    assert metrics["creditos_pendientes"] == 197.0
-    # Avance: 8 / 205 * 100 = 3.90%
-    assert metrics["porcentaje_avance"] == 3.90
+    assert metrics["creditos_pendientes"] == 210.0
+    # Avance: 8 / 218 * 100 = 3.67%
+    assert metrics["porcentaje_avance"] == 3.67
     assert metrics["cursos_aprobados_count"] == 2
     assert metrics["cursos_en_curso_count"] == 1
 

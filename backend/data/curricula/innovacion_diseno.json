@@ -1,10 +1,11 @@
 {
   "carrera": {
+    "id": 9,
     "codigo": "IID",
     "nombre": "Ingeniería en Innovación y Diseño",
     "facultad": "Facultad de Ingeniería",
     "plan": "2022",
-    "total_creditos_graduacion": 205,
+    "total_creditos_graduacion": 218,
     "total_ciclos": 10,
     "max_creditos_ciclo_regular": 22.0
   },
@@ -12,35 +13,60 @@
   "cursos": [
     {
       "codigo": "134654",
-      "nombre": "Nivelación en Matemática",
+      "nombre": "Nivelación en matemáticas",
       "creditos": 0.0,
       "ciclo_sugerido": 0,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": []
     },
     {
       "codigo": "170131",
-      "nombre": "Nivelación en Informática",
+      "nombre": "Nivelación en informática",
       "creditos": 0.0,
       "ciclo_sugerido": 0,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": []
     },
     {
       "codigo": "120000",
-      "nombre": "Nivelación en Lenguaje",
+      "nombre": "Nivelación en lenguaje",
       "creditos": 0.0,
       "ciclo_sugerido": 0,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": []
     },
     {
-      "codigo": "170001",
-      "nombre": "Introducción a la Ingeniería",
+      "codigo": "170211",
+      "nombre": "Introducción a la ingeniería",
       "creditos": 4.0,
       "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": []
+    },
+    {
+      "codigo": "170350",
+      "nombre": "Tecnología y negocios digitales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": []
+    },
+    {
+      "codigo": "160092",
+      "nombre": "Fundamentos de contabilidad",
+      "creditos": 4.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "120000",
+        "134654"
+      ]
     },
     {
       "codigo": "138649",
@@ -48,17 +74,43 @@
       "creditos": 5.0,
       "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [
         "134654"
       ]
     },
     {
+      "codigo": "131650",
+      "nombre": "Matemáticas II",
+      "creditos": 5.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "138649"
+      ]
+    },
+    {
       "codigo": "132641",
-      "nombre": "Economía General I",
+      "nombre": "Economía general I",
       "creditos": 5.0,
       "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": []
+      "es_cuello_botella": false,
+      "prerrequisitos": [
+        "134654"
+      ]
+    },
+    {
+      "codigo": "130642",
+      "nombre": "Economía General II",
+      "creditos": 5.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [
+        "132641"
+      ]
     },
     {
       "codigo": "120001",
@@ -66,72 +118,40 @@
       "creditos": 4.0,
       "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
         "120000"
       ]
     },
     {
-      "codigo": "170002",
-      "nombre": "Herramientas de Programación",
-      "creditos": 4.0,
-      "ciclo_sugerido": 2,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170131"
-      ]
-    },
-    {
-      "codigo": "170030",
-      "nombre": "Tecnología y Negocios Digitales",
-      "creditos": 4.0,
-      "ciclo_sugerido": 2,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": []
-    },
-    {
-      "codigo": "160092",
-      "nombre": "Fundamentos de Contabilidad",
-      "creditos": 4.0,
-      "ciclo_sugerido": 2,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": []
-    },
-    {
-      "codigo": "138650",
-      "nombre": "Matemáticas II",
-      "creditos": 5.0,
-      "ciclo_sugerido": 2,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "138649"
-      ]
-    },
-    {
-      "codigo": "132642",
-      "nombre": "Economía General II",
-      "creditos": 5.0,
-      "ciclo_sugerido": 2,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "132641"
-      ]
-    },
-    {
       "codigo": "120006",
       "nombre": "Lenguaje II",
-      "creditos": 4.0,
-      "ciclo_sugerido": 2,
+      "creditos": 2.0,
+      "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
         "120001"
       ]
     },
     {
-      "codigo": "160093",
-      "nombre": "Contabilidad Financiera Intermedia",
+      "codigo": "170335",
+      "nombre": "Herramientas de programación",
+      "creditos": 4.0,
+      "ciclo_sugerido": 3,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "170131"
+      ]
+    },
+    {
+      "codigo": "160171",
+      "nombre": "Contabilidad financiera intermedia",
       "creditos": 5.0,
       "ciclo_sugerido": 3,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
         "160092"
       ]
@@ -142,35 +162,38 @@
       "creditos": 4.0,
       "ciclo_sugerido": 3,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [
-        "138650"
+        "138649",
+        "170131"
       ]
     },
     {
-      "codigo": "120020",
-      "nombre": "Quehacer Científico",
+      "codigo": "GEN-047",
+      "nombre": "Quehacer científico",
       "creditos": 4.0,
       "ciclo_sugerido": 3,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": []
     },
     {
-      "codigo": "120030",
-      "nombre": "Desarrollo Personal",
+      "codigo": "GEN-048",
+      "nombre": "Desarrollo personal",
       "creditos": 4.0,
       "ciclo_sugerido": 3,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": []
     },
     {
-      "codigo": "120015",
-      "nombre": "Investigación Académica",
+      "codigo": "150140",
+      "nombre": "Investigación académica",
       "creditos": 3.0,
       "ciclo_sugerido": 3,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120006"
-      ]
+      "es_cuello_botella": false,
+      "prerrequisitos": []
     },
     {
       "codigo": "130225",
@@ -178,364 +201,392 @@
       "creditos": 4.0,
       "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "130224"
+        "130224",
+        "131650"
       ]
     },
     {
-      "codigo": "170006",
-      "nombre": "Arquitectura del Sistema de Información",
+      "codigo": "170119",
+      "nombre": "Arquitectura del sistema de información",
       "creditos": 4.0,
       "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "170002"
+        "170335"
       ]
     },
     {
-      "codigo": "170031",
-      "nombre": "Design Thinking and Technological Innovation",
+      "codigo": "170329",
+      "nombre": "Design thinking and technological innovation",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [
+        "170350"
+      ]
+    },
+    {
+      "codigo": "170135",
+      "nombre": "Ingeniería de procesos",
+      "creditos": 4.0,
+      "ciclo_sugerido": 4,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [
+        "130224",
+        "170211"
+      ]
+    },
+    {
+      "codigo": "1MN035",
+      "nombre": "Marketing estartégico",
       "creditos": 4.0,
       "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
-      "prerrequisitos": [
-        "170030"
-      ]
-    },
-    {
-      "codigo": "170004",
-      "nombre": "Ingeniería de Procesos",
-      "creditos": 4.0,
-      "ciclo_sugerido": 4,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170001"
-      ]
-    },
-    {
-      "codigo": "141040",
-      "nombre": "Marketing Estratégico",
-      "creditos": 4.0,
-      "ciclo_sugerido": 4,
-      "tipo": "OBLIGATORIA",
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 50.0
     },
     {
-      "codigo": "170007",
-      "nombre": "Fundamentos de Analítica",
+      "codigo": "170336",
+      "nombre": "Fundamentos de analítica",
       "creditos": 4.0,
       "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "130225"
-      ]
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 60.0
     },
     {
-      "codigo": "170201",
-      "nombre": "Comportamiento del Consumidor",
+      "codigo": "1MN017",
+      "nombre": "Comportamiento del consumidor",
       "creditos": 4.0,
       "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170031"
-      ]
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 60.0
     },
     {
-      "codigo": "170202",
-      "nombre": "Historia Crítica del Diseño",
+      "codigo": "170441",
+      "nombre": "Historia critica del diseño",
       "creditos": 4.0,
       "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170031"
-      ]
+      "es_cuello_botella": true,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 60.0
     },
     {
-      "codigo": "170203",
-      "nombre": "Tecnología de los Materiales",
+      "codigo": "170444",
+      "nombre": "Tecnología de los materiales",
       "creditos": 4.0,
       "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170004"
-      ]
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 60.0
     },
     {
-      "codigo": "150020",
-      "nombre": "Fundamentos de Finanzas",
+      "codigo": "1F0112",
+      "nombre": "Fundamentos de finanzas",
       "creditos": 4.0,
       "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "160093",
-        "132642"
+        "160092",
+        "170131"
       ]
     },
     {
-      "codigo": "170011",
+      "codigo": "170137",
       "nombre": "Física",
       "creditos": 5.0,
       "ciclo_sugerido": 6,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 75.0
     },
     {
-      "codigo": "120117",
-      "nombre": "Experiencia del Usuario",
+      "codigo": "170446",
+      "nombre": "Experiencia del usuario",
       "creditos": 4.0,
       "ciclo_sugerido": 6,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170201"
-      ]
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 75.0
     },
     {
-      "codigo": "170204",
-      "nombre": "Teoría de los Sentidos",
+      "codigo": "170450",
+      "nombre": "Teoria de los sentidos",
       "creditos": 4.0,
       "ciclo_sugerido": 6,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170202"
-      ]
+      "es_cuello_botella": true,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 75.0
     },
     {
-      "codigo": "141045",
+      "codigo": "142097",
       "nombre": "Gestión del Capital Humano",
-      "creditos": 4.0,
+      "creditos": 3.0,
       "ciclo_sugerido": 6,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "120030"
+        "1F0112",
+        "1MN035"
       ]
     },
     {
-      "codigo": "120040",
+      "codigo": "GEN-036",
+      "nombre": "Gestión del capital humano",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 75.0
+    },
+    {
+      "codigo": "GEN-040",
       "nombre": "Ciencias Sociales",
       "creditos": 4.0,
       "ciclo_sugerido": 6,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 75.0
     },
     {
-      "codigo": "170205",
-      "nombre": "Tecnología y Medios de Comunicación",
+      "codigo": "170456",
+      "nombre": "Tecnologia y medios de comunicacion",
       "creditos": 4.0,
       "ciclo_sugerido": 7,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120117"
-      ]
-    },
-    {
-      "codigo": "170206",
-      "nombre": "Semiótica y Teoría del Diseño",
-      "creditos": 4.0,
-      "ciclo_sugerido": 7,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170204"
-      ]
-    },
-    {
-      "codigo": "170207",
-      "nombre": "Técnicas de Innovación y Experimentación 1",
-      "creditos": 4.0,
-      "ciclo_sugerido": 7,
-      "tipo": "OBLIGATORIA",
-      "es_cuello_botella": true,
-      "prerrequisitos": [
-        "170203"
-      ]
-    },
-    {
-      "codigo": "141050",
-      "nombre": "Estrategia",
-      "creditos": 3.0,
-      "ciclo_sugerido": 7,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "150020",
-        "141040"
-      ]
-    },
-    {
-      "codigo": "120045",
-      "nombre": "Pensamiento Crítico 1",
-      "creditos": 4.0,
-      "ciclo_sugerido": 7,
-      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 90.0
     },
     {
-      "codigo": "170017",
-      "nombre": "Tecnología para el Desarrollo Sostenible",
+      "codigo": "170462",
+      "nombre": "Semiotica y teoria del diseño",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 90.0
+    },
+    {
+      "codigo": "170465",
+      "nombre": "Tecnicas de innovacion y experimentacion 1",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 90.0
+    },
+    {
+      "codigo": "142083",
+      "nombre": "Estrategia",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 90.0
+    },
+    {
+      "codigo": "GEN-050",
+      "nombre": "Pensamiento crítico 1",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 90.0
+    },
+    {
+      "codigo": "170346",
+      "nombre": "Tecnología para el desarrollo sostenible",
       "creditos": 3.0,
       "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "170011"
+        "120006"
       ]
     },
     {
-      "codigo": "170208",
-      "nombre": "Urbanismo y Espacios Sociales",
+      "codigo": "170480",
+      "nombre": "Curso integrador de experiencia del usuario",
       "creditos": 4.0,
       "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170205"
-      ]
-    },
-    {
-      "codigo": "170209",
-      "nombre": "Diseño Gráfico Digital",
-      "creditos": 4.0,
-      "ciclo_sugerido": 8,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170206"
-      ]
-    },
-    {
-      "codigo": "170210",
-      "nombre": "Técnicas de Innovación y Experimentación 2",
-      "creditos": 4.0,
-      "ciclo_sugerido": 8,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170207"
-      ]
-    },
-    {
-      "codigo": "120046",
-      "nombre": "Procesos Sociales 1",
-      "creditos": 4.0,
-      "ciclo_sugerido": 8,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120040"
-      ]
-    },
-    {
-      "codigo": "ELE-IID01",
-      "nombre": "Electivo I",
-      "creditos": 3.0,
-      "ciclo_sugerido": 8,
-      "tipo": "ELECTIVA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 105.0
     },
     {
-      "codigo": "170211",
-      "nombre": "Curso Integrador de Experiencia del Usuario",
+      "codigo": "170466",
+      "nombre": "Urbanismo y espacios sociales",
       "creditos": 4.0,
-      "ciclo_sugerido": 9,
+      "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170208"
-      ]
-    },
-    {
-      "codigo": "170212",
-      "nombre": "Diseño de Herramientas Digitales",
-      "creditos": 3.0,
-      "ciclo_sugerido": 9,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170209"
-      ]
-    },
-    {
-      "codigo": "170213",
-      "nombre": "Técnicas de Innovación y Experimentación 3",
-      "creditos": 4.0,
-      "ciclo_sugerido": 9,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170210"
-      ]
-    },
-    {
-      "codigo": "120047",
-      "nombre": "Pensamiento Crítico 2",
-      "creditos": 4.0,
-      "ciclo_sugerido": 9,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120045"
-      ]
-    },
-    {
-      "codigo": "ELE-IID02",
-      "nombre": "Electivo II",
-      "creditos": 3.0,
-      "ciclo_sugerido": 9,
-      "tipo": "ELECTIVA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
-      "creditos_minimos_requeridos": 120.0
+      "creditos_minimos_requeridos": 105.0
     },
     {
-      "codigo": "ELE-IID03",
-      "nombre": "Electivo III",
-      "creditos": 3.0,
-      "ciclo_sugerido": 9,
-      "tipo": "ELECTIVA",
+      "codigo": "170432",
+      "nombre": "Diseño gráfico digital",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [],
-      "creditos_minimos_requeridos": 120.0
+      "creditos_minimos_requeridos": 105.0
     },
     {
-      "codigo": "170214",
-      "nombre": "Trabajo Final de Innovación y Diseño",
+      "codigo": "170482",
+      "nombre": "Diseño de herramientas digitales",
+      "creditos": 3.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 105.0
+    },
+    {
+      "codigo": "170487",
+      "nombre": "Tecnicas de innovacion y experimentacion 3",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [
+        "142097"
+      ]
+    },
+    {
+      "codigo": "170471",
+      "nombre": "Tecnicas de innovacion y experimentacion 2",
+      "creditos": 2.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [
+        "170465"
+      ]
+    },
+    {
+      "codigo": "GEN-045",
+      "nombre": "Electivo",
+      "creditos": 3.0,
+      "ciclo_sugerido": 8,
+      "tipo": "ELECTIVA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 105.0
+    },
+    {
+      "codigo": "GEN-053",
+      "nombre": "Electivo",
+      "creditos": 2.0,
+      "ciclo_sugerido": 8,
+      "tipo": "ELECTIVA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 105.0
+    },
+    {
+      "codigo": "GEN-046",
+      "nombre": "Procesos sociales 1",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 105.0
+    },
+    {
+      "codigo": "GEN-052",
+      "nombre": "Pensamiento crítico 2",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 105.0
+    },
+    {
+      "codigo": "GEN-049",
+      "nombre": "Procesos sociales 2",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 105.0
+    },
+    {
+      "codigo": "170490",
+      "nombre": "Trabajo final de innovación y diseño",
       "creditos": 4.0,
       "ciclo_sugerido": 10,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "170211",
-        "170212",
-        "170213"
+        "170480",
+        "170487"
       ]
     },
     {
-      "codigo": "120060",
-      "nombre": "Proyección Social",
-      "creditos": 4.0,
+      "codigo": "GEN-055",
+      "nombre": "Electivo",
+      "creditos": 3.0,
       "ciclo_sugerido": 10,
-      "tipo": "OBLIGATORIA",
+      "tipo": "ELECTIVA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 135.0
     },
     {
-      "codigo": "120048",
-      "nombre": "Procesos Sociales 2",
+      "codigo": "GEN-054",
+      "nombre": "Electivo",
+      "creditos": 3.0,
+      "ciclo_sugerido": 10,
+      "tipo": "ELECTIVA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 135.0
+    },
+    {
+      "codigo": "150013",
+      "nombre": "Proyección Social",
       "creditos": 4.0,
       "ciclo_sugerido": 10,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120046"
-      ]
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 135.0
     },
     {
-      "codigo": "120050",
+      "codigo": "120133",
       "nombre": "Ética",
       "creditos": 4.0,
       "ciclo_sugerido": 10,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120047"
-      ]
-    },
-    {
-      "codigo": "ELE-IID04",
-      "nombre": "Electivo IV",
-      "creditos": 3.0,
-      "ciclo_sugerido": 10,
-      "tipo": "ELECTIVA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 135.0
     }

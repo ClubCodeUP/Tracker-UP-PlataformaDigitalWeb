@@ -99,30 +99,30 @@ export const AuthModal: React.FC<AuthModalProps> = ({
       {/* Backdrop */}
       <div
         onClick={onClose}
-        className="fixed inset-0 bg-slate-950/80 backdrop-blur-md transition-opacity duration-300"
+        className="fixed inset-0 bg-violet-950/25 backdrop-blur-md transition-opacity duration-300"
       />
 
       {/* Contenedor del Modal */}
-      <div className="relative w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl shadow-blue-500/10 overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200">
+      <div className="relative w-full max-w-md bg-white/90 backdrop-blur-md border border-white/70 rounded-3xl shadow-2xl shadow-purple-500/10 overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200">
         
         {/* Encabezado con Gradiente */}
-        <div className="px-6 pt-6 pb-4 bg-gradient-to-b from-blue-950/40 to-transparent border-b border-slate-800/80 flex items-center justify-between">
+        <div className="px-6 pt-6 pb-4 bg-gradient-to-b from-violet-100/80 to-transparent border-b border-violet-100 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-600/30">
+            <div className="w-9 h-9 rounded-2xl bg-gradient-to-tr from-violet-600 to-purple-600 flex items-center justify-center shadow-lg shadow-violet-600/20">
               <Sparkles className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h2 className="text-base font-bold text-white tracking-tight">
+              <h2 className="text-base font-bold text-slate-900 tracking-tight">
                 {mode === 'login' ? 'Iniciar Sesión en Tracker UP' : 'Crear Cuenta Estudiantil UP'}
               </h2>
-              <p className="text-[11px] text-slate-400">
+              <p className="text-[11px] text-slate-500">
                 Universidad del Pacífico · Plataforma Académica
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="rounded-lg p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+            className="rounded-xl p-1.5 text-slate-400 hover:text-violet-700 hover:bg-violet-50 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -130,14 +130,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
         {/* Selector de Modo (Pestañas) */}
         <div className="px-6 pt-4">
-          <div className="grid grid-cols-2 gap-1 bg-slate-950/60 p-1 rounded-xl border border-slate-800/70">
+          <div className="grid grid-cols-2 gap-1 bg-violet-50/80 p-1 rounded-2xl border border-violet-100">
             <button
               type="button"
               onClick={() => { setMode('login'); setError(null); }}
               className={`py-2 text-xs font-semibold rounded-lg flex items-center justify-center gap-2 transition-all ${
                 mode === 'login'
-                  ? 'bg-blue-600 text-white shadow-md shadow-blue-600/20'
-                  : 'text-slate-400 hover:text-slate-200'
+                  ? 'bg-violet-600 text-white shadow-md shadow-violet-600/20'
+                  : 'text-slate-500 hover:text-violet-700'
               }`}
             >
               <LogIn className="w-3.5 h-3.5" />
@@ -148,8 +148,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               onClick={() => { setMode('register'); setError(null); }}
               className={`py-2 text-xs font-semibold rounded-lg flex items-center justify-center gap-2 transition-all ${
                 mode === 'register'
-                  ? 'bg-blue-600 text-white shadow-md shadow-blue-600/20'
-                  : 'text-slate-400 hover:text-slate-200'
+                  ? 'bg-violet-600 text-white shadow-md shadow-violet-600/20'
+                  : 'text-slate-500 hover:text-violet-700'
               }`}
             >
               <UserPlus className="w-3.5 h-3.5" />
@@ -160,7 +160,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
         {/* Mensaje de Error */}
         {error && (
-          <div className="mx-6 mt-4 p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs flex items-start gap-2.5">
+          <div className="mx-6 mt-4 p-3 rounded-2xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-start gap-2.5">
             <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
             <span>{error}</span>
           </div>
@@ -185,7 +185,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                       value={nombres}
                       onChange={(e) => setNombres(e.target.value)}
                       placeholder="ej. Fernando"
-                      className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                      className="w-full bg-white border border-violet-100 rounded-2xl pl-9 pr-3 py-2 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-all"
                     />
                   </div>
                 </div>
@@ -200,7 +200,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                     value={apellidos}
                     onChange={(e) => setApellidos(e.target.value)}
                     placeholder="ej. Sánchez"
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                    className="w-full bg-white border border-violet-100 rounded-2xl px-3 py-2 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-all"
                   />
                 </div>
               </div>
@@ -214,10 +214,10 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                   <select
                     value={carreraId}
                     onChange={(e) => setCarreraId(Number(e.target.value))}
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-8 py-2 text-xs text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 appearance-none cursor-pointer"
+                    className="w-full bg-white border border-violet-100 rounded-2xl pl-9 pr-8 py-2 text-xs text-slate-800 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 appearance-none cursor-pointer"
                   >
                     {careers.map((c) => (
-                      <option key={c.id} value={c.id} className="bg-slate-900 text-white">
+                      <option key={c.id} value={c.id} className="bg-white text-slate-800">
                         {c.nombre} ({c.codigo})
                       </option>
                     ))}
@@ -233,13 +233,13 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                   <select
                     value={concentracionId || ''}
                     onChange={(e) => setConcentracionId(e.target.value ? Number(e.target.value) : null)}
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 appearance-none cursor-pointer"
+                    className="w-full bg-white border border-violet-100 rounded-2xl px-3 py-2 text-xs text-slate-800 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 appearance-none cursor-pointer"
                   >
-                    <option value="" className="bg-slate-900 text-slate-400">
+                    <option value="" className="bg-white text-slate-500">
                       Plan Regular / Sin concentración obligatoria
                     </option>
                     {availableConcentraciones.map((co) => (
-                      <option key={co.id} value={co.id} className="bg-slate-900 text-white">
+                      <option key={co.id} value={co.id} className="bg-white text-slate-800">
                         {co.nombre}
                       </option>
                     ))}
@@ -259,22 +259,23 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                   <select
                     value={periodoIngreso}
                     onChange={(e) => setPeriodoIngreso(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-8 py-2 text-xs text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 appearance-none cursor-pointer"
+                    className="w-full bg-white border border-violet-100 rounded-2xl pl-9 pr-8 py-2 text-xs text-slate-800 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 appearance-none cursor-pointer"
                   >
-                    <option value="2026-1" className="bg-slate-900">2026-1 (Semestre I)</option>
-                    <option value="2026-0" className="bg-slate-900">2026-0 (Verano / Nivelación)</option>
-                    <option value="2025-2" className="bg-slate-900">2025-2 (Semestre II)</option>
-                    <option value="2025-1" className="bg-slate-900">2025-1 (Semestre I)</option>
-                    <option value="2025-0" className="bg-slate-900">2025-0 (Verano / Nivelación)</option>
-                    <option value="2024-2" className="bg-slate-900">2024-2 (Semestre II)</option>
-                    <option value="2024-1" className="bg-slate-900">2024-1 (Semestre I)</option>
-                    <option value="2024-0" className="bg-slate-900">2024-0 (Verano / Nivelación)</option>
-                    <option value="2023-2" className="bg-slate-900">2023-2 (Semestre II)</option>
-                    <option value="2023-1" className="bg-slate-900">2023-1 (Semestre I)</option>
-                    <option value="2023-0" className="bg-slate-900">2023-0 (Verano / Nivelación)</option>
-                    <option value="2022-2" className="bg-slate-900">2022-2</option>
-                    <option value="2022-1" className="bg-slate-900">2022-1</option>
-                    <option value="2022-0" className="bg-slate-900">2022-0 (Verano / Nivelación)</option>
+                    <option value="2026-1" className="bg-white text-slate-800">2026-1 (Semestre I)</option>
+                    <option value="2026-0" className="bg-white text-slate-800">2026-0 (Verano / Nivelación)</option>
+                    <option value="2025-2" className="bg-white text-slate-800">2025-2 (Semestre II)</option>
+                    <option value="2025-1" className="bg-white text-slate-800">2025-1 (Semestre I)</option>
+                    <option value="2025-0" className="bg-white text-slate-800">2025-0 (Verano / Nivelación)</option>
+                    <option value="2024-2" className="bg-white text-slate-800">2024-2 (Semestre II)</option>
+                    <option value="2024-1" className="bg-white text-slate-800">2024-1 (Semestre I)</option>
+                    <option value="2024-0" className="bg-white text-slate-800">2024-0 (Verano / Nivelación)</option>
+                    <option value="2023-2" className="bg-white text-slate-800">2023-2 (Semestre II)</option>
+                    <option value="2023-1" className="bg-white text-slate-800">2023-1 (Semestre I)</option>
+                    <option value="2023-0" className="bg-white text-slate-800">2023-0 (Verano / Nivelación)</option>
+                    <option value="2022-2" className="bg-white text-slate-800">2022-2</option>
+                    <option value="2022-1" className="bg-white text-slate-800">2022-1</option>
+                    <option value="2022-0" className="bg-white text-slate-800">2022-0 (Verano / Nivelación)</option>
+                    <option value="2021-1" className="bg-white text-slate-800">2021-1</option>
                   </select>
                 </div>
               </div>
@@ -294,7 +295,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="ej. alumno@alum.up.edu.pe"
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all font-mono"
+                className="w-full bg-white border border-violet-100 rounded-2xl pl-9 pr-3 py-2 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-all font-mono"
               />
             </div>
             <p className="text-[10px] text-slate-500 mt-1">
@@ -315,7 +316,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                className="w-full bg-white border border-violet-100 rounded-2xl pl-9 pr-3 py-2 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-all"
               />
             </div>
             {mode === 'register' && (
@@ -329,7 +330,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-2.5 px-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-xs font-bold rounded-xl shadow-lg shadow-blue-500/20 transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-2"
+            className="w-full py-2.5 px-4 bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white text-xs font-bold rounded-2xl shadow-lg shadow-violet-500/20 transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-2"
           >
             {loading ? (
               <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -354,7 +355,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 <button
                   type="button"
                   onClick={() => { setMode('register'); setError(null); }}
-                  className="text-blue-400 font-semibold hover:underline"
+                  className="text-violet-600 font-semibold hover:underline"
                 >
                   Regístrate aquí
                 </button>
@@ -365,7 +366,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 <button
                   type="button"
                   onClick={() => { setMode('login'); setError(null); }}
-                  className="text-blue-400 font-semibold hover:underline"
+                  className="text-violet-600 font-semibold hover:underline"
                 >
                   Inicia sesión aquí
                 </button>

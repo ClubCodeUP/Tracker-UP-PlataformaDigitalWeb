@@ -7,6 +7,7 @@ from app.api.v1.profile_controller import router as profile_router
 from app.api.v1.history_controller import router as history_router
 from app.api.v1.metrics_controller import router as metrics_router
 from app.api.v1.curriculum_engine_controller import router as curriculum_router
+from app.api.v1.admin_controller import router as admin_router
 
 api_v1_router = APIRouter()
 api_v1_router.include_router(auth_router)
@@ -14,4 +15,5 @@ api_v1_router.include_router(profile_router)
 api_v1_router.include_router(history_router)
 api_v1_router.include_router(metrics_router)
 api_v1_router.include_router(curriculum_router)
+api_v1_router.include_router(admin_router)
 

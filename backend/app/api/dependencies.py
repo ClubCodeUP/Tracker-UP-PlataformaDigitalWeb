@@ -45,6 +45,16 @@ def get_current_user(
     return user
 
 
+def require_admin_user(current_user: UsuarioModel = Depends(get_current_user)) -> UsuarioModel:
+    """Verifica que el usuario autenticado cuente con privilegios de Administrador."""
+    if getattr(current_user, "rol", "ESTUDIANTE") != "ADMIN":
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Acceso restringido a personal administrativo autorizado de la universidad."
+        )
+    return current_user
+
+
 security_optional = HTTPBearer(auto_error=False)
 
 

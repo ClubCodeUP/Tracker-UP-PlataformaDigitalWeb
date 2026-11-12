@@ -29,5 +29,6 @@ class UserProfileResponse(BaseModel):
     creditos_acumulados: Optional[float] = None
     puede_declarar_concentracion: Optional[bool] = None
     periodo_ingreso: str
+    rol: str = "ESTUDIANTE"
     activo: bool
 

@@ -142,6 +142,11 @@ class CurriculumLoader:
             return 0
 
         orphan_ids = [a.id for a in orphan_asigs]
+        from app.infrastructure.models.history_model import HistorialAcademicoModel
+        db.query(HistorialAcademicoModel).filter(
+            HistorialAcademicoModel.asignatura_id.in_(orphan_ids)
+        ).delete(synchronize_session=False)
+
         db.query(PrerrequisitoModel).filter(
             (PrerrequisitoModel.asignatura_id.in_(orphan_ids)) |
             (PrerrequisitoModel.prerrequisito_asignatura_id.in_(orphan_ids))

@@ -33,7 +33,7 @@ class HistoryService:
     def get_history(cls, db: Session, user_id: int) -> List[CourseHistoryResponse]:
         """Recupera todas las materias registradas en el historial del estudiante."""
         entries = HistoryRepository.get_all_by_user(db, user_id)
-        return [cls._to_response(entry) for entry in entries]
+        return [cls._to_response(entry) for entry in entries if entry.asignatura is not None]
 
     @classmethod
     def add_entry(cls, db: Session, user_id: int, data: CourseHistoryCreate) -> CourseHistoryResponse:

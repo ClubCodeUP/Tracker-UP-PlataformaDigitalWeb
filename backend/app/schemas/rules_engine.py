@@ -31,6 +31,8 @@ class SuggestedCourseItem(BaseModel):
     numero_matricula_proyectada: int
     prioridad_score: float
     motivo_prioridad: str
+    probabilidad_aprobacion_estimada: Optional[float] = 85.0
+    consejo_estrategico: Optional[str] = None
 
 
 class CreditRange(BaseModel):

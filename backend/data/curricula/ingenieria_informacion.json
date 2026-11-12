@@ -5,7 +5,7 @@
     "nombre": "Ingeniería de la Información",
     "facultad": "Facultad de Ingeniería",
     "plan": "2022",
-    "total_creditos_graduacion": 205,
+    "total_creditos_graduacion": 218,
     "total_ciclos": 10,
     "max_creditos_ciclo_regular": 22.0
   },
@@ -13,35 +13,73 @@
   "cursos": [
     {
       "codigo": "134654",
-      "nombre": "Nivelación en Matemática",
+      "nombre": "Nivelación en matemática",
       "creditos": 0.0,
       "ciclo_sugerido": 0,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": []
     },
     {
       "codigo": "170131",
-      "nombre": "Nivelación en Informática",
+      "nombre": "Nivelación en informática",
       "creditos": 0.0,
       "ciclo_sugerido": 0,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": []
     },
     {
       "codigo": "120000",
-      "nombre": "Nivelación en Lenguaje",
+      "nombre": "Nivelación en lenguaje",
       "creditos": 0.0,
       "ciclo_sugerido": 0,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": []
     },
     {
-      "codigo": "170001",
-      "nombre": "Introducción a la Ingeniería",
+      "codigo": "170335",
+      "nombre": "Herramientas de programación",
       "creditos": 4.0,
       "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "170131"
+      ]
+    },
+    {
+      "codigo": "170211",
+      "nombre": "Introducción a la ingeniería",
+      "creditos": 4.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": []
+    },
+    {
+      "codigo": "160092",
+      "nombre": "Fundamentos de contabilidad",
+      "creditos": 4.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "120000",
+        "134654"
+      ]
+    },
+    {
+      "codigo": "131650",
+      "nombre": "Matemáticas II",
+      "creditos": 5.0,
+      "ciclo_sugerido": 2,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
+      "prerrequisitos": [
+        "138649"
+      ]
     },
     {
       "codigo": "138649",
@@ -56,11 +94,25 @@
     },
     {
       "codigo": "132641",
-      "nombre": "Economía General I",
+      "nombre": "Economía general I",
       "creditos": 5.0,
       "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": []
+      "es_cuello_botella": false,
+      "prerrequisitos": [
+        "134654"
+      ]
+    },
+    {
+      "codigo": "130642",
+      "nombre": "Economía General II",
+      "creditos": 5.0,
+      "ciclo_sugerido": 1,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [
+        "132641"
+      ]
     },
     {
       "codigo": "120001",
@@ -68,77 +120,40 @@
       "creditos": 4.0,
       "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
         "120000"
       ]
     },
     {
-      "codigo": "170002",
-      "nombre": "Herramientas de Programación",
-      "creditos": 4.0,
-      "ciclo_sugerido": 2,
-      "tipo": "OBLIGATORIA",
-      "es_cuello_botella": true,
-      "prerrequisitos": [
-        "170131"
-      ]
-    },
-    {
-      "codigo": "160092",
-      "nombre": "Fundamentos de Contabilidad",
-      "creditos": 4.0,
-      "ciclo_sugerido": 2,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": []
-    },
-    {
-      "codigo": "138650",
-      "nombre": "Matemáticas II",
-      "creditos": 5.0,
-      "ciclo_sugerido": 2,
-      "tipo": "OBLIGATORIA",
-      "es_cuello_botella": true,
-      "prerrequisitos": [
-        "138649"
-      ]
-    },
-    {
-      "codigo": "132642",
-      "nombre": "Economía General II",
-      "creditos": 5.0,
-      "ciclo_sugerido": 2,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "132641"
-      ]
-    },
-    {
       "codigo": "120006",
       "nombre": "Lenguaje II",
-      "creditos": 4.0,
-      "ciclo_sugerido": 2,
+      "creditos": 2.0,
+      "ciclo_sugerido": 1,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
         "120001"
       ]
     },
     {
-      "codigo": "170003",
-      "nombre": "Algoritmos y Estructura de Datos",
+      "codigo": "170065",
+      "nombre": "Algoritmos y estructura de datos",
       "creditos": 4.0,
       "ciclo_sugerido": 3,
       "tipo": "OBLIGATORIA",
-      "es_cuello_botella": true,
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "170002"
+        "170335"
       ]
     },
     {
-      "codigo": "160093",
-      "nombre": "Contabilidad Financiera Intermedia",
+      "codigo": "160171",
+      "nombre": "Contabilidad financiera intermedia",
       "creditos": 5.0,
       "ciclo_sugerido": 3,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
         "160092"
       ]
@@ -151,34 +166,36 @@
       "tipo": "OBLIGATORIA",
       "es_cuello_botella": true,
       "prerrequisitos": [
-        "138650"
+        "131650",
+        "170131"
       ]
     },
     {
-      "codigo": "120020",
-      "nombre": "Quehacer Científico",
+      "codigo": "GEN-050",
+      "nombre": "Quehacer científico",
       "creditos": 4.0,
       "ciclo_sugerido": 3,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": []
     },
     {
-      "codigo": "120030",
-      "nombre": "Desarrollo Personal",
+      "codigo": "GEN-049",
+      "nombre": "Desarrollo personal",
       "creditos": 4.0,
       "ciclo_sugerido": 3,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": []
     },
     {
-      "codigo": "120015",
-      "nombre": "Investigación Académica",
+      "codigo": "150140",
+      "nombre": "Investigación académica",
       "creditos": 3.0,
       "ciclo_sugerido": 3,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120006"
-      ]
+      "es_cuello_botella": false,
+      "prerrequisitos": []
     },
     {
       "codigo": "130225",
@@ -186,365 +203,392 @@
       "creditos": 4.0,
       "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
-      "es_cuello_botella": true,
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "130224"
+        "130224",
+        "138649"
       ]
     },
     {
-      "codigo": "170004",
-      "nombre": "Ingeniería de Procesos",
+      "codigo": "170135",
+      "nombre": "Ingeniería de procesos",
       "creditos": 4.0,
       "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "170001"
+        "130224",
+        "170211"
       ]
     },
     {
-      "codigo": "170005",
-      "nombre": "Matemáticas Discretas para la Computación",
+      "codigo": "170333",
+      "nombre": "Matemáticas discretas para la computación",
       "creditos": 4.0,
       "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "138650"
+        "170335"
       ]
     },
     {
-      "codigo": "170006",
-      "nombre": "Arquitectura del Sistema de Información",
+      "codigo": "170119",
+      "nombre": "Arquitectura del sistema de información",
       "creditos": 4.0,
       "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "170003"
+        "170335"
       ]
     },
     {
-      "codigo": "141040",
-      "nombre": "Marketing Estratégico",
+      "codigo": "1MN035",
+      "nombre": "Marketing estratégico",
       "creditos": 4.0,
       "ciclo_sugerido": 4,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 50.0
     },
     {
-      "codigo": "170007",
-      "nombre": "Fundamentos de Analítica",
+      "codigo": "170336",
+      "nombre": "Fundamentos de analítica",
       "creditos": 4.0,
       "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "130225"
-      ]
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 60.0
     },
     {
-      "codigo": "170008",
-      "nombre": "Programación Avanzada para la Ciencia de Datos",
+      "codigo": "170107",
+      "nombre": "Programación avanzada para la ciencia de datos",
       "creditos": 4.0,
       "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170003"
-      ]
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 60.0
     },
     {
-      "codigo": "170009",
-      "nombre": "Álgebra Lineal Aplicada",
+      "codigo": "170324",
+      "nombre": "Álgebra lineal aplicada",
       "creditos": 4.0,
       "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "138650"
-      ]
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 60.0
     },
     {
-      "codigo": "170010",
-      "nombre": "Ingeniería de Datos",
+      "codigo": "170179",
+      "nombre": "Ingeniería de datos",
       "creditos": 4.0,
       "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170003"
-      ]
+      "es_cuello_botella": true,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 60.0
     },
     {
-      "codigo": "150020",
-      "nombre": "Fundamentos de Finanzas",
+      "codigo": "1F0112",
+      "nombre": "Fundamentos de finanzas",
       "creditos": 4.0,
       "ciclo_sugerido": 5,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "160093",
-        "132642"
+        "160092",
+        "170131"
       ]
     },
     {
-      "codigo": "170011",
+      "codigo": "170137",
       "nombre": "Física",
       "creditos": 5.0,
       "ciclo_sugerido": 6,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 75.0
     },
     {
-      "codigo": "170012",
-      "nombre": "Data Mining",
+      "codigo": "170327",
+      "nombre": "Data mining",
       "creditos": 4.0,
       "ciclo_sugerido": 6,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [
-        "130225"
+        "170107",
+        "170179"
       ]
     },
     {
-      "codigo": "170013",
-      "nombre": "Machine Learning",
+      "codigo": "170338",
+      "nombre": "Machine learning",
       "creditos": 4.0,
       "ciclo_sugerido": 6,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": true,
       "prerrequisitos": [
-        "170005"
+        "170324",
+        "170336"
       ]
     },
     {
-      "codigo": "141045",
-      "nombre": "Gestión del Capital Humano",
+      "codigo": "142097",
+      "nombre": "Gestión del capital humano",
       "creditos": 3.0,
       "ciclo_sugerido": 6,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120030"
-      ]
-    },
-    {
-      "codigo": "120040",
-      "nombre": "Ciencias Sociales",
-      "creditos": 4.0,
-      "ciclo_sugerido": 6,
-      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 75.0
     },
     {
-      "codigo": "170014",
-      "nombre": "Analítica de la Web",
+      "codigo": "GEN-040",
+      "nombre": "Ciencias sociales",
+      "creditos": 4.0,
+      "ciclo_sugerido": 6,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 75.0
+    },
+    {
+      "codigo": "170043",
+      "nombre": "Analítica de la web",
       "creditos": 4.0,
       "ciclo_sugerido": 7,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "170007"
+        "170327"
       ]
     },
     {
-      "codigo": "170015",
-      "nombre": "Inteligencia Computacional",
+      "codigo": "170339",
+      "nombre": "Inteligencia computacional",
       "creditos": 4.0,
       "ciclo_sugerido": 7,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "170009"
+        "170338"
       ]
     },
     {
-      "codigo": "170016",
-      "nombre": "Desarrollo de Soluciones Empresariales",
+      "codigo": "170212",
+      "nombre": "Desarrollo de soluciones empresariales",
       "creditos": 4.0,
       "ciclo_sugerido": 7,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "170004"
+        "130642",
+        "170179"
       ]
     },
     {
-      "codigo": "141050",
+      "codigo": "142083",
       "nombre": "Estrategia",
       "creditos": 4.0,
       "ciclo_sugerido": 7,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "150020",
-        "141040"
-      ]
-    },
-    {
-      "codigo": "120045",
-      "nombre": "Pensamiento Crítico 1",
-      "creditos": 4.0,
-      "ciclo_sugerido": 7,
-      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 90.0
     },
     {
-      "codigo": "170017",
-      "nombre": "Tecnología para el Desarrollo Sostenible",
+      "codigo": "GEN-047",
+      "nombre": "Pensamiento crítico 1",
+      "creditos": 4.0,
+      "ciclo_sugerido": 7,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 90.0
+    },
+    {
+      "codigo": "170346",
+      "nombre": "Tecnología para el desarrollo sostenible",
       "creditos": 3.0,
       "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "170011"
+        "120006"
       ]
     },
     {
-      "codigo": "170018",
-      "nombre": "Computación de Alto Desempeño y Cloud Computing",
+      "codigo": "170353",
+      "nombre": "Computación de alto desempeño y Cloud computing",
       "creditos": 4.0,
       "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "170008"
+        "170327"
       ]
     },
     {
-      "codigo": "170019",
-      "nombre": "Deep Learning",
+      "codigo": "170328",
+      "nombre": "Deep learning",
       "creditos": 4.0,
       "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "170013"
+        "170338"
       ]
     },
     {
-      "codigo": "170020",
-      "nombre": "Infraestructura Tecnológica",
+      "codigo": "170331",
+      "nombre": "Infraestructura tecnológica",
       "creditos": 4.0,
       "ciclo_sugerido": 8,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "170006"
-      ]
-    },
-    {
-      "codigo": "120046",
-      "nombre": "Procesos Sociales 1",
-      "creditos": 4.0,
-      "ciclo_sugerido": 8,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120040"
-      ]
-    },
-    {
-      "codigo": "ELE-INF01",
-      "nombre": "Electivo I (Especialidad)",
-      "creditos": 3.0,
-      "ciclo_sugerido": 8,
-      "tipo": "ELECTIVA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 105.0
     },
     {
-      "codigo": "170021",
-      "nombre": "Big Data Analytics",
+      "codigo": "GEN-028",
+      "nombre": "Electivo",
+      "creditos": 2.0,
+      "ciclo_sugerido": 8,
+      "tipo": "ELECTIVA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 105.0
+    },
+    {
+      "codigo": "GEN-051",
+      "nombre": "Procesos sociales 1",
+      "creditos": 4.0,
+      "ciclo_sugerido": 8,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 105.0
+    },
+    {
+      "codigo": "170216",
+      "nombre": "Big data analytics",
       "creditos": 4.0,
       "ciclo_sugerido": 9,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "170010"
+        "170327"
       ]
     },
     {
-      "codigo": "170022",
-      "nombre": "Business Intelligence",
+      "codigo": "170342",
+      "nombre": "Business intelligence",
       "creditos": 3.0,
       "ciclo_sugerido": 9,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "170012"
+        "170179"
       ]
     },
     {
-      "codigo": "170023",
-      "nombre": "Trabajo Final de Ingeniería de la Información I",
+      "codigo": "170348",
+      "nombre": "Trabajo final de ingeniería de la información I",
       "creditos": 4.0,
       "ciclo_sugerido": 9,
       "tipo": "OBLIGATORIA",
-      "es_cuello_botella": true,
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "170015",
-        "170016",
-        "141050",
-        "170019"
+        "170043",
+        "170339"
       ]
     },
     {
-      "codigo": "120047",
-      "nombre": "Pensamiento Crítico 2",
-      "creditos": 4.0,
-      "ciclo_sugerido": 9,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120045"
-      ]
-    },
-    {
-      "codigo": "120048",
-      "nombre": "Procesos Sociales 2",
-      "creditos": 4.0,
-      "ciclo_sugerido": 9,
-      "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120046"
-      ]
-    },
-    {
-      "codigo": "ELE-INF02",
-      "nombre": "Electivo II",
+      "codigo": "GEN-045",
+      "nombre": "Electivo",
       "creditos": 3.0,
       "ciclo_sugerido": 9,
       "tipo": "ELECTIVA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 120.0
     },
     {
-      "codigo": "170024",
-      "nombre": "Trabajo Final de Ingeniería de la Información II",
+      "codigo": "GEN-048",
+      "nombre": "Pensamiento crítico 2",
+      "creditos": 4.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 120.0
+    },
+    {
+      "codigo": "GEN-052",
+      "nombre": "Procesos sociales 2",
+      "creditos": 2.0,
+      "ciclo_sugerido": 9,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 120.0
+    },
+    {
+      "codigo": "170349",
+      "nombre": "Trabajo final de ingeniería de la información I",
       "creditos": 4.0,
       "ciclo_sugerido": 10,
       "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
       "prerrequisitos": [
-        "170023"
+        "142083",
+        "170348"
       ]
     },
     {
-      "codigo": "120060",
-      "nombre": "Proyección Social",
-      "creditos": 4.0,
+      "codigo": "GEN-027",
+      "nombre": "Electivo",
+      "creditos": 3.0,
       "ciclo_sugerido": 10,
-      "tipo": "OBLIGATORIA",
+      "tipo": "ELECTIVA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 135.0
     },
     {
-      "codigo": "120050",
+      "codigo": "GEN-046",
+      "nombre": "Electivo",
+      "creditos": 3.0,
+      "ciclo_sugerido": 10,
+      "tipo": "ELECTIVA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 135.0
+    },
+    {
+      "codigo": "150013",
+      "nombre": "Proyección social",
+      "creditos": 4.0,
+      "ciclo_sugerido": 10,
+      "tipo": "OBLIGATORIA",
+      "es_cuello_botella": false,
+      "prerrequisitos": [],
+      "creditos_minimos_requeridos": 135.0
+    },
+    {
+      "codigo": "120133",
       "nombre": "Ética",
       "creditos": 4.0,
       "ciclo_sugerido": 10,
       "tipo": "OBLIGATORIA",
-      "prerrequisitos": [
-        "120047"
-      ]
-    },
-    {
-      "codigo": "ELE-INF03",
-      "nombre": "Electivo III",
-      "creditos": 3.0,
-      "ciclo_sugerido": 10,
-      "tipo": "ELECTIVA",
-      "prerrequisitos": [],
-      "creditos_minimos_requeridos": 135.0
-    },
-    {
-      "codigo": "ELE-INF04",
-      "nombre": "Electivo IV",
-      "creditos": 3.0,
-      "ciclo_sugerido": 10,
-      "tipo": "ELECTIVA",
+      "es_cuello_botella": false,
       "prerrequisitos": [],
       "creditos_minimos_requeridos": 135.0
     }

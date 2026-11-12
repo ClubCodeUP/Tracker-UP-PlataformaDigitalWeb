@@ -1,9 +1,10 @@
 {
   "carrera": {
+    "id": 12,
     "codigo": "PFE",
     "nombre": "Política, Filosofía y Economía",
     "facultad": "Facultad de Economía y Finanzas",
-    "plan": "2024-I",
+    "plan": "2024",
     "total_creditos_graduacion": 200,
     "total_ciclos": 10,
     "max_creditos_ciclo_regular": 22.0

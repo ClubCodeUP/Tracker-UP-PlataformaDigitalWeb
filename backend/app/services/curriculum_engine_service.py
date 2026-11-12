@@ -115,8 +115,8 @@ class CurriculumEngineService:
                     codigo_asignatura=asig.codigo,
                     nombre_asignatura=asig.nombre,
                     mensaje=(
-                        f"Asignatura en {entry.numero_matricula}ª matrícula en el periodo {entry.periodo_academico}. "
-                        "Riesgo crítico de desaprobación reiterada bajo el reglamento académico."
+                        f"Asignatura en {entry.numero_matricula}ª matrícula ({asig.nombre}). "
+                        "Oportunidad de consolidación: sugerimos priorizarla matriculando una carga equilibrada y asistiendo a asesorías desde el inicio."
                     ),
                     detalles={
                         "numero_matricula": entry.numero_matricula,
@@ -141,9 +141,9 @@ class CurriculumEngineService:
                         codigo_asignatura=asig_obj.codigo,
                         nombre_asignatura=asig_obj.nombre,
                         mensaje=(
-                            f"El curso {asig_obj.codigo} ({asig_obj.nombre}) depende del prerrequisito "
-                            f"{asig_req.codigo} ({asig_req.nombre}), el cual fue aprobado en el límite "
-                            f"con nota {req_grade:.2f}/20. Se aconseja tutoría o repaso de fundamentos."
+                            f"El curso {asig_obj.codigo} ({asig_obj.nombre}) profundiza en temas de "
+                            f"{asig_req.codigo} ({asig_req.nombre}). Se recomienda un breve repaso preventivo "
+                            "en las primeras semanas para garantizar un rendimiento sobresaliente."
                         ),
                         detalles={
                             "prerrequisito_codigo": asig_req.codigo,
@@ -175,9 +175,8 @@ class CurriculumEngineService:
                     tipo_alerta=TipoAlerta.REZAGO_PERMANENCIA,
                     nivel_severidad=SeveridadAlerta.CRITICA,
                     mensaje=(
-                        f"Alerta crítica de permanencia: Han transcurrido {elapsed_semesters} semestres desde "
-                        f"su ingreso ({user.periodo_ingreso}) y cuenta con {creditos_aprobados:.1f} créditos aprobados "
-                        f"de {creditos_esperados:.1f} esperados (ritmo de avance: {ratio_avance * 100:.1f}%)."
+                        f"Propuesta de aceleración de avance: Cuentas con {creditos_aprobados:.1f} créditos acumulados "
+                        f"en {elapsed_semesters} periodos. Diseñamos una ruta recomendada de asignaturas para acelerar tu avance."
                     ),
                     detalles={
                         "periodo_ingreso": user.periodo_ingreso,
@@ -192,8 +191,8 @@ class CurriculumEngineService:
                     tipo_alerta=TipoAlerta.REZAGO_PERMANENCIA,
                     nivel_severidad=SeveridadAlerta.ADVERTENCIA,
                     mensaje=(
-                        f"Alerta de rezago académico: Su progreso ({creditos_aprobados:.1f} créditos) se encuentra "
-                        f"por debajo del avance proyectado ({creditos_esperados:.1f} créditos en {elapsed_semesters} semestres)."
+                        f"Estrategia de nivelación recomendada: Tu progreso ({creditos_aprobados:.1f} créditos) cuenta "
+                        f"con potencial para alinearse al ritmo estándar ({creditos_esperados:.1f} créditos) en los próximos ciclos."
                     ),
                     detalles={
                         "periodo_ingreso": user.periodo_ingreso,
@@ -217,8 +216,8 @@ class CurriculumEngineService:
                         codigo_asignatura=asig.codigo,
                         nombre_asignatura=asig.nombre,
                         mensaje=(
-                            f"La asignatura {asig.codigo} ({asig.nombre}) es un cuello de botella estratégico "
-                            f"que condiciona el desbloqueo de {unlock_count} cursos posteriores en la malla."
+                            f"Asignatura llave estratégica: {asig.codigo} ({asig.nombre}) desbloquea {unlock_count} cursos posteriores. "
+                            "Aprobarla en este ciclo ampliará de forma significativa tus opciones de matrícula futura."
                         ),
                         detalles={
                             "ciclo_sugerido": m.ciclo_sugerido,
@@ -334,6 +333,17 @@ class CurriculumEngineService:
             if asig.tipo == "OBLIGATORIA":
                 score += 100.0
 
+            # Probabilidad estimada y recomendación táctica constructiva
+            if is_reiteracion:
+                prob_aprob = 70.0
+                consejo = "Enfoque prioritario: Programar asesorías pares desde la primera semana y asegurar un bloque fijo de estudio."
+            elif asig.es_cuello_botella or unlock_count >= 2:
+                prob_aprob = 82.0
+                consejo = f"Curso llave ({unlock_count} dependientes): Mantener seguimiento constante en evaluaciones continuas."
+            else:
+                prob_aprob = 88.0
+                consejo = "Asignatura regular: Ritmo estándar de estudio compatible con tu carga académica regular."
+
             eligible_candidates.append(SuggestedCourseItem(
                 asignatura_id=asig.id,
                 codigo=asig.codigo,
@@ -345,7 +355,9 @@ class CurriculumEngineService:
                 es_reiteracion=is_reiteracion,
                 numero_matricula_proyectada=proy_matricula,
                 prioridad_score=score,
-                motivo_prioridad=" | ".join(motivos)
+                motivo_prioridad=" | ".join(motivos),
+                probabilidad_aprobacion_estimada=prob_aprob,
+                consejo_estrategico=consejo,
             ))
 
         # 5. Algoritmo Greedy con Restricción de Rango Regular de Créditos (RF-11)
